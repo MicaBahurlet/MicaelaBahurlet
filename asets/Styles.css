@@ -75,7 +75,7 @@ span{
     font-size: 4rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     white-space: nowrap;
-    border-right: 4px solid;
+    border-right: 3px solid ;
     width: 13ch;
     animation:  typing 2s steps(18), blink .3s   step-end alternate;
     overflow: hidden;
@@ -131,6 +131,11 @@ border: none;
  font-family: inherit;
  font-size: 17px;
  padding: 0.6em 1.5em;
+}
+
+#home button a{
+    text-decoration: none;
+    color: white;
 }
 
 button:hover {
@@ -236,6 +241,7 @@ button:hover {
     width: 100%;
     height: auto;
     max-width: 90px;
+    align-items: center;
     cursor: pointer;
     filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
 }
