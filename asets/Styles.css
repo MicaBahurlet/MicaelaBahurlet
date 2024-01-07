@@ -1,0 +1,212 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+body{
+    background: #2980b9;  
+    background: -webkit-linear-gradient(to right, #2c3e50, #2980b9);  
+    background: linear-gradient(to right, #2c3e50, #2980b9); 
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+        position: fixed; 
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff; 
+        z-index: 1000; 
+        background: #2980b9;  
+    background: -webkit-linear-gradient(to right, #2c3e50, #2980b9);  
+    background: linear-gradient(to right, #2c3e50, #2980b9); 
+      
+}
+
+header ul{
+    display: flex;
+    list-style: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: larger;
+}
+
+header a{
+    text-decoration: none;
+    
+}
+header ul li{
+    gap: 2rem;
+    padding: 1rem;
+    
+}
+header img{
+    width: 80px;
+    height: 80px;
+}
+
+/* '''''''''''''''''''''''''''''''''''''''''''''''''''Main '''''''''''''''''''''''''''''''''''''''''''''''''''''*/
+
+
+main{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
+    margin: 8rem auto;
+    max-width: 1200px;
+    
+}
+
+#home .TextHero{
+    max-width: 800px;
+}
+
+
+
+.TextHero h1{
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+   
+}
+
+.TextHero h2{
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+   
+}
+
+.TextHero p{
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+   
+}
+
+#home button{
+border: none;
+ color: #fff;
+ background: #667db6;
+ background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); /* Hydrogen */
+ background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+ border-radius: 20px;
+ background-size: 100% auto;
+ font-family: inherit;
+ font-size: 17px;
+ padding: 0.6em 1.5em;
+}
+
+button:hover {
+ background-position: right center;
+ background-size: 200% auto;
+ -webkit-animation: pulse 2s infinite;
+ animation: pulse512 1.5s infinite;
+}
+
+@keyframes pulse512 {
+ 0% {
+  box-shadow: 0 0 0 0 #05bada66;
+ }
+
+ 70% {
+  box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+ }
+
+ 100% {
+  box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+ }
+}
+
+#home .ImgHero img{
+    width: 350px;
+    height: auto;
+    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
+}
+
+/* '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''About'''''''''''''''''''''''''''''''''''''''''''''''''''''*/
+
+
+#about {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 900px;
+    padding: 1rem;
+    margin: 0 auto;
+    background: #3a7bd5;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3a6073, #3a7bd5);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3a6073, #3a7bd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    margin-bottom: 3rem;
+    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
+    
+}
+
+.titleIntereses{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.listaDeIntereses{
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#about .ImgAbout img{
+    width: 300px;
+    height: auto;
+}
+
+#SectionHabilidades{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin: 2rem auto;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#SectionHabilidades .LogosHabilidades{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+#SectionHabilidades .LogosHabilidades img{
+    width: 100%;
+    height: auto;
+    max-width: 80px;
+    cursor: pointer;
+    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
+}
