@@ -70,6 +70,27 @@ main{
     
 }
 
+span{
+    display: block;
+    font-size: 4rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+    border-right: 4px solid;
+    width: 13ch;
+    animation:  typing 2s steps(18), blink .3s   step-end alternate;
+    overflow: hidden;
+    -webkit-animation:  typing 2s steps(18), blink .3s   step-end alternate;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    
+}
+
+@keyframes blink {
+    60% { border-color: transparent }
+}
+
 #home .TextHero{
     max-width: 800px;
 }
