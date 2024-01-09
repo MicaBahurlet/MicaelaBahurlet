@@ -77,9 +77,9 @@ span{
     white-space: nowrap;
     border-right: 3px solid ;
     width: 13ch;
-    animation:  typing 2s steps(18), blink .3s   step-end alternate;
+    animation:  typing 2s steps(18), blink .3s   step-end infinite alternate;
     overflow: hidden;
-    -webkit-animation:  typing 2s steps(18), blink .3s   step-end alternate;
+    -webkit-animation:  typing 2s steps(18), blink .3s   step-end infinite alternate;
 }
 
 @keyframes typing {
