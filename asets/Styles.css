@@ -120,6 +120,13 @@ span{
    
 }
 
+.BtnsHero{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 1rem;
+}
+
 #home button{
 border: none;
  color: #fff;
@@ -162,6 +169,52 @@ button:hover {
   box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
  }
 }
+
+#home .buttonCV{
+    border: none;
+     color: #fff;
+     background: #d53369;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #cbad6d, #d53369);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #cbad6d, #d53369); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+     border-radius: 20px;
+     background-size: 100% auto;
+     font-family: 'Montserrat', sans-serif;
+     font-size: 17px;
+     padding: 0.6em 1.5em;
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+     font-weight: 600;
+     
+    }
+    
+    #home .buttonCV a{
+        text-decoration: none;
+        color: white;
+    }
+    
+    .buttonCV:hover {
+     background-position: right center;
+     background-size: 200% auto;
+     -webkit-animation: pulse 2s infinite;
+     animation: pulse512 1.5s infinite;
+     cursor: pointer;
+    }
+    
+    @keyframes pulse512 {
+     0% {
+      box-shadow: 0 0 0 0 #05bada66;
+     }
+    
+     70% {
+      box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+     }
+    
+     100% {
+      box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+     }
+}
+
+
+
 
 #home .ImgHero img{
     width: 350px;
@@ -414,6 +467,51 @@ button:hover {
     max-width: 200px;
     cursor: pointer;
     filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
+}
+
+
+#projects .VisitarSitioBtn{
+    border: solid 1px; 
+     color: #fff;
+     background: #667db6;
+        background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); /* Hydrogen */
+        background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+     border-radius: 20px;
+     background-size: 100% auto;
+     font-family: 'Montserrat', sans-serif;
+     font-size: 17px;
+     padding: 0.6em 1.5em;
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+     font-weight: 500;
+     margin-top: 1rem;
+     
+    }
+    
+    #projects .VisitarSitioBtn a{
+        text-decoration: none;
+        color: white;
+    }
+    
+    .VisitarSitioBtn:hover {
+     background-position: right center;
+     background-size: 200% auto;
+     -webkit-animation: pulse 2s infinite;
+     animation: pulse512 1.5s infinite;
+     cursor: pointer;
+    }
+    
+    @keyframes pulse512 {
+     0% {
+      box-shadow: 0 0 0 0 #05bada66;
+     }
+    
+     70% {
+      box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+     }
+    
+     100% {
+      box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+     }
 }
 
 
