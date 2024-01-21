@@ -387,27 +387,25 @@ button:hover {
 }
 
 
-#projects{
-    display: flex;
-    flex-direction: space-between;
-    justify-content: center;
-    align-items: stretch;
-    width: 100%;
-    height: auto;
+#projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
     max-width: 1000px;
     margin: 2rem auto;
-    gap: 1rem;
- 
 }
 
+
+
 .LogosProyectos{
+    width: 100%;
    display: flex;
    justify-content: center;
    align-items: center;
    flex-direction: column;
-   background: #457fca;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #5691c8, #457fca);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #5691c8, #457fca); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   background: #457fca;  
+    background: -webkit-linear-gradient(to right, #5691c8, #457fca); 
+    background: linear-gradient(to right, #5691c8, #457fca);
    border-radius: 15px;
    -webkit-border-radius: 15px;
    -moz-border-radius: 15px;
@@ -417,10 +415,10 @@ button:hover {
    filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.2));
    width: 100%;
    height: auto;
-   max-width: 350px;
+   max-width: 500px;
    max-width: 20rem;
    margin-bottom: 3rem;
-   padding: 1.5rem;
+   padding: 1rem;
    -webkit-filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.2));
 }
 .LogosProyectos:hover{
@@ -446,8 +444,6 @@ button:hover {
 
 
 
-
-
 .LogosProyectos .TextProyectos  h3{
    margin-bottom: 0.7rem;
    font-size: 19px;
@@ -456,7 +452,7 @@ button:hover {
 }
 
 .LogosProyectos  p{
-    max-width: 300px;
+    max-width: 400px;
     line-height: 1.5;
     text-align: start;
     font-size: 16px;
@@ -474,7 +470,7 @@ button:hover {
     border: solid 1px; 
      color: #fff;
      background: #667db6;
-        background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); /* Hydrogen */
+        background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); 
         background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
      border-radius: 20px;
      background-size: 100% auto;
