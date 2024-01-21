@@ -20,9 +20,9 @@ header{
 }
 
 nav{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
         position: fixed; 
         top: 0;
         left: 0;
@@ -30,8 +30,8 @@ nav{
         background-color: #ffffff; 
         z-index: 1000; 
         background: #2980b9;  
-    background: -webkit-linear-gradient(to right, #2c3e50, #2980b9);  
-    background: linear-gradient(to right, #2c3e50, #2980b9); 
+        background: -webkit-linear-gradient(to right, #2c3e50, #2980b9);  
+        background: linear-gradient(to right, #2c3e50, #2980b9); 
       
 }
 
@@ -131,7 +131,7 @@ span{
 border: none;
  color: #fff;
  background: #667db6;
- background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); /* Hydrogen */
+ background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); 
  background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
  border-radius: 20px;
  background-size: 100% auto;
@@ -171,18 +171,18 @@ button:hover {
 }
 
 #home .buttonCV{
-    border: none;
-     color: #fff;
-     background: #d53369;  /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #cbad6d, #d53369);  /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #cbad6d, #d53369); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-     border-radius: 20px;
-     background-size: 100% auto;
-     font-family: 'Montserrat', sans-serif;
-     font-size: 17px;
-     padding: 0.6em 1.5em;
-     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-     font-weight: 600;
+        border: none;
+        color: #fff;
+        background: #d53369; 
+        background: -webkit-linear-gradient(to right, #cbad6d, #d53369);  
+        background: linear-gradient(to right, #cbad6d, #d53369); 
+        border-radius: 20px;
+        background-size: 100% auto;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 17px;
+        padding: 0.6em 1.5em;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        font-weight: 600;
      
     }
     
@@ -232,10 +232,9 @@ button:hover {
     max-width: 900px;
     padding: 1rem;
     margin: 0 auto;
-    background: #3a7bd5;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #3a6073, #3a7bd5);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #3a6073, #3a7bd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background: #3a7bd5; 
+    background: -webkit-linear-gradient(to right, #3a6073, #3a7bd5);  
+    background: linear-gradient(to right, #3a6073, #3a7bd5); 
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
@@ -284,6 +283,9 @@ button:hover {
 }
 
 
+/* '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''Habilidades'''''''''''''''''''''''''''''''''''''''''''''''''''''*/
+
+
 #SectionHabilidades{
     display: flex;
     flex-direction: column;
@@ -329,7 +331,7 @@ button:hover {
     filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
 }
 
-
+/* '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''Formación académica'''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 
 
 #FormacionAcademica{
@@ -366,7 +368,7 @@ button:hover {
 
 
 
-/*------------------------- Proyectos ------------------ */
+/* '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''Proyectos'''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 
 
 
@@ -385,6 +387,8 @@ button:hover {
 #SectionProyectos h2{
    margin-bottom: 1rem;
 }
+
+/* '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''Cards Proyectos'''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 
 
 #projects {
@@ -511,9 +515,7 @@ button:hover {
 }
 
 
-/*------------------------- Contact ------------------ */
-
-
+/* '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''Contact'''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 
 
 #contact{
@@ -562,7 +564,6 @@ button:hover {
     justify-content: start;
     align-items: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-   
     margin-bottom: 0.5rem;
 }
 
@@ -682,6 +683,7 @@ button:hover {
      }
 }
 
+/* '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''Footer'''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 
 
 footer{
@@ -694,9 +696,9 @@ footer{
     margin: 0 auto;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     gap: 1rem;
-    background: #3a7bd5;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #3a6073, #3a7bd5);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #3a6073, #3a7bd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #3a7bd5; 
+    background: -webkit-linear-gradient(to right, #3a6073, #3a7bd5);  
+    background: linear-gradient(to right, #3a6073, #3a7bd5); /
 }
 
 footer img{
