@@ -4,22 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Micaela Bahurlet | Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./asets/Styles.css">
-    <link rel="shortcut icon" href="./img/trisquel.pnggit" type="image/x-icon">
+    <link rel="stylesheet" href="./asets/StylesResponsive.css">
+    
 </head>
 <body>
     <header>
-        <nav>
-            <a href="#home">
-                <img src="./img/LOGOBLANCO.png" alt="Logo Personal">
-            </a>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        
+            
+                <a href="#home">
+                    <img class="logo" src="./img/LOGOBLANCO.png" alt="Logo Personal">
+                </a>
+
+                <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
+
+                <nav  class="nav" id="nav">    
+                    <button id="cerrar" class="cerrar-menu"><i class="bi bi-x-lg"></i></button>
+                    <ul class="nav-list">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+          
+        
 
     </header>
 
@@ -181,7 +191,7 @@
                         <div class="TextProyectos">
                             <h3>www.nellyvicente.com</h3>
                             <p>Primer sitio web que desarrollé como <strong>freelancer</strong>. Actualmente le sigo brindando mantenimiento y servicio a través de <strong> Google Search Console.</strong> <br>
-                              Fue mi primer desafío como desarrolladora web, además diseñé su logotipo profesional y actualmente mantengo su cuenta profesional de Instagram. <br>
+                              Fue mi primer desafío como desarrolladora web, además diseñé su logotipo profesional y actualmente mantengo su cuenta profesional de Instagram generando contenidos para sus seguidores.  <br>
                              <a href="https://nellyvicente.com/" target="_blank">Nelly Vicente</a> se especializa en terapias de sanación tales como el  <strong>Coaching Ontológico</strong> y el <strong> PSYCH-K.</strong>
                             </p>
                         </div>   
@@ -274,6 +284,7 @@
 
                         <div class="TextProyectos">
                             <h3>Evermoov.</h3>
+                            
                             <p>Proyecto integrador del curso de <strong>Diseño UX/UI.</strong> 
                                 <br> Durante el diseño de la App, junto a mi equipo, pude poner a prueba los conocimientos adquiridos durante el curso. A través de Evermoov podías acceder a todas las propuestas de disciplinas corporales y deportes en base a una búsqueda según tus intereses y aspiraciones, podrías filtrar según zona, tipo de actividad, edad, precios, etc. Y así acceder a datos para ponerte en contacto con los diferentes espacios. <br> Podíamos decir que pasamos por 3 etapas de diseño. <br>
                                 <b>Etapa 1: definición de temática</b>, aquí comenzamos con procesos tales como: desk research, benchmarking, creación y validación de user personas, entrevistas de usuario, elaboración de POV, storytelling y storyboard. <br>
@@ -358,6 +369,7 @@
                         
                     </div>
                 </footer>
-       
+
+            <script src="./js/main.js"></script>
 </body>
 </html>

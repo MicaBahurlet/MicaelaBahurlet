@@ -12,50 +12,46 @@ body{
     background: linear-gradient(to right, #2c3e50, #2980b9); 
 }
 
+/* '''''''''''''''''''''''''''''''''''''''''''''''''''Header '''''''''''''''''''''''''''''''''''''''''''''''''''''*/
+
 header{
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-around;
+    background: #2980b9;  
+    background: -webkit-linear-gradient(to right, #2c3e50, #2980b9);  
+    background: linear-gradient(to right, #2c3e50, #2980b9); 
+    position: sticky;
+    top: 0;
+    z-index: 1;
     
 }
 
-nav{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        position: fixed; 
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: #ffffff; 
-        z-index: 1000; 
-        background: #2980b9;  
-        background: -webkit-linear-gradient(to right, #2c3e50, #2980b9);  
-        background: linear-gradient(to right, #2c3e50, #2980b9); 
-      
-}
-
-header ul{
+.nav-list{
     display: flex;
+    flex-direction: row;
     list-style: none;
     cursor: pointer;
-    font-weight: 500;
+    font-weight: 600;
     font-size: larger;
+    gap: 1.5rem;
 }
 
-header a{
+.nav-list li a {
     text-decoration: none;
-    
 }
-header ul li{
-    gap: 2rem;
-    padding: 1rem;
-    
+
+
+.logo {
+    max-width: 150px;
+
 }
-header img{
-    width: 120px;
-    height: 120px;
+
+.abrir-menu, .cerrar-menu{
+    display: none;
 }
+
+
 
 /* '''''''''''''''''''''''''''''''''''''''''''''''''''Main '''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 
@@ -65,7 +61,7 @@ main{
     justify-content: space-around;
     align-items: center;
     justify-content: center;
-    margin: 8rem auto;
+    margin: 1rem auto;
     max-width: 1200px;
     
 }
