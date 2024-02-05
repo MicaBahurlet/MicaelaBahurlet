@@ -42,6 +42,8 @@
         gap: 2rem;
     }
 
+    /*HERO*/
+
     main{
         display: flex;
         flex-direction: column-reverse;
@@ -53,51 +55,93 @@
 
     span {
         font-size: 3rem;
-        max-width: 500px;
+        width: 100%;
+        max-width: 450px;
         margin: 2rem auto;
     }
 
-    .TextHero h1 {
-        font-size: 1.5rem;
-        max-width: 500px;
-        margin: 2rem auto;
+    .TextHero h2 {
+        font-size: 1.8rem;
+        width: 100%;
+        max-width: 350px;
     }
 
     .TextHero p {
-        font-size: 16px;
+        font-size: 17px;
         text-align: start;
         max-width: 500px;
         margin: 2rem auto;
+        line-height: 1.8;
     }
 
     .BtnsHero{
         display: flex;
         margin: 2rem auto;
     }
+
+    #home .ImgHero img{
+        width: 250px;
+        height: auto;
+        filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
+    }
     
+
+    /*about*/
 
     #about {
         display: flex;
         flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
-        max-width: 500px;
+        width: 100%;
+        max-width: 380px;
         margin: 2 auto;
         gap: 1rem;
     }
 
-    #AboutMe{
+    #AboutME{
         display: flex;
         flex-direction: column;
     }
 
-    #AboutMe  p {
-        font-size: 1.5rem;
+    #AboutME  p {
+        font-size: 17px;
         width: 100%;
-        max-width: 500px;
-        text-align: start;
-        margin: 2rem auto;
+        max-width: 350px;
         
+        
+    }
+
+    #SectionHabilidades{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 380px;
+        height: auto;
+        margin: 2rem auto;
+        gap: 1rem;
+    }
+
+    #SectionHabilidades .LogosHabilidades{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        
+    }
+
+    #FormacionAcademica{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        text-align: start;
+        width: 100%;
+        max-width: 380px;
+        margin-top: 2rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        line-height: 1.5;
     }
 
 
