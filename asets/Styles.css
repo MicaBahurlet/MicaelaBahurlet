@@ -24,6 +24,7 @@ header{
     position: sticky;
     top: 0;
     z-index: 1;
+
     
 }
 
@@ -62,7 +63,10 @@ main{
     align-items: center;
     justify-content: center;
     margin: 1rem auto;
+    width: 100%;
     max-width: 1200px;
+    
+   
     
 }
 
@@ -238,6 +242,7 @@ button:hover {
     -o-border-radius: 15px;
     margin-bottom: 3rem;
     filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
+    margin-top: 4rem;
     
 }
 
@@ -678,6 +683,50 @@ button:hover {
       box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
      }
 }
+
+
+
+.TOP {
+    cursor: pointer;
+    font-weight: 700;
+    font-family: Helvetica,"sans-serif";
+    transition: all .2s;
+    padding: 10px 20px;
+    border-radius: 100px;
+    background: #d53369; 
+    background: -webkit-linear-gradient(to right, #cbad6d, #d53369);  
+    background: linear-gradient(to right, #cbad6d, #d53369); 
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    position: absolute;
+    right: 20px;
+  }
+  
+  .TOP:hover {
+    background: #667db6;
+    background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); 
+    background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+  }
+  
+  .TOP > svg {
+    width: 34px;
+    margin-left: 10px;
+    transition: transform .3s ease-in-out;
+  }
+  
+  .TOP:hover svg {
+    transform: translateX(5px);
+  }
+  
+  .TOP:active {
+    transform: scale(0.95);
+  }
+  
+  
+
+
 
 /* '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''Footerg'''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 

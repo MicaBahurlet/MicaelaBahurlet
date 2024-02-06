@@ -125,9 +125,15 @@
     }
 
     #SectionHabilidades .LogosHabilidades{
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: 1rem;
+        
+    }
+
+    #SectionHabilidades .LogosHabilidades img {
+        max-width: 60px;
+        
         
     }
 
@@ -142,6 +148,46 @@
         margin-top: 2rem;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         line-height: 1.5;
+    }
+
+
+    #SectionProyectos{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        max-width: 380px;
+        margin:  2rem auto;
+    }
+
+    #projects {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        max-width: 380px;
+        margin:  2rem auto;
+    }
+
+    #projects  .LogosProyectos .TextProyectos  p{
+        display: none;
+    }
+
+    #contact, .Contactos {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        max-width: 380px;
+        margin:  2rem auto;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        
     }
 
 
