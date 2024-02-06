@@ -69,7 +69,7 @@
     .TextHero p {
         font-size: 17px;
         text-align: start;
-        max-width: 500px;
+        max-width: 380px;
         margin: 2rem auto;
         line-height: 1.8;
     }
@@ -94,7 +94,7 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        max-width: 500px;
+        max-width: 380px;
         margin: 2 auto;
         gap: 1rem;
     }
@@ -107,7 +107,7 @@
     #AboutME  p {
         font-size: 17px;
         width: 100%;
-        max-width: 500px;
+        max-width: 380px;
         
         
     }
@@ -128,6 +128,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 1rem;
+        margin: 2rem auto;
         
     }
 
@@ -148,6 +149,7 @@
         margin-top: 2rem;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         line-height: 1.5;
+        font-size: 17px;
     }
 
 
@@ -171,6 +173,9 @@
 
     #projects  .LogosProyectos .TextProyectos  p{
         display: none;
+    }
+    #projects  .LogosProyectos .PMobile{
+        display: block;
     }
 
     #contact, .Contactos {

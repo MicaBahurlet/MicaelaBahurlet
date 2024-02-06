@@ -469,6 +469,10 @@ button:hover {
     font-size: 16px;
 }
 
+.LogosProyectos .PMobile{
+    display: none;
+}
+
 .LogosProyectos img {
     height: auto;
     max-width: 200px;
