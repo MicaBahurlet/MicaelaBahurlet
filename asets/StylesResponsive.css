@@ -174,8 +174,8 @@
     #projects  .LogosProyectos .TextProyectos  p{
         display: none;
     }
-    
-    #projects  .LogosProyectos .PMobile p{
+
+    #projects  .LogosProyectos .TextProyectos .PMobile p{
         display: block;
     }
 
