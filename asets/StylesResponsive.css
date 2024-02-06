@@ -1,4 +1,4 @@
-@media (max-width: 600px) {
+@media (max-width: 550px) {
     
     .abrir-menu, .cerrar-menu{
         display: block;
@@ -176,7 +176,7 @@
     }
 
     #projects  .LogosProyectos .TextProyectos .PMobile p{
-        display: block;
+        display:block;
     }
 
     #contact, .Contactos {
@@ -204,7 +204,7 @@
 /* '''''''''''''''''''''''''''''''''''''''''''''''''''tablet'''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 
 
- @media (max-width:768px){
+@media (max-width: 992px) and (min-width: 549px) {
 
     .abrir-menu, .cerrar-menu{
         display: block;
