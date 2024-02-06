@@ -94,6 +94,202 @@
         justify-content: center;
         align-items: center;
         width: 100%;
+        max-width: 500px;
+        margin: 2 auto;
+        gap: 1rem;
+    }
+
+    #AboutME{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #AboutME  p {
+        font-size: 17px;
+        width: 100%;
+        max-width: 500px;
+        
+        
+    }
+
+    #SectionHabilidades{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 380px;
+        height: auto;
+        margin: 2rem auto;
+        gap: 1rem;
+    }
+
+    #SectionHabilidades .LogosHabilidades{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        
+    }
+
+    #SectionHabilidades .LogosHabilidades img {
+        max-width: 60px;
+        
+        
+    }
+
+    #FormacionAcademica{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        text-align: start;
+        width: 100%;
+        max-width: 380px;
+        margin-top: 2rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        line-height: 1.5;
+    }
+
+
+    #SectionProyectos{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        max-width: 380px;
+        margin:  2rem auto;
+    }
+
+    #projects {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        max-width: 380px;
+        margin:  2rem auto;
+    }
+
+    #projects  .LogosProyectos .TextProyectos  p{
+        display: none;
+    }
+
+    #contact, .Contactos {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        max-width: 380px;
+        margin:  2rem auto;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        
+    }
+
+
+
+}
+
+ @media (max-width:768px){
+
+    .abrir-menu, .cerrar-menu{
+        display: block;
+        border: 0;
+        font-size: 1.50rem;
+        background-color: transparent;
+    }
+    
+
+    .nav{
+        opacity: 0;
+        visibility: hidden;
+
+
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        z-index: 2;
+        gap: 3rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #2980b9;  
+        background: -webkit-linear-gradient(to right, #2c3e50, #2980b9);  
+        background: linear-gradient(to right, #2c3e50, #2980b9); 
+        padding: 3rem;
+        box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.5);
+    }
+    
+
+    .nav.visible{
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-list{
+        flex-direction: column;
+        align-items: end;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    /*HERO*/
+
+    main{
+        display: flex;
+        flex-direction: column-reverse;
+        max-width: 600px;
+        margin: 2 auto;
+        gap: 1rem;
+
+    }
+
+    span {
+        font-size: 3rem;
+        width: 100%;
+        max-width: 450px;
+        margin: 2rem auto;
+    }
+
+    .TextHero h2 {
+        font-size: 1.8rem;
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .TextHero p {
+        font-size: 17px;
+        text-align: start;
+        max-width: 500px;
+        margin: 2rem auto;
+        line-height: 1.8;
+    }
+
+    .BtnsHero{
+        display: flex;
+        margin: 2rem auto;
+    }
+
+    #home .ImgHero img{
+        width: 250px;
+        height: auto;
+        filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
+    }
+    
+
+    /*about*/
+
+    #about {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
         max-width: 380px;
         margin: 2 auto;
         gap: 1rem;
@@ -189,7 +385,5 @@
         width: 100%;
         
     }
-
-
-
+    
 }
