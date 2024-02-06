@@ -194,6 +194,10 @@
 
 }
 
+
+/* '''''''''''''''''''''''''''''''''''''''''''''''''''tablet'''''''''''''''''''''''''''''''''''''''''''''''''''''*/
+
+
  @media (max-width:768px){
 
     .abrir-menu, .cerrar-menu{
@@ -242,10 +246,11 @@
 
     main{
         display: flex;
-        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
         max-width: 600px;
         margin: 2 auto;
-        gap: 1rem;
+        gap: 2rem;
 
     }
 
@@ -260,12 +265,13 @@
         font-size: 1.8rem;
         width: 100%;
         max-width: 350px;
+        margin: 2rem auto;
     }
 
     .TextHero p {
         font-size: 17px;
         text-align: start;
-        max-width: 500px;
+        max-width: 350px;
         margin: 2rem auto;
         line-height: 1.8;
     }
@@ -290,7 +296,7 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        max-width: 380px;
+        max-width: 450px;
         margin: 2 auto;
         gap: 1rem;
     }
@@ -303,7 +309,7 @@
     #AboutME  p {
         font-size: 17px;
         width: 100%;
-        max-width: 350px;
+        max-width: 400px;
         
         
     }
@@ -324,6 +330,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 1rem;
+        margin: 2rem auto;
         
     }
 
@@ -357,8 +364,8 @@
     }
 
     #projects {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         justify-content: center;
         width: 100%;
         max-width: 380px;
