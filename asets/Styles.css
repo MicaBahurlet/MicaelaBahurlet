@@ -12,9 +12,16 @@ html {
 
 
 body{
+   
     background: #2980b9;  
     background: -webkit-linear-gradient(to right, #2c3e50, #2980b9);  
     background: linear-gradient(to right, #2c3e50, #2980b9); 
+
+
+
+    
+
+    
 }
 
 /* '''''''''''''''''''''''''''''''''''''''''''''''''''Header '''''''''''''''''''''''''''''''''''''''''''''''''''''*/
@@ -29,6 +36,7 @@ header{
     position: sticky;
     top: 0;
     z-index: 1;
+    height: 6rem;
 
     
 }
@@ -67,9 +75,14 @@ main{
     justify-content: space-around;
     align-items: center;
     justify-content: center;
-    margin: 1rem auto;
+    margin: 0 auto;
     width: 100%;
-    max-width: 1200px;
+    height: auto;
+    padding: 3rem;
+    gap: 3rem;
+    background: #2980b9;  
+    background: -webkit-linear-gradient(to right, #2c3e50, #2980b9);  
+    background: linear-gradient(to right, #2c3e50, #2980b9); 
     
     
    
@@ -79,9 +92,10 @@ main{
 span{
     display: block;
     font-size: 4rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     white-space: nowrap;
     border-right: 3px solid ;
+    margin-bottom: 2rem;
     width: 13ch;
     animation:  typing 2s steps(18), blink .3s   step-end infinite alternate;
     overflow: hidden;
@@ -120,7 +134,7 @@ span{
 }
 
 .TextHero p{
-    font-size: 18px;
+    font-size: 19px;
     line-height: 1.5;
     margin-bottom: 1rem;
    
@@ -257,6 +271,8 @@ button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
+   
     width: 100%;
     max-width: 900px;
     height: auto;
@@ -268,6 +284,19 @@ button:hover {
     font-size: 18px;
     line-height: 1.5;
     margin-bottom: 1rem;
+    margin-left: 3rem;
+}
+
+#AboutME::before {
+    content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px; /* Grosor de la línea */
+  height: 100%; /* Altura de la línea */
+  background-color: white; /* Color de la línea */
+  
+    
 }
 
 
@@ -469,7 +498,7 @@ button:hover {
     font-size: 16px;
 }
 
-.LogosProyectos  .PMobile p{
+.PNelMobile p{
     display: none;
 }
 
@@ -482,12 +511,12 @@ button:hover {
 
 
 #projects .VisitarSitioBtn{
-    border: solid 1px; 
+     border: solid 1px;
      color: #fff;
      background: #667db6;
-        background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); 
-        background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
-     border-radius: 20px;
+     background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+     background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+     border-radius: 15px;
      background-size: 100% auto;
      font-family: 'Montserrat', sans-serif;
      font-size: 17px;
@@ -495,8 +524,11 @@ button:hover {
      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
      font-weight: 500;
      margin-top: 1rem;
-     
-    }
+     -webkit-border-radius: 15px;
+     -moz-border-radius: 15px;
+     -ms-border-radius: 15px;
+     -o-border-radius: 15px;
+}
     
     #projects .VisitarSitioBtn a{
         text-decoration: none;

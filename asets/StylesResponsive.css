@@ -1,3 +1,6 @@
+
+
+
 @media (max-width: 550px) {
     
     .abrir-menu, .cerrar-menu{
@@ -7,7 +10,6 @@
         background-color: transparent;
     }
     
-
     .nav{
         opacity: 0;
         visibility: hidden;
@@ -17,16 +19,18 @@
         flex-direction: column;
         align-items: end;
         z-index: 2;
-        gap: 3rem;
-        position: absolute;
         top: 0;
         right: 0;
         bottom: 0;
+        gap: 3rem;
+        position: absolute;
+        
         background: #2980b9;  
         background: -webkit-linear-gradient(to right, #2c3e50, #2980b9);  
         background: linear-gradient(to right, #2c3e50, #2980b9); 
         padding: 3rem;
         box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.5);
+        opacity: 100;
     }
     
 
@@ -175,7 +179,7 @@
         display: none;
     }
 
-    #projects  .LogosProyectos .TextProyectos .PMobile p{
+    #projects  .LogosProyectos  .PMobile p{
         display:block;
     }
 
@@ -381,6 +385,18 @@
     #projects  .LogosProyectos .TextProyectos  p{
         display: none;
     }
+
+    #projects  .LogosProyectos  .PMobile p{
+        display:block;
+    }
+
+    .PNelMobile p {
+        display: block;
+    }
+
+    .PNelMobile {
+        display: none;
+    }    
 
     #contact, .Contactos {
         display: flex;
