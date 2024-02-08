@@ -8,6 +8,7 @@
         border: 0;
         font-size: 1.50rem;
         background-color: transparent;
+        
     }
     
     .nav{
@@ -24,26 +25,31 @@
         bottom: 0;
         gap: 3rem;
         position: absolute;
+        height: auto;
+        width: 100%;
         
         background: #2980b9;  
         background: -webkit-linear-gradient(to right, #2c3e50, #2980b9);  
-        background: linear-gradient(to right, #2c3e50, #2980b9); 
+        background: linear-gradient(to right, #2c3e50, #2980b9);
         padding: 3rem;
-        box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.5);
-        opacity: 100;
+        box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
+        opacity: 1; /*no se soluciona*/
     }
     
 
     .nav.visible{
         opacity: 1;
         visibility: visible;
+        
     }
 
     .nav-list{
         flex-direction: column;
         align-items: end;
-        align-items: center;
         gap: 2rem;
+
+        
+    
     }
 
     /*HERO*/
@@ -116,6 +122,19 @@
         
     }
 
+    #AboutME::before {
+        content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px; 
+      height: 100%; 
+      background-color: white; 
+      margin-left: 2rem;
+      
+        
+    }
+
     #SectionHabilidades{
         display: flex;
         flex-direction: column;
@@ -130,14 +149,22 @@
 
     #SectionHabilidades .LogosHabilidades{
         display: grid;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        max-width: 380px;
         grid-template-columns: 1fr 1fr;
         gap: 1rem;
-        margin: 2rem auto;
+        margin: 0;
+        padding: 0;
         
     }
 
     #SectionHabilidades .LogosHabilidades img {
+        
         max-width: 60px;
+       
         
         
     }
@@ -161,6 +188,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         width: 100%;
         max-width: 380px;
         margin:  2rem auto;
@@ -170,6 +198,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         width: 100%;
         max-width: 380px;
         margin:  2rem auto;
@@ -261,6 +290,7 @@
         max-width: 600px;
         margin: 2 auto;
         gap: 2rem;
+
 
     }
 

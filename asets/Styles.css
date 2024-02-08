@@ -58,6 +58,7 @@ header{
 
 .logo {
     max-width: 150px;
+    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
 
 }
 
@@ -80,9 +81,7 @@ main{
     height: auto;
     padding: 3rem;
     gap: 3rem;
-    background: #2980b9;  
-    background: -webkit-linear-gradient(to right, #2c3e50, #2980b9);  
-    background: linear-gradient(to right, #2c3e50, #2980b9); 
+    
     
     
    
@@ -292,9 +291,9 @@ button:hover {
   position: absolute;
   top: 0;
   left: 0;
-  width: 3px; /* Grosor de la línea */
-  height: 100%; /* Altura de la línea */
-  background-color: white; /* Color de la línea */
+  width: 3px; 
+  height: 100%; 
+  background-color: white; 
   
     
 }
@@ -528,6 +527,7 @@ button:hover {
      -moz-border-radius: 15px;
      -ms-border-radius: 15px;
      -o-border-radius: 15px;
+    
 }
     
     #projects .VisitarSitioBtn a{
@@ -738,7 +738,7 @@ button:hover {
     background: #d53369; 
     background: -webkit-linear-gradient(to right, #cbad6d, #d53369);  
     background: linear-gradient(to right, #cbad6d, #d53369); 
-    border: 1px solid transparent;
+    border: 1px solid;
     display: flex;
     align-items: center;
     font-size: 15px;
