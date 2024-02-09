@@ -118,7 +118,7 @@
     #AboutME  p {
         font-size: 17px;
         width: 100%;
-        max-width: 300px;
+        max-width: 330px;
         height: auto;
         margin: 2rem auto;
         line-height: 1.8;
@@ -130,7 +130,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 3px; 
+      width: 2px; 
       height: 100%; 
       background-color: white; 
       margin-left: 2rem;
