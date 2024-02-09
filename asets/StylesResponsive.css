@@ -118,8 +118,10 @@
     #AboutME  p {
         font-size: 17px;
         width: 100%;
-        max-width: 380px;
-        
+        max-width: 300px;
+        height: auto;
+        margin: 2rem auto;
+        line-height: 1.8;
         
     }
 
