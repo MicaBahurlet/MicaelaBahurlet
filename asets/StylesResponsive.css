@@ -58,7 +58,7 @@
     main{
         display: flex;
         flex-direction: column-reverse;
-        max-width: 500px;
+        max-width: 360px;
         margin: 2 auto;
         gap: 1rem;
 
