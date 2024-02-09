@@ -28,11 +28,12 @@
         height: auto;
         width: 100%;
         
+        
         background: #2980b9;  
         background: -webkit-linear-gradient(to right, #2c3e50, #2980b9);  
         background: linear-gradient(to right, #2c3e50, #2980b9);
         padding: 3rem;
-        box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
+        box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.9);
         opacity: 1; /*no se soluciona*/
     }
     
@@ -57,7 +58,7 @@
     main{
         display: flex;
         flex-direction: column-reverse;
-        max-width: 600px;
+        max-width: 500px;
         margin: 2 auto;
         gap: 1rem;
 
