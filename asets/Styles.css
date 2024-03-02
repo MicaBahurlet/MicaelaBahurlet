@@ -81,6 +81,28 @@ header{
     display: none;
 }
 
+.nav li a:hover {
+    font-weight: 800; 
+}
+
+.nav a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px; 
+    bottom: -4px; 
+    background-color: #8FC1BE; 
+    transform: scaleX(0); 
+    transform-origin: bottom right;
+    transition: transform 0.3s ease; /* transición para el efecto de aparición */
+}
+
+
+.nav a:hover::before {
+    transform: scaleX(1); 
+    
+}
+
 
 
 /* '''''''''''''''''''''''''''''''''''''''''''''''''''Main '''''''''''''''''''''''''''''''''''''''''''''''''''''*/
@@ -408,12 +430,14 @@ button:hover {
     padding: 0;
     margin: 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    line-height: 1.3;
 }
 
 #about .ImgAbout img{
     width: 300px;
     height: auto;
-    filter : drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.3));
+    -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.3));
 }
 
 
