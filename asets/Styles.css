@@ -837,7 +837,9 @@ button:hover {
     transition: all .2s;
     padding: 12px 25px;
     border-radius: 80px;
-    background-color: #C9E49E;
+
+    background-color: #8FC1BE;
+
     border: 1px solid #332E2E;
     display: flex;
     align-items: center;
@@ -853,7 +855,7 @@ button:hover {
 }
   
   .TOP:hover {
-    background-color: #87D1CC;
+    background-color: transparent;
     
     border: 1px solid #332E2E;
   }
