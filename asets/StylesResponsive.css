@@ -85,11 +85,18 @@
     }
 
     .TextHero span {
-        font-size: 50px;
+        font-size: 44px;
+        width: 100%;
+        height: auto;
+        max-width: 400px;
     }
 
     .TextHero h2 {
-        font-size: 30px;
+        font-size: 25px;
+    }
+
+    .scroll-indicator {
+        display: none;
     }
 
 
