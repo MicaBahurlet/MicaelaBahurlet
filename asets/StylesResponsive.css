@@ -1,235 +1,254 @@
 
 
 
-@media (max-width: 550px) {
-    
-    .abrir-menu, .cerrar-menu{
+@media only screen and (max-width: 767px) {
+
+    /* Botón de abrir y cerrar */
+    .abrir-menu, .cerrar-menu {
         display: block;
-        border: 0;
-        font-size: 1.50rem;
+        border: none;
+        font-size: 1.5rem;
         background-color: transparent;
-        
+        color: #332E2E; 
     }
     
-    .nav{
+    
+    .nav {
         opacity: 0;
         visibility: hidden;
-
-
+        background-color: whitesmoke;
         display: flex;
         flex-direction: column;
-        align-items: end;
+        align-items: flex-end;
         z-index: 2;
         top: 0;
         right: 0;
         bottom: 0;
         gap: 3rem;
-        position: absolute;
-        height: auto;
+        position: fixed;
+        height: 100%;
         width: 100%;
+        padding: 2rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        -webkit-transition: opacity 0.3s ease, visibility 0.3s ease;
+        -moz-transition: opacity 0.3s ease, visibility 0.3s ease;
+        -ms-transition: opacity 0.3s ease, visibility 0.3s ease;
+        -o-transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+    
+    /* Enlaces dentro de la barra de navegación */
+    .nav li a {
+        color: #333;
+        text-decoration: none;
+        font-weight: 600; 
+        transition: color 0.3s ease; 
         
-        
-        background: #2980b9;  
-        background: -webkit-linear-gradient(to right, #2c3e50, #2980b9);  
-        background: linear-gradient(to right, #2c3e50, #2980b9);
-        padding: 3rem;
-        box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.9);
-        opacity: 1; /*no se soluciona*/
     }
     
-
-    .nav.visible{
+   
+    .nav.visible {
         opacity: 1;
         visibility: visible;
-        
     }
-
-    .nav-list{
-        flex-direction: column;
-        align-items: end;
-        gap: 2rem;
-
-        
     
+    .nav-list {
+        flex-direction: column;
+        align-items: flex-end; 
+        gap: 3rem;
+    }
+    
+    
+    .nav li a:hover {
+        font-weight: 800; 
     }
 
     /*HERO*/
 
-    main{
-        display: flex;
-        flex-direction: column-reverse;
-        max-width: 360px;
-        margin: 2 auto;
-        gap: 1rem;
-
+   main {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    padding: 3rem;
+    gap: 3rem;
+    color: #332E2E;
     }
 
-    span {
-        font-size: 3rem;
-        width: 100%;
-        max-width: 450px;
-        margin: 2rem auto;
+    .TextHero {
+        text-align: start;
+    }
+
+    .TextHero span {
+        font-size: 50px;
     }
 
     .TextHero h2 {
-        font-size: 1.8rem;
-        width: 100%;
-        max-width: 350px;
+        font-size: 30px;
     }
 
-    .TextHero p {
-        font-size: 17px;
-        text-align: start;
-        max-width: 380px;
-        margin: 2rem auto;
-        line-height: 1.8;
-    }
-
-    .BtnsHero{
-        display: flex;
-        margin: 2rem auto;
-    }
-
-    #home .ImgHero img{
-        width: 250px;
-        height: auto;
-        filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
-    }
-    
-
-    /*about*/
 
     #about {
         display: flex;
-        flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
-        width: 100%;
-        max-width: 380px;
-        margin: 2 auto;
-        gap: 1rem;
-    }
-
-    #AboutME{
-        display: flex;
         flex-direction: column;
-    }
-
-    #AboutME  p {
-        font-size: 17px;
         width: 100%;
-        max-width: 330px;
         height: auto;
-        margin: 2rem auto;
-        line-height: 1.8;
-        
+        max-width: 500px;
+        margin: 4rem auto;
+        gap: 3rem;
     }
 
-    #AboutME::before {
-        content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 2px; 
-      height: 100%; 
-      background-color: white; 
-      margin-left: 2rem;
-      
-        
-    }
-
-    #SectionHabilidades{
+    #AboutME {
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 100%;
-        max-width: 380px;
-        height: auto;
-        margin: 2rem auto;
-        gap: 1rem;
-    }
-
-    #SectionHabilidades .LogosHabilidades{
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: auto;
-        max-width: 380px;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin: 0;
-        padding: 0;
-        
-    }
-
-    #SectionHabilidades .LogosHabilidades img {
-        
-        max-width: 60px;
-       
-        
-        
-    }
-
-    #FormacionAcademica{
-        display: flex;
         flex-direction: column;
-        justify-content: start;
-        align-items: start;
-        text-align: start;
         width: 100%;
-        max-width: 380px;
+        height: auto;
+        max-width: 500px;
+        margin: 4rem auto;
+        gap: 3rem;
+    }
+
+    #AboutME p {
         margin-top: 2rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        line-height: 1.5;
-        font-size: 17px;
+    }
+
+    #SectionHabilidades .LogosHabilidades {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 4rem auto;
+        width: 100%;
+        height: auto;
+        max-width: 400px;
+    }
+    #SectionHabilidades .LogosHabilidades img {
+        width: 90px;
+        padding: 9px;
+    }
+
+    #SectionHabilidades .LogosHabilidades > div {
+        width: calc(30% - 50px); 
+        margin-bottom: 10px;
+        
+    }
+
+    #FormacionAcademica {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: start;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        max-width: 550px;
+        margin: 4rem auto;
+        gap: 2rem;
+        line-height: 1.8;
     }
 
 
-    #SectionProyectos{
+
+
+    #SectionProyectos {
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
+        justify-content: center;
+        text-align: start;
+        flex-direction: column;
         width: 100%;
-        max-width: 380px;
-        margin:  2rem auto;
+        height: auto;
+        max-width: 550px;
+        margin: 4rem auto;
+        gap: 1rem;
+        line-height: 1.8;
     }
 
     #projects {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
+        margin: 2rem auto;
+        gap: 1rem;
         width: 100%;
-        max-width: 380px;
-        margin:  2rem auto;
+        height: auto;
+        max-width: 600px;
+        
     }
 
-    #projects  .LogosProyectos .TextProyectos  p{
-        display: none;
-    }
-
-    #projects  .LogosProyectos  .PMobile p{
-        display:block;
-    }
-
-    #contact, .Contactos {
+    .LogosProyectos {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
+        margin: 2rem auto;
+        gap: 0.5rem;
         width: 100%;
-        max-width: 380px;
-        margin:  2rem auto;
+        height: auto;
+        max-width: 600px;
+        
+    }
+
+    .ScreenSitios img {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .DescriptionProyectos {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        gap: 1rem;
+        width: 100%;
+        height: auto;
+        max-width: 600px;
+        
+    }
+
+    #contact {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: start;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        max-width: 550px;
+        margin: 4rem auto;
+        gap: 5rem;
+        line-height: 1.8;
+    }
+
+    .Contactos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        gap: 3rem;
+        width: 100%;
+        height: auto;
+        max-width: 600px;
+        
     }
 
     footer {
         display: flex;
-        flex-direction: column;
         justify-content: center;
-        width: 100%;
-        
+        align-items: center;
+        flex-direction: column;
     }
 
 
@@ -240,7 +259,7 @@
 /* '''''''''''''''''''''''''''''''''''''''''''''''''''tablet'''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 
 
-@media (max-width: 992px) and (min-width: 549px) {
+@media only screen and (min-width: 768px) and (max-width: 991px) {
 
     .abrir-menu, .cerrar-menu{
         display: block;
@@ -254,7 +273,7 @@
         opacity: 0;
         visibility: hidden;
 
-
+        
         display: flex;
         flex-direction: column;
         align-items: end;
@@ -264,13 +283,12 @@
         top: 0;
         right: 0;
         bottom: 0;
-        background: #2980b9;  
-        background: -webkit-linear-gradient(to right, #2c3e50, #2980b9);  
-        background: linear-gradient(to right, #2c3e50, #2980b9); 
+        background-color: whitesmoke;
         padding: 3rem;
         box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.5);
     }
     
+   
 
     .nav.visible{
         opacity: 1;
@@ -286,166 +304,5 @@
 
     /*HERO*/
 
-    main{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        max-width: 600px;
-        margin: 2 auto;
-        gap: 2rem;
-
-
-    }
-
-    span {
-        font-size: 3rem;
-        width: 100%;
-        max-width: 450px;
-        margin: 2rem auto;
-    }
-
-    .TextHero h2 {
-        font-size: 1.8rem;
-        width: 100%;
-        max-width: 350px;
-        margin: 2rem auto;
-    }
-
-    .TextHero p {
-        font-size: 17px;
-        text-align: start;
-        max-width: 350px;
-        margin: 2rem auto;
-        line-height: 1.8;
-    }
-
-    .BtnsHero{
-        display: flex;
-        margin: 2rem auto;
-    }
-
-    #home .ImgHero img{
-        width: 250px;
-        height: auto;
-        filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
-    }
-    
-
-    /*about*/
-
-    #about {
-        display: flex;
-        flex-direction: column-reverse;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        max-width: 450px;
-        margin: 2 auto;
-        gap: 1rem;
-    }
-
-    #AboutME{
-        display: flex;
-        flex-direction: column;
-    }
-
-    #AboutME  p {
-        font-size: 17px;
-        width: 100%;
-        max-width: 400px;
-        
-        
-    }
-
-    #SectionHabilidades{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        max-width: 380px;
-        height: auto;
-        margin: 2rem auto;
-        gap: 1rem;
-    }
-
-    #SectionHabilidades .LogosHabilidades{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin: 2rem auto;
-        
-    }
-
-    #SectionHabilidades .LogosHabilidades img {
-        max-width: 60px;
-        
-        
-    }
-
-    #FormacionAcademica{
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        align-items: start;
-        text-align: start;
-        width: 100%;
-        max-width: 380px;
-        margin-top: 2rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        line-height: 1.5;
-    }
-
-
-    #SectionProyectos{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        max-width: 380px;
-        margin:  2rem auto;
-    }
-
-    #projects {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        justify-content: center;
-        width: 100%;
-        max-width: 380px;
-        margin:  2rem auto;
-    }
-
-    #projects  .LogosProyectos .TextProyectos  p{
-        display: none;
-    }
-
-    #projects  .LogosProyectos  .PMobile p{
-        display:block;
-    }
-
-    .PNelMobile p {
-        display: block;
-    }
-
-    .PNelMobile {
-        display: none;
-    }    
-
-    #contact, .Contactos {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        max-width: 380px;
-        margin:  2rem auto;
-    }
-
-    footer {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        
-    }
-    
+       
 }

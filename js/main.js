@@ -10,5 +10,13 @@ cerrar.addEventListener("click", ()=>{
     nav.classList.remove("visible");
 })
 
+const enlaces = document.querySelectorAll(".nav-list a");
+
+enlaces.forEach((enlace) => {
+    enlace.addEventListener("click", () => {
+        nav.classList.remove("visible");
+    });
+});
+
 
 

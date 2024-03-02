@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
-    color: white;
+    
 }
 
 html {
@@ -16,13 +16,7 @@ html {
 
 body{
    
-    background: #2980b9;  
-    background: -webkit-linear-gradient(to right, #2c3e50, #2980b9);  
-    background: linear-gradient(to right, #2c3e50, #2980b9); 
-
-
-
-    
+    background-color: whitesmoke;
 
     
 }
@@ -33,9 +27,15 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background: #2980b9;  
+    /* background: #2980b9;  
     background: -webkit-linear-gradient(to right, #2c3e50, #2980b9);  
-    background: linear-gradient(to right, #2c3e50, #2980b9); 
+    background: linear-gradient(to right, #2c3e50, #2980b9);  */
+
+    
+
+    background-color: whitesmoke;
+
+
     position: sticky;
     top: 0;
     z-index: 1;
@@ -56,22 +56,25 @@ header{
     font-weight: 600;
     font-size: larger;
     gap: 1.5rem;
+   
 }
 
 .nav-list li a {
     text-decoration: none;
+    color: #332E2E;
 }
 
 .nav-list li a:hover {
-    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.6));
-    -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.6));
+    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
+    -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
 }
 
 
 .logo {
     max-width: 160px;
-    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
-
+    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
+    -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
+    
 }
 
 .abrir-menu, .cerrar-menu{
@@ -94,17 +97,34 @@ main{
     height: auto;
     padding: 3rem;
     gap: 3rem;
+    color: #332E2E;
+ 
+}
+
+#home {
     
+    display: flex;
     
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 1800px;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    background-color: FFF7F6;
+
     
-   
-    
+    /* background: #2980b9;  
+    background: -webkit-linear-gradient(to right, #2c3e50, #2980b9);  
+    background: linear-gradient(to right, #2c3e50, #2980b9);  */
 }
 
 span{
     display: block;
     font-size: 4rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: 600;
     white-space: nowrap;
     border-right: 3px solid ;
     margin-bottom: 2rem;
@@ -133,7 +153,7 @@ span{
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
    
 }
 
@@ -141,7 +161,7 @@ span{
     font-size: 2rem;
     font-weight: 400;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
    
 }
 
@@ -157,27 +177,31 @@ span{
     gap: 1rem;
     align-items: center;
     margin-top: 1rem;
+    
 }
 
 #home button{
-border: none;
- color: #fff;
- background: #667db6;
- background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); 
- background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
- border-radius: 20px;
+ 
+ color: #333E2E;
+
+ background-color: #C9E49E;
+ border: #332E2E solid 0.5px;
+ border-radius: 15px;
  background-size: 100% auto;
  font-family: 'Montserrat', sans-serif;
  font-size: 17px;
  padding: 0.6em 1.5em;
- text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
  font-weight: 600;
- 
+ -webkit-border-radius: 15px;
+ -moz-border-radius: 15px;
+ -ms-border-radius: 15px;
+ -o-border-radius: 15px;
 }
 
 #home button a{
     text-decoration: none;
-    color: white;
+    color: #332E2E;
 }
 
 button:hover {
@@ -203,24 +227,28 @@ button:hover {
 }
 
 #home .buttonCV{
-        border: none;
-        color: #fff;
-        background: #d53369; 
-        background: -webkit-linear-gradient(to right, #cbad6d, #d53369);  
-        background: linear-gradient(to right, #cbad6d, #d53369); 
-        border-radius: 20px;
+
+        background-color: #EEBFB1;
+
+        border: #332E2E solid 0.5px;
+        
+
+        border-radius: 15px;
         background-size: 100% auto;
         font-family: 'Montserrat', sans-serif;
         font-size: 17px;
         padding: 0.6em 1.5em;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         font-weight: 600;
-     
-    }
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        -ms-border-radius: 15px;
+        -o-border-radius: 15px;
+}
     
     #home .buttonCV a{
         text-decoration: none;
-        color: white;
+        color: #332E2E;
     }
     
     .buttonCV:hover {
@@ -265,9 +293,16 @@ button:hover {
     max-width: 900px;
     padding: 1rem;
     margin: 0 auto;
-    background: #3a7bd5; 
+
+    /* background: #3a7bd5; 
     background: -webkit-linear-gradient(to right, #3a6073, #3a7bd5);  
-    background: linear-gradient(to right, #3a6073, #3a7bd5); 
+    background: linear-gradient(to right, #3a6073, #3a7bd5);  */
+
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+
+
+
+
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
@@ -289,8 +324,8 @@ button:hover {
     width: 100%;
     max-width: 900px;
     height: auto;
-    margin: 2rem auto;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin: 3rem auto;
+    
 }
 
 #AboutME p{
@@ -307,7 +342,7 @@ button:hover {
   left: 0;
   width: 3px; 
   height: 100%; 
-  background-color: white; 
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
   
     
 }
@@ -316,19 +351,20 @@ button:hover {
 .titleIntereses{
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .listaDeIntereses{
     font-size: 18px;
     padding: 0;
     margin: 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #about .ImgAbout img{
     width: 300px;
     height: auto;
+    filter : drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
 }
 
 
@@ -343,8 +379,8 @@ button:hover {
     width: 100%;
     max-width: 900px;
     height: auto;
-    margin: 2rem auto;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin: 3rem auto;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
    
 }
 
@@ -369,7 +405,8 @@ button:hover {
     height: auto;
     max-width: 130px;
     align-items: center;
-    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
+    -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
 }
 
 #SectionHabilidades .LogoGrandes img{
@@ -394,7 +431,7 @@ button:hover {
     height: auto;
     max-width: 800px;
     margin-top: 2rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #FormacionAcademica .tituloFormacionAcademica h3{
@@ -430,7 +467,7 @@ button:hover {
     max-width: 800px;
     height: auto;
     margin: 2rem auto;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #SectionProyectos h2{
@@ -441,100 +478,97 @@ button:hover {
 
 
 #projects {
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1rem;
     max-width: 1000px;
+    margin: 2rem auto; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 2rem auto;
+    gap: 3rem;
+    width: 100%;
+    height: auto;
+    max-width: 1200px;
+    
 }
 
-
-
-.LogosProyectos{
+.DescriptionProyectos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 0.5rem;
     width: 100%;
+}
+
+.LogosProyectos {
    display: flex;
    justify-content: center;
    align-items: center;
-   flex-direction: column;
-   background: #457fca;  
-    background: -webkit-linear-gradient(to right, #5691c8, #457fca); 
-    background: linear-gradient(to right, #5691c8, #457fca);
-   border-radius: 15px;
-   -webkit-border-radius: 15px;
-   -moz-border-radius: 15px;
-   -ms-border-radius: 15px;
-   -o-border-radius: 15px;
-   margin-bottom: 3rem;
-   filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.2));
-   width: 100%;
-   height: auto;
-   max-width: 500px;
-   max-width: 20rem;
-   margin-bottom: 3rem;
-   padding: 1rem;
-   -webkit-filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.2));
-}
-.LogosProyectos:hover{
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-    -o-transform: scale(1.02);
-    background-color: #00A97F;
-    color: white;
+   gap: 2rem;
+   
+   
 }
 
-#projects .LogosProyectos .ScreenSitios img{
-    max-width: 300px;
+
+.ScreenSitios img{
+    max-width: 600px;
     border-radius: 10px;
+    left: 0;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
-    margin-bottom: 1.5rem;
 }
 
-
-
-.LogosProyectos .TextProyectos  h3{
-   margin-bottom: 0.7rem;
-   font-size: 19px;
-   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+.Logos img {
+    max-width: 150px;
    
 }
 
-.LogosProyectos  p{
-    max-width: 400px;
+.TextProyectos p{
     line-height: 1.5;
     text-align: start;
     font-size: 16px;
-}
-
-.PNelMobile p{
-    display: none;
-}
-
-.LogosProyectos img {
+    width: 100%;
     height: auto;
-    max-width: 200px;
-    cursor: pointer;
-    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
+    max-width: 500px;
 }
+
+.TextProyectos p a {
+    color: #333E2E;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+
+
+
+
 
 
 #projects .VisitarSitioBtn{
-     border: solid 1px;
-     color: #fff;
-     background: #667db6;
+     border: #332E2E solid 0.5px;
+     
+
+
+     /* background: #667db6;
      background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
-     background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+     background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); */
+
+     /* background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%); */
+     background-color: #C9E49E;
+
+
      border-radius: 15px;
      background-size: 100% auto;
      font-family: 'Montserrat', sans-serif;
      font-size: 17px;
      padding: 0.6em 1.5em;
-     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
      font-weight: 500;
      margin-top: 1rem;
      -webkit-border-radius: 15px;
@@ -546,7 +580,7 @@ button:hover {
     
     #projects .VisitarSitioBtn a{
         text-decoration: none;
-        color: white;
+        color: #332E2E;
     }
     
     .VisitarSitioBtn a:hover {
@@ -586,8 +620,8 @@ button:hover {
     height: auto;
     max-width: 1200px;
     margin: 1rem auto;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin-top: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 4rem;
     gap: 5rem;
     margin-bottom: 4rem;
 
@@ -622,7 +656,7 @@ button:hover {
     flex-direction: row;
     justify-content: start;
     align-items: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     margin-bottom: 0.5rem;
 }
 
@@ -634,8 +668,8 @@ button:hover {
     width: 50px;
     height: auto;
     margin-right: 0.8rem;
-    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
-    
+    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.2));
+    -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.2));
 }
 
 #contact .Contactos .Instagram{
@@ -643,7 +677,7 @@ button:hover {
     flex-direction: row;
     justify-content: start;
     align-items: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
    
 }
 
@@ -651,7 +685,8 @@ button:hover {
     width: 80px;
     height: auto;
     margin-right: 0.5rem;
-    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.2));
+    -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.2));
 }
 
 #contact .Contactos .Linkeding{
@@ -659,14 +694,15 @@ button:hover {
     flex-direction: row;
     justify-content: start;
     align-items: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #contact .Contactos .Linkeding img{
     width: 80px;
     height: auto;
     margin-right: 0.5rem;
-    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.2));
+    -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.2));
 }
 
 #contact .Contactos .WhatsApp{
@@ -674,14 +710,15 @@ button:hover {
     flex-direction: row;
     justify-content: start;
     align-items: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #contact .Contactos .WhatsApp img{
     width: 80px;
     height: auto;
     margin-right: 0.5rem;
-    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.2));
+    -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.2));
 }
 
 #contact .Contactos .GitHub{
@@ -689,35 +726,38 @@ button:hover {
     flex-direction: row;
     justify-content: start;
     align-items: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #contact .Contactos .GitHub img{
     width: 60px;
     height: auto;
     margin-right: 0.5rem;
-    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.2));
+    -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.2));
 }
 
 
 #contact  .Contactemos{
-    border: none;
-     color: #fff;
-     background: #667db6;
-     background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); /* Hydrogen */
-     background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+    
+     
+
+     /* background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%); */
+     background-color: #C9E49E;
+      border: #332E2E solid 0.5px;
+
      border-radius: 20px;
      background-size: 100% auto;
      font-family: 'Montserrat', sans-serif;
      font-size: 17px;
      padding: 0.6em 1.5em;
-     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
      font-weight: 600;
     }
     
     #contact  .Contactemos a{
         text-decoration: none;
-        color: white;
+        color: #332E2E;
     }
     
      .Contactemos:hover {
@@ -742,30 +782,35 @@ button:hover {
      }
 }
 
-
+#TOP {
+   margin-bottom: 8rem;
+}
 
 .TOP {
     cursor: pointer;
     font-weight: 700;
     font-family: Helvetica,"sans-serif";
     transition: all .2s;
-    padding: 10px 20px;
-    border-radius: 100px;
-    background: #d53369; 
-    background: -webkit-linear-gradient(to right, #cbad6d, #d53369);  
-    background: linear-gradient(to right, #cbad6d, #d53369); 
-    border: 1px solid;
+    padding: 12px 25px;
+    border-radius: 80px;
+    background-color: #C9E49E;
+    border: 1px solid #332E2E;
     display: flex;
     align-items: center;
-    font-size: 15px;
+    font-size: 19px;
     position: absolute;
     right: 20px;
-  }
+
+
+    -webkit-border-radius: 80px;
+    -moz-border-radius: 80px;
+    -ms-border-radius: 80px;
+    -o-border-radius: 80px;
+}
   
   .TOP:hover {
-    background: #667db6;
-    background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); 
-    background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+    background-color: #EEBFB1;
+    border: 1px solid #332E2E;
   }
   
   .TOP > svg {
@@ -797,21 +842,21 @@ footer{
     width: 100%;
     height: auto;
     margin: 0 auto;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    
     gap: 1rem;
-    background: #3a7bd5; 
-    background: -webkit-linear-gradient(to right, #3a6073, #3a7bd5);  
-    background: linear-gradient(to right, #3a6073, #3a7bd5); /
+    background: whitesmoke;
+    border-top: #332E2E solid 0.5px;
 }
 
 footer img{
     width: 150px;
     height: auto;
-    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
+   
 }
 
 footer p{
     font-size: 18px;
     margin-bottom: 0.5rem;
+    color : #332E2E;
 }
 
