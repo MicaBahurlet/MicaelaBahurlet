@@ -1,8 +1,10 @@
 
+@media  (max-width: 767px) {
 
-
-@media only screen and (max-width: 767px) {
-
+    header {
+        max-width: 100px;
+    }
+    
     /* Botón de abrir y cerrar */
     .abrir-menu, .cerrar-menu {
         display: block;
@@ -63,6 +65,10 @@
     
     .nav li a:hover {
         font-weight: 800; 
+    }
+
+    .cursor-dot, .cursor-outline {
+        display: none;
     }
 
     /*HERO*/
@@ -280,7 +286,7 @@
 /* '''''''''''''''''''''''''''''''''''''''''''''''''''tablet'''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 768px) and (max-width: 991px) {
 
     .abrir-menu, .cerrar-menu {
         display: block;
@@ -342,6 +348,13 @@
         font-weight: 800; 
     }
 
+    .cursor-dot, .cursor-outline {
+        display: none;
+    }
+
+        .scroll-indicator {
+            display: none;
+        }
     /*HERO*/
 
     main {
