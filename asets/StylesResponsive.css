@@ -2,7 +2,7 @@
 @media  (max-width: 767px) {
 
     header {
-        max-width: 100px;
+        max-width: 100%;
     }
     
     /* Botón de abrir y cerrar */
@@ -31,6 +31,7 @@
         position: fixed;
         height: 100%;
         width: 100%;
+      
         
         padding: 2rem;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
