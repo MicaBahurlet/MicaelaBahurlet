@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    color: #332E2E;
     
 }
 
@@ -17,8 +18,36 @@ html {
 body{
    
     background-color: whitesmoke;
+    cursor: none;
 
     
+}
+
+
+.cursor-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #8FC1BE;
+}
+
+.cursor-outline {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #332E2E ;
+}
+
+.cursor-dot, .cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
 }
 
 /* '''''''''''''''''''''''''''''''''''''''''''''''''''Header '''''''''''''''''''''''''''''''''''''''''''''''''''''*/
@@ -40,6 +69,7 @@ header{
     top: 0;
     z-index: 1;
     height: 5.5rem;
+    width: 100%;
     
     -webkit-box-shadow: 2px 4px 14px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 2px 4px 14px 0px rgba(0,0,0,0.75);
@@ -55,7 +85,7 @@ header{
     cursor: pointer;
     font-weight: 600;
     font-size: larger;
-    gap: 1.5rem;
+    gap: 2rem;
    
 }
 
@@ -335,6 +365,8 @@ button:hover {
 .scroll-indicator p {
     font-size: 16px;
     font-weight: 600;
+    animation-duration: 2s;
+    animation-iteration-count: 3;
 }
 
 
@@ -956,4 +988,11 @@ footer p{
     margin-bottom: 0.5rem;
     color : #332E2E;
 }
+
+
+/*Animaciones para img*/
+
+
+
+
 

@@ -29,6 +29,7 @@
         position: fixed;
         height: 100%;
         width: 100%;
+        
         padding: 2rem;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -38,7 +39,7 @@
         -o-transition: opacity 0.3s ease, visibility 0.3s ease;
 }
     
-    /* Enlaces dentro de la barra de navegación */
+   
     .nav li a {
         color: #333;
         text-decoration: none;
