@@ -79,7 +79,7 @@
     flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
+    margin: 4rem auto;
     width: 100%;
     max-width: 500px;
     height: auto;
@@ -93,18 +93,37 @@
     }
 
     .TextHero span {
-        font-size: 40px;
+        font-size: 38px;
         width: 100%;
         height: auto;
-        max-width: 360px;
+        max-width: 340px;
     }
 
     .TextHero h2 {
         font-size: 25px;
     }
 
+    .ImgHero {
+        width: 100%;
+        height: auto;
+        max-width: 350px;
+    }
+
     .scroll-indicator {
         display: none;
+    }
+
+    #home .buttonCV{
+        width: 100%;
+        font-size: 16px;
+        padding: 0.6em 1.5em;
+        
+       
+    }
+    #home button {
+        width: 100%;
+        font-size: 16px;
+        padding: 0.6em 1.5em;
     }
 
 
@@ -115,7 +134,7 @@
         flex-direction: column;
         width: 100%;
         height: auto;
-        max-width: 400px;
+        max-width: 380px;
         margin: 4rem auto;
         gap: 3rem;
     }
@@ -127,13 +146,14 @@
         flex-direction: column;
         width: 100%;
         height: auto;
-        max-width: 400px;
+        max-width: 380px;
         margin: 4rem auto;
-        gap: 3rem;
+        gap: 1rem;
     }
 
     #AboutME p {
         margin-top: 2rem;
+        max-width: 380px;
     }
 
     #SectionHabilidades {
@@ -197,7 +217,7 @@
         flex-direction: column;
         width: 100%;
         height: auto;
-        max-width: 450px;
+        max-width: 400px;
         margin: 4rem auto;
         gap: 1rem;
         line-height: 1.8;
@@ -212,7 +232,7 @@
         gap: 1rem;
         width: 100%;
         height: auto;
-        max-width: 450px;
+        max-width: 400px;
         
     }
 
@@ -245,7 +265,7 @@
         gap: 1rem;
         width: 100%;
         height: auto;
-        max-width: 450px;
+        max-width: 400px;
         
     }
 
