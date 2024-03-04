@@ -103,11 +103,7 @@
         font-size: 25px;
     }
 
-    .ImgHero {
-        width: 100%;
-        height: auto;
-        max-width: 350px;
-    }
+   
 
     .scroll-indicator {
         display: none;
