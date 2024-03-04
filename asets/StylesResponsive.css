@@ -79,7 +79,7 @@
     flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
-    margin: 4rem auto;
+    margin: 3rem auto;
     width: 100%;
     max-width: 500px;
     height: auto;
@@ -93,10 +93,10 @@
     }
 
     .TextHero span {
-        font-size: 38px;
+        font-size: 37px;
         width: 100%;
         height: auto;
-        max-width: 340px;
+        max-width: 350px;
     }
 
     .TextHero h2 {
@@ -111,15 +111,18 @@
 
     #home .buttonCV{
         width: 100%;
-        font-size: 16px;
+        font-size: 15px;
         padding: 0.6em 1.5em;
+        max-width: 10rem;
         
        
     }
     #home button {
         width: 100%;
-        font-size: 16px;
+        font-size: 15px;
         padding: 0.6em 1.5em;
+        
+        max-width: 10rem;
     }
 
 
