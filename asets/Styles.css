@@ -446,7 +446,7 @@ button:hover {
     height: auto;
     margin: 3rem auto;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    margin-top: 10rem;
+    margin-top: 7rem;
    
 }
 
@@ -463,13 +463,13 @@ button:hover {
     width: 100%;
     max-width: 950px;
     margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
 }
 
 #SectionHabilidades .LogosHabilidades img{
     width: 100%;
     height: auto;
-    max-width: 200px;
+    max-width: 70px;
     align-items: center;
     filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
     -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
@@ -478,11 +478,49 @@ button:hover {
 #SectionHabilidades .LogoGrandes img{
     width: 100%;
     height: auto;
-    max-width: 90px;
+    max-width: 70px;
     align-items: center;
     filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
     -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
 }
+
+
+#SectionHabilidadesBack{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    margin: 3rem auto;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-top: 4rem;
+   
+}
+
+#SectionHabilidadesBack .LogosHabilidades{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 0.8rem;
+    width: 100%;
+    max-width: 950px;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
+
+#SectionHabilidadesBack .LogosHabilidades img{
+    width: 100%;
+    height: auto;
+    max-width: 70px;
+    align-items: center;
+    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
+    -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+
 
 /* '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''Formación académica'''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 
@@ -493,11 +531,11 @@ button:hover {
     justify-content: start;
     align-items: start;
     text-align: center;
-    margin: 4rem auto;
+    margin: 6rem auto;
     width: 100%;
     height: auto;
     max-width: 800px;
-    margin-top: 2rem;
+   
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -591,13 +629,13 @@ button:hover {
     -o-transition: transform 0.3s ease;
 }
 
-.ScreenSitios img:hover {
+/* .ScreenSitios img:hover {
     transform: scale(1.1);
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     -ms-transform: scale(1.1);
     -o-transform: scale(1.1);
-}
+} */
 
 .Logos img {
     max-width: 150px;
