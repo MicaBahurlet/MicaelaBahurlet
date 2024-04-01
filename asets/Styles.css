@@ -469,7 +469,7 @@ button:hover {
 #SectionHabilidades .LogosHabilidades img{
     width: 100%;
     height: auto;
-    max-width: 70px;
+    max-width: 60px;
     align-items: center;
     filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
     -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
@@ -478,7 +478,7 @@ button:hover {
 #SectionHabilidades .LogoGrandes img{
     width: 100%;
     height: auto;
-    max-width: 70px;
+    max-width: 60px;
     align-items: center;
     filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
     -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
