@@ -8,3 +8,5 @@
 
 <strong align="start">	&#128073; Deploy:</strong> 
  https://micaela-bahurlet.vercel.app/
+
+ <strong align="start">	&#128073; Contacto:</strong> micabahurlet@gmail.com
