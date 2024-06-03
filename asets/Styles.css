@@ -973,27 +973,65 @@ footer p{
     color : #332E2E;
 }
 
-#carousel {
-    width: 100%;
-    max-width: 600px;
+
+
+#CarruselProyectos{
     display: flex;
-    flex-direction: column;
+    margin: 5rem auto;
     justify-content: center;
     align-items: center;
-    margin: 2rem auto;
-    gap: 3rem;
     width: 100%;
     height: auto;
     max-width: 1200px;
+    gap: 1rem;
 }
 
-#carousel .carousel-item img{
-    width: 100%;
-    max-width: 600px;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-}
 
+/* .BtnsProyectos{
+    border: #332E2E solid 0.5px;
+     background-color: #8FC1BE;
+     border-radius: 15px;
+     background-size: 100% auto;
+     font-family: 'Montserrat', sans-serif;
+     font-size: 17px;
+     padding: 0.6em 1.5em;
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+     font-weight: 500;
+     margin-top: 1rem;
+     -webkit-border-radius: 15px;
+     -moz-border-radius: 15px;
+     -ms-border-radius: 15px;
+     -o-border-radius: 15px;
+    
+}
+    
+    #projects .VisitarSitioBtn a{
+        text-decoration: none;
+        color: #332E2E;
+    }
+    
+    .VisitarSitioBtn a:hover {
+     background-position: right center;
+     background-size: 200% auto;
+     -webkit-animation: pulse 2s infinite;
+     animation: pulse512 1.5s infinite;
+     cursor: pointer;
+       
+      
+    }
+    
+    @keyframes pulse512 {
+     0% {
+      box-shadow: 0 0 0 0 #05bada66;
+     }
+    
+     70% {
+      box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+     }
+    
+     100% {
+      box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+     }
+
+
+} */
