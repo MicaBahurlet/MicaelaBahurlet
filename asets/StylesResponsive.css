@@ -310,6 +310,59 @@
         flex-direction: column;
     }
 
+    #OtrosTrabajos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        max-width: 350px;
+        margin: 4rem auto;
+        gap: 3rem;
+    }
+
+    #OtrosTrabajosDescripcion{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        max-width: 350px;
+        margin: 2rem auto;
+        gap: 3rem;
+    }
+
+    #OtrosTrabajosDescripcion .carrusel {
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        max-width: 300px;
+    
+    }
+    
+    
+    
+    #OtrosTrabajosDescripcion .carousel-inner img{
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        max-width: 500px;
+        border-radius: 10px;
+    }
+
+    .descripcionCarrusel .liExperiencias li {
+        align-items: center;
+        justify-content: center;
+        line-height: 1.8;
+        
+    }
+    
+    
+
 
 
 }
@@ -406,7 +459,7 @@
         color: #332E2E;
     }
     
-    span {
+    #home  .TextHero  span {
         font-size: 3rem;
     }
 
@@ -495,5 +548,54 @@
         height: auto;
         margin: 2rem auto;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1)
+    }
+
+
+
+    #OtrosTrabajos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 800px;
+        margin: 2rem auto;
+    }
+
+    #OtrosTrabajosDescripcion{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        max-width: 850px;
+        margin: 2rem auto;
+        gap: 3rem;
+    }
+
+    #OtrosTrabajosDescripcion .carrusel {
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        max-width: 850px;
+    
+    }
+    
+    
+    
+    #OtrosTrabajosDescripcion .carousel-inner img{
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        max-width: 500px;
+        border-radius: 10px;
+    }
+
+    .descripcionCarrusel .liExperiencias li {
+        align-items: center;
+        justify-content: center;
+        line-height: 1.8;
+        
     }
 }
