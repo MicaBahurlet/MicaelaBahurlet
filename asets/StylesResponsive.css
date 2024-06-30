@@ -96,7 +96,7 @@
         font-size: 37px;
         width: 100%;
         height: auto;
-        max-width: 350px;
+        max-width: 300px;
     }
 
     .TextHero h2 {
@@ -113,7 +113,7 @@
         width: 100%;
         font-size: 15px;
         padding: 0.6em 1.5em;
-        max-width: 10rem;
+        max-width: 11rem;
         
        
     }
@@ -132,9 +132,17 @@
         flex-direction: column;
         width: 100%;
         height: auto;
-        max-width: 370px;
+        max-width: 350px;
         margin: 4rem auto;
         gap: 3rem;
+    }
+
+    #about .titleIntereses h3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
     }
 
     #AboutME {
@@ -166,6 +174,13 @@
         gap: 3rem;
     }
 
+    #SectionHabilidades .TituloHabilidades h2 {
+        font-size: 25px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
     #SectionHabilidades .LogosHabilidades {
         display: flex;
         flex-wrap: wrap;
@@ -186,6 +201,13 @@
         width: calc(30% - 10px); 
         margin-bottom: 10px;
         
+    }
+
+    #SectionHabilidadesBack .TituloHabilidades h2 {
+        font-size: 25px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
 
     #FormacionAcademica {
@@ -275,6 +297,68 @@
         max-width: 350px;
         
     }
+
+    #OtrosTrabajos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: start;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        max-width: 350px;
+        margin: 4rem auto;
+        gap: 3rem;
+        line-height: 1.8;
+    }
+
+    #OtrosTrabajosDescripcion {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        gap: 1rem;
+        width: 100%;
+        height: auto;
+        max-width: 350px;
+        
+    }
+
+    .descripcionCarrusel .liExperiencias ul li {
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        gap: 1rem;
+        width: 100%;
+        height: auto;
+        max-width: 350px;
+        
+    }
+
+    #Certificates {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: start;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        max-width: 350px;
+        margin: 4rem auto;
+        gap: 3rem;
+        line-height: 1.8;
+    }
+
+    #Certificates img {
+        width: 100%;
+        height: auto;
+        max-width: 350px;
+    }
+
+
+
+
 
     #contact {
         display: flex;

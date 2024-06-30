@@ -9,20 +9,20 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 15rem;
+    scroll-padding-top: 18rem;
 }
 
 
 body{
    
     background-color: whitesmoke;
-    cursor: none;
+    /* cursor: none; */
 
 }
 
 /* '''''''''''''''''''''''''''''''''''''''''''''''''''Cursor '''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 
-.cursor-dot {
+/* .cursor-dot {
     width: 6px;
     height: 6px;
     background-color: #8FC1BE;
@@ -47,7 +47,7 @@ body{
     -o-border-radius: 50%;
     z-index: 1;
     pointer-events: none;
-}
+} */
 
 /* '''''''''''''''''''''''''''''''''''''''''''''''''''Header y nav'''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 
@@ -166,9 +166,9 @@ main{
     border-right: 3px solid ;
     margin-bottom: 2rem;
     width: 13ch;
-    animation:  typing 2s steps(18), blink .3s   step-end infinite alternate;
+    animation:  typing 2s steps(19), blink .3s   step-end infinite alternate;
     overflow: hidden;
-    -webkit-animation:  typing 2s steps(18), blink .3s   step-end infinite alternate;
+    -webkit-animation:  typing 2s steps(19), blink .3s   step-end infinite alternate;
 }
 
 @keyframes typing {
@@ -354,24 +354,20 @@ button:hover {
 /* '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''About'''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 
 
-#about {
-    
+#about { 
     display: flex;
     justify-content: space-around;
     align-items: center;
     max-width: 900px;
     padding: 1rem;
-    margin: 0 auto;
+    margin: 3rem auto;
     background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
-    margin-bottom: 3rem;
     filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
-    margin-top: 6rem;
     
 }
 
@@ -381,12 +377,11 @@ button:hover {
     justify-content: center;
     align-items: center;
     position: relative;
-    
-   
     width: 100%;
     max-width: 900px;
     height: auto;
     margin: 3rem auto;
+    margin-top: 2rem;
     
 }
 
@@ -395,6 +390,7 @@ button:hover {
     line-height: 1.5;
     margin-bottom: 1rem;
     margin-left: 3rem;
+    margin-top: 2rem;
 }
 
 #AboutME::before {
@@ -412,24 +408,34 @@ button:hover {
 
 
 .titleIntereses{
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .listaDeIntereses{
-    font-size: 18px;
+    font-size: 19px;
     padding: 0;
     margin: 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     line-height: 1.3;
 }
 
+.listaDeIntereses li{
+    list-style: none;
+}
+
 #about .ImgAbout img{
-    width: 300px;
+    width: 250px;
     height: auto;
     filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.3));
     -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.3));
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    margin: 1rem;
 }
 
 
@@ -531,7 +537,7 @@ button:hover {
     justify-content: start;
     align-items: start;
     text-align: center;
-    margin: 6rem auto;
+    margin: 3rem auto;
     width: 100%;
     height: auto;
     max-width: 800px;
@@ -556,6 +562,9 @@ button:hover {
     line-height: 1.5;
 }    
 
+/* #FormacionAcademica .ListaFormacionAcademica li{
+    list-style: none ;
+} */
 
 
 
@@ -724,17 +733,12 @@ button:hover {
 
 #contact{
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
-    align-items: center;
+    justify-content: start;
+    align-items: start;
     width: 100%;
-    height: auto;
-    max-width: 1100px;
-    margin: 1rem auto;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    margin-top: 4rem;
-    gap: 5rem;
-    margin-bottom: 4rem;
+    max-width: 1200px;
+    margin: 4rem 17rem;
 
 }
 
@@ -745,6 +749,7 @@ button:hover {
 #contact p {
     font-size: 19px;
     line-height: 1.3; 
+    margin-bottom: 2rem;
 }
 
 
@@ -765,15 +770,17 @@ button:hover {
 #contact .Contactos .Gmail{
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     margin-bottom: 0.5rem;
 }
 
-#contact .Contactos .Gmail p{
+/* #contact .Contactos .Gmail p{
     font-size: 18px;
-}
+    align-items: center;
+    justify-content: ;
+} */
 
 #contact .Contactos .Gmail img{
     width: 50px;
@@ -975,7 +982,7 @@ footer p{
 
 
 
-#OtrosTrabajos{
+#OtrosTrabajos {
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -987,44 +994,126 @@ footer p{
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#OtrosTrabajos h2{
-   margin-bottom: 1rem;
+#OtrosTrabajos h2 {
+    margin-bottom: 1rem;
 }
 
-
-#OtrosTrabajosDescripcion{
+#OtrosTrabajosDescripcion {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items: start;
     margin: 2rem auto;
-    gap: 3rem;
     width: 100%;
-    height: auto;
     max-width: 1200px;
+    gap: 3rem;
 }
 
 #OtrosTrabajosDescripcion .carrusel {
-    width: 100%;
-    height: auto;
+    flex: 1;
     max-width: 700px;
-
 }
 
-
-
-#OtrosTrabajosDescripcion .carousel-inner img{
+#OtrosTrabajosDescripcion .carousel-inner img {
     width: 100%;
     height: auto;
-    max-width: 800px;
+    max-width: 650px;
     border-radius: 10px;
 }
 
+.descripcionCarrusel {
+    flex: 1;
+    max-width: 600px;
+    margin-left: 2rem;
+    justify-content: center;
+    align-self: center;
+}
 
+.descripcionCarrusel .liExperiencias {
+    list-style-type: none;
+    padding: 0;
+    
+}
 
 .descripcionCarrusel .liExperiencias li {
     line-height: 1.8;
-    gap: 1rem;
+    margin-bottom: 1rem;
+    
 }
+
+
+
+#Certificates {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    width: 100%;
+    max-width: 1200px;
+    margin: 4rem 17rem;
+}
+
+#Certificates h2 {
+    margin-bottom: 3rem;
+}
+
+.certificates-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    width: 100%;
+    height: auto;
+    max-width: 1200px;
+    
+}
+
+.certificate-item img {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+/* Estilos para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 800px;
+    cursor: default;
+}
+
+.close {
+    position: absolute;
+    top: 50px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 
 
 
