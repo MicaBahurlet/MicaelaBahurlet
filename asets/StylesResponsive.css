@@ -88,12 +88,26 @@
     color: #332E2E;
     }
 
+    #home {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+        margin: 2rem auto;
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        padding: 3rem;
+        gap: 3rem;
+
+    }
+
     .TextHero {
         text-align: start;
     }
 
-    .TextHero span {
-        font-size: 37px;
+    #home .TextHero span {
+        font-size: 34px;
         width: 100%;
         height: auto;
         max-width: 300px;
@@ -113,7 +127,7 @@
         width: 100%;
         font-size: 15px;
         padding: 0.6em 1.5em;
-        max-width: 11rem;
+        max-width: 10rem;
         
        
     }
@@ -542,9 +556,24 @@
         gap: 4rem;
         color: #332E2E;
     }
+    #home{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        margin: 2rem auto;
+    }
     
     #home  .TextHero  span {
-        font-size: 3rem;
+        width: 100%;
+        height: auto;
+        max-width: 350px;
+        font-size: 10px;
+    
     }
 
     #SectionProyectos{
@@ -558,9 +587,9 @@
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     }
     
-    #SectionProyectos h2{
+    /* #SectionProyectos h2{
        margin-bottom: 1rem;
-    }
+    } */
 
     #projects {
         display: flex;
@@ -568,7 +597,7 @@
         align-items: center;
         width: 100%;
         max-width: 800px;
-        margin: 2rem auto;
+        margin: 1rem auto;
     }
 
     .ScreenSitios img {
