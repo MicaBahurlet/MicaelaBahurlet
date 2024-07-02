@@ -12,7 +12,7 @@ html {
     scroll-padding-top: 18rem;
 }
 
-
+ 
 body{
    
     background-color: whitesmoke;
@@ -145,7 +145,6 @@ main{
 #home {
     
     display: flex;
-    
     top: 0;
     left: 0;
     width: 100%;
@@ -159,11 +158,12 @@ main{
 
 #home  .TextHero span{
     display: block;
+    max-width: 900px;
     font-size: 4rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     font-weight: 600;
     white-space: nowrap;
-    border-right: 3px solid ;
+    border-right: 4px solid ;
     margin-bottom: 2rem;
     width: 13ch;
     animation:  typing 2s steps(19), blink .3s   step-end infinite alternate;
