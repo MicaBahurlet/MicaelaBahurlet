@@ -122,6 +122,14 @@ header{
     
 }
 
+.lenguageFlag {
+    width: 40px;
+    height: auto;
+    margin-left: 1rem; /* Ajusta el margen según sea necesario */
+    margin-top: auto;  /* Centra verticalmente si es necesario */
+    margin-bottom: auto; /* Centra verticalmente si es necesario */
+}
+
 
 
 /* '''''''''''''''''''''''''''''''''''''''''''''''''''Main and Hero '''''''''''''''''''''''''''''''''''''''''''''''''''''*/
@@ -1113,6 +1121,8 @@ footer p{
     text-decoration: none;
     cursor: pointer;
 }
+
+
 
 
 
