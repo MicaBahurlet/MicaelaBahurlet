@@ -232,6 +232,7 @@ main{
     align-items: center;
     background-color: FFF7F6;
 
+
 }
 
 #home  .TextHero span{
@@ -292,6 +293,7 @@ main{
     gap: 1rem;
     align-items: center;
     margin-top: 1rem;
+    margin-bottom: 7rem;
     
 }
 
@@ -449,6 +451,8 @@ button:hover {
     
 }
 
+
+
 #AboutME{
     display: flex;
     flex-direction: column;
@@ -528,9 +532,9 @@ button:hover {
     width: 100%;
     max-width: 900px;
     height: auto;
-    margin: 3rem auto;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    margin-top: 7rem;
+    margin: 1rem auto;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 4rem;
    
 }
 
@@ -546,8 +550,8 @@ button:hover {
     gap: 0.8rem;
     width: 100%;
     max-width: 950px;
-    margin-top: 4rem;
-    margin-bottom: 1rem;
+    margin-top: 2rem;
+
 }
 
 #SectionHabilidades .LogosHabilidades img{
@@ -562,7 +566,7 @@ button:hover {
 #SectionHabilidades .LogoGrandes img{
     width: 100%;
     height: auto;
-    max-width: 60px;
+    max-width: 50px;
     align-items: center;
     filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
     -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
@@ -577,9 +581,9 @@ button:hover {
     width: 100%;
     max-width: 900px;
     height: auto;
-    margin: 3rem auto;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    margin-top: 4rem;
+    margin: 1rem auto;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 3rem;
    
 }
 
@@ -592,16 +596,17 @@ button:hover {
     width: 100%;
     max-width: 950px;
     margin-top: 4rem;
-    margin-bottom: 2rem;
+
 }
 
 #SectionHabilidadesBack .LogosHabilidades img{
     width: 100%;
     height: auto;
-    max-width: 70px;
+    max-width: 60px;
     align-items: center;
     filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
     -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
+    margin-top: -2rem;
 }
 
 
@@ -664,7 +669,10 @@ button:hover {
 
 #SectionProyectos h2{
    margin-bottom: 1rem;
+
 }
+
+
 
 /* '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''Cards Proyectos'''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 
