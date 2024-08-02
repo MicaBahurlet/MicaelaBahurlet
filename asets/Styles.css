@@ -223,6 +223,8 @@ main{
 #home {
     
     display: flex;
+    align-items: center;
+    justify-content: center;
     top: 0;
     left: 0;
     width: 100%;
@@ -393,6 +395,8 @@ button:hover {
 
 #home .ImgHero img{
     width: 350px;
+    pointer-events: none;
+    user-select: none;
     height: auto;
     filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
     border-radius: 10px;
@@ -473,6 +477,8 @@ button:hover {
     margin-bottom: 1rem;
     margin-left: 3rem;
     margin-top: 2rem;
+    pointer-events: none;
+    user-select: none;
 }
 
 #AboutME::before {
@@ -518,6 +524,8 @@ button:hover {
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
     margin: 1rem;
+    pointer-events: none;
+    user-select: none;
 }
 
 
@@ -535,11 +543,15 @@ button:hover {
     margin: 1rem auto;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 4rem;
+    pointer-events: none;
+    user-select: none;
    
 }
 
 #SectionHabilidades .tituloHabilidades{
     text-align: start;
+    pointer-events: none;
+    user-select: none;
 }
 
 #SectionHabilidades .LogosHabilidades{
@@ -561,6 +573,8 @@ button:hover {
     align-items: center;
     filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
     -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
+    pointer-events: none;
+    user-select: none;
 }
 
 #SectionHabilidades .LogoGrandes img{
@@ -570,6 +584,8 @@ button:hover {
     align-items: center;
     filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
     -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
+    pointer-events: none;
+    user-select: none;
 }
 
 
@@ -584,6 +600,8 @@ button:hover {
     margin: 1rem auto;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 3rem;
+    pointer-events: none;
+    user-select: none;
    
 }
 
@@ -607,6 +625,8 @@ button:hover {
     filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
     -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
     margin-top: -2rem;
+    pointer-events: none;
+    user-select: none;
 }
 
 
@@ -624,7 +644,8 @@ button:hover {
     width: 100%;
     height: auto;
     max-width: 1000px;
-   
+    pointer-events: none;
+    user-select: none;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -643,6 +664,7 @@ button:hover {
     margin: 1rem 2rem;
     margin-bottom: 2rem;
     line-height: 1.5;
+    
 }    
 
 /* #FormacionAcademica .ListaFormacionAcademica li{
@@ -722,6 +744,9 @@ button:hover {
     -moz-transition: transform 0.3s ease;
     -ms-transition: transform 0.3s ease;
     -o-transition: transform 0.3s ease;
+    pointer-events: none;
+    user-select: none;
+
 }
 
 /* .ScreenSitios img:hover {
@@ -825,6 +850,7 @@ button:hover {
     width: 100%;
     max-width: 1200px;
     margin: 4rem 17rem;
+    
 
 }
 
@@ -1057,6 +1083,8 @@ footer{
 footer img{
     width: 150px;
     height: auto;
+    pointer-events: none;
+    user-select: none;
    
 }
 
