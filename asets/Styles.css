@@ -215,7 +215,7 @@ main {
   height: auto;
   justify-content: center;
   align-items: center;
-  background-color: FFF7F6;
+
 }
 
 #home .TextHero span {
@@ -379,6 +379,7 @@ button:hover {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+  margin-bottom: 4rem;
 }
 
 .scroll-indicator {
