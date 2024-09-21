@@ -120,7 +120,7 @@ nav {
   background-color: #8fc1be;
   transform: scaleX(0);
   transform-origin: bottom right;
-  transition: transform 0.3s ease; /* transición para el efecto de aparición */
+  transition: transform 0.3s ease; 
 }
 
 .nav a:hover::before {
@@ -297,7 +297,6 @@ main {
 
 #home button a {
   text-decoration: none;
-  /* color: #332E2E; */
   color: whitesmoke;
 }
 
@@ -619,9 +618,6 @@ button:hover {
   line-height: 1.5;
 }
 
-/* #FormacionAcademica .ListaFormacionAcademica li{
-    list-style: none ;
-} */
 
 /* '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''Proyectos'''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 #ContainerProyectsMain {
@@ -688,15 +684,9 @@ button:hover {
   -o-transition: transform 0.3s ease;
   pointer-events: none;
   user-select: none;
+
 }
 
-/* .ScreenSitios img:hover {
-    transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
-} */
 
 .Logos img {
   max-width: 150px;
@@ -727,11 +717,6 @@ button:hover {
 }
 
 #projects .VisitarSitioBtn {
-  /* /* border: #332E2E solid 0.5px; */
-
-  /* background-color: #8FC1BE;   */
-  /* background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
-        background-blend-mode: multiply,multiply; */
   background-color: #4a5568;
 
   border-radius: 15px;
@@ -751,7 +736,6 @@ button:hover {
 
 #projects .VisitarSitioBtn a {
   text-decoration: none;
-  /* color: #332E2E; */
 }
 
 .VisitarSitioBtn a:hover {
@@ -997,7 +981,6 @@ footer {
   margin: 0 auto;
   gap: 1rem;
   padding: 2rem 0;
-  /* background: whitesmoke; */
   border-top: #332e2e solid 0.5px;
 }
 
@@ -1110,7 +1093,6 @@ footer p {
   cursor: pointer;
 }
 
-/* Estilos para el modal */
 .modal {
   display: none;
   position: fixed;
