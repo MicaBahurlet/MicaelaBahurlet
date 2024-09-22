@@ -98,7 +98,7 @@
         max-width: 350px;
         height: auto;
         padding: 3rem;
-        gap: 3rem;
+        gap: 2rem;
 
     }
 
@@ -111,6 +111,10 @@
         width: 100%;
         height: auto;
         max-width: 300px;
+    }
+
+    #home .ImgHero img {
+        max-width: 400px;
     }
 
     .TextHero h2 {
@@ -237,6 +241,11 @@
         margin: 4rem auto;
         gap: 2rem;
         line-height: 1.8;
+        background-image: none;
+    }
+
+    #FormacionAcademica .tituloFormacionAcademica h2 {
+        margin: 0 auto;
     }
 
 

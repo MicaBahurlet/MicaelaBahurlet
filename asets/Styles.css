@@ -9,11 +9,14 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 18rem;
+  /* overflow-x: hidden; */
 }
+
 
 body {
   background-color: whitesmoke;
   /* cursor: none; */
+  /* overflow-x: hidden; */
 }
 
 /* '''''''''''''''''''''''''''''''''''''''''''''''''''Cursor '''''''''''''''''''''''''''''''''''''''''''''''''''''*/
@@ -116,11 +119,16 @@ nav {
   position: absolute;
   width: 100%;
   height: 3px;
-  bottom: -4px;
+  bottom: -3px;
   background-color: #8fc1be;
   transform: scaleX(0);
   transform-origin: bottom right;
-  transition: transform 0.3s ease; 
+  transition: transform 0.3s ease;
+  box-sizing: border-box;
+  -webkit-transition: transform 0.3s ease;
+  -moz-transition: transform 0.3s ease;
+  -ms-transition: transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
 }
 
 .nav a:hover::before {
@@ -195,9 +203,9 @@ main {
   justify-content: space-around;
   align-items: center;
   justify-content: center;
-  margin: 10rem auto;
+  margin: 7rem auto;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
   height: auto;
   padding: 3rem;
   gap: 4rem;
@@ -279,9 +287,10 @@ main {
 
 #home button {
 
-  background-color: #4a5568;
-
-  border: #332e2e solid 0.5px;
+  /* background-color: #4a5568; */
+  /* background-color: #7c2af2; */
+  /* background-color: #8fc1be; */
+  border: transparent solid 0.5px;
   border-radius: 15px;
   background-size: 100% auto;
   font-family: "Montserrat", sans-serif;
@@ -293,11 +302,16 @@ main {
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
+  background-image: url('../img/Btn4.jpg'); 
+  /* background-size: cover; */
 }
 
 #home button a {
   text-decoration: none;
+  /* color: #332e2e; */
   color: whitesmoke;
+
+
 }
 
 button:hover {
@@ -323,10 +337,10 @@ button:hover {
 }
 
 #home .buttonCV {
+
+  background-image: none;
   background-color: transparent;
-
   border: #332e2e solid 0.5px;
-
   border-radius: 15px;
   background-size: 100% auto;
   font-family: "Montserrat", sans-serif;
@@ -338,11 +352,13 @@ button:hover {
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
+
 }
 
 #home .buttonCV a {
   text-decoration: none;
   color: #332e2e;
+
 }
 
 .buttonCV:hover {
@@ -368,17 +384,18 @@ button:hover {
 }
 
 #home .ImgHero img {
-  width: 350px;
+  width: 500px;
   pointer-events: none;
   user-select: none;
   height: auto;
-  filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
+  -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.2));
 }
 
 .scroll-indicator {
@@ -408,14 +425,15 @@ button:hover {
 
 /* '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''About'''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 
-#about {
+/* #about {
   display: flex;
   justify-content: space-around;
   align-items: center;
   max-width: 1000px;
   padding: 2rem;
-  margin: 3rem auto;
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  margin: 3rem auto; */
+  /* background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); */
+  /* background-image: url('../img/Btn4.jpg' );
   border-radius: 15px;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
@@ -423,7 +441,42 @@ button:hover {
   -o-border-radius: 15px;
   filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
   gap: 2rem;
+  
+} */
+
+#about {
+  position: relative; /* Necesario para que el pseudo-elemento se posicione correctamente */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1000px;
+  padding: 2rem;
+  margin: 3rem auto;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
+  gap: 2rem;
+  z-index: -1; 
 }
+
+#about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/Btn4.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  opacity: 0.8;
+  z-index: -2; 
+}
+
 
 #AboutME {
   display: flex;
@@ -446,6 +499,7 @@ button:hover {
   margin-top: 2rem;
   pointer-events: none;
   user-select: none;
+  
 }
 
 #AboutME::before {
@@ -462,23 +516,26 @@ button:hover {
 .titleIntereses {
   font-size: 1.7rem;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  color: whitesmoke;
 }
 
 .listaDeIntereses {
-  font-size: 19px;
+  font-size: 20px;
   padding: 0;
   margin: 0;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   line-height: 1.3;
+  color: whitesmoke;
 }
 
 .listaDeIntereses li {
   list-style: none;
+  color: whitesmoke;
 }
 
 #about .ImgAbout img {
-  width: 250px;
+  width: 300px;
   height: auto;
   filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.3));
   -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.3));
@@ -592,19 +649,33 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: start;
+  /* align-items: flex-end;
+  text-align: right; */
   align-items: start;
-  text-align: center;
+  text-align: start;
   margin: 3rem auto;
   width: 100%;
-  height: auto;
-  max-width: 1000px;
+  height:auto;
+  max-width: 1100px;
   pointer-events: none;
   user-select: none;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  /* position: relative; */
+  /* background-image: url('../img/ConRuido.jpg'); */
+  /* background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 1rem;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px; */
 }
 
-#FormacionAcademica .tituloFormacionAcademica h3 {
+#FormacionAcademica .tituloFormacionAcademica h2 {
   font-weight: 600;
+  /* margin-right: 24rem; */
 }
 
 #FormacionAcademica .ListaFormacionAcademica {
@@ -636,6 +707,7 @@ button:hover {
   margin: 3rem auto;
   margin-bottom: 20px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+
 }
 
 #SectionProyectos h2 {
@@ -650,6 +722,7 @@ button:hover {
   justify-content: center;
   gap: 20px;
   width: 100%;
+  max-width: 1100px;
   margin-top: 2rem;
 }
 
@@ -717,12 +790,15 @@ button:hover {
 }
 
 #projects .VisitarSitioBtn {
-  background-color: #4a5568;
-
+  /* background-color: #4a5568; */
+  /* background-color: #8fc1be; */
+  background-image: url('../img/Btn4.jpg'); 
   border-radius: 15px;
   background-size: 100% auto;
   font-family: "Montserrat", sans-serif;
+  /* color: #332e2e; */
   color: whitesmoke;
+  border: transparent solid 0.5px;
   font-size: 17px;
   padding: 0.6em 1.5em;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -883,13 +959,16 @@ button:hover {
 }
 
 #contact .Contactemos {
-   
-  
-  background-color: #4a5568;
+
+  /* background-color: #4a5568; */
+  /* color: #332e2e; */
+  color: whitesmoke;
+  border: transparent solid 0.5px;
+  /* background-color: #8fc1be; */
+  background-image: url('../img/Btn4.jpg'); 
   border-radius: 15px;
   background-size: 100% auto;
   font-family: "Montserrat", sans-serif;
-  color: whitesmoke;
   font-size: 17px;
   padding: 0.6em 1.5em;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -927,6 +1006,7 @@ button:hover {
 
 #TOP {
   margin-bottom: 8rem;
+  
 }
 
 .TOP {
@@ -936,8 +1016,10 @@ button:hover {
   transition: all 0.2s;
   padding: 12px 25px;
   border-radius: 80px;
-  background-color: #4a5568;
-  border: 1px solid #332e2e;
+  /* color: #332e2e; */
+  border: #332e2e solid 0.5px;
+  /* background-color: #8fc1be; */
+  background-image: url('../img/Btn4.jpg'); 
   display: flex;
   align-items: center;
   font-size: 19px;
