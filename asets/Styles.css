@@ -1126,6 +1126,13 @@ footer p {
   border-radius: 10px;
 }
 
+.carousel-control-prev,
+.carousel-control-next {
+    background: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
 .descripcionCarrusel {
   flex: 1;
   max-width: 500px;
@@ -1212,3 +1219,5 @@ footer p {
   text-decoration: none;
   cursor: pointer;
 }
+
+
