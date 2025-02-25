@@ -179,9 +179,37 @@
         margin-top: 2rem;
         max-width: 350px;
     }
+
+    #SectionHabilidades, #SectionHabilidadesBack {
+        padding: 10px;
+        margin-bottom: 2rem;
+    }
+
+    #SectionHabilidade #SectionHabilidadesBack .TituloHabilidades h2 {
+        margin-bottom: 2rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .LogosHabilidades {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+        gap: 10px;
+        justify-items: center;
+    }
+
+    .LogosHabilidades img {
+        max-width: 60px;
+        height: auto;
+    }
+
+    .LogoGrandes img {
+        max-width: 60px !important; 
+    }
     
 
-    #SectionHabilidades {
+    /* #SectionHabilidades {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -245,7 +273,7 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-    }
+    } */
 
     #FormacionAcademica {
 

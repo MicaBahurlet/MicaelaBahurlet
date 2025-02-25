@@ -631,7 +631,7 @@ button:hover {
 
 /* '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''Habilidades'''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 
-#SectionHabilidades {
+/* #SectionHabilidades {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -721,6 +721,42 @@ button:hover {
   margin-top: -2rem;
   pointer-events: none;
   user-select: none;
+} */
+
+/* Estilos generales para desktop */
+#SectionHabilidades, #SectionHabilidadesBack {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.TituloHabilidades h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.LogosHabilidades {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.LogosHabilidades div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.LogosHabilidades img {
+  max-width: 60px;
+  height: auto;
+}
+
+.LogoGrandes img {
+  max-width: 60px !important;
 }
 
 /* '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''Formación académica'''''''''''''''''''''''''''''''''''''''''''''''''''''*/
