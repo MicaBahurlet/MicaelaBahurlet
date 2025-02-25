@@ -179,8 +179,55 @@
         margin-top: 2rem;
         max-width: 350px;
     }
+    #SectionHabilidades, 
+  #SectionHabilidadesBack {
+    padding: 1rem;
+    margin: 2rem 0;
+  }
 
-    #SectionHabilidades {
+  /* Títulos */
+  .TituloHabilidades h2 {
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Grid de logos */
+  .LogosHabilidades {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    gap: 1.2rem;
+    justify-items: center;
+    align-items: center;
+    padding: 0 1rem;
+  }
+
+  /* Logos grandes (100px) */
+  .LogoGrandes {
+    grid-column: span 2; /* Ocupan 2 columnas */
+    justify-self: center;
+  }
+
+  /* Ajuste específico para logos con tamaños custom */
+  .LogoGrandes img {
+    max-width: 100px !important; /* Fuerza el tamaño en mobile */
+    width: 100%;
+    height: auto;
+  }
+
+  /* Ajuste para logos medianos */
+  .LogosHabilidades > div:not(.LogoGrandes) img {
+    max-width: 60px;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Sección UX/UI específica */
+  #SectionHabilidadesBack:last-child .LogosHabilidades {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas para pocos logos */
+  }
+
+    /* #SectionHabilidades {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -221,12 +268,24 @@
         
     }
 
+    #SectionHabilidadesBack {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        max-width: 350px;
+        margin: 4rem auto;
+        gap: 3rem;
+    }
+
     #SectionHabilidadesBack .TituloHabilidades h2 {
         font-size: 25px;
         justify-content: center;
         align-items: center;
         text-align: center;
-    }
+    } */
 
     #FormacionAcademica {
 
