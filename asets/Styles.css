@@ -4,6 +4,8 @@
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
   color: #332e2e;
+  /* border: red solid 0.5px;
+  overflow-x: hidden;  */
 }
 
 html {
@@ -445,7 +447,7 @@ button:hover {
 } */
 
 /* #about {
-  position: relative; 
+  position: relative;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -459,7 +461,8 @@ button:hover {
   -o-border-radius: 15px;
   filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
   gap: 2rem;
-  z-index: -1; 
+  z-index: -1;
+  -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
 } */
 
 #about::before {
@@ -472,46 +475,16 @@ button:hover {
   background-image: url('../img/Btn4.jpg');
   background-size: cover;
   background-position: center;
-  border-radius: 15px;
+  border-radius: 13px;
   opacity: 0.8;
-  z-index: -2; 
+  z-index: -2;
+  -webkit-border-radius: 13px;
+  -moz-border-radius: 13px;
+  -ms-border-radius: 13px;
+  -o-border-radius: 13px;
 }
 
 
-#AboutME {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 100%;
-  max-width: 1200px;
-  height: auto;
-  margin: 3rem auto;
-  margin-top: 2rem;
-}
-
-#AboutME p {
-  font-size: 18px;
-  line-height: 1.5;
-  margin-bottom: 1rem;
-  margin-left: 3rem;
-  margin-top: 2rem;
-  pointer-events: none;
-  user-select: none;
-  
-}
-
-#AboutME::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 3px;
-  height: 100%;
-
-  background-color: #8fc1be;
-}
 #about {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -581,17 +554,26 @@ button:hover {
   filter: grayscale(0.3);
 }
 
+/* Contenedor de la imagen */
 .ImgAbout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  max-height: 400px; /* Ajusta según necesites */
   border-radius: 15px;
   overflow: hidden;
   position: relative;
-  height: fit-content;
+  align-self: center; /* Alineación vertical en el grid */
 }
 
+/* Imagen misma */
 .ImgAbout img {
   width: 100%;
   height: auto;
   max-width: 300px;
+  max-height: 100%;
+  object-fit: cover;
   border-radius: 15px;
   transition: transform 0.3s ease;
 }
@@ -599,6 +581,68 @@ button:hover {
 .ImgAbout:hover img {
   transform: scale(1.03);
 }
+
+#AboutME {
+  /* box-sizing: border-box; */
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  /* padding: 0 1.5rem; */
+  position: relative;
+}
+
+/* #AboutME::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 80%;
+  background-color: #8fc1be;
+  border-radius: 2px;
+} */
+
+#AboutME p {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.6;
+  margin: 1.5rem 0;
+  padding-left: 2.5rem;
+  color: #333;
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+  #AboutME {
+    padding: 0 1rem;
+    margin: 1.5rem auto;
+  }
+
+  #AboutME::before {
+    height: 90%;
+    top: 5%;
+  }
+
+  #AboutME p {
+    padding-left: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 1rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  #AboutME::before {
+    width: 2px;
+    height: 95%;
+  }
+
+  #AboutME p {
+    padding-left: 1rem;
+    font-size: 0.95rem;
+  }
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -741,7 +785,7 @@ button:hover {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 
 .LogosHabilidades div {
@@ -751,12 +795,12 @@ button:hover {
 }
 
 .LogosHabilidades img {
-  max-width: 60px;
+  max-width: 50px;
   height: auto;
 }
 
 .LogoGrandes img {
-  max-width: 60px !important;
+  max-width: 50px !important;
 }
 
 /* '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''Formación académica'''''''''''''''''''''''''''''''''''''''''''''''''''''*/
@@ -765,8 +809,6 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: start;
-  /* align-items: flex-end;
-  text-align: right; */
   align-items: start;
   text-align: start;
   margin: 3rem auto;
@@ -776,22 +818,10 @@ button:hover {
   pointer-events: none;
   user-select: none;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  /* position: relative; */
-  /* background-image: url('../img/ConRuido.jpg'); */
-  /* background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  padding: 1rem;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px; */
 }
 
 #FormacionAcademica .tituloFormacionAcademica h2 {
   font-weight: 600;
-  /* margin-right: 24rem; */
 }
 
 #FormacionAcademica .ListaFormacionAcademica {
@@ -1338,7 +1368,7 @@ button:hover {
   /* color: #332e2e; */
   border: #332e2e solid 0.5px;
   /* background-color: #8fc1be; */
-  background-image: url('../img/Btn4.jpg'); 
+  /* background-image: url('../img/Btn4.jpg');  */
   display: flex;
   align-items: center;
   font-size: 19px;

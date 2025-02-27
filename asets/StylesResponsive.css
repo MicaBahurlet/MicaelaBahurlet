@@ -162,7 +162,7 @@
         align-items: center;
         gap: 1rem;
     }
-
+/* 
     #AboutME {
         display: flex;
         justify-content: center;
@@ -178,7 +178,7 @@
     #AboutME p {
         margin-top: 2rem;
         max-width: 350px;
-    }
+    } */
 
     #SectionHabilidades, #SectionHabilidadesBack {
         padding: 10px;
@@ -462,6 +462,13 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
+
+    }
+
+    footer img {
+        width: 100%;
+        height: auto;
+        margin-top: 7rem;
     }
 
     #OtrosTrabajos{
