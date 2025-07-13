@@ -117,13 +117,6 @@ nav {
   transform: scaleX(1);
 }
 
-/* .lenguageFlag {
-    width: 40px;
-    height: auto;
-    margin-left: 1rem; 
-    margin-top: auto;  
-    margin-bottom: auto; 
-} */
 
 .lenguage {
   display: flex;
@@ -134,7 +127,6 @@ nav {
 
 header .lenguage a {
   color: #333e2e;
-  /* background-color: #8FC1BE; */
   border: #332e2e solid 0.5px;
   border-radius: 15px;
   background-size: 100% auto;
@@ -313,7 +305,7 @@ button:hover {
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 15px solid #332e2e;
+  border-top: 15px solid #8fc1be;
   margin-bottom: 10px;
 }
 
@@ -353,43 +345,7 @@ button:hover {
 
 /* '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''About'''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 
-/* #about {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  max-width: 1000px;
-  padding: 2rem;
-  margin: 3rem auto; */
-  /* background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); */
-  /* background-image: url('../img/Btn4.jpg' );
-  border-radius: 15px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -ms-border-radius: 15px;
-  -o-border-radius: 15px;
-  filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
-  gap: 2rem;
-  
-} */
 
-/* #about {
-  position: relative;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  max-width: 1000px;
-  padding: 2rem;
-  margin: 3rem auto;
-  border-radius: 15px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -ms-border-radius: 15px;
-  -o-border-radius: 15px;
-  filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
-  gap: 2rem;
-  z-index: -1;
-  -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));
-} */
 
 #about::before {
   content: "";
@@ -415,9 +371,9 @@ button:hover {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 4rem auto;
-  padding: 2.5rem;
+  padding: 2rem;
   background: #ffffff;
   border-radius: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -432,19 +388,6 @@ button:hover {
   font-weight: 600;
   letter-spacing: -0.5px;
   position: relative;
-  padding-left: 1.5rem;
-}
-
-.titleIntereses::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 60%;
-  width: 4px;
-  background: #8fc1be;
-  border-radius: 2px;
 }
 
 .listaDeIntereses {
@@ -511,29 +454,16 @@ button:hover {
 #AboutME {
   /* box-sizing: border-box; */
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 2rem auto;
   /* padding: 0 1.5rem; */
   position: relative;
 }
 
-/* #AboutME::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 3px;
-  height: 80%;
-  background-color: #8fc1be;
-  border-radius: 2px;
-} */
-
 #AboutME p {
   font-size: clamp(1rem, 2vw, 1.125rem);
   line-height: 1.6;
   margin: 1.5rem 0;
-  padding-left: 2.5rem;
   color: #333;
 }
 
@@ -601,97 +531,6 @@ button:hover {
 
 /* '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''Habilidades'''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 
-/* #SectionHabilidades {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 900px;
-  height: auto;
-  margin: 1rem auto;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  margin-top: 4rem;
-  pointer-events: none;
-  user-select: none;
-}
-
-#SectionHabilidades .tituloHabilidades {
-  text-align: start;
-  pointer-events: none;
-  user-select: none;
-}
-
-#SectionHabilidades .LogosHabilidades {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  gap: 0.8rem;
-  width: 100%;
-  max-width: 950px;
-  margin-top: 2rem;
-}
-
-#SectionHabilidades .LogosHabilidades img {
-  width: 100%;
-  height: auto;
-  max-width: 60px;
-  align-items: center;
-  filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
-  -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
-  pointer-events: none;
-  user-select: none;
-}
-
-#SectionHabilidades .LogoGrandes img {
-  width: 100%;
-  height: auto;
-  max-width: 50px;
-  align-items: center;
-  filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
-  -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
-  pointer-events: none;
-  user-select: none;
-}
-
-#SectionHabilidadesBack {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 900px;
-  height: auto;
-  margin: 1rem auto;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  margin-top: 3rem;
-  pointer-events: none;
-  user-select: none;
-}
-
-#SectionHabilidadesBack .LogosHabilidades {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  gap: 0.8rem;
-  width: 100%;
-  max-width: 950px;
-  margin-top: 4rem;
-}
-
-#SectionHabilidadesBack .LogosHabilidades img {
-  width: 100%;
-  height: auto;
-  max-width: 60px;
-  align-items: center;
-  filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
-  -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
-  margin-top: -2rem;
-  pointer-events: none;
-  user-select: none;
-} */
 
 /* Estilos generales para desktop */
 #SectionHabilidades, #SectionHabilidadesBack {
@@ -747,7 +586,11 @@ button:hover {
 }
 
 #FormacionAcademica .tituloFormacionAcademica h2 {
-  font-weight: 600;
+  font-weight: 500;
+}
+
+#FormacionAcademica .tituloFormacionAcademica h2 span {
+  color: #8fc1be;
 }
 
 #FormacionAcademica .ListaFormacionAcademica {
@@ -787,124 +630,6 @@ button:hover {
 }
 
 /* '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''Cards Proyectos'''''''''''''''''''''''''''''''''''''''''''''''''''''*/
-/* 
-#projects {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  width: 100%;
-  max-width: 1100px;
-  margin-top: 2rem;
-}
-
-.DescriptionProyectos {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-  gap: 0.5rem;
-  width: 100%;
-}
-
-.LogosProyectos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-}
-
-.ScreenSitios img {
-  max-width: 600px;
-  border-radius: 10px;
-  left: 0;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  transition: transform 0.3s ease;
-  -webkit-transition: transform 0.3s ease;
-  -moz-transition: transform 0.3s ease;
-  -ms-transition: transform 0.3s ease;
-  -o-transition: transform 0.3s ease;
-  pointer-events: none;
-  user-select: none;
-
-}
-
-
-.Logos img {
-  max-width: 150px;
-}
-
-.TextProyectos p {
-  line-height: 1.5;
-  text-align: start;
-  font-size: 16px;
-  width: 100%;
-  height: auto;
-  max-width: 500px;
-}
-
-.TextProyectos p a {
-  color: #333e2e;
-  text-decoration: none;
-  font-weight: 700;
-}
-
-#projects .BtnsProyectos {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-#projects .VisitarSitioBtn {
-  background-image: url('../img/Btn4.jpg'); 
-  border-radius: 15px;
-  background-size: 100% auto;
-  font-family: "Montserrat", sans-serif;
-
-  color: whitesmoke;
-  border: transparent solid 0.5px;
-  font-size: 17px;
-  padding: 0.6em 1.5em;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  font-weight: 500;
-  margin-top: 1rem;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -ms-border-radius: 15px;
-  -o-border-radius: 15px;
-}
-
-#projects .VisitarSitioBtn a {
-  text-decoration: none;
-}
-
-.VisitarSitioBtn a:hover {
-  background-position: right center;
-  background-size: 200% auto;
-  -webkit-animation: pulse 2s infinite;
-  animation: pulse512 1.5s infinite;
-  cursor: pointer;
-}
-
-@keyframes pulse512 {
-  0% {
-    box-shadow: 0 0 0 0 #764ba2;
-  }
-
-  70% {
-    box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
-  }
-
-  100% {
-    box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
-  }
-} */
 
 /* Estilos Generales de las Cards */
 #projects {
@@ -1064,47 +789,6 @@ button:hover {
   }
 }
 
-/* Versión Mobile */
-@media (max-width: 768px) {
-  #projects {
-    grid-template-columns: 1fr;
-    padding: 10px;
-  }
-  
-  .LogosProyectos {
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-    height: auto;
-    max-width: 150px;
-  }
-  
-  .ScreenSitios {
-    height: 180px;
-  }
-  
-  .TextProyectos h3 {
-    font-size: 1.3rem;
-  }
-  
-  .BtnsProyectos {
-    flex-direction: row !important; /* Fuerza disposición en fila */
-    flex-wrap: wrap; /* Permite ajuste si no cabe todo */
-    gap: 0.8rem; /* Espaciado reducido */
-  }
-  
-  .VisitarSitioBtn {
-    width: auto !important; /* Ancho automático según contenido */
-    padding: 0.6rem 1rem; /* Padding más compacto */
-    font-size: 14px; /* Tamaño ligeramente reducido */
-  }
-  
-  /* Ajuste para íconos en mobile */
-  .VisitarSitioBtn::before {
-    width: 16px;
-    height: 16px;
-  }
-}
 
 /* Manteniendo tus animaciones y efectos existentes */
 .VisitarSitioBtn:hover {
@@ -1342,7 +1026,7 @@ footer {
 }
 
 footer img {
-  width: 150px;
+  width: 140px;
   height: auto;
   pointer-events: none;
   user-select: none;

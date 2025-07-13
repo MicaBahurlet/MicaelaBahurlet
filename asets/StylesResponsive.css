@@ -74,31 +74,22 @@
 
     /*HERO*/
 
-   main {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: center;
-    margin: 2rem auto;
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    padding: 3rem;
-    gap: 3rem;
-    color: #332E2E;
-    }
-
-    #home {
+    main {
         display: flex;
         flex-direction: column-reverse;
         align-items: center;
         justify-content: center;
         margin: 2rem auto;
         width: 100%;
-        max-width: 350px;
+        max-width: 500px;
         height: auto;
-        padding: 3rem;
-        gap: 2rem;
+        color: #332E2E;
+    }
+
+    #home {
+        padding: 1.5rem 1.5rem;
+        margin: 1rem auto;
+        gap: 0;
 
     }
 
@@ -111,6 +102,7 @@
         width: 100%;
         height: auto;
         max-width: 300px;
+        margin-bottom: 30px;
     }
 
     #home .ImgHero img {
@@ -119,6 +111,11 @@
 
     .TextHero h2 {
         font-size: 25px;
+    }
+
+    .TextHero p {
+        font-size: 17px;
+    
     }
 
    
@@ -139,9 +136,13 @@
         width: 100%;
         font-size: 15px;
         padding: 0.6em 1.5em;
-        max-width: 10rem;
+        max-width: 8rem;
     }
-
+    
+    #home .ImgHero {
+        max-width: 400px;
+        flex: 0;
+    }
 
     #about {
         display: flex;
@@ -162,23 +163,6 @@
         align-items: center;
         gap: 1rem;
     }
-/* 
-    #AboutME {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        width: 100%;
-        height: auto;
-        max-width: 350px;
-        margin: 4rem auto;
-        
-    }
-
-    #AboutME p {
-        margin-top: 2rem;
-        max-width: 350px;
-    } */
 
     #SectionHabilidades, #SectionHabilidadesBack {
         padding: 10px;
@@ -209,72 +193,6 @@
     }
     
 
-    /* #SectionHabilidades {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        width: 100%;
-        height: auto;
-        max-width: 350px;
-        margin: 4rem auto;
-        gap: 3rem;
-    }
-
-    #SectionHabilidades .TituloHabilidades h2 {
-        font-size: 25px;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-
-    #SectionHabilidades .LogosHabilidades {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin: 1rem auto;
-        width: 100%;
-        height: auto;
-        max-width: 350px;
-        gap: 1rem;
-        padding: 1rem;
-    }
-    #SectionHabilidades .LogosHabilidades img {
-        width: 90px;
-        padding: 9px;
-    }
-
-    #SectionHabilidades .LogosHabilidades > div {
-        width: calc(30% - 10px); 
-        margin-bottom: 10px;
-        
-    }
-    #SectionHabilidadesBack .LogosHabilidades > div {
-        width: calc(30% - 10px); 
-        margin-bottom: 10px;
-        
-    }
-
-
-    #SectionHabilidadesBack {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        width: 100%;
-        height: auto;
-        max-width: 350px;
-        margin: 4rem auto;
-        gap: 3rem;
-    }
-
-    #SectionHabilidadesBack .TituloHabilidades h2 {
-        font-size: 25px;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    } */
-
     #FormacionAcademica {
 
         display: flex;
@@ -301,16 +219,16 @@
     #SectionProyectos {
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
         text-align: start;
         flex-direction: column;
         width: 100%;
         height: auto;
         max-width: 350px;
-        margin: 4rem auto;
         gap: 1rem;
-        line-height: 1.8;
+        line-height: 1.3;
+        padding-left: 1rem;
     }
 
     #projects {
@@ -318,7 +236,6 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin: 2rem auto;
         gap: 1rem;
         width: 100%;
         height: auto;
@@ -341,7 +258,7 @@
         justify-content: center;
         align-items: center;
         margin: 2rem auto;
-        gap: 0.5rem;
+        /* gap: 0.5rem; */
         width: 100%;
         height: auto;
         max-width: 350px;
@@ -359,7 +276,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         margin: 0 auto;
         gap: 1rem;
         width: 100%;
@@ -378,8 +295,11 @@
         height: auto;
         max-width: 350px;
         margin: 4rem auto;
-        gap: 3rem;
         line-height: 1.8;
+    }
+
+    #OtrosTrabajos h2 {
+        padding-left: 1.5rem;
     }
 
     #OtrosTrabajosDescripcion {
@@ -392,6 +312,7 @@
         width: 100%;
         height: auto;
         max-width: 350px;
+        padding: 1.5rem 1.5rem;
         
     }
 
@@ -480,7 +401,6 @@
         height: auto;
         max-width: 350px;
         margin: 4rem auto;
-        gap: 3rem;
     }
 
     #OtrosTrabajosDescripcion{
@@ -491,7 +411,6 @@
         width: 100%;
         height: auto;
         max-width: 350px;
-        margin: 2rem auto;
         gap: 3rem;
     }
 
