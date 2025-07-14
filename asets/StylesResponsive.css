@@ -228,6 +228,22 @@
         padding-left: 1rem;
     }
 
+    .description{
+        display: none;
+    }
+
+    .descriptionMobile{
+        display: block;
+    }
+
+    .desciptionEN{
+        display: none;
+    }
+
+    .descriptionMobileEN{
+        display: block;
+    }
+
 
     #projects {
         display: flex; /* 1. Cambiamos a flex para poner las tarjetas en fila */
