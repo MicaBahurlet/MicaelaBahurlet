@@ -328,6 +328,20 @@
         
     }
 
+    .DescriptionDesktop {
+        display: none;
+    }
+    .descriptionMobile {
+        display: block;
+    }
+
+    .descriptionDesktopEN {
+        display: none;
+    }
+    .descriptionMobileEN {
+        display: block;
+    }
+
     .TextProyectos{
         gap: 1rem;
     }

@@ -633,6 +633,10 @@ button:hover {
 
 }
 
+.descriptionMobile {
+  display: none;
+}
+
 #SectionProyectos h2 {
   text-align: left;
 }
