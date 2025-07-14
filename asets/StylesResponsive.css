@@ -40,7 +40,7 @@
         -moz-transition: opacity 0.3s ease, visibility 0.3s ease;
         -ms-transition: opacity 0.3s ease, visibility 0.3s ease;
         -o-transition: opacity 0.3s ease, visibility 0.3s ease;
-}
+    }
     
    
     .nav li a {
@@ -68,9 +68,6 @@
         font-weight: 800; 
     }
 
-    .cursor-dot, .cursor-outline {
-        display: none;
-    }
 
     /*HERO*/
 
@@ -231,39 +228,71 @@
         padding-left: 1rem;
     }
 
+
     #projects {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        display: flex; /* 1. Cambiamos a flex para poner las tarjetas en fila */
+        flex-direction: row; /* 2. Aseguramos la dirección horizontal */
+        overflow-x: auto; /* 3. Habilitamos el scroll horizontal */
+        scroll-snap-type: x mandatory; /* 4. Hacemos que el scroll se "pegue" a cada tarjeta */
+        scroll-padding-left: 1rem; /* 5. Añadimos un padding inicial para el snapping */
+        
         gap: 1rem;
         width: 100%;
-        height: auto;
-        max-width: 350px;
-        
+        padding-right: 0; /* 6. Padding a la izquierda para el margen inicial */
     }
+
+    
+
+    .LogosProyectos {
+        flex: 0 0 85%; /* 7. CADA TARJETA OCUPA EL 85% DEL ANCHO */
+        scroll-snap-align: start; /* 8. El scroll se alinea al inicio de cada tarjeta */
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0; /* Reseteamos el margen */
+        width: auto; /* Dejamos que flex controle el ancho */
+        height: auto;
+    }
+
+    .Logos{
+        display: none;
+    }
+
+    #projects::-webkit-scrollbar { 
+        height: 6px; 
+    }
+    
+    #projects::-webkit-scrollbar-track { 
+        background: rgba(0,0,0,0.1); 
+    }
+
+    #projects::-webkit-scrollbar-thumb {
+        background: #8fc1be;
+        border-radius: 3px;
+        -webkit-border-radius:;
+        -moz-border-radius:;
+        -ms-border-radius:;
+        -o-border-radius:;
+}
 
     #projects .BtnsProyectos{
         display: flex;
-        flex-direction: column;
+        /* flex-direction: column; */
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         gap: 1rem;
         margin-top: 1rem;
     }
 
-    .LogosProyectos {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 2rem auto;
-        /* gap: 0.5rem; */
-        width: 100%;
-        height: auto;
-        max-width: 350px;
-        
+    #projects .VisitarSitioBtn{
+        font-size: 1rem;               
+        padding: 0.75rem 1.5rem;       
+        min-height: 3rem;              
     }
+
+    
 
     .ScreenSitios img {
         width: 100%;
@@ -275,14 +304,17 @@
     .DescriptionProyectos {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: start;
         align-items: flex-start;
         margin: 0 auto;
-        gap: 1rem;
         width: 100%;
         height: auto;
         max-width: 350px;
         
+    }
+
+    .TextProyectos{
+        gap: 1rem;
     }
 
     #OtrosTrabajos {
