@@ -271,15 +271,14 @@
     #projects::-webkit-scrollbar-thumb {
         background: #8fc1be;
         border-radius: 3px;
-        -webkit-border-radius:;
-        -moz-border-radius:;
-        -ms-border-radius:;
-        -o-border-radius:;
-}
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -ms-border-radius: 3px;
+        -o-border-radius: 3px;
+    }
 
     #projects .BtnsProyectos{
         display: flex;
-        /* flex-direction: column; */
         justify-content: center;
         align-items: flex-start;
         gap: 1rem;
@@ -523,7 +522,7 @@
         -moz-transition: opacity 0.3s ease, visibility 0.3s ease;
         -ms-transition: opacity 0.3s ease, visibility 0.3s ease;
         -o-transition: opacity 0.3s ease, visibility 0.3s ease;
-}
+    }
     
     /* Enlaces dentro de la barra de navegación */
     .nav li a {
