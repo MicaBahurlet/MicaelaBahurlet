@@ -218,10 +218,11 @@ header .lenguage a:hover {
 }
 
 .TextHero h2 {
-  font-size: 1.6rem;
-  font-weight: 400;
+  font-size: 1.4rem;
+  font-weight: 300;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 0.3rem;
+  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); */
 }
 
 .TextHero p {
@@ -1349,5 +1350,7 @@ footer p {
   text-decoration: none;
   cursor: pointer;
 }
+
+
 
 
