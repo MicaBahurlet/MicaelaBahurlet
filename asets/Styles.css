@@ -852,6 +852,52 @@ button:hover {
   animation: pulse512 1.5s infinite;
 }
 
+
+.MoreProjectsBtn {
+  background-image: url('../img/Btn4.jpg'); 
+  background-size: 100% auto;
+  border-radius: 15px;
+  color: whitesmoke !important; 
+  border: transparent solid 0.5px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 17px;
+  padding: 0.6em 1.5em;
+  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); */
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+
+.MoreProjectsBtn:hover {
+  background-position: right center;
+  background-size: 200% auto;
+  transform: translateY(-2px);
+  animation: pulse512 1.5s infinite;
+  font-weight: 600;
+}
+
+/* Mantenemos tu animación original */
+@keyframes pulse512 {
+  0% {
+    box-shadow: 0 0 0 0 #764ba2;
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+  }
+}
+
+
+/* Manteniendo tus animaciones y efectos existentes */
+.MoreProjectsBtn:hover {
+  animation: pulse512 1.5s infinite;
+}
+
 /* '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''Contact'''''''''''''''''''''''''''''''''''''''''''''''''''''*/
 
 #contact {

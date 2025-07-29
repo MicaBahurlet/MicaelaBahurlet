@@ -56,7 +56,7 @@
             <main id="home">
                 <div class="TextHero">
                     <span>Micaela Bahurlet</span>
-                    <h2><strong> Full-stack Developer especializada en <b>Front-end</b></strong></h2>
+                    <h2><strong> <b>Full-stack Developer</b> especializada en <b>Front-end</b></strong></h2>
                     <p>&#128075 Hola! es un placer encontrarnos <br>
                         Te invito a conocer mis habilidades y proyectos.
                     </p>
@@ -818,8 +818,15 @@
                             </div>
                         </div>
 
+                            <!-- btn mostrar proyectos -->
+                        <div style="text-align:start;">
+                            <button id="btnCargarMasProyectos" class="MoreProjectsBtn">Cargar más proyectos</button>
+                        </div>
+
                     </section>
                 </section>
+
+                    
 
                     <!-- Sección de Línea del Tiempo -->
                     <section id="timeline">
@@ -1273,6 +1280,49 @@
                                     }
                                 }
                             });
+                    </script>
+
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const proyectos = document.querySelectorAll('#projects .LogosProyectos');
+                            const btnCargar = document.getElementById('btnCargarMasProyectos');
+
+                            function actualizarProyectos() {
+                                if (window.innerWidth > 991) {
+                                    // Desktop: paginación
+                                    let visibles = parseInt(btnCargar.getAttribute('data-visibles')) || 6;
+                                    proyectos.forEach((proy, idx) => {
+                                        proy.style.display = idx < visibles ? 'block' : 'none';
+                                    });
+                                    btnCargar.style.display = (visibles < proyectos.length) ? 'inline-block' : 'none';
+
+                                    btnCargar.onclick = function() {
+                                        visibles += 3;
+                                        btnCargar.setAttribute('data-visibles', visibles);
+                                        proyectos.forEach((proy, idx) => {
+                                            if (idx < visibles) proy.style.display = 'block';
+                                        });
+                                        if (visibles >= proyectos.length) {
+                                            btnCargar.style.display = 'none';
+                                        }
+                                    };
+                                } else {
+                                    // Mobile/tablet: mostrar todos y ocultar botón
+                                    proyectos.forEach(proy => proy.style.display = 'block');
+                                    btnCargar.style.display = 'none';
+                                }
+                            }
+
+                            // Ejecutar al cargar
+                            actualizarProyectos();
+
+                            // Ejecutar al cambiar el tamaño de la ventana
+                            window.addEventListener('resize', function() {
+                                // Reiniciar el contador de visibles al cambiar a desktop
+                                btnCargar.setAttribute('data-visibles', 3);
+                                actualizarProyectos();
+                            });
+                        });
                     </script>
     
 

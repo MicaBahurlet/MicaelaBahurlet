@@ -107,7 +107,7 @@
     }
 
     .TextHero h2 {
-        font-size: 25px;
+        font-size: 24px;
     }
 
     .TextHero p {
@@ -889,4 +889,11 @@
         line-height: 1.8;
         
     }
+}
+
+/* Ocultar el botón "Cargar más proyectos" en mobile y tablet */
+@media (max-width: 991px) {
+  #btnCargarMasProyectos {
+    display: none !important;
+  }
 }
