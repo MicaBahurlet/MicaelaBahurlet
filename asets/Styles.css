@@ -1327,6 +1327,12 @@ footer p {
   margin-bottom: 1rem;
 }
 
+.descripcionCarrusel .liExperiencias a {
+  text-decoration: none;
+  color:#8fc1be;
+  font-weight: 900;
+}
+
 #Certificates {
   display: flex;
   flex-direction: column;
