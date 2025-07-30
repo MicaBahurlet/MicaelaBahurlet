@@ -902,12 +902,12 @@ button:hover {
 
 #contact {
   display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: start;
-  width: 100%;
-  max-width: 1200px;
-  margin: 4rem 17rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+    max-width: 1200px;
+    margin: 4rem auto;
 }
 
 #contact h2 {
@@ -929,7 +929,7 @@ button:hover {
   max-width: 1200px;
   height: auto;
   margin: 0 auto;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   gap: 2rem;
 }
 
@@ -938,7 +938,7 @@ button:hover {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 0.5rem;
 }
 
@@ -961,15 +961,15 @@ button:hover {
   flex-direction: row;
   justify-content: start;
   align-items: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #contact .Contactos .Instagram img {
   width: 80px;
   height: auto;
   margin-right: 0.5rem;
-  filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.2));
-  -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
+  -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
 }
 
 #contact .Contactos .Linkeding {
@@ -977,15 +977,15 @@ button:hover {
   flex-direction: row;
   justify-content: start;
   align-items: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #contact .Contactos .Linkeding img {
   width: 80px;
   height: auto;
   margin-right: 0.5rem;
-  filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.2));
-  -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
+  -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
 }
 
 #contact .Contactos .WhatsApp {
@@ -993,15 +993,15 @@ button:hover {
   flex-direction: row;
   justify-content: start;
   align-items: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #contact .Contactos .WhatsApp img {
   width: 80px;
   height: auto;
   margin-right: 0.5rem;
-  filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.2));
-  -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
+  -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
 }
 
 #contact .Contactos .GitHub {
@@ -1009,15 +1009,15 @@ button:hover {
   flex-direction: row;
   justify-content: start;
   align-items: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #contact .Contactos .GitHub img {
   width: 60px;
   height: auto;
   margin-right: 0.5rem;
-  filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.2));
-  -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
+  -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
 }
 
 #contact .Contactemos {
@@ -1067,7 +1067,7 @@ button:hover {
 }
 
 #TOP {
-  margin-bottom: 8rem;
+  margin-bottom: 9rem;
   
 }
 
@@ -1092,6 +1092,7 @@ button:hover {
   -moz-border-radius: 80px;
   -ms-border-radius: 80px;
   -o-border-radius: 80px;
+
 }
 
 .TOP:hover {
@@ -1334,26 +1335,28 @@ footer p {
 }
 
 #Certificates {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: start;
-  width: 100%;
-  max-width: 1200px;
-  margin: 4rem 17rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+    max-width: 1200px;
+    margin: 4rem auto;
+    text-align: center;
 }
 
 #Certificates h2 {
-  margin-bottom: 3rem;
+    margin-bottom: 2rem;
+    text-align: start;
 }
 
 .certificates-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  width: 100%;
-  height: auto;
-  max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .certificate-item img {
