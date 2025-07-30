@@ -493,7 +493,13 @@
                             </div>    
                         </div>
 
+                        <!-- Agregar después de todos los proyectos, antes de cerrar la sección -->
+                        <div style="text-align:start;">
+                            <button id="btnCargarMasProyectos" class="MoreProjectsBtn">Load more projects</button>
+                        </div>
                     </section>
+
+                    
 
             </section >
 
@@ -885,7 +891,7 @@
                     <div  class="cursor-dot" data-cursor-dot></div>
                     <div  class="cursor-outline" data-cursor-outline></div>
 
-                    <script src="./js/main.js"></script>
+                    <script src="../js/main.js"></script>
                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 
@@ -959,6 +965,52 @@
                                 }
                             });
                     </script>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const proyectos = Array.from(document.querySelectorAll('#projects .LogosProyectos'));
+                        const btnCargar = document.getElementById('btnCargarMasProyectos');
+                        let visibles = 6; // Empezar mostrando 6 proyectos
+
+                        if (!btnCargar || proyectos.length === 0) return;
+
+                        // Guardar el display original de cada proyecto
+                        const displayOriginal = proyectos.map(proy => proy.style.display || getComputedStyle(proy).display);
+
+                        function actualizarProyectos() {
+                            if (window.innerWidth > 991) {
+                                // Desktop: paginación
+                                proyectos.forEach((proy, idx) => {
+                                    proy.style.display = idx < visibles ? displayOriginal[idx] : 'none';
+                                });
+                                btnCargar.style.display = (visibles < proyectos.length) ? 'inline-block' : 'none';
+                            } else {
+                                // Mobile/tablet: mostrar todos y ocultar botón
+                                proyectos.forEach((proy, idx) => {
+                                    proy.style.display = displayOriginal[idx];
+                                });
+                                btnCargar.style.display = 'none';
+                            }
+                        }
+
+                        btnCargar.onclick = function() {
+                            visibles += 3; // Cargar 3 más cada vez
+                            actualizarProyectos();
+                        };
+
+                        window.addEventListener('resize', function() {
+                            if (window.innerWidth > 991) {
+                                visibles = 6; // Reiniciar a 6 en desktop
+                            } else {
+                                visibles = proyectos.length; // Mostrar todos en mobile
+                            }
+                            actualizarProyectos();
+                        });
+
+                        // Inicial
+                        actualizarProyectos();
+                    });
+               </script>
     
 
     </body>
