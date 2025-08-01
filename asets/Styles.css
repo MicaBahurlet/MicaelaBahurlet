@@ -180,11 +180,11 @@ header .lenguage a:hover {
   width: 100%;
   max-width: 1200px;  
   margin: 0 auto;   
-  min-height: 85vh;
-  padding: 0 1rem;             
+  min-height: 80vh;
+  padding: 0 3rem;             
   box-sizing: border-box;
   color: #332e2e;
-  gap: 6rem;
+  gap: 3rem;
 }
 
 .hero-wrapper {
@@ -194,7 +194,7 @@ header .lenguage a:hover {
   align-items: center;
   max-width: 1200px;
   width: 100%;
-  gap: 6rem;
+  /* gap: 3rem; */
   flex-wrap: wrap;
 }
 
@@ -277,7 +277,7 @@ button:hover {
 /* IMG HERO */
 .ImgHero {
   flex: 0 0 500px; 
-  max-width: 500px;
+  max-width: 370px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -289,12 +289,13 @@ button:hover {
   height: auto;
   pointer-events: none;
   user-select: none;
+  padding-right: 2rem ;
 }
 
 /* SCROLL INDICATOR */
 .scroll-indicator {
   position: absolute;
-  bottom: -2rem;
+  bottom: -5rem;
   right: 0;
   display: flex;
   flex-direction: column;
@@ -1530,7 +1531,9 @@ footer p {
     
     .status-text-sliding {
         font-size: 1rem;
-    }
+        animation: slideLeft 7s linear infinite;
+        -webkit-animation: slideLeft 7s linear infinite;
+}
     
     .status-item {
         padding: 0.8rem;
