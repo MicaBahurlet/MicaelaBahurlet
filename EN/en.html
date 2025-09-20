@@ -22,6 +22,12 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
                 
     </head>
 
@@ -42,7 +48,7 @@
                             <li><a href="#home">Home</a></li>
                             
                             <li><a href="#projects">Projects</a></li>
-                            <li><a href="#SectionHabilidades">Technologies</a></li>
+                            <li><a href="#NewSkillsSection">Technologies</a></li>
                             <li><a href="#about">About me</a></li>
                             <li><a href="#Certificates">Certificates</a></li>
                             <li><a href="#contact">Contact</a></li>
@@ -647,126 +653,90 @@
                     
 
         <hr>
-        <!--  Habylities Section -->
-        <section id="SectionHabilidades">
-                        <div class="TituloHabilidades">
-                            <h2>Front-End Languages and Technologies:</h2>
+                <!-- New Skills Grid Section -->
+                <section id="NewSkillsSection" class="py-5">
+                    <div class="container">
+                        <h2 class="mb-5">Habilidades y Tecnologías</h2>
+                        <div class="row g-4">
+                            <!-- Frontend Card -->
+                            <div class="col-12 col-md-6">
+                                <div class="skill-card h-100">
+                                    <div class="skill-card-header">
+                                        <i class="fas fa-laptop-code"></i>
+                                        <h3>Frontend</h3>
+                                    </div>
+                                    <div class="skill-items">
+                                        <div class="skill-item"><i class="devicon-html5-plain colored"></i> HTML5</div>
+                                        <div class="skill-item"><i class="devicon-css3-plain colored"></i> CSS3</div>
+                                        <div class="skill-item"><i class="devicon-javascript-plain colored"></i> JavaScript</div>
+                                        <div class="skill-item"><i class="devicon-react-original colored"></i> React</div>
+                                        <div class="skill-item"><i class="devicon-bootstrap-plain colored"></i> Bootstrap</div>
+                                        <div class="skill-item"><i class="devicon-wordpress-plain colored"></i> WordPress</div>
+                                        <div class="skill-item"><i class="devicon-woocommerce-plain colored"></i> WooCommerce</div>
+                                        <div class="skill-item"><i class="devicon-sass-original colored"></i> SASS</div>
+                                        <div class="skill-item"><i class="devicon-styledcomponents-plain colored"></i> Styled Components</div>
+                                        <div class="skill-item"><i class="devicon-tailwindcss-plain colored"></i> Tailwind CSS</div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- Backend Card -->
+                            <div class="col-12 col-md-6">
+                                <div class="skill-card h-100">
+                                    <div class="skill-card-header">
+                                        <i class="fas fa-server"></i>
+                                        <h3>Backend</h3>
+                                    </div>
+                                    <div class="skill-items">
+                                        <div class="skill-item"><i class="devicon-nodejs-plain colored"></i> Node.js</div>
+                                        <div class="skill-item"><i class="devicon-typescript-plain colored"></i> TypeScript</div>
+                                        <div class="skill-item"><i class="devicon-php-plain colored"></i> PHP</div>
+                                        <div class="skill-item"><i class="devicon-laravel-plain colored"></i> Laravel</div>
+                                        <div class="skill-item"><i class="devicon-mongodb-plain colored"></i> MongoDB</div>
+                                        <div class="skill-item"><i class="devicon-mysql-plain colored"></i> MySQL</div>
+                                        <div class="skill-item"><i class="devicon-express-original colored"></i> Express</div>
+                                        <div class="skill-item"><i class="devicon-jest-plain colored"></i> Jest</div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- Development Tools Card -->
+                            <div class="col-12 col-md-6">
+                                <div class="skill-card h-100">
+                                    <div class="skill-card-header">
+                                        <i class="fas fa-tools"></i>
+                                        <h3>Development Tools </h3>
+                                    </div>
+                                    <div class="skill-items">
+                                        <div class="skill-item"><i class="devicon-git-plain colored"></i> Git</div>
+                                        <div class="skill-item"><i class="devicon-github-original colored"></i> GitHub</div>
+                                        <div class="skill-item"><i class="devicon-vitejs-plain colored"></i> Vite.js</div>
+                                        <div class="skill-item"><i class="fas fa-server"></i> XAMPP</div>
+                                        <div class="skill-item"><i class="devicon-dbeaver-plain colored"></i> DBeaver</div>
+                                        <div class="skill-item"><i class="devicon-jira-plain colored"></i> Jira</div>
+                                        <div class="skill-item"><i class="devicon-npm-original-wordmark colored"></i> npm</div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- UX/UI Tools Card -->
+                            <div class="col-12 col-md-6">
+                                <div class="skill-card h-100">
+                                    <div class="skill-card-header">
+                                        <i class="fas fa-paint-brush"></i>
+                                        <h3>UX/UI Tools </h3>
+                                    </div>
+                                    <div class="skill-items">
+                                        <div class="skill-item"><i class="devicon-figma-plain colored"></i> Figma</div>
+                                        <div class="skill-item"><i class="devicon-photoshop-plain colored"></i> Photoshop</div>
+                                        <div class="skill-item"><i class="devicon-canva-original colored"></i> Canva</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="LogosHabilidades">
-                            <div>
-                                <img src="../img/html-5.png" alt="Logo HTML5">
-                            </div>
-            
-                            <div>
-                                <img src="../img/css-3.png" alt=" Logo Css" >
-                            </div>
-                            
-                            <div>
-                                <img src="../img/js.png" alt="Logo JavaScript">
-                            </div>
-                            <div class="LogoGrandes">
-                                <img src="../img/ReactLogo.png" alt="Logo React">
-                            </div>
-                            <div class="LogoGrandes">
-                                <img src="../img/Vite.png" alt="Logo Vite.js">
-                            </div>
-
-                            
-                            
-                            <div>
-                                <img src="../img/BootstrapLogo.png" alt="Logo Bootstrap">
-                            </div>
-                            <div>
-                                <img src="../img/WordPress.png" alt="Logo Wordpress">
-                            </div>
-                            <div>
-                                <img src="../img/WooLogo.png" alt="Logo WooCommerce">
-                            </div>
-                            <div>
-                                <img src="../img/SassLogo.png" alt="Logo Sass">
-                            </div>
-                            <div>
-                                <img src="../img/styled.png" alt="Logo Sass">
-                            </div>
-
-
-                            <div>
-                                <img src="../img/Tailwind.png" alt=" Logo Tailwind">
-                            </div>
-
-                            <div>
-                                <img src="../img/GitLogo.png" alt="Logo Git">
-                            </div>
-                            <div>
-                                <img src="../img/GitHubNegro.png" alt="Logo GitHub">
-                            </div>
-                            
-
-                            
-
-                        </div>
-        </section>
-
-        <!--  Habylities back Section -->
-
-        <section id="SectionHabilidadesBack">
-                        <div class="TituloHabilidades">
-                            <h2>Back-end Languages and Technologies:</h2>
-                        </div>
-                        <div class="LogosHabilidades">
-                            <div class="LogoGrandes">
-                                <img src="../img/node.png" alt="Logo Node.js" style="max-width: 100px;">
-                            </div>
-                            <div class="LogoGrandes">
-                                <img src="../img/Typescript.png" alt="Logo Typescript" style="max-width: 100px;">
-                            </div>
-                            <div class="LogoGrandes">
-                                <img src="../img/phpLogo.png" alt="Logo Node.js" style="max-width: 100px;">
-                            </div>
-                            <div class="LogoGrandes">
-                                <img src="../img/Laravel.png" alt="Logo Node.js" style="max-width: 50px;">
-                            </div>
-                            <div class="LogoGrandes">
-                                <img src="../img/mongo.png" alt="Logo Mongo DB" style="max-width: 80px;">
-                            </div>
-                            
-                            <div>
-                                <img src="../img/mysql.png" alt="Logo Node.js">
-                            </div>
-                            <div class="LogoGrandes">
-                                <img src="../img/express.png" alt="Logo Express" style="max-width: 80px;">
-                            </div>
-                            <div class="LogoGrandes">
-                                <img src="../img/xampp.png" alt="Logo Express" style="max-width: 60px;">
-                            </div>
-                            <div >
-                                <img src="../img/dbeader.png" alt="Logo Node.js">
-                            </div>
-                            
-            
-
-                        </div>
-        </section>
-
-
-        <!--  Habylities UX/UI Section -->
-        <section id="SectionHabilidadesBack">
-                        <div class="TituloHabilidades">
-                            <h2>UX/UI Tools:</h2>
-                        </div>
-                        <div class="LogosHabilidades">
-                            <div class="LogoGrandes">
-                                <img src="../img/PhotoshopLogo.png" alt="Logo Photoshop" style="max-width: 55px;">
-                            </div>
-                                
-                            <div class="LogoGrandes">
-                                <img src="../img/Figma.png" alt="Logo Figma" style="max-width: 55px;">
-                            </div>
-            
-
-                        </div>
-        </section>
-
+                    </div>
+                </section>
                   
         <!--  Formation Section -->
         <section id="FormacionAcademica">
@@ -889,16 +859,14 @@
 
                         <div class="Contactos">
 
-                            
-
-                            <div class="WhatsApp">
+                            <!-- <div class="WhatsApp">
                                 <a href="https://walink.co/b81e9d"  target="_blank">
                                     <img src="../img/WhatsAppsLogo.png" alt="WhatsApps Contacto">
                                 </a>  
                                 <a href="https://walink.co/b81e9d"  target="_blank"> 
                                     <button class="Contactemos">Contact</button>
                                 </a>     
-                            </div>
+                            </div> -->
 
                             <div class="Linkeding">
                                 <a href="https://www.linkedin.com/in/micaelabahurlet/" target="_blank">
@@ -907,15 +875,6 @@
                                 <a href="https://www.linkedin.com/in/micaelabahurlet/" target="_blank">
                                     <button class="Contactemos">Contact</button>
                                 </a>    
-                            </div>
-
-                            <div class="Instagram">
-                                <a href="https://www.instagram.com/bahurlet_mica/" target="_blank">
-                                    <img src="../img/INSTAGRAM.png" alt="Intagram Personal">
-                                </a>    
-                                <a href="https://www.instagram.com/bahurlet_mica/" target="_blank">
-                                    <button class="Contactemos">Contact</button>
-                                </a> 
                             </div>
 
                             <div class="GitHub">
