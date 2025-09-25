@@ -1299,7 +1299,7 @@ button:hover {
   color: #332e2e;
   font-size: 2.2rem;
   font-weight: 700;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   text-align: left;
   position: relative;
   display: block;
@@ -1396,6 +1396,58 @@ button:hover {
   font-weight: 500;
   color: #4a5568;
   margin-bottom: 1rem;
+}
+
+.timeline-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.tech-item {
+  display: flex;
+  align-items: center;
+  background: #f8fafc;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #4a5568;
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.tech-item i {
+  margin-right: 5px;
+  font-size: 1rem;
+  color: #4a5568;
+}
+
+.tech-item:hover {
+  background: #e2e8f0;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.tech-item.fa-react { color: #61dafb; }
+.tech-item.fa-node-js { color: #68a063; }
+.tech-item.fa-css3-alt { color: #2965f1; }
+.tech-item.fa-html5 { color: #e34f26; }
+.tech-item.fa-js { color: #f7df1e; }
+.tech-item.fa-wordpress { color: #21759b; }
+.tech-item.fa-figma { color: #f24e1e; }
+.tech-item.fa-bootstrap { color: #7952b3; }
+.tech-item.fa-git-alt { color: #f05032; }
+.tech-item.fa-laptop-code { color: #4a5568; }
+.tech-item.fa-database { color: #336791; }
+
+/* Ocultar timeline-technologies en móviles */
+@media (max-width: 768px) {
+    .timeline-technologies {
+        display: none;
+    }
 }
 
 .timeline-description {
