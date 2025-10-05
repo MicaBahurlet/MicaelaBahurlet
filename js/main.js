@@ -19,6 +19,39 @@ enlaces.forEach((enlace) => {
     });
 });
 
+// ====================================
+// DARK MODE FUNCTIONALITY
+// ====================================
+
+const darkModeToggle = document.querySelector("#darkModeToggle");
+const body = document.body;
+const darkModeIcon = darkModeToggle.querySelector("i");
+
+// Check for saved dark mode preference or default to light mode
+const currentMode = localStorage.getItem("darkMode");
+
+// Apply saved preference on page load
+if (currentMode === "enabled") {
+    body.classList.add("dark-mode");
+    darkModeIcon.classList.remove("bi-moon-fill");
+    darkModeIcon.classList.add("bi-sun-fill");
+}
+
+// Toggle dark mode on button click
+darkModeToggle.addEventListener("click", () => {
+    body.classList.toggle("dark-mode");
+    
+    // Update icon
+    if (body.classList.contains("dark-mode")) {
+        darkModeIcon.classList.remove("bi-moon-fill");
+        darkModeIcon.classList.add("bi-sun-fill");
+        localStorage.setItem("darkMode", "enabled");
+    } else {
+        darkModeIcon.classList.remove("bi-sun-fill");
+        darkModeIcon.classList.add("bi-moon-fill");
+        localStorage.setItem("darkMode", "disabled");
+    }
+});
 
 
 // const cursorDot = document.querySelector([".cursor-dot"]);
