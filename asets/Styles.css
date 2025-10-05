@@ -272,7 +272,7 @@ header .lenguage a {
   background-size: 100% auto;
   font-family: "Montserrat", sans-serif;
   font-size: 15px;
-  padding: 0.6em 1.5em;
+  padding: 0.6em 1em;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   font-weight: 500;
   -webkit-border-radius: 15px;
@@ -1792,7 +1792,7 @@ footer p {
   background: transparent;
   border: #332e2e solid 0.5px;
   border-radius: 15px;
-  padding: 0.6em 1em;
+  padding: 0.3em 1em;
   font-size: 18px;
   cursor: pointer;
   color: #332e2e;
