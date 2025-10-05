@@ -222,8 +222,8 @@ nav {
 
 .logo {
   max-width: 160px;
-  filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
-  -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
+  /* filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1));
+  -webkit-filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.1)); */
   height: auto;
 }
 
@@ -1776,6 +1776,405 @@ footer p {
     }
 }
 
+/* ====================================
+   DARK MODE STYLES
+   ==================================== */
+
+/* Header Actions Container */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Dark Mode Button */
+.dark-mode-btn {
+  background: transparent;
+  border: #332e2e solid 0.5px;
+  border-radius: 15px;
+  padding: 0.6em 1em;
+  font-size: 18px;
+  cursor: pointer;
+  color: #332e2e;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+.dark-mode-btn:hover {
+  background-position: right center;
+  background-size: 200% auto;
+  animation: pulse512 1.5s infinite;
+  cursor: pointer;
+}
+
+.dark-mode-btn i {
+  font-size: 1.2rem;
+}
+
+/* Dark Mode Active Styles */
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Universal text color in dark mode */
+body.dark-mode * {
+  color: #ffffff;
+}
+
+/* Header */
+body.dark-mode header {
+  background-color: #1a1a1a;
+  box-shadow: 2px 4px 14px 0px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .nav {
+  background-color: #1a1a1a;
+}
+
+body.dark-mode .nav-list li a {
+  color: #ffffff;
+}
+
+body.dark-mode .dark-mode-btn {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+body.dark-mode .dark-mode-btn i {
+  color: #ffffff;
+}
+
+body.dark-mode .lenguage a {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+body.dark-mode .abrir-menu,
+body.dark-mode .cerrar-menu {
+  color: #ffffff;
+}
+
+/* Hero Section */
+body.dark-mode #home {
+  color: #ffffff;
+}
+
+body.dark-mode .TextHero span,
+body.dark-mode .TextHero h2,
+body.dark-mode .TextHero h2 b,
+body.dark-mode .TextHero p {
+  color: #ffffff;
+}
+
+body.dark-mode #home button {
+  border-color: #ffffff;
+}
+
+body.dark-mode #home .buttonCV {
+  border-color: #ffffff;
+}
+
+body.dark-mode #home .buttonCV a {
+  color: #ffffff;
+}
+
+/* Status Section */
+body.dark-mode #current-status {
+  background-color: #1a1a1a;
+}
+
+body.dark-mode .status-container {
+  background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .status-header h2 {
+  color: #ffffff;
+}
+
+body.dark-mode .status-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .status-text-sliding {
+  color: #e0e0e0;
+}
+
+body.dark-mode .status-text-sliding b {
+  color: #ffffff;
+}
+
+/* Projects Section */
+body.dark-mode #SectionProyectos h2,
+body.dark-mode #SectionProyectos p {
+  color: #ffffff;
+}
+
+body.dark-mode .LogosProyectos {
+  background: #0000001a;
+}
+
+body.dark-mode .DescriptionProyectos {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: #2d2d2d;
+}
+
+body.dark-mode .TextProyectos h3,
+body.dark-mode .TextProyectos p {
+  color: #ffffff;
+}
+
+body.dark-mode .TechTag {
+  background: #8fc1be;
+  color: #1a1a1a;
+}
+
+body.dark-mode .VisitarSitioBtn {
+  background-color: #8fc1be;
+  background-size: 100% auto;
+  border-radius: 15px;
+  color: #332e2e !important; 
+  border: #332e2e solid 0.5px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 17px;
+  padding: 0.6em 1.5em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+body.dark-mode .MoreProjectsBtn {
+  color: #ffffff !important;
+}
+
+body.dark-mode .DescriptionProyectos a {
+  color: #8fc1be;
+}
+
+/* Skills Section */
+body.dark-mode #NewSkillsSection {
+  background-color: #2d2d2d;
+}
+
+body.dark-mode #NewSkillsSection h2 {
+  color: #ffffff;
+}
+
+body.dark-mode .skill-card {
+  background: #1a1a1a;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .skill-card-header {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .skill-card-header h3 {
+  color: #ffffff;
+}
+
+body.dark-mode .skill-card-header i {
+  color: #8fc1be;
+}
+
+body.dark-mode .skill-item {
+  background-color: #2d2d2d;
+  color: #ffffff;
+}
+
+body.dark-mode .skill-item:hover {
+  background-color: #3a3a3a;
+}
+
+/* About Section */
+body.dark-mode #about {
+  background: #2d2d2d;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .titleIntereses {
+  color: #ffffff;
+}
+
+body.dark-mode .listaDeIntereses li {
+  background: #1a1a1a;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+body.dark-mode .listaDeIntereses li:hover {
+  background-color: #3a3a3a;
+}
+
+body.dark-mode #AboutME p {
+  color: #e0e0e0;
+}
+
+/* Timeline Section */
+body.dark-mode #timeline {
+  background-color: #1a1a1a;
+}
+
+body.dark-mode .timeline-container h2 {
+  color: #ffffff;
+}
+
+body.dark-mode .timeline-content {
+  background: #2d2d2d;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .timeline-content::before {
+  border-right-color: #2d2d2d;
+}
+
+body.dark-mode .timeline-header h3,
+body.dark-mode .timeline-company,
+body.dark-mode .timeline-description {
+  color: #ffffff;
+}
+
+body.dark-mode .timeline-date {
+  background: #8fc1be;
+  color: #1a1a1a;
+}
+
+body.dark-mode .tech-item {
+  background: #1a1a1a;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+body.dark-mode .tech-item:hover {
+  background: #3a3a3a;
+}
+
+body.dark-mode .tech-item i {
+  color: #ffffff;
+}
+
+/* Formacion Academica */
+body.dark-mode #FormacionAcademica h2,
+body.dark-mode #FormacionAcademica p,
+body.dark-mode #FormacionAcademica .ListaFormacionAcademica {
+  color: #ffffff;
+}
+
+/* Certificates Section */
+body.dark-mode #Certificates h2 {
+  color: #ffffff;
+}
+
+body.dark-mode .certificate-item img {
+  box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+/* Contact Section */
+body.dark-mode #contact h2,
+body.dark-mode #contact p {
+  color: #ffffff;
+}
+
+body.dark-mode .Contactemos {
+  color: #ffffff !important;
+}
+
+/* Footer */
+body.dark-mode footer {
+  border-top-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode footer p {
+  color: #ffffff;
+}
+
+/* Otros Trabajos */
+body.dark-mode #OtrosTrabajos h2,
+body.dark-mode .SectionOthersproject h2 {
+  color: #ffffff;
+}
+
+body.dark-mode .descripcionCarrusel .liExperiencias li {
+  color: #ffffff;
+}
+
+body.dark-mode .descripcionCarrusel .liExperiencias a {
+  color: #8fc1be;
+}
+
+/* TOP Button */
+body.dark-mode .TOP {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+body.dark-mode .TOP:hover {
+  border-color: #8fc1be;
+}
+
+/* Logo filter in dark mode */
+body.dark-mode .logo {
+  filter: brightness(0) invert(1);
+}
+
+/* Scroll indicator */
+body.dark-mode .arrow-down {
+  border-top-color: #8fc1be;
+}
+
+body.dark-mode .scroll-indicator p {
+  color: #ffffff;
+}
+
+/* Container Projects Main */
+body.dark-mode #ContainerProyectsMain {
+  background-color: #0000001a;
+}
+
+/* Additional icon fixes */
+body.dark-mode .skill-card-header i,
+body.dark-mode .skill-item i {
+  color: #8fc1be;
+}
+
+/* Ensure all headings are white */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: #ffffff;
+}
+
+/* Fix any remaining colored elements */
+body.dark-mode .date {
+  color: #e0e0e0;
+}
+
+body.dark-mode strong,
+body.dark-mode b {
+  color: #ffffff;
+}
+
+/* Carousel controls */
+body.dark-mode .carousel-control-prev,
+body.dark-mode .carousel-control-next {
+  filter: invert(1);
+}
 
 
 

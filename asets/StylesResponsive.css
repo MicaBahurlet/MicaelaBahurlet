@@ -899,3 +899,63 @@
     display: none !important;
   }
 }
+
+/* ====================================
+   DARK MODE RESPONSIVE STYLES
+   ==================================== */
+
+/* Mobile Dark Mode Styles */
+@media (max-width: 767px) {
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-direction: row;
+  }
+
+  .dark-mode-btn {
+    padding: 0.5em 0.8em;
+    font-size: 16px;
+  }
+
+  .dark-mode-btn i {
+    font-size: 1rem;
+  }
+
+  /* Dark mode mobile nav */
+  body.dark-mode .nav {
+    background-color: #1a1a1a;
+  }
+
+  body.dark-mode .nav-list li a {
+    color: #ffffff;
+  }
+
+  body.dark-mode .abrir-menu,
+  body.dark-mode .cerrar-menu {
+    color: #ffffff;
+  }
+}
+
+/* Tablet Dark Mode Styles */
+@media (min-width: 768px) and (max-width: 991px) {
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .dark-mode-btn {
+    padding: 0.6em 0.9em;
+    font-size: 17px;
+  }
+
+  /* Dark mode tablet nav */
+  body.dark-mode .nav {
+    background-color: #1a1a1a;
+  }
+
+  body.dark-mode .nav-list li a {
+    color: #ffffff;
+  }
+}
