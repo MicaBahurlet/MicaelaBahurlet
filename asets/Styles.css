@@ -2119,6 +2119,7 @@ body.dark-mode .descripcionCarrusel .liExperiencias a {
 body.dark-mode .TOP {
   border-color: #ffffff;
   color: #ffffff;
+  background-color: #0000001a;
 }
 
 body.dark-mode .TOP:hover {
@@ -2140,9 +2141,9 @@ body.dark-mode .scroll-indicator p {
 }
 
 /* Container Projects Main */
-body.dark-mode #ContainerProyectsMain {
+/* body.dark-mode #ContainerProyectsMain {
   background-color: #0000001a;
-}
+} */
 
 /* Additional icon fixes */
 body.dark-mode .skill-card-header i,
