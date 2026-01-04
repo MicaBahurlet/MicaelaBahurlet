@@ -73,7 +73,14 @@ function initHeroGsapAnimations() {
 
     if (!heroName || !heroTitle) return;
 
-    window.gsap.set(heroName, { opacity: 0, y: 30 });
+    // Split hero name into characters for animation
+    const nameText = heroName.textContent;
+    heroName.innerHTML = nameText.split('').map(char => 
+        `<span class="char" style="display:inline-block;opacity:0;">${char === ' ' ? '&nbsp;' : char}</span>`
+    ).join('');
+    
+    const chars = heroName.querySelectorAll('.char');
+
     window.gsap.set(heroTitle, { opacity: 0 });
 
     if (highlights.length) {
@@ -90,11 +97,13 @@ function initHeroGsapAnimations() {
 
     const tl = window.gsap.timeline({ defaults: { ease: "power3.out" } });
 
-    tl.to(heroName, {
+    // Animate name characters with stagger
+    tl.to(chars, {
         opacity: 1,
         y: 0,
-        duration: .6,
-        ease: "power3.out",
+        duration: 0.04,
+        stagger: 0.02,
+        ease: "power2.out",
     })
         .to(
             heroTitle,
@@ -110,7 +119,7 @@ function initHeroGsapAnimations() {
             highlights,
             {
                 backgroundSize: "100% 100%",
-                duration: 0.6,
+                duration: 0.5,
                 stagger: 0.2,
                 ease: "power3.inOut",
             },

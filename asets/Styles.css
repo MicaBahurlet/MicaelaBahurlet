@@ -344,18 +344,14 @@ header .lenguage a:hover {
   min-width: 0;
 }
 
-/* Typewriter animation only for hero name */
+/* Hero name - GSAP animated */
 .TextHero .hero-name {
   display: block;
   font-size: 4rem;
   font-weight: 600;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   white-space: nowrap;
-  overflow: hidden;
-  border-right: 4px solid;
-  width: 13ch;
-  min-width: 13ch;
-  animation: typing 2s steps(19), blink 0.3s step-end infinite alternate;
+  overflow: visible;
 }
 
 /* Modern highlight effect for GSAP animations */
@@ -513,17 +509,6 @@ button:hover {
 }
 
 /* ANIMACIONES */
-@keyframes typing {
-  from {
-    width: 0;
-  }
-}
-
-@keyframes blink {
-  60% {
-    border-color: transparent;
-  }
-}
 
 @keyframes pulse512 {
   0% {

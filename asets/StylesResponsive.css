@@ -107,16 +107,14 @@
     }
 
     #home .TextHero .hero-name {
-        font-size: 28px !important;
+        font-size: 2rem !important;
         width: auto !important;
         min-width: 0 !important;
         max-width: 100%;
         height: auto;
         margin-bottom: 20px;
-        white-space: normal !important;
-        overflow: visible !important;
-        border-right: none !important;
-        animation: none !important;
+        white-space: nowrap;
+        overflow: visible;
     }
 
     .highlight-text {
