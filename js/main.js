@@ -93,7 +93,7 @@ function initHeroGsapAnimations() {
     tl.to(heroName, {
         opacity: 1,
         y: 0,
-        duration: .8,
+        duration: .6,
         ease: "power3.out",
     })
         .to(
