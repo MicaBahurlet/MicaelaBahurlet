@@ -27,7 +27,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
         <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
                 
     </head>
 
@@ -69,14 +69,18 @@
         <!-- heroSite -->
         <main id="home">
                 <div class="TextHero">
-                    <span>Micaela Bahurlet</span>
-                    <h2><strong> <b>Full-stack Developer</b> specialized in <b>Front-end</b></strong></h2>
-                    <p>&#128075 Hello! It's a pleasure to meet you <br>
-                        I invite you to learn about my skills and projects.
-                    </p>
+                    <span class="hero-name">Micaela Bahurlet</span>
+                    <h2 class="hero-title"><strong>
+                        <span class="hero-title-line hero-title-role"><span class="highlight-text">Full-stack Developer</span></span>
+                        <span class="hero-title-line hero-title-spec">specialized in <span class="highlight-text">Front-end</span></span>
+                    </strong></h2>
+                    <div class="hero-description">
+                        <p class="line-text">&#128075 Hello! It's a pleasure to meet you</p>
+                        <p class="line-text">I invite you to learn about my skills and projects.</p>
+                    </div>
                     <div class="BtnsHero">
-                        <button> <a href="https://walink.co/b81e9d"  target="_blank">Contact</a></button>
-                        <button class="buttonCV"> <a href="https://drive.google.com/file/d/1-gZh3Kq02FnW8vPZychvTHylXbvAHHeM/view?usp=sharing" target="_blank">Download cv </a></button>
+                        <button class="hero-btn-1"> <a href="https://walink.co/b81e9d"  target="_blank">Contact</a></button>
+                        <button class="buttonCV hero-btn-2"> <a href="https://drive.google.com/file/d/1-gZh3Kq02FnW8vPZychvTHylXbvAHHeM/view?usp=sharing" target="_blank">Download cv </a></button>
                     </div>    
                 </div>
                 <div class="ImgHero" >
@@ -134,6 +138,7 @@
                                     <div class="TechTags">
                                         <span class="TechTag">CSS</span>
                                         <span class="TechTag">WordPress</span>
+                                        <span class="TechTag">ACF</span>
                                         <span class="TechTag">Twig.html</span>
                                         <span class="TechTag">JavaScript</span>
                                         <span class="TechTag">Figma</span>
@@ -711,6 +716,10 @@
                                                 <span>WordPress</span>
                                             </div>
                                             <div class="tech-item">
+                                                <i class="devicon-wordpress-plain"></i>
+                                                <span>ACF</span>
+                                            </div>
+                                            <div class="tech-item">
                                                 <i class="fab fa-html5"></i>
                                                 <span>HTML</span>
                                             </div>
@@ -865,6 +874,7 @@
                                     </div>
                                     <div class="skill-items">
                                         <div class="skill-item"><i class="devicon-nodejs-plain colored"></i> Node.js</div>
+                                        <div class="skill-item"><i class="devicon-nextjs-original-wordmark colored"></i> Next.js</div>
                                         <div class="skill-item"><i class="devicon-typescript-plain colored"></i> TypeScript</div>
                                         <div class="skill-item"><i class="devicon-php-plain colored"></i> PHP</div>
                                         <div class="skill-item"><i class="devicon-laravel-plain colored"></i> Laravel</div>

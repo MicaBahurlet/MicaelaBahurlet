@@ -344,31 +344,83 @@ header .lenguage a:hover {
   min-width: 0;
 }
 
-.TextHero span {
+/* Typewriter animation only for hero name */
+.TextHero .hero-name {
   display: block;
   font-size: 4rem;
   font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   white-space: nowrap;
   overflow: hidden;
   border-right: 4px solid;
   width: 13ch;
   min-width: 13ch;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   animation: typing 2s steps(19), blink 0.3s step-end infinite alternate;
 }
 
+/* Modern highlight effect for GSAP animations */
+.highlight-text {
+  background: linear-gradient(120deg, rgba(143, 193, 190, 0.3) 0%, rgba(143, 193, 190, 0.5) 100%);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  background-position: left center;
+  padding: 0 0.2em;
+  border-radius: 4px;
+  transition: background-size 0.5s ease;
+  display: inline;
+  font-size: inherit !important;
+  font-weight: 600;
+}
+
+.hero-description {
+  overflow: hidden;
+}
+
+.line-text {
+  margin: 0;
+  padding: 0;
+}
+
 .TextHero h2 {
-  font-size: 1.4rem;
-  font-weight: 300;
+  font-size: 1.5rem !important;
+  font-weight: 400;
   margin-bottom: 1rem;
-  margin-top: 0.3rem;
-  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); */
+  margin-top: 0.5rem;
+  line-height: 1.5;
+  white-space: normal;
+}
+
+.TextHero h2 strong {
+  font-weight: 400;
+}
+
+.TextHero h2 .highlight-text {
+  font-size: inherit !important;
+  display: inline;
+  font-weight: 600;
+}
+
+.TextHero .hero-title-line {
+  display: inline;
+}
+
+@media (min-width: 768px) {
+  .TextHero h2 {
+    white-space: nowrap;
+  }
+  .TextHero .hero-title-line {
+    display: inline;
+  }
 }
 
 .TextHero p {
   font-size: 19px;
-  line-height: 1.7;
-  margin-bottom: 1rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.hero-description p:last-child {
+  margin-bottom: 0.5rem;
 }
 
 /* BOTONES */
@@ -422,6 +474,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation:none !important;
 }
 
 .ImgHero img {
@@ -430,6 +483,7 @@ button:hover {
   pointer-events: none;
   user-select: none;
   padding-right: 2rem ;
+  animation:none !important;
 }
 
 /* SCROLL INDICATOR */
