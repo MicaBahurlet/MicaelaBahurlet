@@ -28,6 +28,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
         <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+        <script src="https://unpkg.com/lucide@latest"></script>
                 
     </head>
 
@@ -596,12 +597,17 @@
                                     <div class="timeline-dot"></div>
                                     <div class="timeline-content">
                                         <div class="timeline-header">
-                                            <h3>Frontend Developer</h3>
+                                            <h3>Full-stack developer specialized in frontend</h3>
                                             <span class="timeline-date">Dec. 2025 - Present</span>
                                         </div>
-                                        <div class="timeline-company">Cronopia - Full time</div>
+                                        <div class="timeline-company" style="display: flex; align-items: center; gap: 0.5rem;">
+                                            <span>Cronopia - Full time</span>
+                                            <a href="https://cronopiaweb.com/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center;">
+                                                <i data-lucide="external-link" style="width: 16px; height: 16px; color: #8fc1be;"></i>
+                                            </a>
+                                        </div>
                                         <p class="timeline-description">
-                                            In this role, I handle the front-end development of websites and website components, replicating and implementing designs created by the company's design team. I work with various technologies,languages and frameworks.
+                                            I handle the development of websites, components, and systems, replicating the designs created by the company's design team. I work on diverse projects using various technologies, languages, and frameworks.
                                         </p>
                                         <div class="timeline-technologies">
                                             <div class="tech-item">
@@ -621,6 +627,10 @@
                                                 <span>JavaScript</span>
                                             </div>
                                             <div class="tech-item">
+                                                <i class="devicon-javascript-plain"></i>
+                                                <span>Medusa.js</span>
+                                            </div>
+                                            <div class="tech-item">
                                                 <i class="fab fa-css3-alt"></i>
                                                 <span>Tailwind CSS</span>
                                             </div>
@@ -629,10 +639,7 @@
                                                 <i class="fab fa-css3-alt"></i>
                                                 <span>Css</span>
                                             </div>
-                                            <div class="tech-item">
-                                                <i class="fab fa-figma"></i>
-                                                <span>Figma</span>
-                                            </div>
+                                            
                                             <div class="tech-item">
                                                 <i class="fas fa-laptop-code"></i>
                                                 <span>Next.js</span>
@@ -644,6 +651,10 @@
                                             <div class="tech-item">
                                                 <i class="fab fa-git-alt"></i>
                                                 <span>Git</span>
+                                            </div>
+                                            <div class="tech-item">
+                                                <i class="fab fa-figma"></i>
+                                                <span>Figma</span>
                                             </div>
                                         </div>
                                     </div>
@@ -657,9 +668,14 @@
                                             <h3>Full-stack developer specialized in frontend</h3>
                                             <span class="timeline-date">Sept. 2025 - Present</span>
                                         </div>
-                                        <div class="timeline-company">The Brand Lab - Part time</div>
+                                        <div class="timeline-company" style="display: flex; align-items: center; gap: 0.5rem;">
+                                            <span>The Brand Lab - Part time</span>
+                                            <a href="https://www.thebrandlab.cl/home" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center;">
+                                                <i data-lucide="external-link" style="width: 16px; height: 16px; color: #8fc1be;"></i>
+                                            </a>
+                                        </div>
                                         <p class="timeline-description">
-                                            In this Chilean startup, I work as a full-stack developer in charge of designing user interfaces with UX/UI principles.
+                                            In this Chilean startup, I work as a full-stack developer in charge of product design and development, respecting UX/UI principles.
                                         </p>
                                         <div class="timeline-technologies">
                                             <div class="tech-item">
@@ -706,7 +722,12 @@
                                             <h3>Frontend Developer</h3>
                                             <span class="timeline-date">June 2025 - August 2025</span>
                                         </div>
-                                        <div class="timeline-company">GoNear Consultant - Complete Project</div>
+                                        <div class="timeline-company" style="display: flex; align-items: center; gap: 0.5rem;">
+                                            <span>GoNear Consultant - Complete Project</span>
+                                            <a href="https://www.gonear.tech/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center;">
+                                                <i data-lucide="external-link" style="width: 16px; height: 16px; color: #8fc1be;"></i>
+                                            </a>
+                                        </div>
                                         <p class="timeline-description">
                                             Front-end interface development for the website of a major American company. I work from Figma wireframes, with a focus on responsive design and usability across all devices.
                                         </p>
@@ -748,9 +769,11 @@
                                     <div class="timeline-content">
                                         <div class="timeline-header">
                                             <h3>Full Stack Developer</h3>
-                                            <span class="timeline-date">2023 - Present</span>
+                                            <span class="timeline-date">2023 - July 2025</span>
                                         </div>
-                                        <div class="timeline-company">Códea Desarrollo</div>
+                                        <div class="timeline-company" style="display: flex; align-items: center; gap: 0.5rem;">
+                                            <span>Freelancer</span>
+                                        </div>
                                         <p class="timeline-description">
                                             Design, development, and maintenance of institutional websites, landing pages, and online stores. Helping brands gain online visibility and improve their search engine rankings.
                                         </p>
@@ -1232,6 +1255,9 @@
                         // Inicial
                         actualizarProyectos();
                     });
+
+                    // Initialize Lucide icons
+                    lucide.createIcons();
         </script>
     
 
