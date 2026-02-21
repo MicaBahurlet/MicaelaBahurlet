@@ -594,8 +594,9 @@ button:hover {
 
 #about {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  grid-template-columns: 1fr auto;
+  gap: 2.5rem;
+  align-items: start;
   max-width: 1100px;
   margin: 4rem auto;
   padding: 2rem;
@@ -651,30 +652,43 @@ button:hover {
 
 /* Contenedor de la imagen */
 .ImgAbout {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  max-height: 400px; /* Ajusta según necesites */
+  position: relative;
+  width: 280px;
+  height: 350px;
   border-radius: 15px;
   overflow: hidden;
-  position: relative;
-  align-self: center; /* Alineación vertical en el grid */
+  flex-shrink: 0;
+  align-self: center;
 }
 
 /* Imagen misma */
 .ImgAbout img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  max-width: 300px;
-  max-height: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 15px;
-  transition: transform 0.3s ease;
+  transition: opacity 0.5s ease;
 }
 
-.ImgAbout:hover img {
-  transform: scale(1.03);
+.ImgAbout .about-img-default {
+  opacity: 1;
+  z-index: 1;
+}
+
+.ImgAbout .about-img-hover {
+  opacity: 0;
+  z-index: 2;
+}
+
+#about:hover .ImgAbout .about-img-default {
+  opacity: 0;
+}
+
+#about:hover .ImgAbout .about-img-hover {
+  opacity: 1;
 }
 
 #AboutME {
@@ -740,13 +754,15 @@ button:hover {
   
   .ImgAbout {
     order: -1;
+    width: 100%;
+    height: 250px;
     max-width: 300px;
     margin: 0 auto;
   }
   
   .titleIntereses {
     font-size: 1.5rem;
-    padding-left: 1rem;
+    padding-left: 0;
   }
   
   .listaDeIntereses li {
@@ -803,21 +819,11 @@ button:hover {
   align-items: start;
   text-align: start;
   margin: 3rem auto;
+  padding: 0 1.5rem;
   width: 100%;
-  height:auto;
+  height: auto;
   max-width: 1100px;
-  pointer-events: none;
-  user-select: none;
-  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); */
 }
-
-/* #FormacionAcademica .tituloFormacionAcademica h2 {
-  font-weight: 500;
-}
-
-#FormacionAcademica .tituloFormacionAcademica h2 span {
-  color: #8fc1be;
-} */
 
 #FormacionAcademica h2 {
   color: #332e2e;
@@ -830,17 +836,91 @@ button:hover {
   width: 100%;
 }
 
-/* Removed underline from section headings */
+#FormacionAcademica .formacion-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
 
-#FormacionAcademica .ListaFormacionAcademica {
+#FormacionAcademica .formacion-card {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 16px;
+  padding: 1.8rem 1.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  align-items: start;
-  font-size: 17px;
-  margin: 1rem 2rem;
-  margin-bottom: 2rem;
-  line-height: 1.5;
+  align-items: flex-start;
+  gap: 0.8rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+#FormacionAcademica .formacion-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #8fc1be;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+#FormacionAcademica .formacion-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(143, 193, 190, 0.18);
+  border-color: #8fc1be;
+}
+
+#FormacionAcademica .formacion-card:hover::before {
+  transform: scaleX(1);
+}
+
+#FormacionAcademica .formacion-card-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 0.3rem;
+}
+
+#FormacionAcademica .formacion-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #332e2e;
+  line-height: 1.4;
+  margin: 0;
+}
+
+#FormacionAcademica .formacion-card-institution {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.4;
+  margin: 0;
+}
+
+#FormacionAcademica .formacion-card-status {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  margin-top: auto;
+}
+
+#FormacionAcademica .formacion-card-status.en-curso {
+  background: rgba(143, 193, 190, 0.15);
+  color: #5a9e99;
+}
+
+#FormacionAcademica .formacion-card-status.finalizado {
+  background: rgba(51, 46, 46, 0.08);
+  color: #666;
 }
 
 
@@ -2111,10 +2191,31 @@ body.dark-mode .tech-item i {
 }
 
 /* Formacion Academica */
-body.dark-mode #FormacionAcademica h2,
-body.dark-mode #FormacionAcademica p,
-body.dark-mode #FormacionAcademica .ListaFormacionAcademica {
+body.dark-mode #FormacionAcademica h2 {
   color: #ffffff;
+}
+
+body.dark-mode #FormacionAcademica .formacion-card {
+  background: #2a2a2a;
+  border-color: #3a3a3a;
+}
+
+body.dark-mode #FormacionAcademica .formacion-card:hover {
+  border-color: #8fc1be;
+  box-shadow: 0 12px 32px rgba(143, 193, 190, 0.12);
+}
+
+body.dark-mode #FormacionAcademica .formacion-card-title {
+  color: #ffffff;
+}
+
+body.dark-mode #FormacionAcademica .formacion-card-institution {
+  color: #aaa;
+}
+
+body.dark-mode #FormacionAcademica .formacion-card-status.finalizado {
+  background: rgba(255, 255, 255, 0.08);
+  color: #aaa;
 }
 
 /* Certificates Section */
