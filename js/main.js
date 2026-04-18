@@ -97,12 +97,12 @@ function initHeroGsapAnimations() {
 
     const tl = window.gsap.timeline({ defaults: { ease: "power3.out" } });
 
-    // Animate name characters with stagger
+
     tl.to(chars, {
         opacity: 1,
         y: 0,
-        duration: 0.04,
-        stagger: 0.02,
+        duration: 0.08,
+        stagger: 0.05,
         ease: "power2.out",
     })
         .to(
