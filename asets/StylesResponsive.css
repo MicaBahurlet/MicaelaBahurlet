@@ -7,6 +7,9 @@
 
     header {
         width: 100%;
+        -webkit-box-shadow: 0 2px 8px 0px rgba(0, 0, 0, 0.15);
+        -moz-box-shadow: 0 2px 8px 0px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 2px 8px 0px rgba(0, 0, 0, 0.15);
     }
     
    
@@ -80,22 +83,35 @@
         flex-direction: column-reverse;
         align-items: center;
         justify-content: center;
-        margin: 2rem auto;
+        margin: 0 auto;
         width: 100%;
         max-width: 500px;
-        height: auto;
+        min-height: 100vh;
         color: #332E2E;
         box-sizing: border-box;
     }
 
     #home {
-        padding: 1rem;
-        margin: 1rem auto;
-        gap: 1;
+        padding: 3rem 1rem 2rem 1rem;
+        min-height: 90vh;
         width: 100%;
         max-width: 100%;
         overflow-x: hidden;
         box-sizing: border-box;
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .hero-content-wrapper {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .floating-shape,
+    .decorative-circle {
+        display: none;
     }
 
     .TextHero {
@@ -107,14 +123,15 @@
     }
 
     #home .TextHero .hero-name {
-        font-size: 2rem !important;
+        font-size: 2.5rem !important;
         width: auto !important;
         min-width: 0 !important;
         max-width: 100%;
         height: auto;
-        margin-bottom: 20px;
-        white-space: nowrap;
+        margin-bottom: 1rem;
+        white-space: normal;
         overflow: visible;
+        word-break: break-word;
     }
 
     .highlight-text {
@@ -122,10 +139,13 @@
         font-size: inherit;
     }
 
-    #home .ImgHero img {
-        max-width: 300px;
-        padding-left: 1rem;
-        padding-right: 0;
+    .hero-img-container {
+        width: 280px;
+        height: 280px;
+    }
+
+    .ImgHero {
+        order: -1;
     }
 
     .TextHero h2 {
@@ -164,19 +184,24 @@
         display: none;
     }
 
+    .BtnsHero {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+
     #home .buttonCV{
         width: 100%;
         font-size: 15px;
-        padding: 0.6em 1.5em;
-        max-width: 10rem;
-        
-       
+        padding: 0.8em 1.5em;
+        max-width: none;
     }
     #home button {
         width: 100%;
         font-size: 15px;
-        padding: 0.6em 1.5em;
-        max-width: 8rem;
+        padding: 0.8em 1.5em;
+        max-width: none;
     }
     
     #home .ImgHero {
