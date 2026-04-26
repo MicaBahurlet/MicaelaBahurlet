@@ -168,8 +168,129 @@ function initHeroGsapAnimations() {
     }
 }
 
+// ====================================
+// PAPER PLANE SCROLL ANIMATION
+// ====================================
+
+function initPaperPlaneScrollAnimation() {
+    const plane = document.querySelector(".paper-plane-scroll");
+    if (!plane) {
+        console.warn("Paper plane element not found");
+        return;
+    }
+
+    // Verificar que GSAP y ScrollTrigger estén disponibles
+    if (typeof gsap === "undefined") {
+        console.warn("GSAP not loaded");
+        return;
+    }
+    
+    if (typeof ScrollTrigger === "undefined") {
+        console.warn("ScrollTrigger not loaded");
+        return;
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const mm = gsap.matchMedia();
+
+    // Solo desktop y sin prefers-reduced-motion
+    mm.add("(min-width: 992px) and (prefers-reduced-motion: no-preference)", () => {
+        
+        // Posición inicial - sobre el hero
+        gsap.set(plane, {
+            opacity: 1,
+            visibility: "visible",
+            x: 0,
+            y: 0,
+            rotation: -10,
+            scale: 1,
+            transformOrigin: "50% 50%",
+        });
+
+        // Crear la timeline con ScrollTrigger y delay
+        const flightPath = gsap.timeline({
+            defaults: {
+                ease: "none",
+                duration: 1,
+            },
+            scrollTrigger: {
+                trigger: document.body,
+                start: "top top",
+                end: "max",
+                scrub: 1.2,
+                invalidateOnRefresh: true,
+            },
+        });
+
+        // Movimiento aerodinámico - la punta siempre va hacia adelante
+        // Pequeñas rotaciones para simular vuelo natural
+        flightPath
+            // Delay inicial - el avión se queda quieto
+            .to(plane, {
+                x: 0,
+                y: 0,
+                rotation: -25,
+                duration: 0.15,
+            })
+            // Primer movimiento - hacia la izquierda y arriba
+            .to(plane, {
+                x: () => -window.innerWidth * 0.35,
+                y: () => -window.innerHeight * 0.55,
+                rotation: -155,
+                duration: 1,
+            })
+            // Curva hacia abajo - suave
+            .to(plane, {
+                x: () => -window.innerWidth * 0.55,
+                y: () => window.innerHeight * 0.08,
+                rotation: -205,
+                duration: 1,
+            })
+            // Sube nuevamente
+            .to(plane, {
+                x: () => -window.innerWidth * 0.32,
+                y: () => window.innerHeight * 0.28,
+                rotation: -300,
+                duration: 1,
+            })
+            // Movimiento amplio hacia la izquierda
+            .to(plane, {
+                x: () => -window.innerWidth * 0.35,
+                y: () => -window.innerHeight * 0.35,
+                rotation: -460,
+                duration: 1,
+            })
+            // Último tramo - sale por arriba
+            .to(plane, {
+                x: () => -window.innerWidth * 0.55,
+                y: () => -window.innerHeight * 0.15,
+                rotation: -610,
+                duration: 1,
+            });
+
+        // Cleanup function
+        return () => {
+            if (flightPath.scrollTrigger) {
+                flightPath.scrollTrigger.kill();
+            }
+            flightPath.kill();
+            gsap.set(plane, { clearProps: "all" });
+        };
+    });
+
+    // Ocultar en mobile o con prefers-reduced-motion
+    mm.add("(max-width: 991px), (prefers-reduced-motion: reduce)", () => {
+        gsap.set(plane, { 
+            opacity: 0,
+            visibility: "hidden"
+        });
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     initHeroGsapAnimations();
+    initPaperPlaneScrollAnimation();
 });
 
 

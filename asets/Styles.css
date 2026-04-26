@@ -589,6 +589,7 @@ button:hover {
 
 .hero-img-container {
   position: relative;
+  z-index: 2;
   width: 380px;
   height: 380px;
   border-radius: 50%;
@@ -632,6 +633,49 @@ button:hover {
   user-select: none;
   position: relative;
   z-index: 1;
+}
+
+/* Paper plane scroll animation */
+.paper-plane-scroll {
+  position: fixed;
+  right: 16%;
+  bottom: 25%;
+  width: 70px;
+  height: auto;
+  z-index: 9999;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: none;
+  transform: rotate(-135deg);
+  transform-origin: 50% 50%;
+  filter: drop-shadow(0 4px 8px rgba(51, 46, 46, 0.3));
+  will-change: transform;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  -webkit-filter: drop-shadow(0 4px 8px rgba(51, 46, 46, 0.3));
+}
+
+/* Ocultar en mobile */
+@media (max-width: 991px) {
+  .paper-plane-scroll {
+    display: none !important;
+  }
+}
+
+/* Asegurar que las secciones principales estén por encima del avión */
+#current-status,
+#projects,
+#NewSkillsSection,
+#SectionHabilidades,
+#SectionHabilidadesBack,
+#about,
+#Certificates,
+#contact,
+footer {
+  position: relative;
+  z-index: 2;
 }
 
 /* SCROLL INDICATOR */
