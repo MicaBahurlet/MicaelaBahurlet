@@ -19,14 +19,14 @@
         font-size: 2rem;
         font-weight: 900;
         background-color: transparent;
-        color: #332E2E; 
+        color: #ffffff;
     }
     
     
     .nav {
         opacity: 0;
         visibility: hidden;
-        background-color: whitesmoke;
+        background: radial-gradient(120% 120% at 15% 10%, #123641 0%, #0c2029 38%, #0a1622 70%, #070f1a 100%);
         display: flex;
         flex-direction: column;
         align-items: flex-end;
@@ -51,7 +51,7 @@
     
    
     .nav li a {
-        color: #333;
+        color: rgba(255, 255, 255, 0.9);
         text-decoration: none;
         font-weight: 600; 
         transition: color 0.3s ease; 
@@ -677,14 +677,14 @@
         font-size: 2rem;
         font-weight: 900;
         background-color: transparent;
-        color: #332E2E; 
+        color: #ffffff;
     }
     
     
     .nav {
         opacity: 0;
         visibility: hidden;
-        background-color: whitesmoke;
+        background: radial-gradient(120% 120% at 15% 10%, #123641 0%, #0c2029 38%, #0a1622 70%, #070f1a 100%);
         display: flex;
         flex-direction: column;
         align-items: flex-end;
@@ -707,7 +707,7 @@
     
     /* Enlaces dentro de la barra de navegación */
     .nav li a {
-        color: #333;
+        color: rgba(255, 255, 255, 0.9);
         text-decoration: none;
         font-weight: 600; 
         transition: color 0.3s ease; 
@@ -1004,10 +1004,6 @@
   }
 
   /* Dark mode mobile nav */
-  body.dark-mode .nav {
-    background-color: #1a1a1a;
-  }
-
   body.dark-mode .nav-list li a {
     color: #ffffff;
   }
@@ -1032,11 +1028,108 @@
   }
 
   /* Dark mode tablet nav */
-  body.dark-mode .nav {
-    background-color: #1a1a1a;
-  }
-
   body.dark-mode .nav-list li a {
     color: #ffffff;
   }
+}
+
+/* =====================================================
+   HERO MODERNO — RESPONSIVE
+   ===================================================== */
+
+/* Tablet y mobile: apilar texto y objeto */
+@media (max-width: 991px) {
+  #home.hero-modern {
+    min-height: auto;
+    max-width: 100%;
+    width: 100%;
+    margin-top: -5.5rem;
+    padding: calc(7rem + 5.5rem) 1.5rem 4rem;
+    flex-direction: column;
+  }
+
+  #home.hero-modern .hero-content-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.5rem;
+    max-width: 640px;
+    width: 100%;
+  }
+
+  #home.hero-modern .TextHero {
+    width: 100%;
+    flex: none;
+    text-align: left;
+    position: relative;
+    z-index: 2;
+  }
+
+  #home.hero-modern .TextHero .hero-name {
+    font-size: clamp(3rem, 12vw, 4.5rem) !important;
+    white-space: normal;
+    width: auto !important;
+    max-width: 100%;
+  }
+
+  #home.hero-modern .hero-visual {
+    order: 2;
+    align-self: center;
+    width: min(58vw, 280px);
+    z-index: 1;
+    margin-top: 0.5rem;
+  }
+
+  #home.hero-modern .hero-glow { opacity: 0.4; }
+
+  /* Sección de perfil */
+  .profile-intro { padding: 4.5rem 1.5rem; }
+  .profile-intro-wrapper {
+    flex-direction: column;
+    gap: 2.5rem;
+    text-align: center;
+  }
+  .profile-intro-text { text-align: center; max-width: 560px; }
+}
+
+/* Mobile: nombre y ajustes finos */
+@media (max-width: 767px) {
+  #home.hero-modern {
+    padding: calc(6rem + 5.5rem) 1.2rem 3.5rem;
+  }
+  #home.hero-modern .TextHero .hero-name {
+    font-size: clamp(2.6rem, 14vw, 3.6rem) !important;
+    line-height: 1;
+  }
+  #home.hero-modern .hero-eyebrow { font-size: 0.72rem; }
+  #home.hero-modern .hero-visual {
+    width: min(52vw, 240px);
+    margin-top: 1rem;
+  }
+  #home.hero-modern .hero-scroll-hint { display: none; }
+}
+
+/* =====================================================
+   NAV FLOTANTE — RESPONSIVE
+   ===================================================== */
+@media (max-width: 767px) {
+  .floating-nav {
+    bottom: 1rem;
+    gap: 0.2rem;
+    padding: 0.3rem 0.35rem;
+  }
+  .floating-nav-logo {
+    width: 36px;
+    height: 36px;
+  }
+  .floating-nav-logo img { width: 18px; height: 18px; }
+  .floating-nav-list a {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.02em;
+  }
+  .floating-nav-list .fn-num { display: none; }
+}
+
+@media (max-width: 400px) {
+  .floating-nav-list a { padding: 0.45rem 0.55rem; font-size: 0.64rem; }
 }

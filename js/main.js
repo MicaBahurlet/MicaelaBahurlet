@@ -11,13 +11,72 @@ cerrar.addEventListener("click", ()=>{
     nav.classList.remove("visible");
 })
 
-const enlaces = document.querySelectorAll(".nav-list a");
+// ====================================
+// SMOOTH SCROLL (GSAP ScrollToPlugin)
+// ====================================
 
-enlaces.forEach((enlace) => {
-    enlace.addEventListener("click", () => {
-        nav.classList.remove("visible");
+function getScrollOffset() {
+    const header = document.querySelector("header");
+    return header ? header.offsetHeight + 16 : 90;
+}
+
+function smoothScrollToTarget(target, duration = 1.2) {
+    if (!target) return;
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const offset = getScrollOffset();
+    const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+
+    if (reduceMotion || typeof window.gsap === "undefined" || typeof window.ScrollToPlugin === "undefined") {
+        window.scrollTo({ top, behavior: reduceMotion ? "auto" : "smooth" });
+        return;
+    }
+
+    window.gsap.registerPlugin(window.ScrollToPlugin);
+    window.gsap.to(window, {
+        duration,
+        scrollTo: { y: target, offsetY: offset },
+        ease: "power3.inOut",
     });
-});
+}
+
+function initSmoothScroll() {
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+
+    anchorLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+            const href = link.getAttribute("href");
+            if (!href) return;
+
+            e.preventDefault();
+
+            const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+            if (href === "#") {
+                if (reduceMotion || typeof window.gsap === "undefined" || typeof window.ScrollToPlugin === "undefined") {
+                    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+                } else {
+                    window.gsap.registerPlugin(window.ScrollToPlugin);
+                    window.gsap.to(window, {
+                        duration: 1.2,
+                        scrollTo: { y: 0 },
+                        ease: "power3.inOut",
+                    });
+                }
+                return;
+            }
+
+            const target = document.querySelector(href);
+            if (!target) return;
+
+            smoothScrollToTarget(target);
+
+            if (link.closest(".nav-list") && nav) {
+                nav.classList.remove("visible");
+            }
+        });
+    });
+}
 
 // ====================================
 // DARK MODE FUNCTIONALITY
@@ -64,108 +123,180 @@ function initHeroGsapAnimations() {
     const heroRoot = document.querySelector("#home");
     if (!heroRoot) return;
 
-    const heroName = heroRoot.querySelector(".hero-name");
+    const eyebrow = heroRoot.querySelector(".hero-eyebrow");
+    const nameLines = heroRoot.querySelectorAll(".hero-name-line");
     const heroTitle = heroRoot.querySelector(".TextHero h2");
     const highlights = heroRoot.querySelectorAll(".highlight-text");
     const lines = heroRoot.querySelectorAll(".line-text");
-    const btn1 = heroRoot.querySelector(".hero-btn-1");
-    const btn2 = heroRoot.querySelector(".hero-btn-2");
+    const btns = heroRoot.querySelectorAll(".BtnsHero button");
+    const scrollHint = heroRoot.querySelector(".hero-scroll-hint");
+    const visual = heroRoot.querySelector(".hero-visual");
 
-    if (!heroName || !heroTitle) return;
+    const gsap = window.gsap;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // Split hero name into characters for animation
-    const nameText = heroName.textContent;
-    heroName.innerHTML = nameText.split('').map(char => 
-        `<span class="char" style="display:inline-block;opacity:0;">${char === ' ' ? '&nbsp;' : char}</span>`
-    ).join('');
-    
-    const chars = heroName.querySelectorAll('.char');
+    // Estado inicial
+    if (eyebrow) gsap.set(eyebrow, { opacity: 0, y: 20 });
+    if (nameLines.length) gsap.set(nameLines, { opacity: 0, y: 60 });
+    if (heroTitle) gsap.set(heroTitle, { opacity: 0, y: 20 });
+    if (highlights.length) gsap.set(highlights, { backgroundSize: "0% 100%" });
+    if (lines.length) gsap.set(lines, { opacity: 0, y: 20 });
+    if (btns.length) gsap.set(btns, { opacity: 0, y: 20 });
+    if (scrollHint) gsap.set(scrollHint, { opacity: 0 });
+    if (visual) gsap.set(visual, { opacity: 0, scale: 0.85 });
 
-    window.gsap.set(heroTitle, { opacity: 0 });
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
+    if (visual) {
+        tl.to(visual, { opacity: 1, scale: 1, duration: 1, ease: "power2.out" }, 0);
+    }
+    if (eyebrow) {
+        tl.to(eyebrow, { opacity: 1, y: 0, duration: 0.6 }, 0.1);
+    }
+    if (nameLines.length) {
+        tl.to(nameLines, { opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: "power4.out" }, 0.2);
+    }
+    if (heroTitle) {
+        tl.to(heroTitle, { opacity: 1, y: 0, duration: 0.6 }, "-=0.4");
+    }
     if (highlights.length) {
-        window.gsap.set(highlights, { backgroundSize: "0% 100%" });
+        tl.to(highlights, { backgroundSize: "100% 100%", duration: 0.5, stagger: 0.2, ease: "power3.inOut" }, "-=0.2");
     }
-
     if (lines.length) {
-        window.gsap.set(lines, { opacity: 0, y: 20 });
+        tl.to(lines, { opacity: 1, y: 0, duration: 0.5, stagger: 0.15 }, "-=0.4");
+    }
+    if (btns.length) {
+        tl.to(btns, { opacity: 1, y: 0, duration: 0.6, stagger: 0.12 }, "-=0.3");
+    }
+    if (scrollHint) {
+        tl.to(scrollHint, { opacity: 1, duration: 0.6 }, "-=0.2");
     }
 
-    if (btn1 || btn2) {
-        window.gsap.set([btn1, btn2].filter(Boolean), { opacity: 0, y: 20 });
+    // Objeto 3D: movimiento continuo
+    initHero3dObject(reduceMotion);
+}
+
+// ====================================
+// OBJETO 3D — animación continua
+// ====================================
+
+function initHero3dObject(reduceMotion) {
+    const gsap = window.gsap;
+    const obj = document.querySelector(".hero-object");
+    const visual = document.querySelector(".hero-visual");
+    if (!gsap || !obj || reduceMotion) return;
+
+    gsap.set(obj, {
+        transformOrigin: "50% 50%",
+        transformPerspective: 1200,
+        transformStyle: "preserve-3d",
+    });
+
+    if (visual) {
+        gsap.set(visual, { transformPerspective: 1200 });
     }
 
-    const tl = window.gsap.timeline({ defaults: { ease: "power3.out" } });
+    const mm = gsap.matchMedia();
 
+    const bindMotion = (values) => {
+        gsap.to(obj, {
+            rotation: 360,
+            duration: 40,
+            ease: "none",
+            repeat: -1,
+        });
 
-    tl.to(chars, {
-        opacity: 1,
-        y: 0,
-        duration: 0.08,
-        stagger: 0.05,
-        ease: "power2.out",
-    })
-        .to(
-            heroTitle,
-            {
-                opacity: 1,
-                duration: 0.6,
+        gsap.to(obj, {
+            y: values.y,
+            duration: 4,
+            ease: "sine.inOut",
+            repeat: -1,
+            yoyo: true,
+        });
+
+        gsap.to(obj, {
+            z: values.z,
+            scale: values.scale,
+            duration: 5.5,
+            ease: "sine.inOut",
+            repeat: -1,
+            yoyo: true,
+        });
+
+        gsap.to(obj, {
+            rotationY: values.rotationY,
+            rotationX: values.rotationX,
+            duration: 7,
+            ease: "sine.inOut",
+            repeat: -1,
+            yoyo: true,
+        });
+
+        gsap.to(obj, {
+            x: values.x,
+            duration: 6,
+            ease: "sine.inOut",
+            repeat: -1,
+            yoyo: true,
+        });
+    };
+
+    mm.add("(max-width: 767px)", () => {
+        bindMotion({
+            y: -10,
+            z: 18,
+            scale: 1.015,
+            rotationY: 10,
+            rotationX: -6,
+            x: 6,
+        });
+
+        return () => gsap.set(obj, { clearProps: "transform" });
+    });
+
+    mm.add("(min-width: 768px)", () => {
+        bindMotion({
+            y: -16,
+            z: 32,
+            scale: 1.025,
+            rotationY: 14,
+            rotationX: -8,
+            x: 10,
+        });
+
+        return () => gsap.set(obj, { clearProps: "transform" });
+    });
+}
+
+// ====================================
+// NAV FLOTANTE — scroll suave + estado activo
+// ====================================
+
+function initFloatingNav() {
+    const nav = document.querySelector(".floating-nav");
+    if (!nav) return;
+
+    if (typeof window.gsap === "undefined" || typeof window.ScrollTrigger === "undefined") return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    const items = nav.querySelectorAll(".floating-nav-list a");
+    items.forEach((link) => {
+        const id = link.getAttribute("href");
+        const section = id && id.length > 1 ? document.querySelector(id) : null;
+        if (!section) return;
+
+        ScrollTrigger.create({
+            trigger: section,
+            start: "top center",
+            end: "bottom center",
+            onToggle: (self) => {
+                if (self.isActive) {
+                    items.forEach((l) => l.classList.remove("is-active"));
+                    link.classList.add("is-active");
+                }
             },
-            "-=0.3"
-        );
-
-    if (highlights.length) {
-        tl.to(
-            highlights,
-            {
-                backgroundSize: "100% 100%",
-                duration: 0.5,
-                stagger: 0.2,
-                ease: "power3.inOut",
-            },
-            "-=0.2"
-        );
-    }
-
-    if (lines.length) {
-        tl.to(
-            lines,
-            {
-                opacity: 1,
-                y: 0,
-                duration: 0.5,
-                stagger: 0.15,
-                ease: "power3.out",
-            },
-            "-=0.4"
-        );
-    }
-
-    if (btn1) {
-        tl.to(
-            btn1,
-            {
-                opacity: 1,
-                y: 0,
-                duration: 0.6,
-                ease: "power3.out",
-            },
-            "-=0.3"
-        );
-    }
-
-    if (btn2) {
-        tl.to(
-            btn2,
-            {
-                opacity: 1,
-                y: 0,
-                duration: 0.6,
-                ease: "power3.out",
-            },
-            "-=0.4"
-        );
-    }
+        });
+    });
 }
 
 // ====================================
@@ -288,8 +419,26 @@ function initPaperPlaneScrollAnimation() {
     });
 }
 
+function initHeaderScroll() {
+    const header = document.querySelector("header");
+    const hero = document.querySelector("#home.hero-modern");
+    if (!header || !hero) return;
+
+    const update = () => {
+        const pastHero = hero.getBoundingClientRect().bottom <= header.offsetHeight + 8;
+        header.classList.toggle("header--solid", pastHero);
+    };
+
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+    initSmoothScroll();
     initHeroGsapAnimations();
+    initFloatingNav();
+    initHeaderScroll();
     initPaperPlaneScrollAnimation();
 });
 
