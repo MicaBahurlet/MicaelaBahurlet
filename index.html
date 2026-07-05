@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,28 +10,22 @@
         <meta property="og:description" content="Full-stack Developer and UX/UI Designer. Portfolio personal" />
         <meta property="og:url" content="https://micaela-bahurlet.vercel.app/" />
         <title>Micaela Bahurlet | Portfolio</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <link rel="stylesheet" href="./asets/Styles.css">
-        <link rel="stylesheet" href="./asets/StylesResponsive.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link rel="shortcut icon" href="./img/trisquel.png" type="image/x-icon">
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-        />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-        <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollToPlugin.min.js"></script>
-        <script src="https://unpkg.com/lucide@latest"></script>
-          
-                
+        <link rel="preload" as="image" href="./img/hero-3d.webp" type="image/webp" fetchpriority="high">
+        <link rel="stylesheet" href="./asets/Styles.css">
+        <link rel="stylesheet" href="./asets/StylesResponsive.css">
+        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Syne:wght@600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all'">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" media="print" onload="this.media='all'">
+        <link rel="shortcut icon" href="./img/trisquel.png" type="image/x-icon">
+        <noscript>
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Syne:wght@600;700;800&display=swap">
+            <link rel="stylesheet" href="./asets/StylesResponsive.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+        </noscript>
     </head>
     <body>
 
@@ -42,10 +36,10 @@
                         <img class="logo" src="./img/LOGOBLANCO.png" alt="Logo Personal">
                     </a>
 
-                    <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
+                    <button id="abrir" class="abrir-menu" aria-label="Abrir menú"><i class="bi bi-list" aria-hidden="true"></i></button>
 
                     <nav  class="nav" id="nav">    
-                        <button id="cerrar" class="cerrar-menu"><i class="bi bi-x-lg"></i></button>
+                        <button id="cerrar" class="cerrar-menu" aria-label="Cerrar menú"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
                         <ul class="nav-list">
                             <li><a href="#home">Inicio</a></li>
                             <li><a href="#projects">Proyectos</a></li>
@@ -104,7 +98,7 @@
                         <div class="hero-object">
                             <picture>
                                 <source srcset="./img/hero-3d.webp" type="image/webp">
-                                <img src="./img/hero-3d.png" alt="" class="hero-3d-img">
+                                <img src="./img/hero-3d.png" alt="" class="hero-3d-img" width="480" height="480" decoding="async" fetchpriority="high">
                             </picture>
                         </div>
                     </div>
@@ -116,7 +110,7 @@
             <div class="profile-intro-wrapper">
                 <div class="ImgHero">
                     <div class="hero-img-container">
-                        <img src="./img/MeHero.png" alt="Micaela Bahurlet">
+                        <picture><source srcset="./img/MeHero.webp" type="image/webp"><img src="./img/MeHero.png" alt="Micaela Bahurlet" width="280" height="280" decoding="async"></picture>
                     </div>
                 </div>
                 <div class="profile-intro-text">
@@ -179,8 +173,8 @@
                                         </div>
                                         <div class="timeline-company" style="display: flex; align-items: center; gap: 0.5rem;">
                                             <span>Cronopia - Full time</span>
-                                            <a href="https://cronopiaweb.com/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center;">
-                                                <i data-lucide="external-link" style="width: 16px; height: 16px; color: #8fc1be;"></i>
+                                            <a href="https://cronopiaweb.com/" target="_blank" rel="noopener noreferrer" aria-label="Visitar sitio web de Cronopia" style="display: inline-flex; align-items: center;">
+                                                <i class="bi bi-box-arrow-up-right" style="font-size: 16px; color: #8fc1be;" aria-hidden="true"></i>
                                             </a>
                                         </div>
                                         <p class="timeline-description">
@@ -189,57 +183,57 @@
                                         <div class="timeline-technologies">
                                         
                                             <div class="tech-item">
-                                                <i class="fab fa-react"></i>
+                                                <i class="devicon-react-original colored"></i>
                                                 <span>React.js</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="devicon-typescript-plain"></i>
+                                                <i class="devicon-typescript-plain colored"></i>
                                                 <span>TypeScript</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="devicon-javascript-plain"></i>
+                                                <i class="devicon-javascript-plain colored"></i>
                                                 <span>JavaScript</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="devicon-javascript-plain"></i>
+                                                <i class="devicon-javascript-plain colored"></i>
                                                 <span>Medusa.js</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="fab fa-css3-alt"></i>
+                                                <i class="devicon-tailwindcss-plain colored"></i>
                                                 <span>Tailwind CSS</span>
                                             </div>
                                             
                                             <div class="tech-item">
-                                                <i class="fab fa-css3-alt"></i>
+                                                <i class="devicon-css3-plain colored"></i>
                                                 <span>Css</span>
                                             </div>
                                             
                                             <div class="tech-item">
-                                                <i class="fas fa-laptop-code"></i>
+                                                <i class="devicon-nextjs-original-wordmark colored"></i>
                                                 <span>Next.js</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="fab fa-node-js"></i>
+                                                <i class="devicon-nodejs-plain colored"></i>
                                                 <span>Node.js</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="devicon-wordpress-plain"></i>
+                                                <i class="devicon-wordpress-plain colored"></i>
                                                 <span>WordPress</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="devicon-wordpress-plain"></i>
+                                                <i class="devicon-wordpress-plain colored"></i>
                                                 <span>ACF</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="fab fa-git-alt"></i>
+                                                <i class="devicon-git-plain colored"></i>
                                                 <span>Git</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="fab fa-figma"></i>
+                                                <i class="devicon-figma-plain colored"></i>
                                                 <span>Figma</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="fas fa-database"></i>
+                                                <i class="devicon-postgresql-plain colored"></i>
                                                 <span>PostgreSQL</span>
                                             </div>
                                         </div>
@@ -257,8 +251,8 @@
                                         </div>
                                         <div class="timeline-company" style="display: flex; align-items: center; gap: 0.5rem;">
                                             <span>The Brand Lab - Part time</span>
-                                            <a href="https://www.thebrandlab.cl/home" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center;">
-                                                <i data-lucide="external-link" style="width: 16px; height: 16px; color: #8fc1be;"></i>
+                                            <a href="https://www.thebrandlab.cl/home" target="_blank" rel="noopener noreferrer" aria-label="Visitar sitio web de The Brand Lab" style="display: inline-flex; align-items: center;">
+                                                <i class="bi bi-box-arrow-up-right" style="font-size: 16px; color: #8fc1be;" aria-hidden="true"></i>
                                             </a>
                                         </div>
                                         <p class="timeline-description">
@@ -266,35 +260,35 @@
                                         </p>
                                         <div class="timeline-technologies">
                                             <div class="tech-item">
-                                                <i class="fab fa-react"></i>
+                                                <i class="devicon-react-original colored"></i>
                                                 <span>React.js</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="fas fa-laptop-code"></i>
+                                                <i class="devicon-nextjs-original-wordmark colored"></i>
                                                 <span>Next.js</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="fab fa-css3-alt"></i>
+                                                <i class="devicon-tailwindcss-plain colored"></i>
                                                 <span>Tailwind CSS</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="fab fa-node-js"></i>
+                                                <i class="devicon-nodejs-plain colored"></i>
                                                 <span>Node.js</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="devicon-firebase-plain-wordmark"></i>
+                                                <i class="devicon-firebase-plain-wordmark colored"></i>
                                                 <span>Firebase</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="fas fa-database"></i>
+                                                <i class="devicon-postgresql-plain colored"></i>
                                                 <span>Prisma</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="fas fa-database"></i>
+                                                <i class="devicon-postgresql-plain colored"></i>
                                                 <span>PostgreSQL</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="fab fa-git-alt"></i>
+                                                <i class="devicon-git-plain colored"></i>
                                                 <span>Git</span>
                                             </div>
                                         </div>
@@ -311,8 +305,8 @@
                                         </div>
                                         <div class="timeline-company" style="display: flex; align-items: center; gap: 0.5rem;">
                                             <span>GoNear Consultant - Proyecto completo</span>
-                                            <a href="https://www.gonear.tech/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center;">
-                                                <i data-lucide="external-link" style="width: 16px; height: 16px; color: #8fc1be;"></i>
+                                            <a href="https://www.gonear.tech/" target="_blank" rel="noopener noreferrer" aria-label="Visitar sitio web de GoNear" style="display: inline-flex; align-items: center;">
+                                                <i class="bi bi-box-arrow-up-right" style="font-size: 16px; color: #8fc1be;" aria-hidden="true"></i>
                                             </a>
                                         </div>
                                         <p class="timeline-description">
@@ -320,31 +314,31 @@
                                         </p>
                                         <div class="timeline-technologies">
                                             <div class="tech-item">
-                                                <i class="fab fa-wordpress"></i>
+                                                <i class="devicon-wordpress-plain colored"></i>
                                                 <span>WordPress</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="devicon-wordpress-plain"></i>
+                                                <i class="devicon-wordpress-plain colored"></i>
                                                 <span>ACF</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="fab fa-html5"></i>
+                                                <i class="devicon-html5-plain colored"></i>
                                                 <span>HTML</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="fab fa-css3-alt"></i>
+                                                <i class="devicon-css3-plain colored"></i>
                                                 <span>CSS</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="fab fa-js"></i>
+                                                <i class="devicon-javascript-plain colored"></i>
                                                 <span>JavaScript</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="fab fa-figma"></i>
+                                                <i class="devicon-figma-plain colored"></i>
                                                 <span>Figma</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="fab fa-git-alt"></i>
+                                                <i class="devicon-git-plain colored"></i>
                                                 <span>Git</span>
                                             </div>
                                         </div>
@@ -366,35 +360,35 @@
                                         <div class="timeline-technologies">
                                                                                        
                                             <div class="tech-item">
-                                                <i class="fab fa-html5"></i>
+                                                <i class="devicon-html5-plain colored"></i>
                                                 <span>HTML</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="fab fa-css3-alt"></i>
+                                                <i class="devicon-css3-plain colored"></i>
                                                 <span>Css</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="fab fa-js"></i>
+                                                <i class="devicon-javascript-plain colored"></i>
                                                 <span>JavaScript</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="fab fa-wordpress"></i>
+                                                <i class="devicon-wordpress-plain colored"></i>
                                                 <span>WordPress</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="fab fa-react"></i>
+                                                <i class="devicon-react-original colored"></i>
                                                 <span>React.js</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="fab fa-figma"></i>
+                                                <i class="devicon-figma-plain colored"></i>
                                                 <span>Figma</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="fab fa-bootstrap"></i>
+                                                <i class="devicon-bootstrap-plain colored"></i>
                                                 <span>Bootstrap</span>
                                             </div>
                                             <div class="tech-item">
-                                                <i class="fab fa-git-alt"></i>
+                                                <i class="devicon-git-plain colored"></i>
                                                 <span>Git</span>
                                             </div>
                                             
@@ -407,14 +401,14 @@
 
         <!-- New Skills Grid Section -->
         <section id="NewSkillsSection" class="py-5">
-            <div class="container">
+            <div class="skills-section-inner">
                 <h2 class="mb-5">Habilidades y Tecnologías</h2>
-                <div class="row g-4">
+                <div class="skills-grid">
                     <!-- Frontend Card -->
-                    <div class="col-12 col-md-6">
+                    <div class="skills-grid-item">
                         <div class="skill-card h-100">
                             <div class="skill-card-header">
-                                <i class="fas fa-laptop-code"></i>
+                                <i class="bi bi-code-slash"></i>
                                 <h3>Frontend</h3>
                             </div>
                             <div class="skill-items">
@@ -436,10 +430,10 @@
                     </div>
 
                     <!-- Backend Card -->
-                    <div class="col-12 col-md-6">
+                    <div class="skills-grid-item">
                         <div class="skill-card h-100">
                             <div class="skill-card-header">
-                                <i class="fas fa-server"></i>
+                                <i class="bi bi-hdd-stack"></i>
                                 <h3>Backend</h3>
                             </div>
                             <div class="skill-items">
@@ -459,10 +453,10 @@
                     </div>
 
                     <!-- Development Tools Card -->
-                    <div class="col-12 col-md-6">
+                    <div class="skills-grid-item">
                         <div class="skill-card h-100">
                             <div class="skill-card-header">
-                                <i class="fas fa-tools"></i>
+                                <i class="bi bi-tools"></i>
                                 <h3>Herramientas de Desarrollo</h3>
                             </div>
                             <div class="skill-items">
@@ -470,7 +464,7 @@
                                 <div class="skill-item"><i class="devicon-git-plain colored"></i> Git</div>
                                 <div class="skill-item"><i class="devicon-github-original colored"></i> GitHub</div>
                                 <div class="skill-item"><i class="devicon-vitejs-plain colored"></i> Vite.js</div>
-                                <div class="skill-item"><i class="fas fa-server"></i> XAMPP</div>
+                                <div class="skill-item"><i class="bi bi-hdd-stack"></i> XAMPP</div>
                                 <div class="skill-item"><i class="devicon-dbeaver-plain colored"></i> DBeaver</div>
                                 <div class="skill-item"><i class="devicon-npm-original-wordmark colored"></i> npm</div>
                                 <div class="skill-item"><i class="devicon-jira-plain colored"></i> Jira</div>                               
@@ -481,10 +475,10 @@
                     </div>
 
                     <!-- UX/UI Tools Card -->
-                    <div class="col-12 col-md-6">
+                    <div class="skills-grid-item">
                         <div class="skill-card h-100">
                             <div class="skill-card-header">
-                                <i class="fas fa-paint-brush"></i>
+                                <i class="bi bi-brush"></i>
                                 <h3>Herramientas UX/UI</h3>
                             </div>
                             <div class="skill-items">
@@ -510,7 +504,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <img src="./img/OlaGo.png" alt="HeroSite to CSA">
+                                <picture><source srcset="./img/OlaGo.webp" type="image/webp"><img src="./img/OlaGo.png" alt="HeroSite to CSA" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="TextProyectos">
@@ -542,7 +536,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <img src="./img/CSAProject.png" alt="HeroSite to CSA">
+                                <picture><source srcset="./img/CSAProject.webp" type="image/webp"><img src="./img/CSAProject.png" alt="HeroSite to CSA" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="TextProyectos">
@@ -575,7 +569,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <img src="./img/QutralScreen.png" alt="Captura de Pantalla de Qutral">
+                                <picture><source srcset="./img/QutralScreen.webp" type="image/webp"><img src="./img/QutralScreen.png" alt="Captura de Pantalla de Qutral" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="TextProyectos">
@@ -603,7 +597,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <img src="./img/codeaScreen.png" alt="Captura de Pantalla de Códea">
+                                <picture><source srcset="./img/codeaScreen.webp" type="image/webp"><img src="./img/codeaScreen.png" alt="Captura de Pantalla de Códea" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="TextProyectos">
@@ -633,7 +627,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <img src="./img/StockMasterScreen.png" alt="Captura de Pantalla de STOCKMASTER">
+                                <picture><source srcset="./img/StockMasterScreen.webp" type="image/webp"><img src="./img/StockMasterScreen.png" alt="Captura de Pantalla de STOCKMASTER" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="TextProyectos">
@@ -662,7 +656,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <img src="./img/Crud-screem.png" alt="Captura de Pantalla de CRUD shoes">
+                                <picture><source srcset="./img/Crud-screem.webp" type="image/webp"><img src="./img/Crud-screem.png" alt="Captura de Pantalla de CRUD shoes" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="TextProyectos">
@@ -697,7 +691,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <img src="./img/NellysTest.png" alt="Captura de Pantalla del Sitio www.nellyvicente.com">
+                                <picture><source srcset="./img/NellysTest.webp" type="image/webp"><img src="./img/NellysTest.png" alt="Captura de Pantalla del Sitio www.nellyvicente.com" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="TextProyectos">
@@ -728,7 +722,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <img src="./img/ScreenBlogg.png" alt="Captura de Pantalla de blogg">
+                                <picture><source srcset="./img/ScreenBlogg.webp" type="image/webp"><img src="./img/ScreenBlogg.png" alt="Captura de Pantalla de blogg" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="TextProyectos">
@@ -757,7 +751,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <img src="./img/ScreenProyect.png" alt="Captura de Pantalla de MyTask">
+                                <picture><source srcset="./img/ScreenProyect.webp" type="image/webp"><img src="./img/ScreenProyect.png" alt="Captura de Pantalla de MyTask" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="TextProyectos">
@@ -791,7 +785,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <img src="./img/FinishAuris.png" alt="Captura de Pantalla del Sitio Auris">
+                                <picture><source srcset="./img/FinishAuris.webp" type="image/webp"><img src="./img/FinishAuris.png" alt="Captura de Pantalla del Sitio Auris" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="TextProyectos">
@@ -825,7 +819,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <img src="./img/ShopSports.png" alt="Captura de Pantalla del Sitio Auris">
+                                <picture><source srcset="./img/ShopSports.webp" type="image/webp"><img src="./img/ShopSports.png" alt="Captura de Pantalla del Sitio Auris" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="TextProyectos">
@@ -852,7 +846,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <img src="./img/ScreenTuLibbro.png" alt="Captura de Pantalla del Sitio El Recreo">
+                                <picture><source srcset="./img/ScreenTuLibbro.webp" type="image/webp"><img src="./img/ScreenTuLibbro.png" alt="Captura de Pantalla del Sitio El Recreo" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="Logos">
@@ -887,7 +881,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <img src="./img/EvermoovMockup.png" alt="Captura de Pantalla del Sitio Auris">
+                                <picture><source srcset="./img/EvermoovMockup.webp" type="image/webp"><img src="./img/EvermoovMockup.png" alt="Captura de Pantalla del Sitio Auris" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="TextProyectos">
@@ -927,22 +921,20 @@
                                 <div id="carouselExample" class="carousel slide">
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
-                                            <img src="./img/Carrusel2.png" class="d-block w-100" alt="...">
+                                            <picture><source srcset="./img/Carrusel2.webp" type="image/webp"><img src="./img/Carrusel2.png" class="carousel-slide-img" alt="..." loading="lazy" decoding="async"></picture>
                                         </div>
                                         <div class="carousel-item">
-                                            <img src="./img/Carrusel1.png" class="d-block w-100" alt="...">
+                                            <picture><source srcset="./img/Carrusel1.webp" type="image/webp"><img src="./img/Carrusel1.png" class="carousel-slide-img" alt="..." loading="lazy" decoding="async"></picture>
                                         </div>
                                         <div class="carousel-item">
-                                            <img src="./img/ColorGeneratorScreen.png" class="d-block w-100" alt="...">
+                                            <picture><source srcset="./img/ColorGeneratorScreen.webp" type="image/webp"><img src="./img/ColorGeneratorScreen.png" class="carousel-slide-img" alt="..." loading="lazy" decoding="async"></picture>
                                         </div>
                                     </div>
-                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Previous</span>
+                                    <button class="carousel-control-prev" type="button" aria-label="Imagen anterior">
+                                        <i class="bi bi-chevron-left" aria-hidden="true"></i>
                                     </button>
-                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Next</span>
+                                    <button class="carousel-control-next" type="button" aria-label="Imagen siguiente">
+                                        <i class="bi bi-chevron-right" aria-hidden="true"></i>
                                     </button>
                                 </div>
                             </div>
@@ -951,7 +943,7 @@
                                     
                                     <li>&#9989; <strong>Migración</strong> de 30 <strong>aplicaciones móviles multiplataforma (Android - iOS) de Xamarin a MAUI</strong> + <strong>Testing</strong> de todas las apps mediante emuladores para garantizar la funcionalidad de las mismas. Primer experiencia siguiendo documentación de terceros.</li>
                                     <li>&#9989; <strong>Desarrollo de blog profesional</strong> para tercero a través de <strong>Wordpress + pluggins</strong> que permiten una mejor experiencia de usuario.</li>
-                                    <li>&#9989; Desarrollo de <strong><a href="https://color-generator-lemon-nine.vercel.app/" target="_blank">ColorGenerator</a></strong> una web app programada en <strong>React</strong>. La uso como inspiración en la selección de colores para mis proyectos.</li> 
+                                    <li>&#9989; Desarrollo de <strong><a href="https://color-generator-lemon-nine.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-link">ColorGenerator</a></strong> una web app programada en <strong>React</strong>. La uso como inspiración en la selección de colores para mis proyectos.</li> 
                                 </ul>
                             </div>
                         </div>
@@ -1039,23 +1031,25 @@
                         <div>
                             <h3 class="titleIntereses">Intereses y motivaciones</h3>
                             <div class="listaDeIntereses">
+                                <ul>
                                 <li>&#128187 Programación y Diseño Web</li>
                                 <li>&#127890 Viajar</li>
                                 <li>&#128588 Cocinar</li>
-                                <li> &#127807 Naturaleza</li>
+                                <li>&#127807 Naturaleza</li>
                                 <li>&#9968 Trekking´s</li>
                                 <li>&#128161 Leer</li>
                                 <li>&#127926 Música</li>
                                 <li>&#127957 Educación Física</li>
                                 <li>&#128218 Aprender y Enseñar</li>
                                 <li>✨ Física cuántica</li>
+                                </ul>
                             </div>
                         </div>
                         
                         <div class="ImgAbout">
-                            <img src="./img/About3.JPG" alt="About Micaela Bahurlet" class="about-img-default">
-                            <img src="./img/Me3.jpg" alt="Micaela Bahurlet" class="about-img-hover">
-                            <img src="./img/me2.png" alt="Micaela Bahurlet" class="about-img-alt">
+                            <picture><source srcset="./img/About3.webp" type="image/webp"><img src="./img/About3.JPG" alt="About Micaela Bahurlet" class="about-img-default" loading="lazy" decoding="async"></picture>
+                            <picture><source srcset="./img/Me3.webp" type="image/webp"><img src="./img/Me3.jpg" alt="Micaela Bahurlet" class="about-img-hover" loading="lazy" decoding="async"></picture>
+                            <picture><source srcset="./img/me2.webp" type="image/webp"><img src="./img/me2.png" alt="Micaela Bahurlet" class="about-img-alt" loading="lazy" decoding="async"></picture>
                         </div>
     
         </section>
@@ -1082,63 +1076,57 @@
                         <h2>Certificados de programación y diseño:</h2>
                         <div class="certificates-gallery">
                             <div class="certificate-item">
-                                <img src="./img/DesarrolloWebCertificate.png" alt="Certificado 1" class="certificado-img">
+                                <picture><source srcset="./img/DesarrolloWebCertificate.webp" type="image/webp"><img src="./img/DesarrolloWebCertificate.png" alt="Certificado 1" class="certificado-img" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="certificate-item">
-                                <img src="./img/DisenoWebCertificate.png" alt="Certificado 2" class="certificado-img">
+                                <picture><source srcset="./img/DisenoWebCertificate.webp" type="image/webp"><img src="./img/DisenoWebCertificate.png" alt="Certificado 2" class="certificado-img" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="certificate-item">
-                                <img src="./img/JsCertificate.png" alt="Certificado 3" class="certificado-img">
+                                <picture><source srcset="./img/JsCertificate.webp" type="image/webp"><img src="./img/JsCertificate.png" alt="Certificado 3" class="certificado-img" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="certificate-item">
-                                <img src="./img/ReactCertificated.png" alt="Certificado React" class="certificado-img">
+                                <picture><source srcset="./img/ReactCertificated.webp" type="image/webp"><img src="./img/ReactCertificated.png" alt="Certificado React" class="certificado-img" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="certificate-item">
-                                <img src="./img/FullStackProgramming.png" alt="Certificado Full Stack" class="certificado-img">
+                                <picture><source srcset="./img/FullStackProgramming.webp" type="image/webp"><img src="./img/FullStackProgramming.png" alt="Certificado Full Stack" class="certificado-img" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="certificate-item">
-                                <img src="./img/UxUiCertificate.png" alt="Certificado UX/UI" class="certificado-img">
+                                <picture><source srcset="./img/UxUiCertificate.webp" type="image/webp"><img src="./img/UxUiCertificate.png" alt="Certificado UX/UI" class="certificado-img" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="certificate-item">
-                                <img src="./img/ProductividadCertificate.png" alt="Certificado ProductividadPersonal" class="certificado-img">
+                                <picture><source srcset="./img/ProductividadCertificate.webp" type="image/webp"><img src="./img/ProductividadCertificate.png" alt="Certificado ProductividadPersonal" class="certificado-img" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="certificate-item">
-                                <img src="./img/AppsCertificate.png" alt="Certificado Aoos" class="certificado-img">
+                                <picture><source srcset="./img/AppsCertificate.webp" type="image/webp"><img src="./img/AppsCertificate.png" alt="Certificado Aoos" class="certificado-img" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="certificate-item">
-                                <img src="./img/GithubCertificate.png" alt="Certificado GitHub" class="certificado-img">
+                                <picture><source srcset="./img/GithubCertificate.webp" type="image/webp"><img src="./img/GithubCertificate.png" alt="Certificado GitHub" class="certificado-img" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="certificate-item">
-                                <img src="./img/Scrum2Certificates.png" alt="Certificado Scrum" class="certificado-img">
+                                <picture><source srcset="./img/Scrum2Certificates.webp" type="image/webp"><img src="./img/Scrum2Certificates.png" alt="Certificado Scrum" class="certificado-img" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="certificate-item">
-                                <img src="./img/CertificateWordpress.png" alt="Certificado Wordpress" class="certificado-img">
+                                <picture><source srcset="./img/CertificateWordpress.webp" type="image/webp"><img src="./img/CertificateWordpress.png" alt="Certificado Wordpress" class="certificado-img" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="certificate-item">
-                                <img src="./img/CSSADVANCED.png" alt="Certificado CSS Advanced" class="certificado-img">
+                                <picture><source srcset="./img/CSSADVANCED.webp" type="image/webp"><img src="./img/CSSADVANCED.png" alt="Certificado CSS Advanced" class="certificado-img" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="certificate-item">
-                                <img src="./img/GSAPCertificate.png" alt="Certificado GSAP" class="certificado-img">
+                                <picture><source srcset="./img/GSAPCertificate.webp" type="image/webp"><img src="./img/GSAPCertificate.png" alt="Certificado GSAP" class="certificado-img" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="certificate-item">
-                                <img src="./img/AntropicCertificate.png" alt="Certificado Antropic" class="certificado-img">
+                                <picture><source srcset="./img/AntropicCertificate.webp" type="image/webp"><img src="./img/AntropicCertificate.png" alt="Certificado Antropic" class="certificado-img" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="certificate-item">
-                                <img src="./img/TypesCertificate.png" alt="Certificado Types Typescript" class="certificado-img">
+                                <picture><source srcset="./img/TypesCertificate.webp" type="image/webp"><img src="./img/TypesCertificate.png" alt="Certificado Types Typescript" class="certificado-img" loading="lazy" decoding="async"></picture>
                             </div>
                             <div class="certificate-item">
-                                <img src="./img/TailwindCertificate.png" alt="Certificado Tailwind CSS" class="certificado-img">
+                                <picture><source srcset="./img/TailwindCertificate.webp" type="image/webp"><img src="./img/TailwindCertificate.png" alt="Certificado Tailwind CSS" class="certificado-img" loading="lazy" decoding="async"></picture>
                             </div>
                             
                         </div>
         </div>
                     
-        <!-- Open modal -->
-        <div id="imageModal" class="modal">
-                        <span class="close">&times;</span>
-                        <img class="modal-content" id="imgModal">
-        </div>
-
         <!--  Contact Section -->
         <section id="contact">
                         <div>
@@ -1182,9 +1170,7 @@
         <!--  BTN TOP Section -->
         <section id="TOP">
                         <div>
-                            <a href="#">
-                                <button class="TOP"> <i class="bi bi-arrow-up-circle-fill"></i></button>
-                            </a>
+                            <a href="#home" class="TOP" aria-label="Volver arriba"><i class="bi bi-arrow-up-circle-fill" aria-hidden="true"></i></a>
                         </div>
         </section>
 
@@ -1201,22 +1187,16 @@
                             <div class="footer-middle">
                                 <p>Diseñado y desarrollado sólo con las bases</p>
                                 <div class="tech-icons">
-                                    <i class="devicon-html5-plain"></i>
-                                    <i class="devicon-css3-plain"></i>
-                                    <i class="devicon-javascript-plain"></i>
+                                    <i class="devicon-html5-plain colored"></i>
+                                    <i class="devicon-css3-plain colored"></i>
+                                    <i class="devicon-javascript-plain colored"></i>
                                 </div>
                             </div>
                             
                             
                         </div>
         </footer>
-
-               
-
-        <div  class="cursor-dot" data-cursor-dot></div>
-        <div  class="cursor-outline" data-cursor-outline></div>
-
-        <!-- Navegación flotante -->
+<!-- Navegación flotante -->
         <nav class="floating-nav" aria-label="Navegación rápida">
             <a href="#home" class="floating-nav-logo" aria-label="Inicio">
                 <img src="./img/LOGOBLANCO.png" alt="Micaela Bahurlet">
@@ -1228,131 +1208,13 @@
             </ul>
         </nav>
 
-        <script src="./js/main.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-                    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+        <script defer src="./js/main.js"></script>
 
+        <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-label="Certificado ampliado">
+            <span class="close" aria-label="Cerrar">&times;</span>
+            <img class="modal-content" id="imgModal" alt="">
+        </div>
 
-
-
-        <!-- Script para bloquear carrusell si no hay img -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script>
-                        $(document).ready(function() {
-                            // Obtener el número de elementos en el carrusel
-                            var totalItems = $('#carouselExample .carousel-item').length;
-                            
-                            // Si hay menos de dos elementos, deshabilitar los botones
-                            if (totalItems < 2) {
-                                $('.carousel-control-prev').hide();
-                                $('.carousel-control-next').hide();
-                            }
-
-                            // Evento cuando el carrusel cambia de slide
-                            $('#carouselExample').on('slid.bs.carousel', function() {
-                                var currentIndex = $('#carouselExample .carousel-item.active').index() + 1;
-
-                                // Mostrar u ocultar botones según el índice del slide activo
-                                if (currentIndex === 1) {
-                                    $('.carousel-control-prev').hide();
-                                } else {
-                                    $('.carousel-control-prev').show();
-                                }
-
-                                if (currentIndex === totalItems) {
-                                    $('.carousel-control-next').hide();
-                                } else {
-                                    $('.carousel-control-next').show();
-                                }
-                            });
-
-                            // Inicializar el estado de los botones al cargar la página
-                            var currentIndex = $('#carouselExample .carousel-item.active').index() + 1;
-                            if (currentIndex === 1) {
-                                $('.carousel-control-prev').hide();
-                            }
-                            if (currentIndex === totalItems) {
-                                $('.carousel-control-next').hide();
-                            }
-                        });
-        </script>
-
-
-        <!--  Script to carrousell -->
-        <script>
-                            document.addEventListener('DOMContentLoaded', function() {
-                                var modal = document.getElementById("imageModal");
-                                var modalImg = document.getElementById("imgModal");
-                                var closeBtn = document.getElementsByClassName("close")[0];
-                                
-                                document.querySelectorAll('.certificado-img').forEach(function(img) {
-                                    img.onclick = function() {
-                                        modal.style.display = "block";
-                                        modalImg.src = this.src;
-                                    }
-                                });
-                            
-                                closeBtn.onclick = function() {
-                                    modal.style.display = "none";
-                                }
-                            
-                                window.onclick = function(event) {
-                                    if (event.target == modal) {
-                                        modal.style.display = "none";
-                                    }
-                                }
-                            });
-        </script>
-
-        
-        <!--  Script to load more projects -->
-        <script>
-                        document.addEventListener('DOMContentLoaded', function() {
-                            const proyectos = document.querySelectorAll('#projects .LogosProyectos');
-                            const btnCargar = document.getElementById('btnCargarMasProyectos');
-
-                            function actualizarProyectos() {
-                                if (window.innerWidth > 991) {
-                                    // Desktop: paginación
-                                    let visibles = parseInt(btnCargar.getAttribute('data-visibles')) || 3;
-                                    proyectos.forEach((proy, idx) => {
-                                        proy.style.display = idx < visibles ? 'flex' : 'none';
-                                    });
-                                    btnCargar.style.display = (visibles < proyectos.length) ? 'inline-block' : 'none';
-
-                                    btnCargar.onclick = function() {
-                                        visibles += 3;
-                                        btnCargar.setAttribute('data-visibles', visibles);
-                                        proyectos.forEach((proy, idx) => {
-                                            if (idx < visibles) proy.style.display = 'flex';
-                                        });
-                                        if (visibles >= proyectos.length) {
-                                            btnCargar.style.display = 'none';
-                                        }
-                                    };
-                                } else {
-                                    // Mobile/tablet: mostrar todos y ocultar botón
-                                    proyectos.forEach(proy => proy.style.display = 'block');
-                                    btnCargar.style.display = 'none';
-                                }
-                            }
-
-                            // Ejecutar al cargar
-                            actualizarProyectos();
-
-                            // Ejecutar al cambiar el tamaño de la ventana
-                            window.addEventListener('resize', function() {
-                                // Reiniciar el contador de visibles al cambiar a desktop
-                                btnCargar.setAttribute('data-visibles', 3);
-                                actualizarProyectos();
-                            });
-                        });
-
-                        // Initialize Lucide icons
-                        lucide.createIcons();
-        </script>
-    
-
-    </body>
+</body>
     
 </html>
