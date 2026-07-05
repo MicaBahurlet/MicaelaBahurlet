@@ -235,15 +235,16 @@ nav {
 }
 
 .logo {
-  max-width: 160px;
+  width: 140px;
+  max-width: 140px;
   height: auto;
 }
 
 header .logo {
   display: block;
-  width: auto;
-  height: 5rem;
-  max-width: none;
+  width: 140px;
+  height: auto;
+  max-width: 140px;
   object-fit: contain;
 }
 
@@ -1274,11 +1275,20 @@ footer {
 /* Estilos Generales de las Cards */
 #projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adaptación automática */
-  max-width: 1200px; /* Control del ancho máximo */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  max-width: 1200px;
   gap: 2rem;
   width: 100%;
   padding: 20px;
+}
+
+.LogosProyectos {
+  display: flex;
+  flex-direction: column;
+}
+
+.LogosProyectos:hover {
+  transform: none;
 }
 
 .LogoProyectos {
@@ -1289,6 +1299,7 @@ footer {
   transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .LogoProyectos:hover {
@@ -1299,6 +1310,7 @@ footer {
 .ScreenSitios {
   width: 100%;
   height: 200px;
+  flex-shrink: 0;
   overflow: hidden;
   position: relative;
 }
@@ -1347,11 +1359,10 @@ footer {
 /* Descripción y Texto */
 .DescriptionProyectos {
   padding: 1rem;
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  border: 0.5px solid #e2e8f0; /* Color gris claro moderno */
+  justify-content: flex-start;
+  border: 0.5px solid #e2e8f0;
   border-radius: 0 0 15px 15px;
   -webkit-border-radius: 0 0 15px 15px;
   -moz-border-radius: 0 0 15px 15px;
@@ -1385,10 +1396,52 @@ footer {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-top: auto;
 }
 .BtnsProyectos a {
   text-decoration: none !important;
+}
+
+/* Cards: misma altura solo en desktop */
+@media (min-width: 992px) {
+  #projects {
+    align-items: stretch;
+  }
+
+  .LogosProyectos {
+    height: 100%;
+    min-height: 100%;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .LogosProyectos:hover {
+    transform: translateY(-5px);
+  }
+
+  .DescriptionProyectos {
+    flex: 1 1 auto;
+    min-height: 0;
+    justify-content: space-between;
+  }
+
+  .TextProyectos {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .TextProyectos p {
+    flex: 1 1 auto;
+  }
+
+  .BtnsProyectos {
+    flex-shrink: 0;
+    margin-top: auto;
+  }
 }
 
 .VisitarSitioBtn {
@@ -1431,7 +1484,7 @@ footer {
 }
 
 
-/* Manteniendo tus animaciones y efectos existentes */
+
 .VisitarSitioBtn:hover {
   animation: pulse512 1.5s infinite;
 }
@@ -1463,7 +1516,6 @@ footer {
   font-weight: 600;
 }
 
-/* Mantenemos tu animación original */
 @keyframes pulse512 {
   0% {
     box-shadow: 0 0 0 0 #764ba2;
@@ -1477,7 +1529,6 @@ footer {
 }
 
 
-/* Manteniendo tus animaciones y efectos existentes */
 .MoreProjectsBtn:hover {
   animation: pulse512 1.5s infinite;
 }
@@ -1900,12 +1951,25 @@ footer .footer-content {
     flex-direction: column;
 }
 
-footer img {
+footer img,
+.footer-logo {
   width: 140px;
   height: auto;
   pointer-events: none;
   user-select: none;
   margin-top: 1rem;
+}
+
+.footer-logo--dark {
+  display: none;
+}
+
+body.dark-mode .footer-logo--light {
+  display: none;
+}
+
+body.dark-mode .footer-logo--dark {
+  display: block;
 }
 
 footer p {
@@ -2572,6 +2636,12 @@ body.dark-mode footer {
 
 /* Mobile Responsive Footer */
 @media (max-width: 768px) {
+  header .logo,
+  .logo {
+    width: 120px;
+    max-width: 120px;
+  }
+
   footer {
     padding: 1.5rem 1rem;
     text-align: center;
@@ -2604,7 +2674,8 @@ body.dark-mode footer {
     flex-wrap: wrap;
   }
   
-  footer img {
+  footer img,
+  .footer-logo {
     width: 120px;
     margin-bottom: 0.5rem;
   }
@@ -2865,7 +2936,7 @@ body.dark-mode .carousel-control-next {
 }
 
 /* =====================================================
-   SECCIÓN PRESENTACIÓN DE PERFIL (imagen + texto)
+   SECCIÓN PRESENTACIÓN DE PERFIL
    ===================================================== */
 .profile-intro {
   position: relative;
@@ -2878,8 +2949,8 @@ body.dark-mode .carousel-control-next {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4rem;
-  max-width: 1100px;
+  gap: 5rem;
+  max-width: 1200px;
   margin: 0 auto;
 }
 .profile-intro .ImgHero { flex: 0 0 auto; }
@@ -2899,22 +2970,91 @@ body.dark-mode .carousel-control-next {
   color: #6fa8a5;
 }
 .profile-intro-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35em 0.5em;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 2.2rem;
-  line-height: 1.2;
+  line-height: 1.15;
   margin: 0 0 1.3rem;
   color: #332e2e;
 }
+
+.profile-title-line {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35em 0.5em;
+}
+
+.profile-title-word--accent {
+  display: inline-block;
+  font-size: 1.18em;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  background: linear-gradient(120deg, #2f6f6b 0%, #5eaaa6 45%, #8fc1be 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.profile-title-connector {
+  display: inline-block;
+  font-weight: 600;
+  color: #5c5654;
+  text-transform: lowercase;
+}
+
+.profile-title-snap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: 1.05;
+  padding-bottom: 0.06em;
+}
+
+.profile-title-snap-inner {
+  display: inline-block;
+  font-size: 1.14em;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #4a4544;
+  will-change: transform;
+}
+
 .profile-intro-text p {
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: clamp(1.12rem, 1.35vw, 1.2rem);
+  line-height: 1.75;
   margin-bottom: 1rem;
   color: #4a4544;
+  max-width: 660px;
+}
+
+.profile-text-em {
+  position: relative;
+  display: inline;
+  font-weight: 600;
+  color: #2f2b2a;
+}
+
+.profile-text-em--underline {
+  background-image: linear-gradient(90deg, rgba(111, 168, 165, 0.9), rgba(143, 193, 190, 0.35));
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 0% 2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding-bottom: 0.1em;
+}
+
+.profile-text-em--underline.is-revealed {
+  background-size: 100% 2px;
+  transition: background-size 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* =====================================================
-   NAV FLOTANTE (estilo referencia)
+   NAV FLOTANTE 
    ===================================================== */
 .floating-nav {
   position: fixed;
@@ -2933,6 +3073,7 @@ body.dark-mode .carousel-control-next {
   backdrop-filter: blur(14px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
   max-width: calc(100% - 2rem);
+  transition: bottom 0.28s ease-out;
 }
 .floating-nav-logo {
   display: flex;
@@ -2990,6 +3131,18 @@ body.dark-mode #profile-intro {
 body.dark-mode .profile-intro-text,
 body.dark-mode .profile-intro-title { color: #ffffff; }
 body.dark-mode .profile-intro-text p { color: #c9d2dd; }
+body.dark-mode .profile-title-connector { color: rgba(255, 255, 255, 0.72); }
+body.dark-mode .profile-title-word--accent {
+  background: linear-gradient(120deg, #8fc1be 0%, #b8dedc 55%, #ffffff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+body.dark-mode .profile-title-snap-inner { color: #ffffff; }
+body.dark-mode .profile-text-em { color: #ffffff; }
+body.dark-mode .profile-text-em--underline {
+  background-image: linear-gradient(90deg, rgba(143, 193, 190, 0.95), rgba(143, 193, 190, 0.4));
+}
 
 /* Accesibilidad: menos movimiento */
 @media (prefers-reduced-motion: reduce) {
@@ -3013,6 +3166,18 @@ body.dark-mode .profile-intro-text p { color: #c9d2dd; }
   .ImgAbout .about-img-hover,
   .ImgAbout .about-img-alt {
     opacity: 0;
+  }
+
+  .profile-title-snap-inner,
+  .profile-title-word--accent,
+  .profile-intro-text p,
+  .profile-text-em {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .profile-text-em--underline.is-revealed {
+    background-size: 100% 2px;
   }
 }
 

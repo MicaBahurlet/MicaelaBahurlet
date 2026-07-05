@@ -297,6 +297,122 @@ function initFloatingNav() {
             },
         });
     });
+
+    initFloatingNavFooterAvoid(nav);
+}
+
+function initFloatingNavFooterAvoid(nav) {
+    const footer = document.querySelector("footer");
+    if (!footer) return;
+
+    const minBottom = 26;
+    const footerGap = 16;
+
+    const updatePosition = () => {
+        const footerTop = footer.getBoundingClientRect().top;
+        const requiredBottom = window.innerHeight - footerTop + footerGap;
+        nav.style.bottom = `${Math.max(minBottom, requiredBottom)}px`;
+    };
+
+    window.addEventListener("scroll", updatePosition, { passive: true });
+    window.addEventListener("resize", updatePosition);
+    updatePosition();
+}
+
+// ====================================
+// PROFILE INTRO — animación de texto
+// ====================================
+
+function initProfileIntroAnimations() {
+    const section = document.querySelector("#profile-intro");
+    if (!section || typeof window.gsap === "undefined" || typeof window.ScrollTrigger === "undefined") return;
+
+    const gsap = window.gsap;
+    gsap.registerPlugin(ScrollTrigger);
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const accentWord = section.querySelector(".profile-title-word--accent");
+    const connector = section.querySelector(".profile-title-connector");
+    const snapInner = section.querySelector(".profile-title-snap-inner");
+    const paragraph = section.querySelector(".profile-intro-text > p");
+    const emWords = section.querySelectorAll(".profile-text-em");
+    const underlineHighlights = section.querySelectorAll(".profile-text-em--underline");
+    const portrait = section.querySelector(".ImgHero");
+
+    if (reduceMotion) {
+        underlineHighlights.forEach((span) => span.classList.add("is-revealed"));
+        return;
+    }
+
+    const resetHighlights = () => {
+        underlineHighlights.forEach((span) => span.classList.remove("is-revealed"));
+    };
+
+    if (accentWord) gsap.set(accentWord, { opacity: 0, y: 28, scale: 0.94 });
+    if (connector) gsap.set(connector, { opacity: 0 });
+    if (snapInner) gsap.set(snapInner, { yPercent: -115 });
+    if (paragraph) gsap.set(paragraph, { opacity: 0, y: 18 });
+    if (emWords.length) gsap.set(emWords, { opacity: 0.35 });
+    if (portrait) gsap.set(portrait, { opacity: 0, y: 24 });
+
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+            end: "bottom 75%",
+            toggleActions: "play reverse play reverse",
+            onLeave: resetHighlights,
+            onLeaveBack: resetHighlights,
+        },
+        defaults: { ease: "power3.out" },
+    });
+
+    if (portrait) {
+        tl.to(portrait, { opacity: 1, y: 0, duration: 0.75 }, 0);
+    }
+
+    if (accentWord) {
+        tl.to(accentWord, { opacity: 1, y: 0, scale: 1, duration: 0.75 }, 0.08);
+    }
+
+    if (connector) {
+        tl.to(connector, { opacity: 1, duration: 0.35 }, 0.35);
+    }
+
+    if (snapInner) {
+        tl.to(snapInner, {
+            yPercent: 0,
+            duration: 0.9,
+            ease: "back.out(1.85)",
+        }, 0.42);
+    }
+
+    if (paragraph) {
+        tl.to(paragraph, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }, 0.55);
+    }
+
+    if (emWords.length) {
+        tl.to(emWords, {
+            opacity: 1,
+            duration: 0.55,
+            stagger: 0.08,
+            ease: "power2.out",
+        }, 0.78);
+    }
+
+    if (underlineHighlights.length) {
+        tl.to(underlineHighlights, {
+            opacity: 1,
+            duration: 0.55,
+            stagger: {
+                each: 0.14,
+                onStart() {
+                    this.targets()[0].classList.add("is-revealed");
+                },
+            },
+            ease: "power2.out",
+        }, 0.85);
+    }
 }
 
 // ====================================
@@ -437,6 +553,7 @@ function initHeaderScroll() {
 document.addEventListener("DOMContentLoaded", () => {
     initSmoothScroll();
     initHeroGsapAnimations();
+    initProfileIntroAnimations();
     initFloatingNav();
     initHeaderScroll();
     initPaperPlaneScrollAnimation();

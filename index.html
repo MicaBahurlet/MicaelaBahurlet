@@ -111,7 +111,7 @@
                 </div>
         </main>
 
-        <!-- Presentación de perfil (imagen + descripción) -->
+        <!-- Presentación de perfil -->
         <section id="profile-intro" class="profile-intro">
             <div class="profile-intro-wrapper">
                 <div class="ImgHero">
@@ -120,9 +120,16 @@
                     </div>
                 </div>
                 <div class="profile-intro-text">
-                    <span class="profile-intro-label">Sobre mí</span>
-                    <h2 class="profile-intro-title">Desarrollo con mirada de diseño</h2>
-                    <p>Full stack developer especializada en desarrollo frontend, con experiencia en la creación de interfaces intuitivas y fáciles de usar. Proactiva y organizada, motivada por trabajar en entornos colaborativos y desafiantes.</p>
+                    <h2 class="profile-intro-title">
+                        <span class="profile-title-line profile-title-line--primary">
+                            <span class="profile-title-word profile-title-word--accent">Desarrollo</span>
+                        </span>
+                        <span class="profile-title-line profile-title-line--secondary">
+                            <span class="profile-title-connector">Con</span>
+                            <span class="profile-title-snap"><span class="profile-title-snap-inner">propósito</span></span>
+                        </span>
+                    </h2>
+                    <p>Para mí, desarrollar eficazmente no es sólo escribir código escalable; es <span class="profile-text-em profile-text-em--underline">darle vida a cada proyecto</span>, es <span class="profile-text-em">cuidar los detalles</span> para lograr una <span class="profile-text-em profile-text-em--underline">experiencia de usuario amigable e intuitiva</span>. Así es como considero que el código se vuelve una herramienta para <span class="profile-text-em">dar visibilidad</span>, <span class="profile-text-em">aportar funcionalidad</span> y <span class="profile-text-em">resolver problemas reales</span>. </p>
                 </div>
             </div>
         </section>
@@ -177,7 +184,7 @@
                                             </a>
                                         </div>
                                         <p class="timeline-description">
-                                            Me encargo del desarrollo de sitios webs, componentes y sistemas, replicando los diseños creados por el equipo de diseño de la empresa. Trabajo en distintos proyectos con diversas tecnologías, lenguajes y frameworks.
+                                            Me encargo del desarrollo de sitios webs, componentes y sistemas, replicando los diseños creados por el equipo de diseño de la agencia. Trabajo en distintos proyectos con diversas tecnologías, lenguajes y frameworks.
                                         </p>
                                         <div class="timeline-technologies">
                                         
@@ -1056,7 +1063,7 @@
         <!--  AbboutMe Section -->
         <section id="AboutME">
                         <div>
-                            <p> Tengo 28 años, vivo en Olavarría (Provincia de Buenos Aires, Argentina). <br> <br> 
+                            <p> Tengo 29 años, vivo en Olavarría (Provincia de Buenos Aires, Argentina). <br> <br> 
                             La programación me presentó un mundo de posibilidades. Mis primeros pasos fueron un curso de <strong> Desarrollo Web,</strong> esas bases me incentivaron a seguir aprendiendo, por lo cual profundice con la carrera en <strong> Programación Full Stack</strong> y la <strong>Tecnincatura universitaria en Programación</strong>.
                             
                             <br><br> 
@@ -1185,7 +1192,8 @@
         <!--  Footer Section -->
         <footer>
                         <div>
-                            <img src="./img/LogoMioNegro.png" alt="Logo Micaela Bahurlet">
+                            <img class="footer-logo footer-logo--light" src="./img/LogoMioNegro.png" alt="Logo Micaela Bahurlet">
+                            <img class="footer-logo footer-logo--dark" src="./img/LOGOBLANCO.png" alt="Logo Micaela Bahurlet">
                         </div>
 
                         <div class="footer-content">
@@ -1306,9 +1314,9 @@
                             function actualizarProyectos() {
                                 if (window.innerWidth > 991) {
                                     // Desktop: paginación
-                                    let visibles = parseInt(btnCargar.getAttribute('data-visibles')) || 6;
+                                    let visibles = parseInt(btnCargar.getAttribute('data-visibles')) || 3;
                                     proyectos.forEach((proy, idx) => {
-                                        proy.style.display = idx < visibles ? 'block' : 'none';
+                                        proy.style.display = idx < visibles ? 'flex' : 'none';
                                     });
                                     btnCargar.style.display = (visibles < proyectos.length) ? 'inline-block' : 'none';
 
@@ -1316,7 +1324,7 @@
                                         visibles += 3;
                                         btnCargar.setAttribute('data-visibles', visibles);
                                         proyectos.forEach((proy, idx) => {
-                                            if (idx < visibles) proy.style.display = 'block';
+                                            if (idx < visibles) proy.style.display = 'flex';
                                         });
                                         if (visibles >= proyectos.length) {
                                             btnCargar.style.display = 'none';

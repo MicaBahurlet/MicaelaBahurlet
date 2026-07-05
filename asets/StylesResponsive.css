@@ -329,29 +329,42 @@
 
 
     #projects {
-        display: flex; /* 1. Cambiamos a flex para poner las tarjetas en fila */
-        flex-direction: row; /* 2. Aseguramos la dirección horizontal */
-        overflow-x: auto; /* 3. Habilitamos el scroll horizontal */
-        scroll-snap-type: x mandatory; /* 4. Hacemos que el scroll se "pegue" a cada tarjeta */
-        scroll-padding-left: 1rem; /* 5. Añadimos un padding inicial para el snapping */
-        
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-padding-left: 1rem;
         gap: 1rem;
         width: 100%;
-        padding-right: 0; /* 6. Padding a la izquierda para el margen inicial */
+        padding-right: 0;
     }
 
-    
-
     .LogosProyectos {
-        flex: 0 0 85%; /* 7. CADA TARJETA OCUPA EL 85% DEL ANCHO */
-        scroll-snap-align: start; /* 8. El scroll se alinea al inicio de cada tarjeta */
-        
+        flex: 0 0 85%;
+        scroll-snap-align: start;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 0; /* Reseteamos el margen */
-        width: auto; /* Dejamos que flex controle el ancho */
+        justify-content: flex-start;
+        align-items: stretch;
+        margin: 0;
+        width: auto;
+        height: auto;
+        background: transparent;
+        box-shadow: none;
+        border-radius: 0;
+        overflow: visible;
+    }
+
+    .LogosProyectos:hover {
+        transform: none;
+    }
+
+    body.dark-mode .LogosProyectos {
+        background: transparent;
+    }
+
+    .ScreenSitios {
         height: auto;
     }
 
@@ -378,10 +391,11 @@
 
     #projects .BtnsProyectos{
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: flex-start;
         gap: 1rem;
         margin-top: 1rem;
+        flex-shrink: 0;
     }
 
     #projects .VisitarSitioBtn{
@@ -470,13 +484,13 @@
     .DescriptionProyectos {
         display: flex;
         flex-direction: column;
-        justify-content: start;
+        justify-content: flex-start;
         align-items: flex-start;
         margin: 0 auto;
         width: 100%;
         height: auto;
         max-width: 350px;
-        
+        flex: none;
     }
 
     .DescriptionDesktop {
@@ -1089,6 +1103,23 @@
     text-align: center;
   }
   .profile-intro-text { text-align: center; max-width: 560px; }
+
+  .profile-intro-title {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  .profile-title-line {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .profile-title-connector {
+    text-transform: capitalize;
+  }
 }
 
 /* Mobile: nombre y ajustes finos */

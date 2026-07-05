@@ -110,7 +110,7 @@
                 </div>
         </main>
 
-        <!-- Profile intro (image + description) -->
+        <!-- Profile intro -->
         <section id="profile-intro" class="profile-intro">
             <div class="profile-intro-wrapper">
                 <div class="ImgHero">
@@ -119,9 +119,16 @@
                     </div>
                 </div>
                 <div class="profile-intro-text">
-                    <span class="profile-intro-label">About me</span>
-                    <h2 class="profile-intro-title">Development with a designer's eye</h2>
-                    <p>Full stack developer specialized in frontend development, with experience in creating intuitive and user-friendly interfaces. Proactive and organized, motivated to work in collaborative and challenging environments.</p>
+                    <h2 class="profile-intro-title">
+                        <span class="profile-title-line profile-title-line--primary">
+                            <span class="profile-title-word profile-title-word--accent">Development</span>
+                        </span>
+                        <span class="profile-title-line profile-title-line--secondary">
+                            <span class="profile-title-connector">With</span>
+                            <span class="profile-title-snap"><span class="profile-title-snap-inner">purpose</span></span>
+                        </span>
+                    </h2>
+                    <p>To me, effective development is not just about writing scalable code; it’s about <span class="profile-text-em profile-text-em--underline">bringing each project to life</span>, <span class="profile-text-em">paying close attention to detail</span> to achieve a <span class="profile-text-em profile-text-em--underline">user-friendly and intuitive experience</span>. This is how I view code: as a tool to <span class="profile-text-em">provide visibility</span>, <span class="profile-text-em">deliver functionality</span>, and <span class="profile-text-em">solve real-world problems</span>.</p>
                 </div>
             </div>
         </section>
@@ -1136,7 +1143,7 @@
         <!--  Abboutme Section -->
         <section id="AboutME">
                         <div>
-                            <p> I am 28 years old, I live in Olavarría (Buenos Aires Province, Argentina). <br> <br>
+                            <p> I am 29 years old, I live in Olavarría (Buenos Aires Province, Argentina). <br> <br>
                                 Programming introduced me to a world of possibilities. My first steps were a course in <strong> Web Development </strong>, those foundations encouraged me to continue learning, so I delved deeper into the career of <strong> Full Stack Programming </strong> and <strong>University Technician in Programming</strong>. 
                                 
                                 <!-- <br> <br> Those years of training allowed me to acquire knowledge and tools to face more complex and challenging projects. Confirming, in this way, that in this world not only theoretical knowledge is useful, but that one learns by DOING. -->
@@ -1265,7 +1272,8 @@
         <!--  Footer Section -->
         <footer>
             <div>
-                <img src="../img/LogoMioNegro.png" alt="Logo Micaela Bahurlet">
+                <img class="footer-logo footer-logo--light" src="../img/LogoMioNegro.png" alt="Logo Micaela Bahurlet">
+                <img class="footer-logo footer-logo--dark" src="../img/LOGOBLANCO.png" alt="Logo Micaela Bahurlet">
             </div>
 
             <div class="footer-content">
@@ -1380,12 +1388,12 @@
                     document.addEventListener('DOMContentLoaded', function() {
                         const proyectos = Array.from(document.querySelectorAll('#projects .LogosProyectos'));
                         const btnCargar = document.getElementById('btnCargarMasProyectos');
-                        let visibles = 6; // Empezar mostrando 6 proyectos
+                        let visibles = 3; // Empezar mostrando 6 proyectos
 
                         if (!btnCargar || proyectos.length === 0) return;
 
                         // Guardar el display original de cada proyecto
-                        const displayOriginal = proyectos.map(proy => proy.style.display || getComputedStyle(proy).display);
+                        const displayOriginal = proyectos.map(() => 'flex');
 
                         function actualizarProyectos() {
                             if (window.innerWidth > 991) {
@@ -1396,8 +1404,8 @@
                                 btnCargar.style.display = (visibles < proyectos.length) ? 'inline-block' : 'none';
                             } else {
                                 // Mobile/tablet: mostrar todos y ocultar botón
-                                proyectos.forEach((proy, idx) => {
-                                    proy.style.display = displayOriginal[idx];
+                                proyectos.forEach((proy) => {
+                                    proy.style.display = 'block';
                                 });
                                 btnCargar.style.display = 'none';
                             }
