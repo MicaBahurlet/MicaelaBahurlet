@@ -2009,10 +2009,13 @@ footer {
 .tech-item i {
   margin-right: 5px;
   font-size: 1rem;
+  color: #4a5568;
 }
 
-.tech-item i:not([class*="devicon"]) {
-  color: #4a5568;
+/* Íconos de las cards de experiencia siempre en gris (sin color de marca) */
+.timeline-technologies .tech-item i,
+.timeline-technologies .tech-item i[class*="devicon"] {
+  color: #4a5568 !important;
 }
 
 .timeline-technologies .tech-item i[class*="devicon"] {
