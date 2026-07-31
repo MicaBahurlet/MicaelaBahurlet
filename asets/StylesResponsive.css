@@ -1122,7 +1122,6 @@
 
 }
 
-/* Mobile: nombre y ajustes finos */
 @media (max-width: 767px) {
   #home.hero-modern {
     padding: calc(4rem + 5.5rem) 1.2rem 8rem;

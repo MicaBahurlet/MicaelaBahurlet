@@ -34,6 +34,7 @@ async function loadGsapBundle() {
     await loadScript(`${GSAP_BASE}/gsap.min.js`);
     await loadScript(`${GSAP_BASE}/ScrollTrigger.min.js`);
     await loadScript(`${GSAP_BASE}/ScrollToPlugin.min.js`);
+    await loadScript(`${GSAP_BASE}/SplitText.min.js`);
 }
 
 function getScrollOffset() {
@@ -139,9 +140,7 @@ function initHeroGsapAnimations() {
     const visual = heroRoot.querySelector(".hero-visual");
 
     const gsap = window.gsap;
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (reduceMotion) return;
+    // Animations will play even if prefers-reduced-motion is active
 
     highlights.forEach((highlight) => {
         gsap.set(highlight, { backgroundSize: "0% 100%" });
@@ -255,57 +254,119 @@ function initProfileIntroAnimations() {
     const gsap = window.gsap;
     gsap.registerPlugin(ScrollTrigger);
 
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const accentWord = section.querySelector(".profile-title-word--accent");
-    const connector = section.querySelector(".profile-title-connector");
-    const snapInner = section.querySelector(".profile-title-snap-inner");
-    const paragraph = section.querySelector(".profile-intro-text > p");
-    const emWords = section.querySelectorAll(".profile-text-em:not(.profile-text-em--underline)");
+    const accentWord        = section.querySelector(".profile-title-word--accent");
+    const connector         = section.querySelector(".profile-title-connector");
+    const snapInner         = section.querySelector(".profile-title-snap-inner");
+    const paragraph         = section.querySelector(".profile-intro-text > p");
     const underlineHighlights = section.querySelectorAll(".profile-text-em--underline");
-    const portrait = section.querySelector(".ImgHero");
+    const portrait          = section.querySelector(".ImgHero");
 
-    if (reduceMotion) {
-        underlineHighlights.forEach((span) => span.classList.add("is-revealed"));
-        return;
-    }
-
-    const resetHighlights = () => {
-        underlineHighlights.forEach((span) => span.classList.remove("is-revealed"));
-    };
-
+    /* ── Title animation ───────────────────────────────────────────────── */
     const tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-            end: "bottom 75%",
-            once: true,
-        },
+        scrollTrigger: { trigger: section, start: "top 80%", once: true },
         defaults: { ease: "power3.out" },
     });
 
-    if (portrait) tl.from(portrait, { opacity: 0, y: 24, duration: 0.75 }, 0);
+    if (portrait)   tl.from(portrait,   { opacity: 0, y: 24,  duration: 0.75 }, 0);
     if (accentWord) tl.from(accentWord, { opacity: 0, y: 28, scale: 0.94, duration: 0.75 }, 0.08);
-    if (connector) tl.from(connector, { opacity: 0, duration: 0.35 }, 0.35);
-    if (snapInner) tl.from(snapInner, { yPercent: -115, duration: 0.9, ease: "back.out(1.85)" }, 0.42);
-    if (paragraph) tl.from(paragraph, { opacity: 0, y: 18, duration: 0.7, ease: "power2.out" }, 0.55);
+    if (connector)  tl.from(connector,  { opacity: 0, duration: 0.35 }, 0.35);
+    if (snapInner)  tl.from(snapInner,  { yPercent: -115, duration: 0.9, ease: "back.out(1.85)" }, 0.42);
 
-    if (emWords.length) {
-        tl.from(emWords, { opacity: 0.35, duration: 0.55, stagger: 0.08, ease: "power2.out" }, 0.78);
-    }
-
-    if (underlineHighlights.length) {
-        tl.to(underlineHighlights, {
-            duration: 0.55,
-            stagger: {
-                each: 0.14,
-                onStart() {
-                    this.targets()[0].classList.add("is-revealed");
-                },
-            },
-            ease: "power2.out",
-        }, 0.85);
+    /* ── Paragraph: line-by-line clip-path reveal ──────────────────────── */
+    if (paragraph) {
+        initLineReveal(gsap, paragraph, section, underlineHighlights);
     }
 }
+
+/**
+ * Paragraph reveal with GSAP SplitText — "Lines" mode.
+ *
+ * Each visual line flips in from a 3D rotation (rotationX: -90°, depth -160px)
+ * to its natural position, one line at a time with a 0.25 s stagger.
+ * After the last line lands, the sharpie highlights sweep in one by one.
+ *
+ * SplitText handles the complex mixed-HTML splitting (spans, bold, etc.)
+ * so we never have to manually parse the DOM structure.
+ */
+function initLineReveal(gsap, paragraph, section, underlineHighlights) {
+    const SplitText = window.SplitText;
+    if (!SplitText) {
+        // SplitText not loaded — fall back to a simple fade-in
+        gsap.from(paragraph, { opacity: 0, y: 20, duration: 0.8, ease: "power3.out",
+            scrollTrigger: { trigger: section, start: "top 68%", once: true } });
+        return;
+    }
+
+    gsap.registerPlugin(SplitText);
+
+    /* ── 1. Keep a reference so we can revert on resize ─────────────────── */
+    let split = null;
+    let revealTl = null;
+    let triggered = false;
+
+    /* ── 2. Build the split + animation ─────────────────────────────────── */
+    const setup = () => {
+        if (split) split.revert();
+        if (revealTl) { revealTl.kill(); revealTl = null; }
+
+        // SplitText wraps each visual line in a <div>
+        split = SplitText.create(paragraph, { type: "lines", linesClass: "st-line" });
+
+        // Each line needs overflow:hidden so the 3D rotation clips cleanly
+        split.lines.forEach((line) => {
+            const wrapper = document.createElement("div");
+            wrapper.style.overflow = "hidden";
+            line.parentNode.insertBefore(wrapper, line);
+            wrapper.appendChild(line);
+        });
+
+        if (!triggered) return;  // wait for scroll trigger
+        playAnimation();
+    };
+
+    /* ── 3. Animation: lines flip in from 3D rotation ───────────────────── */
+    const playAnimation = () => {
+        if (!split || !split.lines.length) return;
+
+        revealTl = gsap.timeline({
+            onComplete() {
+                /* Sharpie highlights sweep in after text is fully visible */
+                underlineHighlights.forEach((span, i) => {
+                    const jitter = (Math.random() - 0.5) * 0.04;
+                    gsap.delayedCall(0.05 + i * 0.20 + jitter, () => {
+                        span.classList.add("is-revealed");
+                    });
+                });
+            },
+        });
+
+        revealTl.from(split.lines, {
+            rotationX: -90,
+            transformOrigin: "50% 50% -120px",
+            opacity: 0,
+            duration: 0.7,
+            ease: "power3.out",
+            stagger: 0.22,
+        });
+    };
+
+    /* ── 4. ScrollTrigger fires animation once ──────────────────────────── */
+    ScrollTrigger.create({
+        trigger: section,
+        start: "top 68%",
+        once: true,
+        onEnter() {
+            triggered = true;
+            if (split) playAnimation();
+        },
+    });
+
+    /* ── 5. Initial setup (also re-setup on resize so lines recalculate) ── */
+    setup();
+    window.addEventListener("resize", setup, { passive: true });
+}
+
+
 
 function initHeaderScroll() {
     const header = document.querySelector("header");
@@ -458,11 +519,8 @@ function scheduleGsapInit() {
         }
     };
 
-    if ("requestIdleCallback" in window) {
-        requestIdleCallback(run, { timeout: 2000 });
-    } else {
-        window.addEventListener("load", () => setTimeout(run, 150), { once: true });
-    }
+    // Avoid requestIdleCallback for Hero animations to prevent delays or mobile browser bugs
+    setTimeout(run, 100);
 }
 
 document.addEventListener("DOMContentLoaded", () => {

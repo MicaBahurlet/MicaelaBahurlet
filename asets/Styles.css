@@ -3030,6 +3030,8 @@ body.dark-mode .carousel-control-next {
   width: 100%;
   text-align: center;
   color: var(--color-ink, #2e2b28);
+  perspective: 600px;         /* required for SplitText 3D rotationX lines */
+  perspective-origin: center top;
 }
 .profile-intro-label {
   display: inline-block;
@@ -3094,13 +3096,15 @@ body.dark-mode .carousel-control-next {
 }
 
 .profile-intro-text p {
-  font-size: clamp(1.2rem, 2vw, 1.6rem);
-  line-height: 1.6;
+  font-size: clamp(1.1rem, 1.65vw, 1.4rem);
+  line-height: 1.7;
   margin: 0 auto;
   color: var(--color-ink-soft, #5c5654);
-  max-width: 800px;
+  max-width: 820px;         /* wide enough to fit in ~5 lines on a 1024+ viewport */
   font-weight: 500;
+  text-wrap: balance;
 }
+
 
 .profile-text-em {
   position: relative;
@@ -3112,18 +3116,56 @@ body.dark-mode .carousel-control-next {
 .profile-text-em--underline {
   color: var(--color-ink, #2e2b28);
   opacity: 1;
-  background-image: linear-gradient(90deg, rgba(143, 193, 190, 0.8), rgba(143, 193, 190, 0.2));
+  position: relative;
+  /*
+   * Organic marker stroke: multi-stop gradient at ~104° mimics a real
+   * highlighter — slightly thicker in the middle, tapered/transparent at
+   * both ends, with subtle opacity variation across the stroke body.
+   */
+  background-image: linear-gradient(
+    104deg,
+    rgba(143, 193, 190, 0)    0.4%,
+    rgba(143, 193, 190, 0.78) 1.8%,
+    rgba(143, 193, 190, 0.58) 9%,
+    rgba(143, 193, 190, 0.72) 31%,
+    rgba(143, 193, 190, 0.60) 56%,
+    rgba(143, 193, 190, 0.74) 77%,
+    rgba(143, 193, 190, 0.56) 90%,
+    rgba(143, 193, 190, 0.78) 96%,
+    rgba(143, 193, 190, 0)    100%
+  );
   background-repeat: no-repeat;
-  background-position: left bottom;
-  background-size: 0% 4px;
+  background-position: left 60%; /* sit slightly below center, like a real stroke */
+  background-size: 0% 0.88em;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
-  padding-bottom: 0.15em;
+  padding: 0.06em 0.12em;
+  border-radius: 2px;
 }
 
 .profile-text-em--underline.is-revealed {
-  background-size: 100% 4px;
-  transition: background-size 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  background-size: 100% 0.88em;
+  /*
+   * Fast onset (pen hits paper), confident deceleration (pen lifts away).
+   * Shorter than before so the sweep feels decisive, not drawn-out.
+   */
+  transition: background-size 0.38s cubic-bezier(0.08, 0.72, 0.26, 1.0);
+}
+
+/* Typewriter cursor */
+.typewriter-cursor {
+  display: inline-block;
+  font-weight: 300;
+  color: var(--color-teal, #3a7d78);
+  margin-left: 1px;
+  opacity: 1;
+  animation: cursor-blink 0.55s step-end infinite;
+  user-select: none;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
 }
 
 /* =====================================================
@@ -3215,8 +3257,20 @@ body.dark-mode .profile-title-snap-inner { color: #ffffff; }
 body.dark-mode .profile-text-em { color: #ffffff; }
 body.dark-mode .profile-text-em--underline {
   color: #ffffff;
-  background-image: linear-gradient(90deg, rgba(143, 193, 190, 0.95), rgba(143, 193, 190, 0.4));
+  background-image: linear-gradient(
+    104deg,
+    rgba(143, 193, 190, 0)    0.4%,
+    rgba(143, 193, 190, 0.82) 1.8%,
+    rgba(143, 193, 190, 0.62) 9%,
+    rgba(143, 193, 190, 0.76) 31%,
+    rgba(143, 193, 190, 0.64) 56%,
+    rgba(143, 193, 190, 0.78) 77%,
+    rgba(143, 193, 190, 0.60) 90%,
+    rgba(143, 193, 190, 0.82) 96%,
+    rgba(143, 193, 190, 0)    100%
+  );
 }
+
 
 /* Accesibilidad: menos movimiento */
 @media (prefers-reduced-motion: reduce) {
