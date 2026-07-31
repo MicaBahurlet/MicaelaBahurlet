@@ -278,41 +278,51 @@ function initProfileIntroAnimations() {
     }
 }
 
-/**
- * Paragraph reveal with GSAP SplitText — "Lines" mode.
- *
- * Each visual line flips in from a 3D rotation (rotationX: -90°, depth -160px)
- * to its natural position, one line at a time with a 0.25 s stagger.
- * After the last line lands, the sharpie highlights sweep in one by one.
- *
- * SplitText handles the complex mixed-HTML splitting (spans, bold, etc.)
- * so we never have to manually parse the DOM structure.
- */
 function initLineReveal(gsap, paragraph, section, underlineHighlights) {
     const SplitText = window.SplitText;
     if (!SplitText) {
-        // SplitText not loaded — fall back to a simple fade-in
+        // SplitText not loaded — fall back to a simple fade-in + instant highlights
         gsap.from(paragraph, { opacity: 0, y: 20, duration: 0.8, ease: "power3.out",
-            scrollTrigger: { trigger: section, start: "top 68%", once: true } });
+            scrollTrigger: { trigger: section, start: "top 68%", once: true,
+                onEnter() { gsap.delayedCall(1.0, () => underlineHighlights.forEach(s => s.classList.add("is-revealed"))); }
+            }
+        });
         return;
     }
 
     gsap.registerPlugin(SplitText);
 
-    /* ── 1. Keep a reference so we can revert on resize ─────────────────── */
-    let split = null;
-    let revealTl = null;
-    let triggered = false;
+    let split         = null;
+    let revealTl      = null;
+    let triggered     = false;
+    let highlightsDone = false;   // guard: highlights applied at most once
 
-    /* ── 2. Build the split + animation ─────────────────────────────────── */
+    /* ─── applyHighlights: idempotent — safe to call from multiple paths ─ */
+    const applyHighlights = () => {
+        if (highlightsDone) return;
+        highlightsDone = true;
+        underlineHighlights.forEach((span, i) => {
+            const jitter = (Math.random() - 0.5) * 0.04;
+            gsap.delayedCall(0.05 + i * 0.20 + jitter, () => {
+                span.classList.add("is-revealed");
+            });
+        });
+    };
+
+    /* ─── setup: (re-)split text and build overflow wrappers ────────────── */
     const setup = () => {
         if (split) split.revert();
-        if (revealTl) { revealTl.kill(); revealTl = null; }
 
-        // SplitText wraps each visual line in a <div>
+        // Only kill the timeline if highlights haven't landed yet.
+        // If they're done, let any running timeline finish naturally.
+        if (revealTl && !highlightsDone) {
+            revealTl.kill();
+            revealTl = null;
+        }
+
         split = SplitText.create(paragraph, { type: "lines", linesClass: "st-line" });
 
-        // Each line needs overflow:hidden so the 3D rotation clips cleanly
+        // overflow:hidden on each line wrapper clips the 3D rotation cleanly
         split.lines.forEach((line) => {
             const wrapper = document.createElement("div");
             wrapper.style.overflow = "hidden";
@@ -320,24 +330,16 @@ function initLineReveal(gsap, paragraph, section, underlineHighlights) {
             wrapper.appendChild(line);
         });
 
-        if (!triggered) return;  // wait for scroll trigger
-        playAnimation();
+        if (!triggered) return;      // animation fires only after scroll trigger
+        if (!highlightsDone) playAnimation();
     };
 
-    /* ── 3. Animation: lines flip in from 3D rotation ───────────────────── */
+    /* ─── playAnimation: flip lines in with 3D rotationX ────────────────── */
     const playAnimation = () => {
         if (!split || !split.lines.length) return;
 
         revealTl = gsap.timeline({
-            onComplete() {
-                /* Sharpie highlights sweep in after text is fully visible */
-                underlineHighlights.forEach((span, i) => {
-                    const jitter = (Math.random() - 0.5) * 0.04;
-                    gsap.delayedCall(0.05 + i * 0.20 + jitter, () => {
-                        span.classList.add("is-revealed");
-                    });
-                });
-            },
+            onComplete: applyHighlights,   // primary path — fires when nothing interrupts
         });
 
         revealTl.from(split.lines, {
@@ -350,7 +352,7 @@ function initLineReveal(gsap, paragraph, section, underlineHighlights) {
         });
     };
 
-    /* ── 4. ScrollTrigger fires animation once ──────────────────────────── */
+    /* ─── ScrollTrigger: fire once when section enters viewport ─────────── */
     ScrollTrigger.create({
         trigger: section,
         start: "top 68%",
@@ -358,13 +360,22 @@ function initLineReveal(gsap, paragraph, section, underlineHighlights) {
         onEnter() {
             triggered = true;
             if (split) playAnimation();
+
+            const numLines  = split ? split.lines.length : 5;
+            const safeDelay = 0.7 + (numLines - 1) * 0.22 + 0.5;
+            gsap.delayedCall(safeDelay, applyHighlights);
         },
     });
 
-    /* ── 5. Initial setup (also re-setup on resize so lines recalculate) ── */
-    setup();
-    window.addEventListener("resize", setup, { passive: true });
+    let resizeTimer = null;
+    window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(setup, 250);
+    }, { passive: true });
+
+    setup();   // initial call
 }
+
 
 
 
