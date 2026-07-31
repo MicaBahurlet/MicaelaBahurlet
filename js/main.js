@@ -278,9 +278,7 @@ function initProfileIntroAnimations() {
             trigger: section,
             start: "top 80%",
             end: "bottom 75%",
-            toggleActions: "play reverse play reverse",
-            onLeave: resetHighlights,
-            onLeaveBack: resetHighlights,
+            once: true,
         },
         defaults: { ease: "power3.out" },
     });
