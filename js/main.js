@@ -31,10 +31,14 @@ function loadScript(src) {
 async function loadGsapBundle() {
     if (typeof window.gsap !== "undefined") return;
 
+    // Load gsap core first (required), then load plugins in parallel
     await loadScript(`${GSAP_BASE}/gsap.min.js`);
-    await loadScript(`${GSAP_BASE}/ScrollTrigger.min.js`);
-    await loadScript(`${GSAP_BASE}/ScrollToPlugin.min.js`);
-    await loadScript(`${GSAP_BASE}/SplitText.min.js`);
+    // Load plugins in parallel — much faster on slow mobile connections
+    await Promise.all([
+        loadScript(`${GSAP_BASE}/ScrollTrigger.min.js`),
+        loadScript(`${GSAP_BASE}/ScrollToPlugin.min.js`),
+        loadScript(`${GSAP_BASE}/SplitText.min.js`),
+    ]);
 }
 
 function getScrollOffset() {
@@ -176,21 +180,25 @@ function initHero3dObject() {
 
     const mm = gsap.matchMedia();
 
-    const bindMotion = (values) => {
-        gsap.to(obj, { rotation: 360, duration: 40, ease: "none", repeat: -1 });
-        gsap.to(obj, { y: values.y, duration: 4, ease: "sine.inOut", repeat: -1, yoyo: true });
-        gsap.to(obj, { z: values.z, scale: values.scale, duration: 5.5, ease: "sine.inOut", repeat: -1, yoyo: true });
-        gsap.to(obj, { rotationY: values.rotationY, rotationX: values.rotationX, duration: 7, ease: "sine.inOut", repeat: -1, yoyo: true });
-        gsap.to(obj, { x: values.x, duration: 6, ease: "sine.inOut", repeat: -1, yoyo: true });
-    };
-
+    // Mobile (touch/coarse): same multi-axis animation as desktop but with
+    // smaller travel values and slower durations — fewer GPU compositing
+    // operations per second without losing the 3D character.
     mm.add("(max-width: 767px)", () => {
-        bindMotion({ y: -10, z: 18, scale: 1.015, rotationY: 10, rotationX: -6, x: 6 });
+        gsap.to(obj, { rotation: 360, duration: 55, ease: "none", repeat: -1 });
+        gsap.to(obj, { y: -8,  duration: 5,   ease: "sine.inOut", repeat: -1, yoyo: true });
+        gsap.to(obj, { z: 14, scale: 1.012, duration: 7,   ease: "sine.inOut", repeat: -1, yoyo: true });
+        gsap.to(obj, { rotationY: 8, rotationX: -4, duration: 9, ease: "sine.inOut", repeat: -1, yoyo: true });
+        gsap.to(obj, { x: 5,   duration: 8,   ease: "sine.inOut", repeat: -1, yoyo: true });
         return () => gsap.set(obj, { clearProps: "transform" });
     });
 
+    // Desktop: full original values
     mm.add("(min-width: 768px)", () => {
-        bindMotion({ y: -16, z: 32, scale: 1.025, rotationY: 14, rotationX: -8, x: 10 });
+        gsap.to(obj, { rotation: 360, duration: 40, ease: "none", repeat: -1 });
+        gsap.to(obj, { y: -16, duration: 4,   ease: "sine.inOut", repeat: -1, yoyo: true });
+        gsap.to(obj, { z: 32,  scale: 1.025, duration: 5.5, ease: "sine.inOut", repeat: -1, yoyo: true });
+        gsap.to(obj, { rotationY: 14, rotationX: -8, duration: 7, ease: "sine.inOut", repeat: -1, yoyo: true });
+        gsap.to(obj, { x: 10,  duration: 6,   ease: "sine.inOut", repeat: -1, yoyo: true });
         return () => gsap.set(obj, { clearProps: "transform" });
     });
 }
@@ -280,8 +288,9 @@ function initProfileIntroAnimations() {
 
 function initLineReveal(gsap, paragraph, section, underlineHighlights) {
     const SplitText = window.SplitText;
+
+    // Fallback only if SplitText failed to load (CDN error)
     if (!SplitText) {
-        // SplitText not loaded — fall back to a simple fade-in + instant highlights
         gsap.from(paragraph, { opacity: 0, y: 20, duration: 0.8, ease: "power3.out",
             scrollTrigger: { trigger: section, start: "top 68%", once: true,
                 onEnter() { gsap.delayedCall(1.0, () => underlineHighlights.forEach(s => s.classList.add("is-revealed"))); }
@@ -526,12 +535,14 @@ function scheduleGsapInit() {
             await loadGsapBundle();
             initGsapFeatures();
         } catch (error) {
+            // GSAP failed to load — still init scroll spy with native fallback
             initFloatingNavScrollSpy();
         }
     };
 
-    // Avoid requestIdleCallback for Hero animations to prevent delays or mobile browser bugs
-    setTimeout(run, 100);
+    // Run immediately after DOM is ready — no artificial delay.
+    // The 100ms setTimeout was causing visible animation lag on mobile.
+    run();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
