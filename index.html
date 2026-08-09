@@ -13,23 +13,21 @@
         <title>Micaela Bahurlet | Portfolio</title>
         <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
         <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+        <link rel="preconnect" href="https://assets.unicorn.studio" crossorigin>
+        <link rel="dns-prefetch" href="https://assets.unicorn.studio">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-        <link rel="preload" as="image" href="./img/hero-3d.webp" type="image/webp" fetchpriority="high">
         <link rel="stylesheet" href="./asets/Styles.css">
         <link rel="stylesheet" href="./asets/StylesResponsive.css">
         <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Syne:wght@600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all'">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" media="print" onload="this.media='all'">
         <link rel="shortcut icon" href="./img/trisquel.png" type="image/x-icon">
-
-        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" media="print" onload="this.media='all'">
         <noscript>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Syne:wght@600;700;800&display=swap">
             <link rel="stylesheet" href="./asets/StylesResponsive.css">
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.17.0/devicon.min.css">
         </noscript>
     </head>
     <body>
@@ -59,7 +57,7 @@
                             <i class="bi bi-moon-fill"></i>
                         </button>
                         <div class="lenguage">
-                            <a href="./EN/en.html"> EN</a>
+                            <a href="./EN/en.html" rel="prefetch"> EN</a>
                         </div>
                     </div>
             </div>
@@ -123,17 +121,15 @@
 
                 <div class="profile-intro-text">
                     <h2 class="profile-intro-title">
-                        <span class="profile-title-line">
+                        <span class="profile-title-headline">
                             <span class="profile-title-mask">
                                 <span class="profile-title-word profile-title-word--accent">Desarrollo</span>
                             </span>
-                        </span>
-                        <span class="profile-title-line">
                             <span class="profile-title-mask">
-                                <span class="profile-title-subline">
-                                    <span class="profile-title-connector">con</span>
-                                    <span class="profile-title-word profile-title-word--plain">propósito</span>
-                                </span>
+                                <span class="profile-title-connector">con</span>
+                            </span>
+                            <span class="profile-title-mask">
+                                <span class="profile-title-word profile-title-word--plain">propósito</span>
                             </span>
                         </span>
                     </h2>
@@ -265,7 +261,7 @@
                                     <div class="timeline-dot"></div>
                                     <div class="timeline-content">
                                         <div class="timeline-header">
-                                            <h3>Desarrolladora Full-stack especializada en Frontend</h3>
+                                            <h3>Desarrolladora Full-stack especializada en  Frontend</h3>
                                             <span class="timeline-date">Sept. 2025 - Enero 2026</span>
                                         </div>
                                         <div class="timeline-company" style="display: flex; align-items: center; gap: 0.5rem;">
@@ -421,94 +417,162 @@
         <!-- Skills Section -->
         <section id="NewSkillsSection" class="py-5">
             <div class="skills-section-inner">
-                <h2 class="mb-5">Habilidades y Tecnologías</h2>
-                <div class="skills-rows">
+                <header class="skills-section-header">
+                    <p class="aboutme-kicker">Stack</p>
+                    <h2>Habilidades y Tecnologías</h2>
+                </header>
 
-                    <div class="skill-row">
-                        <div class="skill-row-label">
-                            <i class="bi bi-code-slash" aria-hidden="true"></i>
-                            <h3>Frontend</h3>
+                <div class="skills-accordion" role="list">
+                    <article class="skills-accordion-item" role="listitem">
+                        <div class="skills-accordion-surface">
+                            <button type="button" class="skills-accordion-trigger" aria-expanded="false" aria-controls="skills-panel-frontend">
+                                <span class="skills-accordion-title">Frontend</span>
+                            </button>
+                            <div id="skills-panel-frontend" class="skills-accordion-panel" aria-hidden="true">
+                                <div class="skills-marquee">
+                                    <div class="skills-marquee-track">
+                                        <div class="skills-marquee-group">
+                                            <div class="skill-item"><i class="devicon-html5-plain colored"></i> HTML5</div>
+                                            <div class="skill-item"><i class="devicon-css3-plain colored"></i> CSS3</div>
+                                            <div class="skill-item"><i class="devicon-javascript-plain colored"></i> JavaScript</div>
+                                            <div class="skill-item"><i class="devicon-react-original colored"></i> React</div>
+                                            <div class="skill-item"><i class="devicon-bootstrap-plain colored"></i> Bootstrap</div>
+                                            <div class="skill-item"><i class="devicon-wordpress-plain colored"></i> WordPress</div>
+                                            <div class="skill-item"><i class="devicon-woocommerce-plain colored"></i> WooCommerce</div>
+                                            <div class="skill-item"><i class="devicon-sass-original colored"></i> SASS</div>
+                                            <div class="skill-item"><i class="devicon-styledcomponents-plain colored"></i> Styled Components</div>
+                                            <div class="skill-item"><i class="devicon-tailwindcss-plain colored"></i> Tailwind CSS</div>
+                                            <div class="skill-item"><img src="./img/gsap.svg" alt="" class="skill-item-img" aria-hidden="true"> GSAP</div>
+                                        </div>
+                                        <div class="skills-marquee-group" aria-hidden="true">
+                                            <div class="skill-item"><i class="devicon-html5-plain colored"></i> HTML5</div>
+                                            <div class="skill-item"><i class="devicon-css3-plain colored"></i> CSS3</div>
+                                            <div class="skill-item"><i class="devicon-javascript-plain colored"></i> JavaScript</div>
+                                            <div class="skill-item"><i class="devicon-react-original colored"></i> React</div>
+                                            <div class="skill-item"><i class="devicon-bootstrap-plain colored"></i> Bootstrap</div>
+                                            <div class="skill-item"><i class="devicon-wordpress-plain colored"></i> WordPress</div>
+                                            <div class="skill-item"><i class="devicon-woocommerce-plain colored"></i> WooCommerce</div>
+                                            <div class="skill-item"><i class="devicon-sass-original colored"></i> SASS</div>
+                                            <div class="skill-item"><i class="devicon-styledcomponents-plain colored"></i> Styled Components</div>
+                                            <div class="skill-item"><i class="devicon-tailwindcss-plain colored"></i> Tailwind CSS</div>
+                                            <div class="skill-item"><img src="./img/gsap.svg" alt="" class="skill-item-img" aria-hidden="true"> GSAP</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="skill-row-chips">
-                            <div class="skill-item"><i class="devicon-html5-plain colored"></i> HTML5</div>
-                            <div class="skill-item"><i class="devicon-css3-plain colored"></i> CSS3</div>
-                            <div class="skill-item"><i class="devicon-javascript-plain colored"></i> JavaScript</div>
-                            <div class="skill-item"><i class="devicon-react-original colored"></i> React</div>
-                            <div class="skill-item"><i class="devicon-bootstrap-plain colored"></i> Bootstrap</div>
-                            <div class="skill-item"><i class="devicon-wordpress-plain colored"></i> WordPress</div>
-                            <div class="skill-item"><i class="devicon-woocommerce-plain colored"></i> WooCommerce</div>
-                            <div class="skill-item"><i class="devicon-sass-original colored"></i> SASS</div>
-                            <div class="skill-item"><i class="devicon-styledcomponents-plain colored"></i> Styled Components</div>
-                            <div class="skill-item"><i class="devicon-tailwindcss-plain colored"></i> Tailwind CSS</div>
-                            <div class="skill-item"><img src="./img/GSAP.svg" alt="" class="skill-item-img" aria-hidden="true"> GSAP</div>
-                        </div>
-                    </div>
+                        <div class="skills-accordion-rule" aria-hidden="true"></div>
+                    </article>
 
-                    <div class="skill-row">
-                        <div class="skill-row-label">
-                            <i class="bi bi-hdd-stack" aria-hidden="true"></i>
-                            <h3>Backend</h3>
+                    <article class="skills-accordion-item" role="listitem">
+                        <div class="skills-accordion-surface">
+                            <button type="button" class="skills-accordion-trigger" aria-expanded="false" aria-controls="skills-panel-backend">
+                                <span class="skills-accordion-title">Backend</span>
+                            </button>
+                            <div id="skills-panel-backend" class="skills-accordion-panel" aria-hidden="true">
+                                <div class="skills-marquee">
+                                    <div class="skills-marquee-track">
+                                        <div class="skills-marquee-group">
+                                            <div class="skill-item"><i class="devicon-nodejs-plain colored"></i> Node.js</div>
+                                            <div class="skill-item"><i class="devicon-nextjs-original-wordmark colored"></i> Next.js</div>
+                                            <div class="skill-item"><i class="devicon-typescript-plain colored"></i> TypeScript</div>
+                                            <div class="skill-item"><i class="devicon-php-plain colored"></i> PHP</div>
+                                            <div class="skill-item"><i class="devicon-laravel-plain colored"></i> Laravel</div>
+                                            <div class="skill-item"><i class="devicon-mongodb-plain colored"></i> MongoDB</div>
+                                            <div class="skill-item"><i class="devicon-mysql-plain colored"></i> MySQL</div>
+                                            <div class="skill-item"><i class="devicon-express-original colored"></i> Express</div>
+                                            <div class="skill-item"><i class="devicon-jest-plain colored"></i> Jest</div>
+                                            <div class="skill-item"><i class="devicon-firebase-plain-wordmark colored"></i> Firebase</div>
+                                        </div>
+                                        <div class="skills-marquee-group" aria-hidden="true">
+                                            <div class="skill-item"><i class="devicon-nodejs-plain colored"></i> Node.js</div>
+                                            <div class="skill-item"><i class="devicon-nextjs-original-wordmark colored"></i> Next.js</div>
+                                            <div class="skill-item"><i class="devicon-typescript-plain colored"></i> TypeScript</div>
+                                            <div class="skill-item"><i class="devicon-php-plain colored"></i> PHP</div>
+                                            <div class="skill-item"><i class="devicon-laravel-plain colored"></i> Laravel</div>
+                                            <div class="skill-item"><i class="devicon-mongodb-plain colored"></i> MongoDB</div>
+                                            <div class="skill-item"><i class="devicon-mysql-plain colored"></i> MySQL</div>
+                                            <div class="skill-item"><i class="devicon-express-original colored"></i> Express</div>
+                                            <div class="skill-item"><i class="devicon-jest-plain colored"></i> Jest</div>
+                                            <div class="skill-item"><i class="devicon-firebase-plain-wordmark colored"></i> Firebase</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="skill-row-chips">
-                            <div class="skill-item"><i class="devicon-nodejs-plain colored"></i> Node.js</div>
-                            <div class="skill-item"><i class="devicon-nextjs-original-wordmark colored"></i> Next.js</div>
-                            <div class="skill-item"><i class="devicon-typescript-plain colored"></i> TypeScript</div>
-                            <div class="skill-item"><i class="devicon-php-plain colored"></i> PHP</div>
-                            <div class="skill-item"><i class="devicon-laravel-plain colored"></i> Laravel</div>
-                            <div class="skill-item"><i class="devicon-mongodb-plain colored"></i> MongoDB</div>
-                            <div class="skill-item"><i class="devicon-mysql-plain colored"></i> MySQL</div>
-                            <div class="skill-item"><i class="devicon-express-original colored"></i> Express</div>
-                            <div class="skill-item"><i class="devicon-jest-plain colored"></i> Jest</div>
-                            <div class="skill-item"><i class="devicon-firebase-plain-wordmark colored"></i> Firebase</div>
-                        </div>
-                    </div>
+                        <div class="skills-accordion-rule" aria-hidden="true"></div>
+                    </article>
 
-                    <div class="skill-row">
-                        <div class="skill-row-label">
-                            <i class="bi bi-tools" aria-hidden="true"></i>
-                            <h3>Herramientas de Desarrollo</h3>
+                    <article class="skills-accordion-item" role="listitem">
+                        <div class="skills-accordion-surface">
+                            <button type="button" class="skills-accordion-trigger" aria-expanded="false" aria-controls="skills-panel-uxui">
+                                <span class="skills-accordion-title">Herramientas UX/UI</span>
+                            </button>
+                            <div id="skills-panel-uxui" class="skills-accordion-panel" aria-hidden="true">
+                                <div class="skills-marquee">
+                                    <div class="skills-marquee-track">
+                                        <div class="skills-marquee-group">
+                                            <div class="skill-item"><i class="devicon-figma-plain colored"></i> Figma</div>
+                                            <div class="skill-item"><i class="devicon-photoshop-plain colored"></i> Photoshop</div>
+                                            <div class="skill-item"><i class="devicon-canva-original colored"></i> Canva</div>
+                                        </div>
+                                        <div class="skills-marquee-group" aria-hidden="true">
+                                            <div class="skill-item"><i class="devicon-figma-plain colored"></i> Figma</div>
+                                            <div class="skill-item"><i class="devicon-photoshop-plain colored"></i> Photoshop</div>
+                                            <div class="skill-item"><i class="devicon-canva-original colored"></i> Canva</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="skill-row-chips">
-                            <div class="skill-item"><i class="devicon-apple-original colored"></i> Apple</div>
-                            <div class="skill-item"><i class="devicon-github-original colored"></i> GitHub</div>
-                            <div class="skill-item"><i class="devicon-vitejs-plain colored"></i> Vite.js</div>
-                            <div class="skill-item"><i class="bi bi-hdd-stack"></i> XAMPP</div>
-                            <div class="skill-item"><i class="devicon-dbeaver-plain colored"></i> DBeaver</div>
-                            <div class="skill-item"><i class="devicon-npm-original-wordmark colored"></i> npm</div>
-                            <div class="skill-item"><i class="devicon-jira-plain colored"></i> Jira</div>
-                            <div class="skill-item"><i class="devicon-trello-plain colored"></i> Trello</div>
-                        </div>
-                    </div>
+                        <div class="skills-accordion-rule" aria-hidden="true"></div>
+                    </article>
 
-                    <div class="skill-row">
-                        <div class="skill-row-label">
-                            <i class="bi bi-brush" aria-hidden="true"></i>
-                            <h3>Herramientas UX/UI</h3>
+                    <article class="skills-accordion-item" role="listitem">
+                        <div class="skills-accordion-surface">
+                            <button type="button" class="skills-accordion-trigger" aria-expanded="false" aria-controls="skills-panel-devops">
+                                <span class="skills-accordion-title">DevOps y Herramientas</span>
+                            </button>
+                            <div id="skills-panel-devops" class="skills-accordion-panel" aria-hidden="true">
+                                <div class="skills-marquee">
+                                    <div class="skills-marquee-track">
+                                        <div class="skills-marquee-group">
+                                            <div class="skill-item"><i class="devicon-docker-plain-wordmark colored"></i> Docker</div>
+                                            <div class="skill-item"><i class="devicon-githubactions-plain-wordmark colored"></i> GitHub Actions</div>
+                                            <div class="skill-item"><i class="devicon-git-plain colored"></i> Git</div>
+                                            <div class="skill-item"><i class="devicon-github-original colored"></i> GitHub</div>
+                                            <div class="skill-item"><i class="devicon-vitejs-plain colored"></i> Vite.js</div>
+                                            <div class="skill-item"><i class="devicon-npm-original-wordmark colored"></i> npm</div>
+                                            <div class="skill-item"><i class="devicon-dbeaver-plain colored"></i> DBeaver</div>
+                                            <div class="skill-item"><i class="devicon-jira-plain colored"></i> Jira</div>
+                                            <div class="skill-item"><i class="devicon-trello-plain colored"></i> Trello</div>
+                                            <div class="skill-item"><i class="devicon-apple-original colored"></i> Apple</div>
+                                            <div class="skill-item"><i class="bi bi-hdd-stack"></i> XAMPP</div>
+                                            <div class="skill-item"><i class="bi bi-stars"></i> AI-Assisted Development</div>
+                                        </div>
+                                        <div class="skills-marquee-group" aria-hidden="true">
+                                            <div class="skill-item"><i class="devicon-docker-plain-wordmark colored"></i> Docker</div>
+                                            <div class="skill-item"><i class="devicon-githubactions-plain-wordmark colored"></i> GitHub Actions</div>
+                                            <div class="skill-item"><i class="devicon-git-plain colored"></i> Git</div>
+                                            <div class="skill-item"><i class="devicon-github-original colored"></i> GitHub</div>
+                                            <div class="skill-item"><i class="devicon-vitejs-plain colored"></i> Vite.js</div>
+                                            <div class="skill-item"><i class="devicon-npm-original-wordmark colored"></i> npm</div>
+                                            <div class="skill-item"><i class="devicon-dbeaver-plain colored"></i> DBeaver</div>
+                                            <div class="skill-item"><i class="devicon-jira-plain colored"></i> Jira</div>
+                                            <div class="skill-item"><i class="devicon-trello-plain colored"></i> Trello</div>
+                                            <div class="skill-item"><i class="devicon-apple-original colored"></i> Apple</div>
+                                            <div class="skill-item"><i class="bi bi-hdd-stack"></i> XAMPP</div>
+                                            <div class="skill-item"><i class="bi bi-stars"></i> AI-Assisted Development</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="skill-row-chips">
-                            <div class="skill-item"><i class="devicon-figma-plain colored"></i> Figma</div>
-                            <div class="skill-item"><i class="devicon-photoshop-plain colored"></i> Photoshop</div>
-                            <div class="skill-item"><i class="devicon-canva-original colored"></i> Canva</div>
-                        </div>
-                    </div>
-
-                    <div class="skill-row">
-                        <div class="skill-row-label">
-                            <i class="bi bi-cloud-arrow-up" aria-hidden="true"></i>
-                            <h3>DevOps y Herramientas</h3>
-                        </div>
-                        <div class="skill-row-chips">
-                            <div class="skill-item"><i class="devicon-docker-plain-wordmark colored"></i> Docker</div>
-                            <div class="skill-item"><i class="devicon-githubactions-plain colored"></i> GitHub Actions (CI/CD)</div>
-                            <div class="skill-item"><i class="devicon-git-plain colored"></i> Git</div>
-                            <div class="skill-item"><i class="bi bi-stars"></i> AI-Assisted Development</div>
-                        </div>
-                    </div>
-
+                        <div class="skills-accordion-rule" aria-hidden="true"></div>
+                    </article>
                 </div>
             </div>
         </section>
-
         <!--  Projects Section -->
         <section id="ContainerProyectsMain">
                     <section id="SectionProyectos">
@@ -521,7 +585,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <picture><source srcset="./img/OlaGo.webp" type="image/webp"><img src="./img/OlaGo.png" alt="HeroSite to CSA" loading="lazy" decoding="async"></picture>
+                                <img src="./img/OlaGo.webp" alt="HeroSite to CSA" loading="lazy" decoding="async">
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="TextProyectos">
@@ -553,7 +617,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <picture><source srcset="./img/CSAProject.webp" type="image/webp"><img src="./img/CSAProject.png" alt="HeroSite to CSA" loading="lazy" decoding="async"></picture>
+                                <img src="./img/CSAProject.webp" alt="HeroSite to CSA" loading="lazy" decoding="async">
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="TextProyectos">
@@ -586,7 +650,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <picture><source srcset="./img/QutralScreen.webp" type="image/webp"><img src="./img/QutralScreen.png" alt="Captura de Pantalla de Qutral" loading="lazy" decoding="async"></picture>
+                                <img src="./img/QutralScreen.webp" alt="Captura de Pantalla de Qutral" loading="lazy" decoding="async">
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="TextProyectos">
@@ -614,7 +678,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <picture><source srcset="./img/codeaScreen.webp" type="image/webp"><img src="./img/codeaScreen.png" alt="Captura de Pantalla de Códea" loading="lazy" decoding="async"></picture>
+                                <img src="./img/codeaScreen.webp" alt="Captura de Pantalla de Códea" loading="lazy" decoding="async">
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="TextProyectos">
@@ -644,7 +708,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <picture><source srcset="./img/StockMasterScreen.webp" type="image/webp"><img src="./img/StockMasterScreen.png" alt="Captura de Pantalla de STOCKMASTER" loading="lazy" decoding="async"></picture>
+                                <img src="./img/StockMasterScreen.webp" alt="Captura de Pantalla de STOCKMASTER" loading="lazy" decoding="async">
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="TextProyectos">
@@ -673,7 +737,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <picture><source srcset="./img/Crud-screem.webp" type="image/webp"><img src="./img/Crud-screem.png" alt="Captura de Pantalla de CRUD shoes" loading="lazy" decoding="async"></picture>
+                                <img src="./img/Crud-screem.webp" alt="Captura de Pantalla de CRUD shoes" loading="lazy" decoding="async">
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="TextProyectos">
@@ -708,7 +772,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <picture><source srcset="./img/NellysTest.webp" type="image/webp"><img src="./img/NellysTest.png" alt="Captura de Pantalla del Sitio www.nellyvicente.com" loading="lazy" decoding="async"></picture>
+                                <img src="./img/NellysTest.webp" alt="Captura de Pantalla del Sitio www.nellyvicente.com" loading="lazy" decoding="async">
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="TextProyectos">
@@ -739,7 +803,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <picture><source srcset="./img/ScreenBlogg.webp" type="image/webp"><img src="./img/ScreenBlogg.png" alt="Captura de Pantalla de blogg" loading="lazy" decoding="async"></picture>
+                                <img src="./img/ScreenBlogg.webp" alt="Captura de Pantalla de blogg" loading="lazy" decoding="async">
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="TextProyectos">
@@ -768,7 +832,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <picture><source srcset="./img/ScreenProyect.webp" type="image/webp"><img src="./img/ScreenProyect.png" alt="Captura de Pantalla de MyTask" loading="lazy" decoding="async"></picture>
+                                <img src="./img/ScreenProyect.webp" alt="Captura de Pantalla de MyTask" loading="lazy" decoding="async">
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="TextProyectos">
@@ -802,7 +866,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <picture><source srcset="./img/FinishAuris.webp" type="image/webp"><img src="./img/FinishAuris.png" alt="Captura de Pantalla del Sitio Auris" loading="lazy" decoding="async"></picture>
+                                <img src="./img/FinishAuris.webp" alt="Captura de Pantalla del Sitio Auris" loading="lazy" decoding="async">
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="TextProyectos">
@@ -836,7 +900,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <picture><source srcset="./img/ShopSports.webp" type="image/webp"><img src="./img/ShopSports.png" alt="Captura de Pantalla del Sitio Auris" loading="lazy" decoding="async"></picture>
+                                <img src="./img/ShopSports.webp" alt="Captura de Pantalla del Sitio Auris" loading="lazy" decoding="async">
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="TextProyectos">
@@ -863,7 +927,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <picture><source srcset="./img/ScreenTuLibbro.webp" type="image/webp"><img src="./img/ScreenTuLibbro.png" alt="Captura de Pantalla del Sitio El Recreo" loading="lazy" decoding="async"></picture>
+                                <img src="./img/ScreenTuLibbro.webp" alt="Captura de Pantalla del Sitio El Recreo" loading="lazy" decoding="async">
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="Logos">
@@ -898,7 +962,7 @@
 
                         <div class="LogosProyectos">
                             <div class="ScreenSitios">
-                                <picture><source srcset="./img/EvermoovMockup.webp" type="image/webp"><img src="./img/EvermoovMockup.png" alt="Captura de Pantalla del Sitio Auris" loading="lazy" decoding="async"></picture>
+                                <img src="./img/EvermoovMockup.webp" alt="Captura de Pantalla del Sitio Auris" loading="lazy" decoding="async">
                             </div>
                             <div class="DescriptionProyectos">
                                 <div class="TextProyectos">
@@ -938,13 +1002,13 @@
                                 <div id="carouselExample" class="carousel slide">
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
-                                            <picture><source srcset="./img/Carrusel2.webp" type="image/webp"><img src="./img/Carrusel2.png" class="carousel-slide-img" alt="..." loading="lazy" decoding="async"></picture>
+                                            <img src="./img/Carrusel2.webp" class="carousel-slide-img" alt="..." loading="lazy" decoding="async">
                                         </div>
                                         <div class="carousel-item">
-                                            <picture><source srcset="./img/Carrusel1.webp" type="image/webp"><img src="./img/Carrusel1.png" class="carousel-slide-img" alt="..." loading="lazy" decoding="async"></picture>
+                                            <img src="./img/Carrusel1.webp" class="carousel-slide-img" alt="..." loading="lazy" decoding="async">
                                         </div>
                                         <div class="carousel-item">
-                                            <picture><source srcset="./img/ColorGeneratorScreen.webp" type="image/webp"><img src="./img/ColorGeneratorScreen.png" class="carousel-slide-img" alt="..." loading="lazy" decoding="async"></picture>
+                                            <img src="./img/ColorGeneratorScreen.webp" class="carousel-slide-img" alt="..." loading="lazy" decoding="async">
                                         </div>
                                     </div>
                                     <button class="carousel-control-prev" type="button" aria-label="Imagen anterior">
@@ -1037,6 +1101,7 @@
                             </div>
 
                         </div>
+                        <button type="button" id="btnCargarMasFormacion" class="MoreFormacionBtn" data-expanded="false">Ver más</button>
         </section>
         <!--  About Me Section -->
         <section id="about" class="aboutme-section">
@@ -1051,10 +1116,10 @@
                 <div class="aboutme-copy">
                     <p class="aboutme-kicker">Sobre mí</p>
                     <div class="aboutme-heading-wrap">
-                        <h2 class="aboutme-heading">Código con atención a los detalles</h2>
+                        <h2 class="aboutme-heading">Los detalles hacen la diferencia.</h2>
                     </div>
                     <div class="aboutme-text">
-                        <p>Tengo 29 años y vivo en Olavarría, Provincia de Buenos Aires, Argentina. La programación me abrió un mundo de posibilidades: mis primeros pasos fueron un curso de <b>Desarrollo Web</b>; esas bases me impulsaron a profundizar en <b>Programación Full Stack</b> y en la <b>Tecnicatura universitaria en Programación</b>.</p>
+                        <p>Tengo 29 años y vivo en Olavarría, Provincia de Buenos Aires, Argentina. La programación me habilitó un mundo de posibilidades: mis primeros pasos fueron un curso de <b>Desarrollo Web</b>; esas bases me impulsaron a profundizar en <b>Programación Full Stack</b> y en la <b>Tecnicatura universitaria en Programación</b>.</p>
                         <p>Considero al diseño tan importante como el código. Por eso me formé en <b>Diseño UX/UI</b>, para que cada proyecto sea amigable, intuitivo y visualmente atractivo.</p>
                         <p>En mi deseo de <b>actualización constante</b>, me encuentro día a día <em>aprendiendo</em> y <em>mejorando</em> mis habilidades.</p>
                     </div>
@@ -1081,52 +1146,52 @@
                         <h2>Certificados de programación y diseño:</h2>
                         <div class="certificates-gallery">
                             <div class="certificate-item">
-                                <picture><source srcset="./img/DesarrolloWebCertificate.webp" type="image/webp"><img src="./img/DesarrolloWebCertificate.png" alt="Certificado 1" class="certificado-img" loading="lazy" decoding="async"></picture>
+                                <img src="./img/DesarrolloWebCertificate.webp" alt="Certificado 1" class="certificado-img" loading="lazy" decoding="async">
                             </div>
                             <div class="certificate-item">
-                                <picture><source srcset="./img/DisenoWebCertificate.webp" type="image/webp"><img src="./img/DisenoWebCertificate.png" alt="Certificado 2" class="certificado-img" loading="lazy" decoding="async"></picture>
+                                <img src="./img/DisenoWebCertificate.webp" alt="Certificado 2" class="certificado-img" loading="lazy" decoding="async">
                             </div>
                             <div class="certificate-item">
-                                <picture><source srcset="./img/JsCertificate.webp" type="image/webp"><img src="./img/JsCertificate.png" alt="Certificado 3" class="certificado-img" loading="lazy" decoding="async"></picture>
+                                <img src="./img/JsCertificate.webp" alt="Certificado 3" class="certificado-img" loading="lazy" decoding="async">
                             </div>
                             <div class="certificate-item">
-                                <picture><source srcset="./img/ReactCertificated.webp" type="image/webp"><img src="./img/ReactCertificated.png" alt="Certificado React" class="certificado-img" loading="lazy" decoding="async"></picture>
+                                <img src="./img/ReactCertificated.webp" alt="Certificado React" class="certificado-img" loading="lazy" decoding="async">
                             </div>
                             <div class="certificate-item">
-                                <picture><source srcset="./img/FullStackProgramming.webp" type="image/webp"><img src="./img/FullStackProgramming.png" alt="Certificado Full Stack" class="certificado-img" loading="lazy" decoding="async"></picture>
+                                <img src="./img/FullStackProgramming.webp" alt="Certificado Full Stack" class="certificado-img" loading="lazy" decoding="async">
                             </div>
                             <div class="certificate-item">
-                                <picture><source srcset="./img/UxUiCertificate.webp" type="image/webp"><img src="./img/UxUiCertificate.png" alt="Certificado UX/UI" class="certificado-img" loading="lazy" decoding="async"></picture>
+                                <img src="./img/UxUiCertificate.webp" alt="Certificado UX/UI" class="certificado-img" loading="lazy" decoding="async">
                             </div>
                             <div class="certificate-item">
-                                <picture><source srcset="./img/ProductividadCertificate.webp" type="image/webp"><img src="./img/ProductividadCertificate.png" alt="Certificado ProductividadPersonal" class="certificado-img" loading="lazy" decoding="async"></picture>
+                                <img src="./img/ProductividadCertificate.webp" alt="Certificado ProductividadPersonal" class="certificado-img" loading="lazy" decoding="async">
                             </div>
                             <div class="certificate-item">
-                                <picture><source srcset="./img/AppsCertificate.webp" type="image/webp"><img src="./img/AppsCertificate.png" alt="Certificado Aoos" class="certificado-img" loading="lazy" decoding="async"></picture>
+                                <img src="./img/AppsCertificate.webp" alt="Certificado Aoos" class="certificado-img" loading="lazy" decoding="async">
                             </div>
                             <div class="certificate-item">
-                                <picture><source srcset="./img/GithubCertificate.webp" type="image/webp"><img src="./img/GithubCertificate.png" alt="Certificado GitHub" class="certificado-img" loading="lazy" decoding="async"></picture>
+                                <img src="./img/GithubCertificate.webp" alt="Certificado GitHub" class="certificado-img" loading="lazy" decoding="async">
                             </div>
                             <div class="certificate-item">
-                                <picture><source srcset="./img/Scrum2Certificates.webp" type="image/webp"><img src="./img/Scrum2Certificates.png" alt="Certificado Scrum" class="certificado-img" loading="lazy" decoding="async"></picture>
+                                <img src="./img/Scrum2Certificates.webp" alt="Certificado Scrum" class="certificado-img" loading="lazy" decoding="async">
                             </div>
                             <div class="certificate-item">
-                                <picture><source srcset="./img/CertificateWordpress.webp" type="image/webp"><img src="./img/CertificateWordpress.png" alt="Certificado Wordpress" class="certificado-img" loading="lazy" decoding="async"></picture>
+                                <img src="./img/CertificateWordpress.webp" alt="Certificado Wordpress" class="certificado-img" loading="lazy" decoding="async">
                             </div>
                             <div class="certificate-item">
-                                <picture><source srcset="./img/CSSADVANCED.webp" type="image/webp"><img src="./img/CSSADVANCED.png" alt="Certificado CSS Advanced" class="certificado-img" loading="lazy" decoding="async"></picture>
+                                <img src="./img/CSSADVANCED.webp" alt="Certificado CSS Advanced" class="certificado-img" loading="lazy" decoding="async">
                             </div>
                             <div class="certificate-item">
-                                <picture><source srcset="./img/GSAPCertificate.webp" type="image/webp"><img src="./img/GSAPCertificate.png" alt="Certificado GSAP" class="certificado-img" loading="lazy" decoding="async"></picture>
+                                <img src="./img/GSAPCertificate.webp" alt="Certificado GSAP" class="certificado-img" loading="lazy" decoding="async">
                             </div>
                             <div class="certificate-item">
-                                <picture><source srcset="./img/AntropicCertificate.webp" type="image/webp"><img src="./img/AntropicCertificate.png" alt="Certificado Antropic" class="certificado-img" loading="lazy" decoding="async"></picture>
+                                <img src="./img/AntropicCertificate.webp" alt="Certificado Antropic" class="certificado-img" loading="lazy" decoding="async">
                             </div>
                             <div class="certificate-item">
-                                <picture><source srcset="./img/TypesCertificate.webp" type="image/webp"><img src="./img/TypesCertificate.png" alt="Certificado Types Typescript" class="certificado-img" loading="lazy" decoding="async"></picture>
+                                <img src="./img/TypesCertificate.webp" alt="Certificado Types Typescript" class="certificado-img" loading="lazy" decoding="async">
                             </div>
                             <div class="certificate-item">
-                                <picture><source srcset="./img/TailwindCertificate.webp" type="image/webp"><img src="./img/TailwindCertificate.png" alt="Certificado Tailwind CSS" class="certificado-img" loading="lazy" decoding="async"></picture>
+                                <img src="./img/TailwindCertificate.webp" alt="Certificado Tailwind CSS" class="certificado-img" loading="lazy" decoding="async">
                             </div>
                             
                         </div>
