@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all'">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" media="print" onload="this.media='all'">
         <link rel="shortcut icon" href="../img/trisquel.png" type="image/x-icon">
+        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" media="print" onload="this.media='all'">
         <noscript>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Syne:wght@600;700;800&display=swap">
             <link rel="stylesheet" href="../asets/StylesResponsive.css">
@@ -33,8 +34,9 @@
         <!-- Navbar -->
         <header>
             <div class="header-container">
-                    <a href="#home">
-                        <img class="logo" src="../img/LOGOBLANCO.png" alt="Logo Personal">
+                    <a href="#home" class="logo-link">
+                        <img class="logo logo--light" src="../img/LOGOBLANCO.png" alt="Logo Personal">
+                        <img class="logo logo--dark" src="../img/LogoMioNegro.png" alt="Logo Personal">
                     </a>
 
                     <button id="abrir" class="abrir-menu" aria-label="Open menu"><i class="bi bi-list"></i></button>
@@ -90,7 +92,6 @@
                             <a href="https://www.linkedin.com/in/micaelabahurlet/" target="_blank" class="hero-btn-1" role="button">Let's Connect</a>
                             <a href="https://drive.google.com/file/d/11dBtJKde2t5G3yo1lrfBmmZqxGQAmAj0/view?usp=sharing" target="_blank" class="buttonCV hero-btn-2" role="button">Download CV</a>
                         </div>
-                        <p class="hero-scroll-hint">Scroll to explore</p>
                     </div>
 
                     <div class="hero-visual" aria-hidden="true">
@@ -109,15 +110,21 @@
             <div class="profile-intro-wrapper">
                 <div class="profile-intro-text">
                     <h2 class="profile-intro-title">
-                        <span class="profile-title-line profile-title-line--primary">
-                            <span class="profile-title-word profile-title-word--accent">Development</span>
+                        <span class="profile-title-line">
+                            <span class="profile-title-mask">
+                                <span class="profile-title-word profile-title-word--accent">Development</span>
+                            </span>
                         </span>
-                        <span class="profile-title-line profile-title-line--secondary">
-                            <span class="profile-title-connector">with</span>
-                            <span class="profile-title-snap"><span class="profile-title-snap-inner">purpose</span></span>
+                        <span class="profile-title-line">
+                            <span class="profile-title-mask">
+                                <span class="profile-title-subline">
+                                    <span class="profile-title-connector">with</span>
+                                    <span class="profile-title-word profile-title-word--plain">purpose</span>
+                                </span>
+                            </span>
                         </span>
                     </h2>
-                    <p>To me, effective development is not just about writing scalable code; it’s about <span class="profile-text-em profile-text-em--underline">bringing each project to life</span>, <span class="profile-text-em">paying close attention to detail</span> to achieve a <span class="profile-text-em profile-text-em--underline">user-friendly and intuitive experience</span>. This is how I view code: as a tool to <span class="profile-text-em profile-text-em--underline">provide visibility</span>, <span class="profile-text-em profile-text-em--underline">deliver functionality</span>, and <span class="profile-text-em profile-text-em--underline">solve real-world problems</span>.</p>
+                    <p>To me, effective development is not just about writing scalable code; it's about <span class="profile-text-em profile-text-em--underline">bringing each project to life</span>, paying close attention to detail to achieve a <span class="profile-text-em profile-text-em--underline">user-friendly and intuitive experience</span>. This is how I view code: as a tool to <span class="profile-text-em profile-text-em--underline">communicate</span>, <span class="profile-text-em profile-text-em--underline">give visibility</span>, and <span class="profile-text-em profile-text-em--underline">solve real-world problems</span>.</p>
                 </div>
             </div>
         </section>
@@ -141,7 +148,7 @@
                             <div class="status-item">
                                 <div class="status-dot"></div>
                                 <div class="status-text-container">
-                                    <span class="status-text-sliding">Second year, first semester <b>University Technician in Programming Technologies</b></span>
+                                    <span class="status-text-sliding">Second year, second semester <b>University Technician in Programming Technologies</b></span>
                                 </div>
                             </div>
                             
@@ -228,6 +235,10 @@
                                             <div class="tech-item">
                                                 <i class="devicon-postgresql-plain colored"></i>
                                                 <span>PostgreSQL</span>
+                                            </div>
+                                            <div class="tech-item">
+                                                <i class="devicon-githubactions-plain"></i> 
+                                                <span>GitHub Actions (CI/CD)</span>
                                             </div>
                                         </div>
                                     </div>
@@ -393,93 +404,93 @@
         </section>
 
 
-<!-- New Skills Grid Section -->
+<!-- Skills Section -->
                 <section id="NewSkillsSection" class="py-5">
                     <div class="skills-section-inner">
                         <h2 class="mb-5">Skills and Technologies</h2>
-                        <div class="skills-grid">
-                            <!-- Frontend Card -->
-                            <div class="skills-grid-item">
-                                <div class="skill-card h-100">
-                                    <div class="skill-card-header">
-                                        <i class="bi bi-code-slash"></i>
-                                        <h3>Frontend</h3>
-                                    </div>
-                                    <div class="skill-items">
-                                        <div class="skill-item"><i class="devicon-html5-plain colored"></i> HTML5</div>
-                                        <div class="skill-item"><i class="devicon-css3-plain colored"></i> CSS3</div>
-                                        <div class="skill-item"><i class="devicon-javascript-plain colored"></i> JavaScript</div>
-                                        <div class="skill-item"><i class="devicon-react-original colored"></i> React</div>
-                                        <div class="skill-item"><i class="devicon-bootstrap-plain colored"></i> Bootstrap</div>
-                                        <div class="skill-item"><i class="devicon-wordpress-plain colored"></i> WordPress</div>
-                                        <div class="skill-item"><i class="devicon-woocommerce-plain colored"></i> WooCommerce</div>
-                                        <div class="skill-item"><i class="devicon-sass-original colored"></i> SASS</div>
-                                        <div class="skill-item"><i class="devicon-styledcomponents-plain colored"></i> Styled Components</div>
-                                        <div class="skill-item"><i class="devicon-tailwindcss-plain colored"></i> Tailwind CSS</div>
-                                        <div class="skill-item"><img src="../img/GSAP.svg" alt="GSAP" class="skill-item-img" style="margin-right: 10px;"> GSAP</div>
-                                    </div>
+                        <div class="skills-rows">
+
+                            <div class="skill-row">
+                                <div class="skill-row-label">
+                                    <i class="bi bi-code-slash" aria-hidden="true"></i>
+                                    <h3>Frontend</h3>
+                                </div>
+                                <div class="skill-row-chips">
+                                    <div class="skill-item"><i class="devicon-html5-plain colored"></i> HTML5</div>
+                                    <div class="skill-item"><i class="devicon-css3-plain colored"></i> CSS3</div>
+                                    <div class="skill-item"><i class="devicon-javascript-plain colored"></i> JavaScript</div>
+                                    <div class="skill-item"><i class="devicon-react-original colored"></i> React</div>
+                                    <div class="skill-item"><i class="devicon-bootstrap-plain colored"></i> Bootstrap</div>
+                                    <div class="skill-item"><i class="devicon-wordpress-plain colored"></i> WordPress</div>
+                                    <div class="skill-item"><i class="devicon-woocommerce-plain colored"></i> WooCommerce</div>
+                                    <div class="skill-item"><i class="devicon-sass-original colored"></i> SASS</div>
+                                    <div class="skill-item"><i class="devicon-styledcomponents-plain colored"></i> Styled Components</div>
+                                    <div class="skill-item"><i class="devicon-tailwindcss-plain colored"></i> Tailwind CSS</div>
+                                    <div class="skill-item"><img src="../img/GSAP.svg" alt="" class="skill-item-img" aria-hidden="true"> GSAP</div>
                                 </div>
                             </div>
-        
-                            <!-- Backend Card -->
-                            <div class="skills-grid-item">
-                                <div class="skill-card h-100">
-                                    <div class="skill-card-header">
-                                        <i class="bi bi-hdd-stack"></i>
-                                        <h3>Backend</h3>
-                                    </div>
-                                    <div class="skill-items">
-                                        <div class="skill-item"><i class="devicon-nodejs-plain colored"></i> Node.js</div>
-                                        <div class="skill-item"><i class="devicon-nextjs-original-wordmark colored"></i> Next.js</div>
-                                        <div class="skill-item"><i class="devicon-typescript-plain colored"></i> TypeScript</div>
-                                        <div class="skill-item"><i class="devicon-php-plain colored"></i> PHP</div>
-                                        <div class="skill-item"><i class="devicon-laravel-plain colored"></i> Laravel</div>
-                                        <div class="skill-item"><i class="devicon-mongodb-plain colored"></i> MongoDB</div>
-                                        <div class="skill-item"><i class="devicon-mysql-plain colored"></i> MySQL</div>
-                                        <div class="skill-item"><i class="devicon-express-original colored"></i> Express</div>
-                                        <div class="skill-item"><i class="devicon-jest-plain colored"></i> Jest</div>
-                                        <div class="skill-item"><i class="devicon-docker-plain-wordmark colored"></i> Docker</div>
-                                        <div class="skill-item"><i class="devicon-firebase-plain-wordmark colored"></i> Firebase</div>
-                                    </div>
+
+                            <div class="skill-row">
+                                <div class="skill-row-label">
+                                    <i class="bi bi-hdd-stack" aria-hidden="true"></i>
+                                    <h3>Backend</h3>
+                                </div>
+                                <div class="skill-row-chips">
+                                    <div class="skill-item"><i class="devicon-nodejs-plain colored"></i> Node.js</div>
+                                    <div class="skill-item"><i class="devicon-nextjs-original-wordmark colored"></i> Next.js</div>
+                                    <div class="skill-item"><i class="devicon-typescript-plain colored"></i> TypeScript</div>
+                                    <div class="skill-item"><i class="devicon-php-plain colored"></i> PHP</div>
+                                    <div class="skill-item"><i class="devicon-laravel-plain colored"></i> Laravel</div>
+                                    <div class="skill-item"><i class="devicon-mongodb-plain colored"></i> MongoDB</div>
+                                    <div class="skill-item"><i class="devicon-mysql-plain colored"></i> MySQL</div>
+                                    <div class="skill-item"><i class="devicon-express-original colored"></i> Express</div>
+                                    <div class="skill-item"><i class="devicon-jest-plain colored"></i> Jest</div>
+                                    <div class="skill-item"><i class="devicon-firebase-plain-wordmark colored"></i> Firebase</div>
                                 </div>
                             </div>
-        
-                            <!-- Development Tools Card -->
-                            <div class="skills-grid-item">
-                                <div class="skill-card h-100">
-                                    <div class="skill-card-header">
-                                        <i class="bi bi-tools"></i>
-                                        <h3>Development Tools </h3>
-                                    </div>
-                                    <div class="skill-items">
-                                        <div class="skill-item"><i class="devicon-apple-original colored"></i> Apple</div>
-                                        <div class="skill-item"><i class="devicon-git-plain colored"></i> Git</div>
-                                        <div class="skill-item"><i class="devicon-github-original colored"></i> GitHub</div>
-                                        <div class="skill-item"><i class="devicon-vitejs-plain colored"></i> Vite.js</div>
-                                        <div class="skill-item"><i class="bi bi-hdd-stack"></i> XAMPP</div>
-                                        <div class="skill-item"><i class="devicon-dbeaver-plain colored"></i> DBeaver</div>
-                                        <div class="skill-item"><i class="devicon-npm-original-wordmark colored"></i> npm</div>
-                                        <div class="skill-item"><i class="devicon-jira-plain colored"></i> Jira</div>                               
-                                        <div class="skill-item"><i class="devicon-trello-plain colored"></i> Trello</div>
-                                        
-                                    </div>
+
+                            <div class="skill-row">
+                                <div class="skill-row-label">
+                                    <i class="bi bi-tools" aria-hidden="true"></i>
+                                    <h3>Development Tools</h3>
+                                </div>
+                                <div class="skill-row-chips">
+                                    <div class="skill-item"><i class="devicon-apple-original colored"></i> Apple</div>
+                                    <div class="skill-item"><i class="devicon-github-original colored"></i> GitHub</div>
+                                    <div class="skill-item"><i class="devicon-vitejs-plain colored"></i> Vite.js</div>
+                                    <div class="skill-item"><i class="bi bi-hdd-stack"></i> XAMPP</div>
+                                    <div class="skill-item"><i class="devicon-dbeaver-plain colored"></i> DBeaver</div>
+                                    <div class="skill-item"><i class="devicon-npm-original-wordmark colored"></i> npm</div>
+                                    <div class="skill-item"><i class="devicon-jira-plain colored"></i> Jira</div>
+                                    <div class="skill-item"><i class="devicon-trello-plain colored"></i> Trello</div>
                                 </div>
                             </div>
-        
-                            <!-- UX/UI Tools Card -->
-                            <div class="skills-grid-item">
-                                <div class="skill-card h-100">
-                                    <div class="skill-card-header">
-                                        <i class="bi bi-brush"></i>
-                                        <h3>UX/UI Tools </h3>
-                                    </div>
-                                    <div class="skill-items">
-                                        <div class="skill-item"><i class="devicon-figma-plain colored"></i> Figma</div>
-                                        <div class="skill-item"><i class="devicon-photoshop-plain colored"></i> Photoshop</div>
-                                        <div class="skill-item"><i class="devicon-canva-original colored"></i> Canva</div>
-                                    </div>
+
+                            <div class="skill-row">
+                                <div class="skill-row-label">
+                                    <i class="bi bi-brush" aria-hidden="true"></i>
+                                    <h3>UX/UI Tools</h3>
+                                </div>
+                                <div class="skill-row-chips">
+                                    <div class="skill-item"><i class="devicon-figma-plain colored"></i> Figma</div>
+                                    <div class="skill-item"><i class="devicon-photoshop-plain colored"></i> Photoshop</div>
+                                    <div class="skill-item"><i class="devicon-canva-original colored"></i> Canva</div>
                                 </div>
                             </div>
+
+                            <div class="skill-row">
+                                <div class="skill-row-label">
+                                    <i class="bi bi-cloud-arrow-up" aria-hidden="true"></i>
+                                    <h3>DevOps and Tools</h3>
+                                </div>
+                                <div class="skill-row-chips">
+                                    <div class="skill-item"><i class="devicon-docker-plain-wordmark colored"></i> Docker</div>
+                                    <div class="skill-item"><i class="devicon-githubactions-plain colored"></i> GitHub Actions (CI/CD)</div>
+                                    <div class="skill-item"><i class="devicon-git-plain colored"></i> Git</div>
+                                    <div class="skill-item"><i class="bi bi-stars"></i> AI-Assisted Development</div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </section>
@@ -1100,50 +1111,41 @@
         </section>   
 
 
-        <!--  Abboutme Section -->
-        <section id="about">
+        <!--  About Me Section -->
+        <section id="about" class="aboutme-section">
+            <div class="aboutme-marquee aboutme-marquee--top" aria-hidden="true">
+                <div class="aboutme-marquee-track aboutme-marquee-track--right">
+                    <span class="aboutme-marquee-content">Programming and web design&nbsp;<span class="aboutme-dot">●</span>&nbsp;Travel&nbsp;<span class="aboutme-dot">●</span>&nbsp;Cooking&nbsp;<span class="aboutme-dot">●</span>&nbsp;Nature&nbsp;<span class="aboutme-dot">●</span>&nbsp;Trekking&nbsp;<span class="aboutme-dot">●</span>&nbsp;Reading&nbsp;<span class="aboutme-dot">●</span>&nbsp;Music&nbsp;<span class="aboutme-dot">●</span>&nbsp;Physical education&nbsp;<span class="aboutme-dot">●</span>&nbsp;Learn and teach&nbsp;<span class="aboutme-dot">●</span>&nbsp;Quantum physics&nbsp;<span class="aboutme-dot">●</span>&nbsp;</span>
+                    <span class="aboutme-marquee-content">Programming and web design&nbsp;<span class="aboutme-dot">●</span>&nbsp;Travel&nbsp;<span class="aboutme-dot">●</span>&nbsp;Cooking&nbsp;<span class="aboutme-dot">●</span>&nbsp;Nature&nbsp;<span class="aboutme-dot">●</span>&nbsp;Trekking&nbsp;<span class="aboutme-dot">●</span>&nbsp;Reading&nbsp;<span class="aboutme-dot">●</span>&nbsp;Music&nbsp;<span class="aboutme-dot">●</span>&nbsp;Physical education&nbsp;<span class="aboutme-dot">●</span>&nbsp;Learn and teach&nbsp;<span class="aboutme-dot">●</span>&nbsp;Quantum physics&nbsp;<span class="aboutme-dot">●</span>&nbsp;</span>
+                </div>
+            </div>
 
-                        <div>
-                            <h3 class="titleIntereses">Interests and motivations</h3>
-                            <div class="listaDeIntereses">
-                                <ul>
-                                    <li>&#128187 Programming and Web Design</li>
-                                    <li>&#127890 Travel</li>
-                                    <li>&#128588 Cook</li>
-                                    <li>&#127807 Nature</li>
-                                    <li>&#9968 Trekking´s</li>
-                                    <li>&#128161 Reed</li>
-                                    <li>&#127926 Music</li>
-                                    <li>&#127957 Physical education</li>
-                                    <li>&#128218 Learn and Teach</li>
-                                    <li>✨ Quantum Physics</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="ImgAbout">
-                            <img src="../img/NewSection.png" alt="About Micaela Bahurlet" class="about-img-default" loading="lazy" decoding="async">
-                            <img src="../img/Me3.jpg" alt="Micaela Bahurlet" class="about-img-hover">
-                            <img src="../img/me2.png" alt="Micaela Bahurlet" class="about-img-alt">
-                        </div>
-    
-        </section>
-    
-        <!--  Abboutme Section -->
-        <section id="AboutME">
-                        <div>
-                            <p> I am 29 years old, I live in Olavarría (Buenos Aires Province, Argentina). <br> <br>
-                                Programming introduced me to a world of possibilities. My first steps were a course in <strong> Web Development </strong>, those foundations encouraged me to continue learning, so I delved deeper into the career of <strong> Full Stack Programming </strong> and <strong>University Technician in Programming</strong>. 
-                                
-                                <!-- <br> <br> Those years of training allowed me to acquire knowledge and tools to face more complex and challenging projects. Confirming, in this way, that in this world not only theoretical knowledge is useful, but that one learns by DOING. -->
-                                <br><br>
-                                
-                                I consider design to be very important within the world of programming, so I also trained in <strong> UX / UI Design </strong> trying to make each of my projects meet the requirements for a good user experience, friendly, intuitive and visually attractive.
-                                
-                                <br> <br> In my desire for <strong> constant updating </strong> I find myself day by day <i> <b> learning </b></i> and <i> <b> improving </b></i> my skills.
-                            </p>
-                              
-                        </div>
+            <div class="aboutme-inner">
+                <div class="aboutme-copy">
+                    <p class="aboutme-kicker">About me</p>
+                    <div class="aboutme-heading-wrap">
+                        <h2 class="aboutme-heading">Code with attention to detail</h2>
+                    </div>
+                    <div class="aboutme-text">
+                        <p>I am 29 years old and live in Olavarría, Buenos Aires Province, Argentina. Programming opened a world of possibilities for me: my first steps were a course in <b>Web Development</b>; those foundations pushed me deeper into <b>Full Stack Programming</b> and a <b>University Technician degree in Programming</b>.</p>
+                        <p>I see design as essential as code. That is why I trained in <b>UX/UI Design</b>  so every project feels friendly, intuitive, and visually refined, with every detail considered for the people who use it.</p>
+                        <p>In my drive for <b>constant growth</b>, day by day I am <em>learning</em> and <em>improving</em> my craft.</p>
+                    </div>
+                </div>
+
+                <figure class="aboutme-portrait">
+                    <div class="aboutme-portrait-frame">
+                        <img src="../img/MeHero.webp" alt="Portrait of Micaela Bahurlet" width="420" height="525" loading="lazy" decoding="async">
+                    </div>
+                </figure>
+            </div>
+
+            <div class="aboutme-marquee aboutme-marquee--bottom" aria-hidden="true">
+                <div class="aboutme-marquee-track aboutme-marquee-track--left">
+                    <span class="aboutme-marquee-content">Programming and web design&nbsp;<span class="aboutme-dot">●</span>&nbsp;Travel&nbsp;<span class="aboutme-dot">●</span>&nbsp;Cooking&nbsp;<span class="aboutme-dot">●</span>&nbsp;Nature&nbsp;<span class="aboutme-dot">●</span>&nbsp;Trekking&nbsp;<span class="aboutme-dot">●</span>&nbsp;Reading&nbsp;<span class="aboutme-dot">●</span>&nbsp;Music&nbsp;<span class="aboutme-dot">●</span>&nbsp;Physical education&nbsp;<span class="aboutme-dot">●</span>&nbsp;Learn and teach&nbsp;<span class="aboutme-dot">●</span>&nbsp;Quantum physics&nbsp;<span class="aboutme-dot">●</span>&nbsp;</span>
+                    <span class="aboutme-marquee-content">Programming and web design&nbsp;<span class="aboutme-dot">●</span>&nbsp;Travel&nbsp;<span class="aboutme-dot">●</span>&nbsp;Cooking&nbsp;<span class="aboutme-dot">●</span>&nbsp;Nature&nbsp;<span class="aboutme-dot">●</span>&nbsp;Trekking&nbsp;<span class="aboutme-dot">●</span>&nbsp;Reading&nbsp;<span class="aboutme-dot">●</span>&nbsp;Music&nbsp;<span class="aboutme-dot">●</span>&nbsp;Physical education&nbsp;<span class="aboutme-dot">●</span>&nbsp;Learn and teach&nbsp;<span class="aboutme-dot">●</span>&nbsp;Quantum physics&nbsp;<span class="aboutme-dot">●</span>&nbsp;</span>
+                </div>
+            </div>
         </section>
 
                     
@@ -1272,7 +1274,7 @@
 
         <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-label="Expanded certificate">
             <span class="close" aria-label="Close">&times;</span>
-            <img class="modal-content" id="imgModal" alt="">
+            <img class="modal-content" id="imgModal" alt="Expanded certificate" src="../img/trisquel.png" width="64" height="64">
         </div>
 
 </body>

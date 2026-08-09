@@ -20,6 +20,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all'">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" media="print" onload="this.media='all'">
         <link rel="shortcut icon" href="./img/trisquel.png" type="image/x-icon">
+
+        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" media="print" onload="this.media='all'">
         <noscript>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Syne:wght@600;700;800&display=swap">
             <link rel="stylesheet" href="./asets/StylesResponsive.css">
@@ -32,8 +34,9 @@
         <!--  Nav bar -->
         <header>   
             <div class="header-container">            
-                    <a href="#home">
-                        <img class="logo" src="./img/LOGOBLANCO.png" alt="Logo Personal">
+                    <a href="#home" class="logo-link">
+                        <img class="logo logo--light" src="./img/LOGOBLANCO.png" alt="Logo Personal">
+                        <img class="logo logo--dark" src="./img/LogoMioNegro.png" alt="Logo Personal">
                     </a>
 
                     <button id="abrir" class="abrir-menu" aria-label="Abrir menú"><i class="bi bi-list" aria-hidden="true"></i></button>
@@ -90,7 +93,6 @@
                             <a href="https://www.linkedin.com/in/micaelabahurlet/" target="_blank" class="hero-btn-1" role="button">Conectemos</a>
                             <a href="https://drive.google.com/file/d/11dBtJKde2t5G3yo1lrfBmmZqxGQAmAj0/view?usp=sharing" target="_blank" class="buttonCV hero-btn-2" role="button">Descargar CV</a>
                         </div>
-                        <p class="hero-scroll-hint">Scroll to explore</p>
                     </div>
 
                     <div class="hero-visual" aria-hidden="true">
@@ -110,15 +112,21 @@
 
                 <div class="profile-intro-text">
                     <h2 class="profile-intro-title">
-                        <span class="profile-title-line profile-title-line--primary">
-                            <span class="profile-title-word profile-title-word--accent">Desarrollo</span>
+                        <span class="profile-title-line">
+                            <span class="profile-title-mask">
+                                <span class="profile-title-word profile-title-word--accent">Desarrollo</span>
+                            </span>
                         </span>
-                        <span class="profile-title-line profile-title-line--secondary">
-                            <span class="profile-title-connector">con</span>
-                            <span class="profile-title-snap"><span class="profile-title-snap-inner">propósito</span></span>
+                        <span class="profile-title-line">
+                            <span class="profile-title-mask">
+                                <span class="profile-title-subline">
+                                    <span class="profile-title-connector">con</span>
+                                    <span class="profile-title-word profile-title-word--plain">propósito</span>
+                                </span>
+                            </span>
                         </span>
                     </h2>
-                    <p>Para mí, desarrollar eficazmente no es sólo escribir código escalable; es <span class="profile-text-em profile-text-em--underline">darle vida a cada proyecto</span>, es <span class="profile-text-em">cuidar los detalles</span> para lograr una <span class="profile-text-em profile-text-em--underline">experiencia de usuario amigable e intuitiva</span>. Así es como considero que el código se vuelve una herramienta para <span class="profile-text-em profile-text-em--underline">dar visibilidad</span>, <span class="profile-text-em profile-text-em--underline">aportar funcionalidad</span> y <span class="profile-text-em profile-text-em--underline">resolver problemas reales</span>.</p>
+                    <p>Para mí, desarrollar eficazmente no es sólo escribir código escalable; es <span class="profile-text-em profile-text-em--underline">darle vida a cada proyecto</span>, es cuidar los detalles para lograr una <span class="profile-text-em profile-text-em--underline">experiencia de usuario amigable e intuitiva</span>. Así es como considero que el código se vuelve una herramienta para <span class="profile-text-em profile-text-em--underline">comunicar</span>, <span class="profile-text-em profile-text-em--underline">visibilizar</span> y <span class="profile-text-em profile-text-em--underline">resolver problemas reales</span>.</p>
                 </div>
             </div>
         </section>
@@ -142,7 +150,7 @@
                     <div class="status-item">
                         <div class="status-dot"></div>
                         <div class="status-text-container">
-                            <span class="status-text-sliding">Segundo año, primer cuatrimestre <b> Tecnicatura Universitaria en Tecnologías de la Programación</b></span>
+                            <span class="status-text-sliding">Segundo año, segundo cuatrimestre <b> Tecnicatura Universitaria en Tecnologías de la Programación</b></span>
                         </div>
                     </div>
                     
@@ -230,6 +238,11 @@
                                             <div class="tech-item">
                                                 <i class="devicon-postgresql-plain colored"></i>
                                                 <span>PostgreSQL</span>
+                                            </div>
+
+                                            <div class="tech-item">
+                                                <i class="devicon-githubactions-plain"></i> 
+                                                <span>GitHub Actions (CI/CD)</span>
                                             </div>
                                         </div>
                                     </div>
@@ -394,95 +407,93 @@
                         </div>
         </section>
 
-        <!-- New Skills Grid Section -->
+        <!-- Skills Section -->
         <section id="NewSkillsSection" class="py-5">
             <div class="skills-section-inner">
                 <h2 class="mb-5">Habilidades y Tecnologías</h2>
-                <div class="skills-grid">
-                    <!-- Frontend Card -->
-                    <div class="skills-grid-item">
-                        <div class="skill-card h-100">
-                            <div class="skill-card-header">
-                                <i class="bi bi-code-slash"></i>
-                                <h3>Frontend</h3>
-                            </div>
-                            <div class="skill-items">
-                                <div class="skill-item"><i class="devicon-html5-plain colored"></i> HTML5</div>
-                                <div class="skill-item"><i class="devicon-css3-plain colored"></i> CSS3</div>
-                                <div class="skill-item"><i class="devicon-javascript-plain colored"></i> JavaScript</div>
-                                <div class="skill-item"><i class="devicon-react-original colored"></i> React</div>
-                                <div class="skill-item"><i class="devicon-bootstrap-plain colored"></i> Bootstrap</div>
-                                <div class="skill-item"><i class="devicon-wordpress-plain colored"></i> WordPress</div>
-                                <div class="skill-item"><i class="devicon-woocommerce-plain colored"></i> WooCommerce</div>
-                                <div class="skill-item"><i class="devicon-sass-original colored"></i> SASS</div>
-                                <div class="skill-item"><i class="devicon-styledcomponents-plain colored"></i> Styled Components</div>
-                                <div class="skill-item"><i class="devicon-tailwindcss-plain colored"></i> Tailwind CSS</div>
-                                <div class="skill-item">
-                                    <img src="./img/GSAP.svg" alt="GSAP" class="skill-item-img" style="margin-right: 10px;">  GSAP
-                                </div>
-                            </div>
+                <div class="skills-rows">
+
+                    <div class="skill-row">
+                        <div class="skill-row-label">
+                            <i class="bi bi-code-slash" aria-hidden="true"></i>
+                            <h3>Frontend</h3>
+                        </div>
+                        <div class="skill-row-chips">
+                            <div class="skill-item"><i class="devicon-html5-plain colored"></i> HTML5</div>
+                            <div class="skill-item"><i class="devicon-css3-plain colored"></i> CSS3</div>
+                            <div class="skill-item"><i class="devicon-javascript-plain colored"></i> JavaScript</div>
+                            <div class="skill-item"><i class="devicon-react-original colored"></i> React</div>
+                            <div class="skill-item"><i class="devicon-bootstrap-plain colored"></i> Bootstrap</div>
+                            <div class="skill-item"><i class="devicon-wordpress-plain colored"></i> WordPress</div>
+                            <div class="skill-item"><i class="devicon-woocommerce-plain colored"></i> WooCommerce</div>
+                            <div class="skill-item"><i class="devicon-sass-original colored"></i> SASS</div>
+                            <div class="skill-item"><i class="devicon-styledcomponents-plain colored"></i> Styled Components</div>
+                            <div class="skill-item"><i class="devicon-tailwindcss-plain colored"></i> Tailwind CSS</div>
+                            <div class="skill-item"><img src="./img/GSAP.svg" alt="" class="skill-item-img" aria-hidden="true"> GSAP</div>
                         </div>
                     </div>
 
-                    <!-- Backend Card -->
-                    <div class="skills-grid-item">
-                        <div class="skill-card h-100">
-                            <div class="skill-card-header">
-                                <i class="bi bi-hdd-stack"></i>
-                                <h3>Backend</h3>
-                            </div>
-                            <div class="skill-items">
-                                <div class="skill-item"><i class="devicon-nodejs-plain colored"></i> Node.js</div>
-                                <div class="skill-item"><i class="devicon-nextjs-original-wordmark colored"></i> Next.js</div>
-                                <div class="skill-item"><i class="devicon-typescript-plain colored"></i> TypeScript</div>
-                                <div class="skill-item"><i class="devicon-php-plain colored"></i> PHP</div>
-                                <div class="skill-item"><i class="devicon-laravel-plain colored"></i> Laravel</div>
-                                <div class="skill-item"><i class="devicon-mongodb-plain colored"></i> MongoDB</div>
-                                <div class="skill-item"><i class="devicon-mysql-plain colored"></i> MySQL</div>
-                                <div class="skill-item"><i class="devicon-express-original colored"></i> Express</div>
-                                <div class="skill-item"><i class="devicon-jest-plain colored"></i> Jest</div>
-                                <div class="skill-item"><i class="devicon-docker-plain-wordmark colored"></i> Docker</div>
-                                <div class="skill-item"><i class="devicon-firebase-plain-wordmark colored"></i> Firebase</div>
-                            </div>
+                    <div class="skill-row">
+                        <div class="skill-row-label">
+                            <i class="bi bi-hdd-stack" aria-hidden="true"></i>
+                            <h3>Backend</h3>
+                        </div>
+                        <div class="skill-row-chips">
+                            <div class="skill-item"><i class="devicon-nodejs-plain colored"></i> Node.js</div>
+                            <div class="skill-item"><i class="devicon-nextjs-original-wordmark colored"></i> Next.js</div>
+                            <div class="skill-item"><i class="devicon-typescript-plain colored"></i> TypeScript</div>
+                            <div class="skill-item"><i class="devicon-php-plain colored"></i> PHP</div>
+                            <div class="skill-item"><i class="devicon-laravel-plain colored"></i> Laravel</div>
+                            <div class="skill-item"><i class="devicon-mongodb-plain colored"></i> MongoDB</div>
+                            <div class="skill-item"><i class="devicon-mysql-plain colored"></i> MySQL</div>
+                            <div class="skill-item"><i class="devicon-express-original colored"></i> Express</div>
+                            <div class="skill-item"><i class="devicon-jest-plain colored"></i> Jest</div>
+                            <div class="skill-item"><i class="devicon-firebase-plain-wordmark colored"></i> Firebase</div>
                         </div>
                     </div>
 
-                    <!-- Development Tools Card -->
-                    <div class="skills-grid-item">
-                        <div class="skill-card h-100">
-                            <div class="skill-card-header">
-                                <i class="bi bi-tools"></i>
-                                <h3>Herramientas de Desarrollo</h3>
-                            </div>
-                            <div class="skill-items">
-                                <div class="skill-item"><i class="devicon-apple-original colored"></i> Apple</div>
-                                <div class="skill-item"><i class="devicon-git-plain colored"></i> Git</div>
-                                <div class="skill-item"><i class="devicon-github-original colored"></i> GitHub</div>
-                                <div class="skill-item"><i class="devicon-vitejs-plain colored"></i> Vite.js</div>
-                                <div class="skill-item"><i class="bi bi-hdd-stack"></i> XAMPP</div>
-                                <div class="skill-item"><i class="devicon-dbeaver-plain colored"></i> DBeaver</div>
-                                <div class="skill-item"><i class="devicon-npm-original-wordmark colored"></i> npm</div>
-                                <div class="skill-item"><i class="devicon-jira-plain colored"></i> Jira</div>                               
-                                <div class="skill-item"><i class="devicon-trello-plain colored"></i> Trello</div>
-                                
-                            </div>
+                    <div class="skill-row">
+                        <div class="skill-row-label">
+                            <i class="bi bi-tools" aria-hidden="true"></i>
+                            <h3>Herramientas de Desarrollo</h3>
+                        </div>
+                        <div class="skill-row-chips">
+                            <div class="skill-item"><i class="devicon-apple-original colored"></i> Apple</div>
+                            <div class="skill-item"><i class="devicon-github-original colored"></i> GitHub</div>
+                            <div class="skill-item"><i class="devicon-vitejs-plain colored"></i> Vite.js</div>
+                            <div class="skill-item"><i class="bi bi-hdd-stack"></i> XAMPP</div>
+                            <div class="skill-item"><i class="devicon-dbeaver-plain colored"></i> DBeaver</div>
+                            <div class="skill-item"><i class="devicon-npm-original-wordmark colored"></i> npm</div>
+                            <div class="skill-item"><i class="devicon-jira-plain colored"></i> Jira</div>
+                            <div class="skill-item"><i class="devicon-trello-plain colored"></i> Trello</div>
                         </div>
                     </div>
 
-                    <!-- UX/UI Tools Card -->
-                    <div class="skills-grid-item">
-                        <div class="skill-card h-100">
-                            <div class="skill-card-header">
-                                <i class="bi bi-brush"></i>
-                                <h3>Herramientas UX/UI</h3>
-                            </div>
-                            <div class="skill-items">
-                                <div class="skill-item"><i class="devicon-figma-plain colored"></i> Figma</div>
-                                <div class="skill-item"><i class="devicon-photoshop-plain colored"></i> Photoshop</div>
-                                <div class="skill-item"><i class="devicon-canva-original colored"></i> Canva</div>
-                            </div>
+                    <div class="skill-row">
+                        <div class="skill-row-label">
+                            <i class="bi bi-brush" aria-hidden="true"></i>
+                            <h3>Herramientas UX/UI</h3>
+                        </div>
+                        <div class="skill-row-chips">
+                            <div class="skill-item"><i class="devicon-figma-plain colored"></i> Figma</div>
+                            <div class="skill-item"><i class="devicon-photoshop-plain colored"></i> Photoshop</div>
+                            <div class="skill-item"><i class="devicon-canva-original colored"></i> Canva</div>
                         </div>
                     </div>
+
+                    <div class="skill-row">
+                        <div class="skill-row-label">
+                            <i class="bi bi-cloud-arrow-up" aria-hidden="true"></i>
+                            <h3>DevOps y Herramientas</h3>
+                        </div>
+                        <div class="skill-row-chips">
+                            <div class="skill-item"><i class="devicon-docker-plain-wordmark colored"></i> Docker</div>
+                            <div class="skill-item"><i class="devicon-githubactions-plain colored"></i> GitHub Actions (CI/CD)</div>
+                            <div class="skill-item"><i class="devicon-git-plain colored"></i> Git</div>
+                            <div class="skill-item"><i class="bi bi-stars"></i> AI-Assisted Development</div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -1015,54 +1026,42 @@
                             </div>
 
                         </div>
-        </section>   
-
-
-                                        
-
-        <!--  About Section -->
-        <section id="about">
-
-                        <div>
-                            <h3 class="titleIntereses">Intereses y motivaciones</h3>
-                            <div class="listaDeIntereses">
-                                <ul>
-                                <li>&#128187 Programación y Diseño Web</li>
-                                <li>&#127890 Viajar</li>
-                                <li>&#128588 Cocinar</li>
-                                <li>&#127807 Naturaleza</li>
-                                <li>&#9968 Trekking´s</li>
-                                <li>&#128161 Leer</li>
-                                <li>&#127926 Música</li>
-                                <li>&#127957 Educación Física</li>
-                                <li>&#128218 Aprender y Enseñar</li>
-                                <li>✨ Física cuántica</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="ImgAbout">
-                            <picture><img src="./img/NewSection.png" alt="About Micaela Bahurlet" class="about-img-default" loading="lazy" decoding="async"></picture>
-                            <picture><source srcset="./img/Me3.webp" type="image/webp"><img src="./img/Me3.jpg" alt="Micaela Bahurlet" class="about-img-hover" loading="lazy" decoding="async"></picture>
-                            <picture><source srcset="./img/me2.webp" type="image/webp"><img src="./img/me2.png" alt="Micaela Bahurlet" class="about-img-alt" loading="lazy" decoding="async"></picture>
-                        </div>
-    
         </section>
-    
-        <!--  AbboutMe Section -->
-        <section id="AboutME">
-                        <div>
-                            <p> Tengo 29 años, vivo en Olavarría (Provincia de Buenos Aires, Argentina). <br> <br> 
-                            La programación me presentó un mundo de posibilidades. Mis primeros pasos fueron un curso de <strong> Desarrollo Web,</strong> esas bases me incentivaron a seguir aprendiendo, por lo cual profundice con la carrera en <strong> Programación Full Stack</strong> y la <strong>Tecnincatura universitaria en Programación</strong>.
-                            
-                            <br><br> 
+        <!--  About Me Section -->
+        <section id="about" class="aboutme-section">
+            <div class="aboutme-marquee aboutme-marquee--top" aria-hidden="true">
+                <div class="aboutme-marquee-track aboutme-marquee-track--right">
+                    <span class="aboutme-marquee-content">Programación y diseño web&nbsp;<span class="aboutme-dot">●</span>&nbsp;Viajar&nbsp;<span class="aboutme-dot">●</span>&nbsp;Cocinar&nbsp;<span class="aboutme-dot">●</span>&nbsp;Naturaleza&nbsp;<span class="aboutme-dot">●</span>&nbsp;Trekking&nbsp;<span class="aboutme-dot">●</span>&nbsp;Leer&nbsp;<span class="aboutme-dot">●</span>&nbsp;Música&nbsp;<span class="aboutme-dot">●</span>&nbsp;Educación física&nbsp;<span class="aboutme-dot">●</span>&nbsp;Aprender y enseñar&nbsp;<span class="aboutme-dot">●</span>&nbsp;Física cuántica&nbsp;<span class="aboutme-dot">●</span>&nbsp;</span>
+                    <span class="aboutme-marquee-content">Programación y diseño web&nbsp;<span class="aboutme-dot">●</span>&nbsp;Viajar&nbsp;<span class="aboutme-dot">●</span>&nbsp;Cocinar&nbsp;<span class="aboutme-dot">●</span>&nbsp;Naturaleza&nbsp;<span class="aboutme-dot">●</span>&nbsp;Trekking&nbsp;<span class="aboutme-dot">●</span>&nbsp;Leer&nbsp;<span class="aboutme-dot">●</span>&nbsp;Música&nbsp;<span class="aboutme-dot">●</span>&nbsp;Educación física&nbsp;<span class="aboutme-dot">●</span>&nbsp;Aprender y enseñar&nbsp;<span class="aboutme-dot">●</span>&nbsp;Física cuántica&nbsp;<span class="aboutme-dot">●</span>&nbsp;</span>
+                </div>
+            </div>
 
-                            Considero al diseño muy importante dentro del mundo de la programación, esta idea me llevó a formarme en <strong>Diseño UX/UI</strong> tratando de que cada uno de mis proyectos cumpla con los requisitos para una buena experiencia de usuario, amigable, intuitiva y visualmente atractiva.
+            <div class="aboutme-inner">
+                <div class="aboutme-copy">
+                    <p class="aboutme-kicker">Sobre mí</p>
+                    <div class="aboutme-heading-wrap">
+                        <h2 class="aboutme-heading">Código con atención a los detalles</h2>
+                    </div>
+                    <div class="aboutme-text">
+                        <p>Tengo 29 años y vivo en Olavarría, Provincia de Buenos Aires, Argentina. La programación me abrió un mundo de posibilidades: mis primeros pasos fueron un curso de <b>Desarrollo Web</b>; esas bases me impulsaron a profundizar en <b>Programación Full Stack</b> y en la <b>Tecnicatura universitaria en Programación</b>.</p>
+                        <p>Considero al diseño tan importante como el código. Por eso me formé en <b>Diseño UX/UI</b>, para que cada proyecto sea amigable, intuitivo y visualmente atractivo.</p>
+                        <p>En mi deseo de <b>actualización constante</b>, me encuentro día a día <em>aprendiendo</em> y <em>mejorando</em> mis habilidades.</p>
+                    </div>
+                </div>
 
-                            <br> <br> En mi deseo de <strong> actualización constante </strong> me encuentro día a día <i> <b> aprendiendo </b></i> y <i> <b> mejorando </b></i> mis habilidades.
-    
-                            </p>
-                        </div>
+                <figure class="aboutme-portrait">
+                    <div class="aboutme-portrait-frame">
+                        <img src="./img/MeHero.webp" alt="Retrato de Micaela Bahurlet" width="420" height="525" loading="lazy" decoding="async">
+                    </div>
+                </figure>
+            </div>
+
+            <div class="aboutme-marquee aboutme-marquee--bottom" aria-hidden="true">
+                <div class="aboutme-marquee-track aboutme-marquee-track--left">
+                    <span class="aboutme-marquee-content">Programación y diseño web&nbsp;<span class="aboutme-dot">●</span>&nbsp;Viajar&nbsp;<span class="aboutme-dot">●</span>&nbsp;Cocinar&nbsp;<span class="aboutme-dot">●</span>&nbsp;Naturaleza&nbsp;<span class="aboutme-dot">●</span>&nbsp;Trekking&nbsp;<span class="aboutme-dot">●</span>&nbsp;Leer&nbsp;<span class="aboutme-dot">●</span>&nbsp;Música&nbsp;<span class="aboutme-dot">●</span>&nbsp;Educación física&nbsp;<span class="aboutme-dot">●</span>&nbsp;Aprender y enseñar&nbsp;<span class="aboutme-dot">●</span>&nbsp;Física cuántica&nbsp;<span class="aboutme-dot">●</span>&nbsp;</span>
+                    <span class="aboutme-marquee-content">Programación y diseño web&nbsp;<span class="aboutme-dot">●</span>&nbsp;Viajar&nbsp;<span class="aboutme-dot">●</span>&nbsp;Cocinar&nbsp;<span class="aboutme-dot">●</span>&nbsp;Naturaleza&nbsp;<span class="aboutme-dot">●</span>&nbsp;Trekking&nbsp;<span class="aboutme-dot">●</span>&nbsp;Leer&nbsp;<span class="aboutme-dot">●</span>&nbsp;Música&nbsp;<span class="aboutme-dot">●</span>&nbsp;Educación física&nbsp;<span class="aboutme-dot">●</span>&nbsp;Aprender y enseñar&nbsp;<span class="aboutme-dot">●</span>&nbsp;Física cuántica&nbsp;<span class="aboutme-dot">●</span>&nbsp;</span>
+                </div>
+            </div>
         </section>
 
                     
@@ -1207,7 +1206,7 @@
 
         <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-label="Certificado ampliado">
             <span class="close" aria-label="Cerrar">&times;</span>
-            <img class="modal-content" id="imgModal" alt="">
+            <img class="modal-content" id="imgModal" alt="Certificado ampliado" src="./img/trisquel.png" width="64" height="64">
         </div>
 
 </body>
