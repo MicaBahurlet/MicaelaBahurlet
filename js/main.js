@@ -574,6 +574,31 @@ function initSkillsAnimations() {
     });
 }
 
+function initUnicornStudio() {
+    const embed = document.querySelector("[data-us-project]");
+    if (!embed) return;
+
+    const boot = () => {
+        if (window.UnicornStudio?.isInitialized) return;
+        if (typeof UnicornStudio !== "undefined" && typeof UnicornStudio.init === "function") {
+            UnicornStudio.init();
+            window.UnicornStudio.isInitialized = true;
+        }
+    };
+
+    if (window.UnicornStudio) {
+        boot();
+        return;
+    }
+
+    window.UnicornStudio = { isInitialized: false };
+    const script = document.createElement("script");
+    script.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js";
+    script.async = true;
+    script.onload = boot;
+    (document.head || document.body).appendChild(script);
+}
+
 function initGsapFeatures() {
     initHeroGsapAnimations();
     initProfileIntroAnimations();
@@ -597,6 +622,7 @@ function scheduleGsapInit() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    initUnicornStudio();
     initDarkMode();
     initSmoothScroll();
     initHeaderScroll();

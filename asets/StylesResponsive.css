@@ -97,7 +97,7 @@
         box-sizing: border-box;
     }
 
-    #home {
+    #home:not(.hero-modern) {
         padding: 3rem 1rem 2rem 1rem;
         min-height: 90vh;
         width: 100%;
@@ -433,9 +433,11 @@
 
     /* Timeline Responsive */
     #timeline {
-        max-width: 350px;
+        max-width: 100%;
+        width: calc(100% - 1.25rem);
         margin: 2rem auto;
-        padding: 0 1rem;
+        padding: 0 0.625rem;
+        box-sizing: border-box;
     }
 
     .timeline-container h2 {
@@ -444,21 +446,22 @@
     }
 
     .timeline {
-        max-width: 300px;
+        max-width: 100%;
+        width: 100%;
     }
 
     .timeline::before {
-        left: 30px;
+        left: 16px;
         width: 2px;
     }
 
     .timeline-item {
-        padding-left: 60px;
+        padding-left: 44px;
         margin-bottom: 2rem;
     }
 
     .timeline-dot {
-        left: 27px;
+        left: 13px;
         width: 8px;
         height: 8px;
         border: 2px solid #fff;
@@ -466,7 +469,9 @@
     }
 
     .timeline-content {
-        padding: 1.5rem;
+        padding: 1.35rem 1.15rem;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .timeline-content::before {
@@ -1098,12 +1103,16 @@
 /* Tablet y mobile: apilar texto y objeto */
 @media (max-width: 991px) {
   #home.hero-modern {
-    min-height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    min-height: 100svh;
     max-width: 100%;
     width: 100%;
     margin-top: -5.5rem;
-    padding: calc(7rem + 5.5rem) 1.5rem 4rem;
+    padding: calc(5.5rem + 2rem) 1.5rem 2rem;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   #home.hero-modern .hero-content-wrapper {
@@ -1172,7 +1181,11 @@
 
 @media (max-width: 767px) {
   #home.hero-modern {
-    padding: calc(4rem + 5.5rem) 1.2rem 8rem;
+    min-height: 100vh;
+    min-height: 100dvh;
+    min-height: 100svh;
+    padding: calc(5.5rem + 1.5rem) 1.2rem 2rem;
+    justify-content: center;
   }
   #home.hero-modern .TextHero .hero-name {
     font-size: clamp(2.6rem, 14vw, 3.6rem) !important;
