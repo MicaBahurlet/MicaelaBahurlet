@@ -13,13 +13,14 @@
         <title>Micaela Bahurlet | Portfolio</title>
         <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
         <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-        <link rel="preconnect" href="https://assets.unicorn.studio" crossorigin>
-        <link rel="dns-prefetch" href="https://assets.unicorn.studio">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="dns-prefetch" href="https://fonts.googleapis.com">
         <link rel="stylesheet" href="../asets/Styles.css">
         <link rel="stylesheet" href="../asets/StylesResponsive.css">
+        <script>
+            document.documentElement.classList.add("js-hero-gate");
+        </script>
         <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Syne:wght@600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all'">
         <link rel="shortcut icon" href="../img/trisquel.png" type="image/x-icon">
@@ -43,7 +44,7 @@
 
                     <button id="abrir" class="abrir-menu" aria-label="Open menu"><i class="bi bi-list"></i></button>
 
-                    <nav  class="nav" id="nav">    
+                    <nav class="nav" id="nav" aria-label="Main menu">
                         <button id="cerrar" class="cerrar-menu" aria-label="Close menu"><i class="bi bi-x-lg"></i></button>
                         <ul class="nav-list">
                             <li><a href="#home">Home</a></li>
@@ -67,8 +68,8 @@
         <!-- heroSite -->
         <main id="home" class="hero-modern">
                 <!-- Unicorn Studio background -->
-                <div class="hero-unicorn-bg" aria-hidden="true">
-                    <div data-us-project="qF3qXhdiOxdUeQYH8wCK" class="hero-unicorn-canvas"></div>
+                <div class="hero-fluid-bg" aria-hidden="true">
+                    <canvas id="hero-fluid-canvas" class="hero-fluid-canvas"></canvas>
                 </div>
 
                 <!-- Previous animated background
@@ -127,8 +128,13 @@
                             <span class="profile-title-mask">
                                 <span class="profile-title-connector">with</span>
                             </span>
-                            <span class="profile-title-mask">
-                                <span class="profile-title-word profile-title-word--plain">purpose</span>
+                            <span class="profile-title-mask profile-title-mask--rotate">
+                                <span class="profile-title-rotate" aria-hidden="true">
+                                    <span class="profile-title-rotate-item profile-title-word profile-title-word--plain is-active">purpose</span>
+                                    <span class="profile-title-rotate-item profile-title-word profile-title-word--plain">intention</span>
+                                    <span class="profile-title-rotate-item profile-title-word profile-title-word--plain">details</span>
+                                </span>
+                                <span class="visually-hidden">purpose, intention and details</span>
                             </span>
                         </span>
                     </h2>
@@ -1190,6 +1196,14 @@
 
         <!--  About Me Section -->
         <section id="about" class="aboutme-section">
+            <div class="aboutme-cursor" aria-hidden="true">
+                <div class="aboutme-cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" aria-hidden="true">
+                        <path fill="currentColor" d="M1.8 4.4 7 36.2c.3 1.8 2.6 2.3 3.6.8l3.9-5.7c1.7-2.5 4.5-4.1 7.5-4.3l6.9-.5c1.8-.1 2.5-2.4 1.1-3.5L5 2.5c-1.4-1.1-3.5 0-3.3 1.9Z"/>
+                    </svg>
+                </div>
+                <div class="aboutme-cursor-label">Micaela Bahurlet</div>
+            </div>
             <div class="aboutme-marquee aboutme-marquee--top" aria-hidden="true">
                 <div class="aboutme-marquee-track aboutme-marquee-track--right">
                     <span class="aboutme-marquee-content">Programming and web design&nbsp;<span class="aboutme-dot">●</span>&nbsp;Travel&nbsp;<span class="aboutme-dot">●</span>&nbsp;Cooking&nbsp;<span class="aboutme-dot">●</span>&nbsp;Nature&nbsp;<span class="aboutme-dot">●</span>&nbsp;Trekking&nbsp;<span class="aboutme-dot">●</span>&nbsp;Reading&nbsp;<span class="aboutme-dot">●</span>&nbsp;Music&nbsp;<span class="aboutme-dot">●</span>&nbsp;Physical education&nbsp;<span class="aboutme-dot">●</span>&nbsp;Learn and teach&nbsp;<span class="aboutme-dot">●</span>&nbsp;Quantum physics&nbsp;<span class="aboutme-dot">●</span>&nbsp;</span>
@@ -1347,6 +1361,7 @@
             </ul>
         </nav>
 
+        <script defer src="../js/hero-fluid-bg.js"></script>
         <script defer src="../js/main.js"></script>
 
         <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-label="Expanded certificate">

@@ -764,27 +764,175 @@ header .lenguage a:hover {
   background: #0a1622;
 }
 
-.hero-unicorn-bg {
+.hero-fluid-bg {
   position: absolute;
   inset: 0;
   z-index: 0;
   overflow: hidden;
-  pointer-events: none;
+  pointer-events: auto;
+  opacity: 0;
+  transition: opacity 0.35s ease;
 }
 
-.hero-unicorn-canvas {
+.hero-fluid-bg.is-ready {
+  opacity: 1;
+}
+
+.hero-fluid-canvas {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
+  display: block;
 }
 
-.hero-unicorn-bg canvas,
-.hero-unicorn-canvas canvas {
-  width: 100% !important;
-  height: 100% !important;
-  display: block;
+/* Hold hero copy until fluid BG paints, then reveal with native CSS animations. */
+html.js-hero-gate .hero-modern:not(.is-hero-ready) .hero-content-wrapper {
+  opacity: 0;
+}
+
+html.js-hero-gate .hero-modern.is-hero-ready .hero-content-wrapper {
+  opacity: 1;
+  transition: opacity 0.35s ease;
+}
+
+html.js-hero-gate #home.hero-modern .hero-eyebrow,
+html.js-hero-gate #home.hero-modern .hero-name-line,
+html.js-hero-gate #home.hero-modern .TextHero h2,
+html.js-hero-gate #home.hero-modern .line-text,
+html.js-hero-gate #home.hero-modern .BtnsHero > a,
+html.js-hero-gate #home.hero-modern .hero-scroll-hint,
+html.js-hero-gate #home.hero-modern .hero-visual {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+}
+
+html.js-hero-gate #home.hero-modern .hero-name-line {
+  transform: translate3d(0, 60px, 0);
+}
+
+html.js-hero-gate #home.hero-modern .highlight-text {
+  background-size: 0% 100%;
+}
+
+html.js-hero-gate #home.hero-modern.is-hero-ready .hero-eyebrow {
+  animation: hero-fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+html.js-hero-gate #home.hero-modern.is-hero-ready .hero-name-line:nth-child(1) {
+  animation: hero-rise-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+html.js-hero-gate #home.hero-modern.is-hero-ready .hero-name-line:nth-child(2) {
+  animation: hero-rise-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.27s both;
+}
+
+html.js-hero-gate #home.hero-modern.is-hero-ready .TextHero h2 {
+  animation: hero-fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.42s both;
+}
+
+html.js-hero-gate #home.hero-modern.is-hero-ready .hero-title-role .highlight-text {
+  animation: hero-highlight-reveal 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.55s both;
+}
+
+html.js-hero-gate #home.hero-modern.is-hero-ready .hero-title-spec .highlight-text {
+  animation: hero-highlight-reveal 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.75s both;
+}
+
+html.js-hero-gate #home.hero-modern.is-hero-ready .line-text:nth-child(1) {
+  animation: hero-fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
+}
+
+html.js-hero-gate #home.hero-modern.is-hero-ready .line-text:nth-child(2) {
+  animation: hero-fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.65s both;
+}
+
+html.js-hero-gate #home.hero-modern.is-hero-ready .BtnsHero > a:nth-child(1) {
+  animation: hero-fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.7s both;
+}
+
+html.js-hero-gate #home.hero-modern.is-hero-ready .BtnsHero > a:nth-child(2) {
+  animation: hero-fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.82s both;
+}
+
+html.js-hero-gate #home.hero-modern.is-hero-ready .hero-scroll-hint {
+  animation: hero-fade-in 0.6s ease 0.9s both;
+}
+
+html.js-hero-gate #home.hero-modern.is-hero-ready .hero-visual {
+  animation: hero-visual-in 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes hero-rise-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 60px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes hero-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes hero-highlight-reveal {
+  from { background-size: 0% 100%; }
+  to { background-size: 100% 100%; }
+}
+
+@keyframes hero-visual-in {
+  from {
+    opacity: 0;
+    transform: scale3d(0.85, 0.85, 1);
+  }
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js-hero-gate .hero-modern:not(.is-hero-ready) .hero-content-wrapper,
+  html.js-hero-gate .hero-modern.is-hero-ready .hero-content-wrapper {
+    opacity: 1;
+  }
+
+  html.js-hero-gate #home.hero-modern .hero-eyebrow,
+  html.js-hero-gate #home.hero-modern .hero-name-line,
+  html.js-hero-gate #home.hero-modern .TextHero h2,
+  html.js-hero-gate #home.hero-modern .line-text,
+  html.js-hero-gate #home.hero-modern .BtnsHero > a,
+  html.js-hero-gate #home.hero-modern .hero-scroll-hint,
+  html.js-hero-gate #home.hero-modern .hero-visual {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  html.js-hero-gate #home.hero-modern .highlight-text {
+    background-size: 100% 100% !important;
+    animation: none !important;
+  }
+
+  .hero-fluid-bg {
+    opacity: 1;
+    transition: none;
+  }
 }
 
 /* Gradiente de fondo animado (dark) */
@@ -908,7 +1056,7 @@ header .lenguage a:hover {
   min-width: 0;
 }
 
-/* Hero name - GSAP animated */
+/* Hero name - entrance animated */
 .TextHero .hero-name {
   display: block;
   margin: 0 0 1.2rem;
@@ -963,16 +1111,15 @@ header .lenguage a:hover {
   color: rgba(255, 255, 255, 0.55);
 }
 
-/* Modern highlight effect for GSAP animations */
+/* Modern highlight effect for hero entrance animations */
 .highlight-text {
   position: relative;
   background: linear-gradient(120deg, rgba(143, 193, 190, 0.25) 0%, rgba(143, 193, 190, 0.4) 100%);
   background-repeat: no-repeat;
-  background-size: 0% 100%;
+  background-size: 100% 100%;
   background-position: left center;
   padding: 0.1em 0.3em;
   border-radius: 6px;
-  transition: background-size 0.5s ease;
   display: inline;
   font-size: inherit !important;
   font-weight: 600;
@@ -1287,6 +1434,91 @@ footer {
   overflow-x: clip;
   overflow-y: hidden;
   z-index: 1;
+}
+
+/* Custom cursor — desktop only, About section */
+.aboutme-cursor {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .aboutme-section.is-cursor-active {
+    cursor: none;
+  }
+
+  .aboutme-section.is-cursor-active * {
+    cursor: none !important;
+  }
+
+  .aboutme-cursor {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 40;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate3d(-999px, -999px, 0);
+    will-change: transform, opacity;
+  }
+
+  .aboutme-cursor.is-visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .aboutme-cursor-pointer {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--color-teal-deep, #2f6f6b);
+    filter: drop-shadow(0 2px 6px rgba(47, 111, 107, 0.35));
+  }
+
+  .aboutme-cursor-pointer svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .aboutme-cursor-label {
+    position: absolute;
+    top: 1.35rem;
+    left: 1.15rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 0.55rem;
+    background: var(--color-teal-deep, #2f6f6b);
+    color: #ffffff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    box-shadow: 0 8px 22px rgba(47, 111, 107, 0.28);
+    transform: scale(0.92);
+    transform-origin: top left;
+    transition: transform 0.18s ease, opacity 0.18s ease;
+  }
+
+  .aboutme-cursor.is-visible .aboutme-cursor-label {
+    transform: scale(1);
+  }
+
+  body.dark-mode .aboutme-cursor-pointer {
+    color: var(--color-teal-soft, #8fc1be);
+  }
+
+  body.dark-mode .aboutme-cursor-label {
+    background: var(--color-teal, #3a7d78);
+    color: #ffffff;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: reduce) {
+  .aboutme-cursor,
+  .aboutme-cursor-label {
+    transition: none;
+  }
 }
 
 /* —— Marquees —— */
@@ -3384,8 +3616,8 @@ body.dark-mode .carousel-control-next {
   display: flex;
   align-items: center;
   justify-content: center;
-  will-change: transform;
   transform-style: preserve-3d;
+  animation: hero-object-float 6s ease-in-out infinite;
 }
 .hero-modern .hero-object::before {
   content: "";
@@ -3401,6 +3633,12 @@ body.dark-mode .carousel-control-next {
   0% { opacity: 0.55; transform: scale(0.95); }
   100% { opacity: 1; transform: scale(1.1); }
 }
+
+@keyframes hero-object-float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(0, -12px, 0) rotate(2deg); }
+}
+
 .hero-modern .hero-3d-img {
   position: relative;
   z-index: 1;
@@ -3483,7 +3721,69 @@ body.dark-mode .carousel-control-next {
 
 .profile-title-mask > * {
   display: inline-block;
-  will-change: transform;
+}
+
+.profile-title-mask:not(.profile-title-mask--rotate) > * {
+  opacity: 1;
+  transform: none;
+}
+
+.profile-title-mask--rotate {
+  overflow: visible;
+  text-align: left;
+  max-width: none;
+}
+
+.profile-title-rotate {
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+  line-height: 1.08;
+  text-align: left;
+  width: max-content;
+  max-width: none;
+  overflow: visible;
+}
+
+.profile-title-rotate-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: max-content;
+  max-width: none;
+  white-space: nowrap;
+  text-align: left;
+  opacity: 0;
+  transform: translate3d(0, 0.35em, 0);
+  transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.profile-title-rotate-item.is-active {
+  position: relative;
+  top: auto;
+  left: auto;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  z-index: 1;
+}
+
+.profile-title-rotate-item.is-leaving {
+  opacity: 0;
+  transform: translate3d(0, -0.35em, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-title-rotate-item {
+    transition: none;
+    transform: none;
+  }
+
+  .profile-title-rotate-item:not(.is-active) {
+    opacity: 0;
+  }
 }
 
 .profile-title-subline {
@@ -3526,6 +3826,21 @@ body.dark-mode .carousel-control-next {
   max-width: 50ch;
   font-weight: 400;
   text-wrap: pretty;
+  opacity: 1;
+  transform: none;
+}
+
+#profile-intro.profile-intro--ready:not(.is-inview) .profile-intro-text > p {
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+}
+
+#profile-intro.is-inview .profile-intro-text > p {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .profile-text-em {
@@ -3552,21 +3867,29 @@ body.dark-mode .carousel-control-next {
     rgba(143, 193, 190, 0)    100%
   );
   background-repeat: no-repeat;
-  background-position: left 60%; /* sit slightly below center, like a real stroke */
-  background-size: 0% 0.88em;
+  background-position: left 60%;
+  background-size: 100% 0.88em;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
   padding: 0.06em 0.12em;
   border-radius: 2px;
+  transform: none;
 }
 
-.profile-text-em--underline.is-revealed {
+#profile-intro.profile-intro--ready:not(.is-inview) .profile-text-em--underline {
+  opacity: 0.4;
+  transform: translate3d(0, 5px, 0);
+  background-size: 0% 0.88em;
+}
+
+#profile-intro.is-inview .profile-text-em--underline {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
   background-size: 100% 0.88em;
-  transition: background-size 0.38s cubic-bezier(0.08, 0.72, 0.26, 1.0);
-}
-
-.profile-text-em--gsap {
-  transition: none;
+  transition:
+    opacity 0.42s cubic-bezier(0.22, 1, 0.36, 1) var(--intro-delay, 0.14s),
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1) var(--intro-delay, 0.14s),
+    background-size 0.4s cubic-bezier(0.4, 0, 0.2, 1) calc(var(--intro-delay, 0.14s) + 0.08s);
 }
 
 /* Typewriter cursor */
@@ -3699,8 +4022,13 @@ body.dark-mode .profile-text-em--underline {
   .hero-modern .hero-name-gradient,
   .hero-modern .hero-glow,
   .hero-modern .hero-bg-gradient,
+  .hero-modern .hero-object,
   .hero-modern .hero-object::before {
     animation: none !important;
+  }
+
+  html.js-hero-gate .hero-modern:not(.is-hero-ready) .hero-content-wrapper {
+    opacity: 1 !important;
   }
 
   .ImgAbout .about-img-default,
@@ -3718,7 +4046,7 @@ body.dark-mode .profile-text-em--underline {
     opacity: 0;
   }
 
-  .profile-title-mask > *,
+  .profile-title-mask:not(.profile-title-mask--rotate) > *,
   .profile-title-word--accent,
   .profile-intro-text p,
   .profile-text-em {
@@ -3727,7 +4055,10 @@ body.dark-mode .profile-text-em--underline {
     filter: none !important;
   }
 
-  .profile-text-em--underline {
+  #profile-intro.profile-intro--ready:not(.is-inview) .profile-intro-text > p,
+  #profile-intro.profile-intro--ready:not(.is-inview) .profile-text-em--underline {
+    opacity: 1 !important;
+    transform: none !important;
     background-size: 100% 0.88em !important;
   }
 }
