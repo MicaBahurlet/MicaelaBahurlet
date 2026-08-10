@@ -1,18 +1,13 @@
 const GSAP_BASE = "https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist";
-const UNICORN_SDK_URL =
-    "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js";
 const DEVICON_CSS_URL =
     "https://cdn.jsdelivr.net/gh/devicons/devicon@2.17.0/devicon.min.css";
 
 let nav = null;
 let pageAbortController = null;
-let heroAmbientMotionCleanup = null;
-let unicornVisibilityCleanup = null;
-let unicornSceneActive = false;
-let unicornInitInFlight = false;
-let unicornInitFailed = false;
-let unicornInitDone = false;
-let heroGsapReady = false;
+let heroFluidCleanup = null;
+let heroFluidReady = false;
+let heroFluidInitStarted = false;
+let heroAnimationsReady = false;
 let scrollGsapReady = false;
 let scrollGsapLoading = false;
 let languageSwitchInFlight = false;
@@ -205,74 +200,12 @@ function initDarkMode(signal) {
     );
 }
 
-function initHeroGsapAnimations() {
-    if (typeof window.gsap === "undefined") return;
+async function runHeroNativeAnimations() {
+    if (heroAnimationsReady) return;
 
-    const heroRoot = document.querySelector("#home");
-    if (!heroRoot) return;
-
-    const eyebrow = heroRoot.querySelector(".hero-eyebrow");
-    const nameLines = heroRoot.querySelectorAll(".hero-name-line");
-    const heroTitle = heroRoot.querySelector(".TextHero h2");
-    const highlights = heroRoot.querySelectorAll(".highlight-text");
-    const lines = heroRoot.querySelectorAll(".line-text");
-    const btns = heroRoot.querySelectorAll(".BtnsHero button");
-    const scrollHint = heroRoot.querySelector(".hero-scroll-hint");
-    const visual = heroRoot.querySelector(".hero-visual");
-
-    const gsap = window.gsap;
-
-    highlights.forEach((highlight) => {
-        gsap.set(highlight, { backgroundSize: "0% 100%" });
-    });
-
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-
-    if (visual) tl.from(visual, { opacity: 0, scale: 0.85, duration: 1, ease: "power2.out" }, 0);
-    if (eyebrow) tl.from(eyebrow, { opacity: 0, y: 20, duration: 0.6 }, 0.1);
-    if (nameLines.length) tl.from(nameLines, { opacity: 0, y: 60, duration: 0.8, stagger: 0.12, ease: "power4.out" }, 0.2);
-    if (heroTitle) tl.from(heroTitle, { opacity: 0, y: 20, duration: 0.6 }, "-=0.4");
-    if (highlights.length) tl.to(highlights, { backgroundSize: "100% 100%", duration: 0.5, stagger: 0.2, ease: "power3.inOut" }, "-=0.2");
-    if (lines.length) tl.from(lines, { opacity: 0, y: 20, duration: 0.5, stagger: 0.15 }, "-=0.4");
-    if (btns.length) tl.from(btns, { opacity: 0, y: 20, duration: 0.6, stagger: 0.12 }, "-=0.3");
-    if (scrollHint) tl.from(scrollHint, { opacity: 0, duration: 0.6 }, "-=0.2");
-
-    initHero3dObject();
-}
-
-function initHero3dObject() {
-    const gsap = window.gsap;
-    const obj = document.querySelector(".hero-object");
-    const visual = document.querySelector(".hero-visual");
-    if (!gsap || !obj) return;
-
-    gsap.set(obj, {
-        transformOrigin: "50% 50%",
-        transformPerspective: 1200,
-        transformStyle: "preserve-3d",
-    });
-
-    if (visual) gsap.set(visual, { transformPerspective: 1200 });
-
-    const mm = gsap.matchMedia();
-
-    mm.add("(max-width: 767px)", () => {
-        gsap.to(obj, { rotation: 360, duration: 55, ease: "none", repeat: -1 });
-        gsap.to(obj, { y: -8, duration: 5, ease: "sine.inOut", repeat: -1, yoyo: true });
-        gsap.to(obj, { z: 14, scale: 1.012, duration: 7, ease: "sine.inOut", repeat: -1, yoyo: true });
-        gsap.to(obj, { rotationY: 8, rotationX: -4, duration: 9, ease: "sine.inOut", repeat: -1, yoyo: true });
-        gsap.to(obj, { x: 5, duration: 8, ease: "sine.inOut", repeat: -1, yoyo: true });
-        return () => gsap.set(obj, { clearProps: "transform" });
-    });
-
-    mm.add("(min-width: 768px)", () => {
-        gsap.to(obj, { rotation: 360, duration: 40, ease: "none", repeat: -1 });
-        gsap.to(obj, { y: -16, duration: 4, ease: "sine.inOut", repeat: -1, yoyo: true });
-        gsap.to(obj, { z: 32, scale: 1.025, duration: 5.5, ease: "sine.inOut", repeat: -1, yoyo: true });
-        gsap.to(obj, { rotationY: 14, rotateX: -8, duration: 7, ease: "sine.inOut", repeat: -1, yoyo: true });
-        gsap.to(obj, { x: 10, duration: 6, ease: "sine.inOut", repeat: -1, yoyo: true });
-        return () => gsap.set(obj, { clearProps: "transform" });
-    });
+    await waitForPaint();
+    markHeroContentReady();
+    heroAnimationsReady = true;
 }
 
 function initFloatingNavScrollSpy() {
@@ -307,7 +240,6 @@ function initFloatingNav(signal) {
     if (!navEl) return;
 
     const footer = document.querySelector("footer");
-    const contact = document.querySelector("#contact");
     const isMobileNav = () => window.matchMedia("(max-width: 767px)").matches;
 
     const minBottom = () => (isMobileNav() ? 16 : 26);
@@ -323,17 +255,6 @@ function initFloatingNav(signal) {
             }
         }
 
-        if (isMobileNav() && contact) {
-            const contactRect = contact.getBoundingClientRect();
-            const navHeight = navEl.offsetHeight || 52;
-            const navZoneTop = window.innerHeight - minBottom() - navHeight - contentGap();
-            const contactVisible = contactRect.top < window.innerHeight && contactRect.bottom > 0;
-
-            if (contactVisible && contactRect.bottom > navZoneTop) {
-                requiredBottom = Math.max(requiredBottom, minBottom() + (contactRect.bottom - navZoneTop));
-            }
-        }
-
         navEl.style.bottom = `${requiredBottom}px`;
     };
 
@@ -342,114 +263,148 @@ function initFloatingNav(signal) {
     updatePosition();
 }
 
-function initProfileIntroAnimations() {
-    const section = document.querySelector("#profile-intro");
-    if (!section || typeof window.gsap === "undefined" || typeof window.ScrollTrigger === "undefined") return;
+function initProfileTitleRotate(signal) {
+    const rotate = document.querySelector("#profile-intro .profile-title-rotate");
+    if (!rotate) return;
 
-    const gsap = window.gsap;
-    gsap.registerPlugin(ScrollTrigger);
+    const items = [...rotate.querySelectorAll(".profile-title-rotate-item")];
+    if (items.length < 2) return;
 
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const titleReveals = section.querySelectorAll(".profile-title-mask > *");
-    const paragraph = section.querySelector(".profile-intro-text > p");
-    const emphasisWords = [...section.querySelectorAll(".profile-text-em")];
-    const underlineHighlights = [...section.querySelectorAll(".profile-text-em--underline")];
+    const mobileRotateMq = window.matchMedia("(max-width: 768px)");
 
-    underlineHighlights.forEach((span) => span.classList.add("profile-text-em--gsap"));
-
-    if (reduceMotion) {
-        gsap.set(titleReveals, { yPercent: 0, autoAlpha: 1 });
-        gsap.set(paragraph, { autoAlpha: 1, y: 0, filter: "none" });
-        gsap.set(emphasisWords, { autoAlpha: 1, y: 0 });
-        underlineHighlights.forEach((span) => gsap.set(span, { backgroundSize: "100% 0.88em" }));
-        return;
-    }
-
-    let introTl = null;
-
-    const resetIntro = () => {
-        if (introTl) {
-            introTl.kill();
-            introTl = null;
+    // Desktop: lock width to the widest word so the line never shifts.
+    // Mobile: full-width container + centered items (see StylesResponsive.css).
+    const lockWidth = () => {
+        if (mobileRotateMq.matches) {
+            rotate.style.width = "";
+            return;
         }
 
-        gsap.set(titleReveals, { yPercent: 110, autoAlpha: 1 });
-        if (paragraph) gsap.set(paragraph, { autoAlpha: 0, y: 14, filter: "blur(4px)" });
-        gsap.set(emphasisWords, { autoAlpha: 0.35, y: 6 });
-        underlineHighlights.forEach((span) => gsap.set(span, { backgroundSize: "0% 0.88em" }));
+        const probe = document.createElement("span");
+        probe.className = "profile-title-word profile-title-word--plain";
+        probe.style.cssText =
+            "position:absolute;left:-9999px;top:0;visibility:hidden;white-space:nowrap;pointer-events:none;";
+        rotate.appendChild(probe);
+
+        let widest = 0;
+        items.forEach((item) => {
+            probe.textContent = item.textContent?.trim() || "";
+            widest = Math.max(widest, probe.offsetWidth);
+        });
+
+        probe.remove();
+        if (widest > 0) {
+            rotate.style.width = `${Math.ceil(widest + 4)}px`;
+        }
     };
 
-    const playIntro = () => {
-        if (introTl) introTl.kill();
-        resetIntro();
+    const startRotation = () => {
+        lockWidth();
 
-        introTl = gsap.timeline({ defaults: { ease: "power3.out" } });
-
-        introTl.to(
-            titleReveals,
-            {
-                yPercent: 0,
-                duration: 0.82,
-                stagger: 0.14,
-                ease: "power3.out",
-            },
-            0
-        );
-
-        if (paragraph) {
-            introTl.to(
-                paragraph,
-                {
-                    autoAlpha: 1,
-                    y: 0,
-                    filter: "blur(0px)",
-                    duration: 0.75,
-                    ease: "power2.out",
-                },
-                0.34
-            );
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduceMotion) {
+            items.forEach((item, index) => {
+                item.classList.toggle("is-active", index === 0);
+                item.classList.remove("is-leaving");
+            });
+            return;
         }
 
-        introTl.to(
-            emphasisWords,
-            {
-                autoAlpha: 1,
-                y: 0,
-                duration: 0.48,
-                stagger: 0.07,
-                ease: "back.out(1.35)",
-            },
-            0.52
+        let activeIndex = Math.max(
+            0,
+            items.findIndex((item) => item.classList.contains("is-active"))
         );
+        let timerId = null;
+        const holdMs = 3500;
 
-        underlineHighlights.forEach((span, i) => {
-            introTl.to(
-                span,
-                {
-                    backgroundSize: "100% 0.88em",
-                    duration: 0.46,
-                    ease: "power2.inOut",
-                },
-                0.78 + i * 0.11
-            );
+        const showIndex = (nextIndex) => {
+            const current = items[activeIndex];
+            const next = items[nextIndex];
+            if (!current || !next || current === next) return;
+
+            current.classList.remove("is-active");
+            current.classList.add("is-leaving");
+            next.classList.add("is-active");
+            next.classList.remove("is-leaving");
+
+            window.setTimeout(() => {
+                current.classList.remove("is-leaving");
+            }, 360);
+
+            activeIndex = nextIndex;
+        };
+
+        timerId = window.setInterval(() => {
+            showIndex((activeIndex + 1) % items.length);
+        }, holdMs);
+
+        signal?.addEventListener("abort", () => {
+            if (timerId) window.clearInterval(timerId);
         });
     };
 
-    resetIntro();
+    const fontsReady =
+        document.fonts && typeof document.fonts.ready?.then === "function"
+            ? document.fonts.ready
+            : Promise.resolve();
 
-    ScrollTrigger.create({
-        trigger: section,
-        start: "top 82%",
-        end: "bottom 18%",
-        onEnter: playIntro,
-        onEnterBack: playIntro,
-        onLeave: resetIntro,
-        onLeaveBack: resetIntro,
+    fontsReady.then(startRotation).catch(startRotation);
+
+    let resizeRaf = null;
+    const scheduleLockWidth = () => {
+        if (resizeRaf) window.cancelAnimationFrame(resizeRaf);
+        resizeRaf = window.requestAnimationFrame(() => {
+            resizeRaf = null;
+            lockWidth();
+        });
+    };
+
+    window.addEventListener("resize", scheduleLockWidth, { signal });
+    mobileRotateMq.addEventListener?.("change", scheduleLockWidth, { signal });
+}
+
+function initProfileIntroAnimations(signal) {
+    const section = document.querySelector("#profile-intro");
+    if (!section) return;
+
+    const emphasisWords = [...section.querySelectorAll(".profile-text-em--underline")];
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    section.classList.add("profile-intro--ready");
+
+    if (reduceMotion) {
+        section.classList.add("is-inview");
+        return;
+    }
+
+    emphasisWords.forEach((span, index) => {
+        span.style.setProperty("--intro-delay", `${0.16 + index * 0.08}s`);
     });
 
+    let revealed = false;
+
+    const reveal = () => {
+        if (revealed) return;
+        revealed = true;
+        section.classList.add("is-inview");
+        observer.disconnect();
+    };
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            if (entries.some((entry) => entry.isIntersecting)) {
+                reveal();
+            }
+        },
+        { threshold: 0.18, rootMargin: "0px 0px -10% 0px" }
+    );
+
+    observer.observe(section);
+    signal?.addEventListener("abort", () => observer.disconnect());
+
     const rect = section.getBoundingClientRect();
-    if (rect.top < window.innerHeight * 0.82 && rect.bottom > 0) {
-        playIntro();
+    if (rect.top < window.innerHeight * 0.85 && rect.bottom > 0) {
+        reveal();
     }
 }
 
@@ -661,6 +616,84 @@ function initProjectsLoadMore(signal) {
         },
         { signal }
     );
+}
+
+function initAboutMeCursor(signal) {
+    const section = document.querySelector("#about.aboutme-section");
+    if (!section) return;
+
+    const cursor = section.querySelector(".aboutme-cursor");
+    if (!cursor) return;
+
+    const desktopMq = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const reduceMotionMq = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    let active = false;
+    let rafId = null;
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+
+    const setVisible = (visible) => {
+        active = visible;
+        section.classList.toggle("is-cursor-active", visible);
+        cursor.classList.toggle("is-visible", visible);
+        if (!visible && rafId) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+        }
+    };
+
+    const render = () => {
+        const ease = reduceMotionMq.matches ? 1 : 0.22;
+        currentX += (targetX - currentX) * ease;
+        currentY += (targetY - currentY) * ease;
+        cursor.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+
+        if (
+            active &&
+            (Math.abs(targetX - currentX) > 0.1 || Math.abs(targetY - currentY) > 0.1)
+        ) {
+            rafId = requestAnimationFrame(render);
+        } else {
+            rafId = null;
+            if (active) {
+                cursor.style.transform = `translate3d(${targetX}px, ${targetY}px, 0)`;
+            }
+        }
+    };
+
+    const onMove = (event) => {
+        if (!desktopMq.matches) return;
+
+        const rect = section.getBoundingClientRect();
+        targetX = event.clientX - rect.left;
+        targetY = event.clientY - rect.top;
+
+        if (!active) {
+            currentX = targetX;
+            currentY = targetY;
+            setVisible(true);
+            cursor.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+        }
+
+        if (!rafId) {
+            rafId = requestAnimationFrame(render);
+        }
+    };
+
+    const onLeave = () => {
+        setVisible(false);
+    };
+
+    const onMqChange = () => {
+        if (!desktopMq.matches) setVisible(false);
+    };
+
+    section.addEventListener("mousemove", onMove, { passive: true, signal });
+    section.addEventListener("mouseleave", onLeave, { passive: true, signal });
+    desktopMq.addEventListener("change", onMqChange, { signal });
 }
 
 function initAboutMeAnimations() {
@@ -988,258 +1021,90 @@ function scheduleDeviconLoad() {
     triggers.forEach((node) => observer.observe(node));
 }
 
-function loadUnicornSdk() {
-    if (typeof UnicornStudio !== "undefined") {
-        return Promise.resolve();
-    }
+function markHeroBackgroundReady() {
+    const bg = document.querySelector(".hero-fluid-bg");
+    if (bg) bg.classList.add("is-ready");
+}
 
-    const existing = document.querySelector(`script[src="${UNICORN_SDK_URL}"]`);
-    if (existing) {
-        return new Promise((resolve, reject) => {
-            if (typeof UnicornStudio !== "undefined") {
-                resolve();
+function markHeroContentReady() {
+    const hero = document.querySelector("#home.hero-modern");
+    if (hero) hero.classList.add("is-hero-ready");
+}
+
+function initHeroFluidBackground() {
+    if (heroFluidInitStarted || typeof window.HeroFluidBg === "undefined") return;
+
+    heroFluidInitStarted = true;
+
+    const instance = window.HeroFluidBg.init({
+        onReady: () => {
+            heroFluidReady = true;
+            markHeroBackgroundReady();
+        },
+    });
+
+    if (instance?.destroy) {
+        heroFluidCleanup = instance.destroy;
+    }
+}
+
+function waitForHeroBackgroundReady(timeoutMs = 900) {
+    return new Promise((resolve) => {
+        const started = performance.now();
+
+        const finish = () => {
+            markHeroBackgroundReady();
+            resolve();
+        };
+
+        const check = () => {
+            const bg = document.querySelector(".hero-fluid-bg.is-ready");
+            const canvas = document.querySelector("#hero-fluid-canvas");
+
+            if (bg && canvas && canvas.width > 0 && canvas.height > 0) {
+                requestAnimationFrame(() => requestAnimationFrame(finish));
                 return;
             }
 
-            existing.addEventListener("load", () => resolve(), { once: true });
-            existing.addEventListener(
-                "error",
-                () => reject(new Error("Unicorn SDK failed to load")),
-                { once: true }
-            );
-        });
-    }
-
-    return new Promise((resolve, reject) => {
-        const script = document.createElement("script");
-        script.src = UNICORN_SDK_URL;
-        script.async = true;
-        script.crossOrigin = "anonymous";
-        script.onload = () => resolve();
-        script.onerror = () => reject(new Error("Unicorn SDK failed to load"));
-        (document.head || document.body).appendChild(script);
-    });
-}
-
-function setUnicornScenesPaused(paused) {
-    if (typeof UnicornStudio === "undefined" || !Array.isArray(UnicornStudio.scenes)) return;
-
-    UnicornStudio.scenes.forEach((scene) => {
-        scene.paused = paused;
-        if (paused) {
-            scene.rendering = false;
-        }
-    });
-}
-
-function setupUnicornVisibilityPause() {
-    if (unicornVisibilityCleanup) {
-        unicornVisibilityCleanup();
-    }
-
-    const hero = document.querySelector("#home.hero-modern");
-    if (!hero || !("IntersectionObserver" in window)) return;
-
-    let heroVisible = true;
-
-    const apply = () => {
-        const shouldPause = !heroVisible || document.hidden;
-        setUnicornScenesPaused(shouldPause);
-    };
-
-    const observer = new IntersectionObserver(
-        ([entry]) => {
-            heroVisible = Boolean(entry?.isIntersecting);
-            apply();
-        },
-        { threshold: 0.12, rootMargin: "0px" }
-    );
-
-    const onVisibility = () => apply();
-
-    observer.observe(hero);
-    document.addEventListener("visibilitychange", onVisibility);
-    apply();
-
-    unicornVisibilityCleanup = () => {
-        observer.disconnect();
-        document.removeEventListener("visibilitychange", onVisibility);
-        unicornVisibilityCleanup = null;
-    };
-}
-
-function dispatchHeroPointer(clientX, clientY) {
-    window.dispatchEvent(
-        new MouseEvent("mousemove", {
-            clientX,
-            clientY,
-            bubbles: true,
-            cancelable: true,
-        })
-    );
-}
-
-function startHeroAmbientMotion(hero, canvas) {
-    if (heroAmbientMotionCleanup) {
-        heroAmbientMotionCleanup();
-    }
-
-    let rafId = null;
-    let t = 0;
-    let touchActive = false;
-    let paused = true;
-    let lastFrame = 0;
-
-    const tick = (now) => {
-        if (!paused && !touchActive && now - lastFrame >= 32) {
-            lastFrame = now;
-            t += 0.007;
-            const rect = canvas.getBoundingClientRect();
-            const x = rect.left + rect.width * (0.5 + Math.sin(t) * 0.25);
-            const y = rect.top + rect.height * (0.5 + Math.cos(t * 0.73) * 0.2);
-            dispatchHeroPointer(x, y);
-        }
-
-        if (!paused || touchActive) {
-            rafId = requestAnimationFrame(tick);
-        } else {
-            rafId = null;
-        }
-    };
-
-    const resumeLoop = () => {
-        if (rafId === null && (!paused || touchActive)) {
-            rafId = requestAnimationFrame(tick);
-        }
-    };
-
-    const onTouchStart = () => {
-        touchActive = true;
-        resumeLoop();
-    };
-    const onTouchEnd = () => {
-        touchActive = false;
-        if (paused) {
-            if (rafId) cancelAnimationFrame(rafId);
-            rafId = null;
-        }
-    };
-    const onTouchMove = (event) => {
-        const touch = event.touches[0];
-        if (!touch) return;
-        dispatchHeroPointer(touch.clientX, touch.clientY);
-    };
-    const onVisibilityChange = () => {
-        paused = !heroIsIntersecting() || document.hidden;
-        if (paused && !touchActive) {
-            if (rafId) cancelAnimationFrame(rafId);
-            rafId = null;
-        } else {
-            resumeLoop();
-        }
-    };
-
-    let heroIsIntersecting = () => true;
-    const observer = new IntersectionObserver(
-        ([entry]) => {
-            paused = !entry.isIntersecting || document.hidden;
-            heroIsIntersecting = () => entry.isIntersecting;
-            if (paused && !touchActive) {
-                if (rafId) cancelAnimationFrame(rafId);
-                rafId = null;
-            } else {
-                resumeLoop();
+            if (performance.now() - started >= timeoutMs) {
+                finish();
+                return;
             }
-        },
-        { threshold: 0.08 }
-    );
 
-    hero.addEventListener("touchstart", onTouchStart, { passive: true });
-    hero.addEventListener("touchend", onTouchEnd, { passive: true });
-    hero.addEventListener("touchcancel", onTouchEnd, { passive: true });
-    hero.addEventListener("touchmove", onTouchMove, { passive: true });
-    document.addEventListener("visibilitychange", onVisibilityChange);
-    observer.observe(hero);
+            requestAnimationFrame(check);
+        };
 
-    paused = false;
-    rafId = requestAnimationFrame(tick);
-
-    heroAmbientMotionCleanup = () => {
-        if (rafId) cancelAnimationFrame(rafId);
-        rafId = null;
-        observer.disconnect();
-        hero.removeEventListener("touchstart", onTouchStart);
-        hero.removeEventListener("touchend", onTouchEnd);
-        hero.removeEventListener("touchcancel", onTouchEnd);
-        hero.removeEventListener("touchmove", onTouchMove);
-        document.removeEventListener("visibilitychange", onVisibilityChange);
-        heroAmbientMotionCleanup = null;
-    };
-}
-
-function ensureHeroAmbientMotion(hero, embed) {
-    const isMobile = window.matchMedia("(max-width: 767px)").matches;
-    const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (hero && embed && (isMobile || isCoarsePointer) && !reduceMotion) {
-        startHeroAmbientMotion(hero, embed);
-    }
-}
-
-async function initUnicornStudio() {
-    const embed = document.querySelector("[data-us-project]");
-    const hero = document.querySelector("#home.hero-modern");
-
-    if (!embed || unicornInitInFlight) return;
-
-    if (embed.hasAttribute("data-us-initialized") || unicornSceneActive) {
-        unicornSceneActive = true;
-        unicornInitDone = true;
-        ensureHeroAmbientMotion(hero, embed);
-        setupUnicornVisibilityPause();
-        return;
-    }
-
-    unicornInitInFlight = true;
-
-    try {
-        await loadUnicornSdk();
-        // Yield so first paint / input get a turn before WebGL setup.
-        await new Promise((resolve) => setTimeout(resolve, 0));
-
-        if (typeof UnicornStudio?.init !== "function") {
-            throw new Error("UnicornStudio.init is unavailable");
-        }
-
-        await UnicornStudio.init();
-        embed.setAttribute("data-us-initialized", "true");
-        unicornSceneActive = true;
-        unicornInitFailed = false;
-        ensureHeroAmbientMotion(hero, embed);
-        setupUnicornVisibilityPause();
-    } catch (error) {
-        unicornSceneActive = false;
-        unicornInitFailed = true;
-    } finally {
-        unicornInitInFlight = false;
-        unicornInitDone = true;
-    }
-}
-
-function scheduleUnicornInit() {
-    // After first paint + short calm period so LCP/text aren't fighting WebGL boot.
-    waitForPaint().then(() => {
-        scheduleIdleTask(() => {
-            initUnicornStudio();
-        }, 900);
+        check();
     });
+}
+
+function destroyHeroFluidBackground() {
+    if (heroFluidCleanup) {
+        heroFluidCleanup();
+        heroFluidCleanup = null;
+    } else if (typeof window.HeroFluidBg !== "undefined") {
+        window.HeroFluidBg.destroy();
+    }
+
+    heroFluidReady = false;
+    heroFluidInitStarted = false;
+    document.querySelector(".hero-fluid-bg")?.classList.remove("is-ready");
+}
+
+async function startHeroTextAfterBackground() {
+    const timeoutMs = isTouchMobileDevice() ? 700 : 900;
+
+    if (!heroFluidReady) {
+        initHeroFluidBackground();
+    }
+
+    await waitForHeroBackgroundReady(timeoutMs);
+    await runHeroNativeAnimations();
 }
 
 async function runScrollGsapFeatures() {
     if (scrollGsapReady) {
         killScrollTriggers();
-        initProfileIntroAnimations();
         initAboutMeAnimations();
         initSkillsAnimations();
         initFloatingNavScrollSpy();
@@ -1258,7 +1123,6 @@ async function runScrollGsapFeatures() {
             return;
         }
 
-        initProfileIntroAnimations();
         initAboutMeAnimations();
         initSkillsAnimations();
         initFloatingNavScrollSpy();
@@ -1271,48 +1135,12 @@ async function runScrollGsapFeatures() {
     }
 }
 
-async function runHeroGsapFeatures() {
-    if (heroGsapReady) return;
-
-    try {
-        await loadGsapCore();
-        await waitForPaint();
-        initHeroGsapAnimations();
-        heroGsapReady = true;
-    } catch (error) {
-        // Hero animations are non-critical
-    }
-}
-
 function scheduleGsapInit({ skipHero = false, signal } = {}) {
     if (!skipHero) {
-        // Hero GSAP after Unicorn settles — longer gap keeps main thread free during WebGL boot.
-        const startHero = () => {
-            const heroDelay = isTouchMobileDevice() ? 600 : 1400;
-            const pollTimeout = isTouchMobileDevice() ? 2200 : 3200;
-            const idleAfterPoll = isTouchMobileDevice() ? 500 : 1200;
-
-            if (unicornInitDone || unicornSceneActive || unicornInitFailed) {
-                scheduleIdleTask(() => {
-                    runHeroGsapFeatures();
-                }, heroDelay);
-                return;
-            }
-
-            const started = performance.now();
-            const poll = () => {
-                if (unicornInitDone || unicornSceneActive || unicornInitFailed || performance.now() - started > pollTimeout) {
-                    scheduleIdleTask(() => {
-                        runHeroGsapFeatures();
-                    }, idleAfterPoll);
-                    return;
-                }
-                requestAnimationFrame(poll);
-            };
-            requestAnimationFrame(poll);
-        };
-
-        startHero();
+        startHeroTextAfterBackground();
+    } else {
+        markHeroContentReady();
+        markHeroBackgroundReady();
     }
 
     if (scrollGsapReady) {
@@ -1415,26 +1243,6 @@ function syncDocumentMeta(doc) {
     });
 }
 
-function withPinnedBodyContains(element, fn) {
-    if (!element) return fn();
-
-    const body = document.body;
-    const originalContains = body.contains;
-
-    body.contains = function pinnedContains(node) {
-        if (node === element || (typeof element.contains === "function" && element.contains(node))) {
-            return true;
-        }
-        return originalContains.call(this, node);
-    };
-
-    try {
-        return fn();
-    } finally {
-        body.contains = originalContains;
-    }
-}
-
 async function softSwitchLanguage(url, { push = true } = {}) {
     if (languageSwitchInFlight) return;
     languageSwitchInFlight = true;
@@ -1447,65 +1255,19 @@ async function softSwitchLanguage(url, { push = true } = {}) {
         const doc = new DOMParser().parseFromString(html, "text/html");
         prepareImportedDocument(doc, url);
 
-        if (heroAmbientMotionCleanup) {
-            heroAmbientMotionCleanup();
-        }
-        if (unicornVisibilityCleanup) {
-            unicornVisibilityCleanup();
-        }
+        destroyHeroFluidBackground();
+        heroAnimationsReady = false;
+        document.querySelector("#home.hero-modern")?.classList.remove("is-hero-ready");
 
-        const liveUnicorn = document.querySelector(".hero-unicorn-bg");
-        const incomingUnicorn = doc.body.querySelector(".hero-unicorn-bg");
-        const hadLiveScene =
-            unicornSceneActive &&
-            typeof UnicornStudio !== "undefined" &&
-            Array.isArray(UnicornStudio.scenes) &&
-            UnicornStudio.scenes.length > 0;
-
-        setUnicornScenesPaused(true);
-
-        withPinnedBodyContains(liveUnicorn, () => {
-            if (liveUnicorn && incomingUnicorn) {
-                incomingUnicorn.replaceWith(liveUnicorn);
-            }
-
-            syncDocumentMeta(doc);
-            document.body.replaceChildren(...doc.body.childNodes);
-        });
+        syncDocumentMeta(doc);
+        document.body.replaceChildren(...doc.body.childNodes);
 
         if (push) {
             history.pushState({ softLang: true }, "", url);
         }
 
         killScrollTriggers();
-
-        const hero = document.querySelector("#home.hero-modern");
-        const embed = document.querySelector("[data-us-project]");
-        const sceneStillAlive =
-            typeof UnicornStudio !== "undefined" &&
-            Array.isArray(UnicornStudio.scenes) &&
-            UnicornStudio.scenes.length > 0;
-
-        if (hadLiveScene && !sceneStillAlive) {
-            // Scene was GC'd during transplant — rebuild once without full reload.
-            unicornSceneActive = false;
-            unicornInitDone = false;
-            if (embed) {
-                embed.removeAttribute("data-us-initialized");
-                embed.replaceChildren();
-            }
-            bindPageInteractions({ skipHeroGsap: true, skipUnicornInit: false });
-        } else {
-            bindPageInteractions({ skipHeroGsap: true, skipUnicornInit: true });
-            if (embed && sceneStillAlive) {
-                embed.setAttribute("data-us-initialized", "true");
-                unicornSceneActive = true;
-                ensureHeroAmbientMotion(hero, embed);
-                setupUnicornVisibilityPause();
-                setUnicornScenesPaused(false);
-            }
-        }
-
+        bindPageInteractions({ skipHero: true, skipHeroBgInit: false });
         window.scrollTo(0, 0);
     } catch (error) {
         window.location.href = url;
@@ -1557,7 +1319,7 @@ function initLanguageSwitch(signal) {
     }
 }
 
-function bindPageInteractions({ skipHeroGsap = false, skipUnicornInit = false } = {}) {
+function bindPageInteractions({ skipHero = false, skipHeroBgInit = false } = {}) {
     const signal = getPageSignal();
 
     initMobileNav(signal);
@@ -1571,15 +1333,34 @@ function bindPageInteractions({ skipHeroGsap = false, skipUnicornInit = false } 
     initFloatingNav(signal);
     initLanguageSwitch(signal);
     initSkillsAccordion(signal);
+    initAboutMeCursor(signal);
+    initProfileTitleRotate(signal);
+    initProfileIntroAnimations(signal);
     scheduleDeviconLoad();
 
-    if (!skipUnicornInit) {
-        scheduleUnicornInit();
+    if (!skipHeroBgInit) {
+        initHeroFluidBackground();
     }
 
-    scheduleGsapInit({ skipHero: skipHeroGsap, signal });
+    scheduleGsapInit({ skipHero, signal });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+function bootHeroCriticalPath() {
+    if (document.querySelector("#hero-fluid-canvas")) {
+        initHeroFluidBackground();
+    }
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener(
+        "DOMContentLoaded",
+        () => {
+            bootHeroCriticalPath();
+            bindPageInteractions();
+        },
+        { once: true }
+    );
+} else {
+    bootHeroCriticalPath();
     bindPageInteractions();
-});
+}
