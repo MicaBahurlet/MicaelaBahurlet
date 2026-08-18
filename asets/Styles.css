@@ -2576,9 +2576,18 @@ button a:visited,
   color: #4a5568;
 }
 
+.tech-item .tech-item-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-right: 5px;
+  flex-shrink: 0;
+  color: #4a5568;
+}
+
 /* Íconos de las cards de experiencia siempre en gris (sin color de marca) */
 .timeline-technologies .tech-item i,
-.timeline-technologies .tech-item i[class*="devicon"] {
+.timeline-technologies .tech-item i[class*="devicon"],
+.timeline-technologies .tech-item .tech-item-icon {
   color: #4a5568 !important;
 }
 
@@ -3325,7 +3334,8 @@ body.dark-mode .tech-item:hover {
   background: #34343a;
 }
 
-body.dark-mode .tech-item i:not([class*="devicon"]) {
+body.dark-mode .tech-item i:not([class*="devicon"]),
+body.dark-mode .tech-item .tech-item-icon {
   color: #ffffff;
 }
 
