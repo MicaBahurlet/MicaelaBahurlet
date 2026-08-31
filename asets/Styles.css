@@ -62,10 +62,9 @@ body {
 
 .skills-accordion-surface {
   position: relative;
-  min-height: 3.25rem;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  flex-direction: column;
+  align-items: stretch;
   width: 100%;
   overflow: visible;
 }
@@ -74,15 +73,32 @@ body {
   position: relative;
   z-index: 2;
   width: 100%;
-  min-height: 3.25rem;
-  padding: 0.85rem 0;
+  padding: 0.95rem 0;
   border: 0;
   background: transparent;
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  transition: opacity 0.3s var(--ease-out);
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.skills-accordion-trigger::after {
+  content: "";
+  flex-shrink: 0;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-top: 0.35rem;
+  border-right: 2px solid var(--color-ink-muted);
+  border-bottom: 2px solid var(--color-ink-muted);
+  transform: rotate(45deg);
+  transition: transform 0.32s var(--ease-out), border-color 0.32s var(--ease-out);
+}
+
+.skills-accordion-item.is-active .skills-accordion-trigger::after {
+  transform: rotate(-135deg);
+  margin-top: 0.55rem;
+  border-color: var(--color-teal);
 }
 
 .skills-accordion-title {
@@ -93,23 +109,28 @@ body {
   letter-spacing: -0.03em;
   color: var(--color-ink-soft);
   text-align: left;
+  flex: 1;
   transition: color 0.3s var(--ease-out);
 }
 
+.skills-accordion-item.is-active .skills-accordion-title {
+  color: var(--color-teal-deep);
+}
+
 .skills-accordion-panel {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 100vw;
-  transform: translateX(-50%);
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  opacity: 0;
+  display: grid;
+  grid-template-rows: 0fr;
+  width: 100%;
+  opacity: 1;
   pointer-events: none;
   overflow: hidden;
-  transition: opacity 0.3s var(--ease-out);
+  transition: grid-template-rows 0.38s var(--ease-out);
+}
+
+.skills-accordion-item.is-active .skills-accordion-panel {
+  grid-template-rows: 1fr;
+  pointer-events: auto;
+  padding-bottom: 1.35rem;
 }
 
 .skills-accordion-rule {
@@ -119,32 +140,22 @@ body {
   border: none;
 }
 
-.skills-marquee {
-  width: 100%;
-  overflow: hidden;
-}
-
-.skills-marquee-track {
+.skills-list {
   display: flex;
-  width: max-content;
-  min-width: 100%;
-  animation: skills-marquee-scroll 32s linear infinite;
-  animation-play-state: paused;
-  will-change: transform;
-}
-
-.skills-marquee-group {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  padding-right: 0.55rem;
-  flex-shrink: 0;
+  flex-wrap: wrap;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  gap: 0.5rem;
+  padding-top: 0.15rem;
 }
 
 .skill-item {
   display: inline-flex;
   align-items: center;
   padding: 0.45rem 0.85rem;
+  margin: 0;
   background-color: var(--color-surface-raised);
   border: 1px solid var(--color-border);
   border-radius: 999px;
@@ -159,11 +170,12 @@ body {
   margin-right: 0.5rem;
   font-size: 1.25rem;
   width: 1.25rem;
+  height: 1.25rem;
+  line-height: 1;
+  font-style: normal;
   text-align: center;
   flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
 }
 
 .skill-item .devicon {
@@ -172,142 +184,13 @@ body {
   height: 1em;
 }
 
-@keyframes skills-marquee-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .skills-accordion-item:hover .skills-accordion-trigger,
-  .skills-accordion-item:focus-within .skills-accordion-trigger,
-  .skills-accordion-item.is-active .skills-accordion-trigger {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .skills-accordion-item:hover .skills-accordion-panel,
-  .skills-accordion-item:focus-within .skills-accordion-panel,
-  .skills-accordion-item.is-active .skills-accordion-panel {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .skills-accordion-item:hover .skills-marquee-track,
-  .skills-accordion-item:focus-within .skills-marquee-track,
-  .skills-accordion-item.is-active .skills-marquee-track {
-    animation-play-state: running;
-  }
-
-  .skills-accordion-item:hover .skills-accordion-title,
-  .skills-accordion-item:focus-within .skills-accordion-title {
-    color: var(--color-ink-muted);
-  }
-
-  body.dark-mode .skills-accordion-item:hover .skills-accordion-title,
-  body.dark-mode .skills-accordion-item:focus-within .skills-accordion-title {
-    color: rgba(255, 255, 255, 0.45);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .skills-marquee-track {
-    animation: none;
-  }
-}
-
 @media (max-width: 768px) {
-  .skills-accordion-surface {
-    flex-direction: column;
-    align-items: stretch;
-    min-height: 0;
-    overflow: visible;
-  }
-
   .skills-accordion-trigger {
-    justify-content: space-between;
-    gap: 1rem;
-    min-height: 0;
     padding: 1.1rem 0;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-  }
-
-  .skills-accordion-trigger::after {
-    content: "";
-    flex-shrink: 0;
-    width: 0.55rem;
-    height: 0.55rem;
-    margin-top: 0.35rem;
-    border-right: 2px solid var(--color-ink-muted);
-    border-bottom: 2px solid var(--color-ink-muted);
-    transform: rotate(45deg);
-    transition: transform 0.32s var(--ease-out), border-color 0.32s var(--ease-out);
-  }
-
-  .skills-accordion-item.is-active .skills-accordion-trigger::after {
-    transform: rotate(-135deg);
-    margin-top: 0.55rem;
-    border-color: var(--color-teal);
   }
 
   .skills-accordion-title {
     font-size: 1.75rem;
-    flex: 1;
-    text-align: left;
-  }
-
-  .skills-accordion-item.is-active .skills-accordion-title {
-    color: var(--color-teal-deep);
-  }
-
-  .skills-accordion-panel {
-    position: static;
-    left: auto;
-    width: 100%;
-    transform: none;
-    display: grid;
-    grid-template-rows: 0fr;
-    opacity: 1;
-    pointer-events: none;
-    overflow: hidden;
-    transition: grid-template-rows 0.38s var(--ease-out);
-  }
-
-  .skills-accordion-item.is-active .skills-accordion-panel {
-    grid-template-rows: 1fr;
-    pointer-events: auto;
-    padding-bottom: 1.35rem;
-  }
-
-  .skills-marquee {
-    overflow: hidden;
-    min-height: 0;
-  }
-
-  .skills-marquee-track {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100% !important;
-    min-width: 0 !important;
-    animation: none !important;
-    gap: 0.5rem;
-    padding-top: 0.15rem;
-  }
-
-  .skills-marquee-track > .skills-marquee-group:not(:first-child) {
-    display: none !important;
-  }
-
-  .skills-marquee-group:first-child {
-    display: contents;
-  }
-
-  .skills-marquee-group .skill-item {
-    margin: 0;
   }
 }
 
@@ -322,12 +205,28 @@ body {
 }
 
 .carousel-item {
-  display: none;
+  display: block;
   width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  inset: 0 auto auto 0;
+  pointer-events: none;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
 }
 
 .carousel-item.active {
-  display: block;
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-item {
+    transition: none;
+  }
 }
 
 .carousel-item picture,
@@ -430,6 +329,184 @@ a.TOP {
   display: block;
 }
 
+.skill-item-img--brand {
+  filter: none;
+}
+
+/* GitHub contribution graph */
+.github-graph {
+  width: 100%;
+  margin-top: 2rem;
+  padding-top: 0.35rem;
+}
+
+.github-graph-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+}
+
+.github-graph-kicker {
+  margin: 0;
+  font-family: "Syne", "Montserrat", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-teal-deep);
+}
+
+.github-graph-user {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-ink-muted);
+  text-decoration: none;
+  transition: color 0.25s var(--ease-out, ease);
+}
+
+.github-graph-user:hover,
+.github-graph-user:focus-visible {
+  color: var(--color-teal);
+}
+
+.github-graph-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.github-graph-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.github-graph-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}
+
+.github-graph-canvas {
+  display: block;
+  width: 100%;
+}
+
+.github-graph-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+}
+
+.github-graph-month,
+.github-graph-weekday {
+  fill: var(--color-ink-muted);
+  font-size: 9px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.github-graph-day,
+.github-graph-swatch {
+  fill: #e6eeed;
+  background: #e6eeed;
+}
+
+.github-graph-day--level-1 { fill: #9fd4cf; background: #9fd4cf; }
+.github-graph-day--level-2 { fill: #5aa39c; background: #5aa39c; }
+.github-graph-day--level-3 { fill: #3a7d78; background: #3a7d78; }
+.github-graph-day--level-4 { fill: #1f4f4c; background: #1f4f4c; }
+
+.github-graph-status {
+  margin: 0.35rem 0 0;
+  font-size: 0.85rem;
+  color: var(--color-ink-muted);
+}
+
+.github-graph-status.is-error {
+  color: var(--color-ink-soft);
+}
+
+.github-graph-meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.15rem;
+  margin-top: 0.35rem;
+  padding-top: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.github-graph-total {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.github-graph-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.github-graph-swatch {
+  display: block;
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+  flex: 0 0 auto;
+}
+
+.github-graph-years {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.35rem;
+  flex: 0 0 auto;
+}
+
+.github-graph-year {
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--color-teal);
+  color: var(--color-teal);
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  padding: 0.48rem 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+  min-width: 4.4rem;
+  text-align: center;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.github-graph-year:hover,
+.github-graph-year:focus-visible {
+  background: rgba(58, 125, 120, 0.08);
+}
+
+.github-graph-year.is-active {
+  background: rgba(58, 125, 120, 0.16);
+  color: var(--color-teal-deep);
+  border-color: var(--color-teal-deep);
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .skills-section-inner {
@@ -467,6 +544,34 @@ a.TOP {
   header .logo {
     width: 120px;
     max-width: 120px;
+  }
+
+  .github-graph {
+    margin-top: 1.6rem;
+    padding-top: 0.2rem;
+  }
+
+  .github-graph-header {
+    margin-bottom: 0.85rem;
+  }
+
+  .github-graph-canvas {
+    width: max-content;
+  }
+
+  .github-graph-svg {
+    width: auto;
+  }
+
+  .github-graph-year {
+    min-width: 3.6rem;
+    padding: 0.4rem 0.5rem;
+    font-size: 0.7rem;
+  }
+
+  .github-graph-meta {
+    gap: 0.7rem;
+    padding-top: 0.7rem;
   }
 }
 
@@ -2744,14 +2849,34 @@ footer p {
 }
 
 .descripcionCarrusel .liExperiencias li {
+  position: relative;
+  padding-left: 1.35rem;
   line-height: 1.8;
   margin-bottom: 1rem;
+  color: var(--color-ink-soft);
+}
+
+.descripcionCarrusel .liExperiencias li::before {
+  content: "";
+  position: absolute;
+  left: 0.1rem;
+  top: 0.72em;
+  width: 0.42rem;
+  height: 0.42rem;
+  border: 1.5px solid var(--color-teal);
+  border-radius: 1px;
+  transform: rotate(45deg);
+  box-sizing: border-box;
 }
 
 .descripcionCarrusel .liExperiencias a {
   text-decoration: none;
-  color:#8fc1be;
+  color: var(--color-teal-soft);
   font-weight: 900;
+}
+
+body.dark-mode .descripcionCarrusel .liExperiencias li::before {
+  border-color: var(--color-teal-soft);
 }
 
 #Certificates {
@@ -2801,26 +2926,31 @@ footer p {
   position: fixed;
   z-index: 10000;
   inset: 0;
-  padding: 6rem 1.5rem 2rem;
+  padding: 4.75rem 1.25rem 1.25rem;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.88);
 }
 
 .modal.is-open {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
-.modal-content {
-  margin: auto;
+#imageModal #imgModal,
+.modal.is-open .modal-content {
+  margin: 0;
   display: block;
-  width: min(90vw, 800px);
-  max-height: calc(100vh - 8rem);
+  width: auto;
+  height: auto;
+  max-width: min(94vw, 1200px);
+  max-height: calc(100vh - 6rem);
+  max-height: calc(100dvh - 6rem);
   object-fit: contain;
   border-radius: 10px;
+  flex-shrink: 0;
   cursor: default;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
 }
 
 .close {
@@ -2828,6 +2958,9 @@ footer p {
   top: 1.25rem;
   right: 1.5rem;
   z-index: 10001;
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: #fff;
   font-size: 2.5rem;
   font-weight: bold;
@@ -2841,6 +2974,19 @@ footer p {
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .modal.is-open {
+    padding: 4.25rem 0.75rem 0.75rem;
+  }
+
+  #imageModal #imgModal,
+  .modal.is-open .modal-content {
+    max-width: 96vw;
+    max-height: calc(100vh - 5.5rem);
+    max-height: calc(100dvh - 5.5rem);
+  }
 }
 
 /* Status Component */
@@ -3238,6 +3384,73 @@ body.dark-mode .skills-accordion-rule {
   background: rgba(255, 255, 255, 0.08);
 }
 
+body.dark-mode .github-graph-kicker {
+  color: var(--color-teal-soft, #8fc1be);
+}
+
+body.dark-mode .github-graph-user,
+body.dark-mode .github-graph-total,
+body.dark-mode .github-graph-status,
+body.dark-mode .github-graph-legend {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+body.dark-mode .github-graph-month,
+body.dark-mode .github-graph-weekday {
+  fill: rgba(255, 255, 255, 0.45);
+}
+
+body.dark-mode .github-graph-user:hover,
+body.dark-mode .github-graph-user:focus-visible {
+  color: var(--color-teal-soft, #8fc1be);
+}
+
+body.dark-mode .github-graph-day,
+body.dark-mode .github-graph-swatch {
+  fill: #243230;
+  background: #243230;
+}
+
+body.dark-mode .github-graph-day--level-1,
+body.dark-mode .github-graph-swatch.github-graph-day--level-1 {
+  fill: #2f6f6b;
+  background: #2f6f6b;
+}
+
+body.dark-mode .github-graph-day--level-2,
+body.dark-mode .github-graph-swatch.github-graph-day--level-2 {
+  fill: #3a7d78;
+  background: #3a7d78;
+}
+
+body.dark-mode .github-graph-day--level-3,
+body.dark-mode .github-graph-swatch.github-graph-day--level-3 {
+  fill: #5aa39c;
+  background: #5aa39c;
+}
+
+body.dark-mode .github-graph-day--level-4,
+body.dark-mode .github-graph-swatch.github-graph-day--level-4 {
+  fill: #8fc1be;
+  background: #8fc1be;
+}
+
+body.dark-mode .github-graph-year {
+  border-color: var(--color-teal-soft, #8fc1be);
+  color: var(--color-teal-soft, #8fc1be);
+}
+
+body.dark-mode .github-graph-year:hover,
+body.dark-mode .github-graph-year:focus-visible {
+  background: rgba(143, 193, 190, 0.1);
+}
+
+body.dark-mode .github-graph-year.is-active {
+  background: rgba(143, 193, 190, 0.18);
+  color: #e8f6f4;
+  border-color: var(--color-teal-soft, #8fc1be);
+}
+
 body.dark-mode .skill-item {
   background-color: #1c1c1e;
   border-color: rgba(255, 255, 255, 0.1);
@@ -3247,6 +3460,20 @@ body.dark-mode .skill-item {
 body.dark-mode .skill-item-img {
   filter: brightness(0) invert(1);
   opacity: 0.88;
+}
+
+body.dark-mode .skill-item-img--brand {
+  filter: none;
+  opacity: 1;
+}
+
+body.dark-mode .skill-item .devicon-nextjs-original-wordmark,
+body.dark-mode .skill-item .devicon-express-original,
+body.dark-mode .skill-item .devicon-vercel-original,
+body.dark-mode .skill-item .devicon-prisma-original,
+body.dark-mode .skill-item .devicon-github-original,
+body.dark-mode .skill-item .devicon-apple-original {
+  filter: brightness(0) invert(1);
 }
 
 body.dark-mode .skill-item > .bi:not(.colored) {
