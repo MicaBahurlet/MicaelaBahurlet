@@ -437,25 +437,46 @@ function initCarouselControls(signal) {
         return;
     }
 
+    // Precarga para evitar flash en blanco al cambiar de slide.
+    items.forEach((item) => {
+        const img = item.querySelector("img");
+        if (!img) return;
+        img.loading = "eager";
+        img.decoding = "async";
+        if (img.complete) return;
+        const preload = new Image();
+        preload.src = img.currentSrc || img.src;
+    });
+
     let currentIndex = items.findIndex((item) => item.classList.contains("active"));
     if (currentIndex < 0) currentIndex = 0;
+    let isAnimating = false;
 
     const showSlide = (index) => {
+        if (index === currentIndex && items[index]?.classList.contains("active")) {
+            if (prevBtn) prevBtn.hidden = index <= 0;
+            if (nextBtn) nextBtn.hidden = index >= items.length - 1;
+            return;
+        }
+
         items.forEach((item, i) => {
             item.classList.toggle("active", i === index);
         });
 
-        if (prevBtn) prevBtn.style.display = index <= 0 ? "none" : "";
-        if (nextBtn) nextBtn.style.display = index >= items.length - 1 ? "none" : "";
+        if (prevBtn) prevBtn.hidden = index <= 0;
+        if (nextBtn) nextBtn.hidden = index >= items.length - 1;
+        currentIndex = index;
     };
 
     prevBtn?.addEventListener(
         "click",
         () => {
-            if (currentIndex > 0) {
-                currentIndex -= 1;
-                showSlide(currentIndex);
-            }
+            if (isAnimating || currentIndex <= 0) return;
+            isAnimating = true;
+            showSlide(currentIndex - 1);
+            window.setTimeout(() => {
+                isAnimating = false;
+            }, 280);
         },
         { signal }
     );
@@ -463,10 +484,12 @@ function initCarouselControls(signal) {
     nextBtn?.addEventListener(
         "click",
         () => {
-            if (currentIndex < items.length - 1) {
-                currentIndex += 1;
-                showSlide(currentIndex);
-            }
+            if (isAnimating || currentIndex >= items.length - 1) return;
+            isAnimating = true;
+            showSlide(currentIndex + 1);
+            window.setTimeout(() => {
+                isAnimating = false;
+            }, 280);
         },
         { signal }
     );
@@ -477,20 +500,29 @@ function initCarouselControls(signal) {
 function initCertificateModal(signal) {
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("imgModal");
-    const closeBtn = document.querySelector(".close");
+    const closeBtn = modal.querySelector(".close");
     if (!modal || !modalImg) return;
 
-    const openModal = (src) => {
+    const openModal = (src, alt) => {
+        modalImg.removeAttribute("width");
+        modalImg.removeAttribute("height");
+        modalImg.style.width = "";
+        modalImg.style.height = "";
+        modalImg.alt = alt || "";
         modalImg.src = src;
         modal.classList.add("is-open");
         modal.style.display = "flex";
+        modal.setAttribute("aria-hidden", "false");
         document.body.style.overflow = "hidden";
+        closeBtn?.focus();
     };
 
     const closeModal = () => {
         modal.classList.remove("is-open");
         modal.style.display = "none";
-        modalImg.src = "";
+        modal.setAttribute("aria-hidden", "true");
+        modalImg.removeAttribute("src");
+        modalImg.alt = "";
         document.body.style.overflow = "";
     };
 
@@ -498,7 +530,7 @@ function initCertificateModal(signal) {
         img.addEventListener(
             "click",
             () => {
-                openModal(img.currentSrc || img.src);
+                openModal(img.currentSrc || img.src, img.alt);
             },
             { signal }
         );
@@ -755,116 +787,9 @@ function initAboutMeAnimations() {
     tl.call(applyHighlights, null, 0.35 + paragraphs.length * 0.14 + 0.15);
 }
 
-function isSkillsMobileView() {
-    return window.matchMedia("(max-width: 768px)").matches;
-}
-
-function resetSkillsMarquees() {
-    document.querySelectorAll(".skills-marquee").forEach((marquee) => {
-        const track = marquee.querySelector(".skills-marquee-track");
-        if (!track) return;
-
-        const groups = [...track.querySelectorAll(".skills-marquee-group")];
-        const firstGroup = groups[0];
-        if (!firstGroup) return;
-
-        if (!firstGroup.dataset.originalCount) {
-            firstGroup.dataset.originalCount = String(firstGroup.children.length);
-        }
-
-        const originalCount = parseInt(firstGroup.dataset.originalCount, 10) || firstGroup.children.length;
-        const originals = [...firstGroup.children].slice(0, originalCount).map((node) => node.cloneNode(true));
-
-        firstGroup.replaceChildren(...originals.map((node) => node.cloneNode(true)));
-
-        const secondGroup = groups[1];
-        if (secondGroup) {
-            secondGroup.replaceChildren(...originals.map((node) => node.cloneNode(true)));
-        }
-
-        groups.slice(2).forEach((group) => group.remove());
-    });
-}
-
-function inflateSkillsMarquees() {
-    if (isSkillsMobileView()) return;
-
-    document.querySelectorAll(".skills-marquee").forEach((marquee) => {
-        const track = marquee.querySelector(".skills-marquee-track");
-        if (!track) return;
-
-        const groups = [...track.querySelectorAll(".skills-marquee-group")];
-        if (!groups.length) return;
-
-        const firstGroup = groups[0];
-        const secondGroup = groups[1];
-
-        if (!firstGroup.dataset.originalCount) {
-            firstGroup.dataset.originalCount = String(firstGroup.children.length);
-        }
-
-        const originalCount = parseInt(firstGroup.dataset.originalCount, 10) || firstGroup.children.length;
-        const originals = [...firstGroup.children].slice(0, originalCount).map((node) => node.cloneNode(true));
-
-        firstGroup.replaceChildren(...originals.map((node) => node.cloneNode(true)));
-
-        const containerWidth = window.innerWidth;
-        const minGroupWidth = Math.max(containerWidth, 320);
-
-        let guard = 0;
-        while (firstGroup.scrollWidth < minGroupWidth && guard < 48) {
-            originals.forEach((node) => firstGroup.appendChild(node.cloneNode(true)));
-            guard += 1;
-        }
-
-        if (secondGroup) {
-            secondGroup.replaceChildren(...[...firstGroup.children].map((node) => node.cloneNode(true)));
-        } else {
-            const clone = firstGroup.cloneNode(true);
-            clone.setAttribute("aria-hidden", "true");
-            track.appendChild(clone);
-        }
-
-        [...track.querySelectorAll(".skills-marquee-group")].slice(2).forEach((group) => group.remove());
-    });
-}
-
 function initSkillsAccordion(signal) {
     const items = [...document.querySelectorAll(".skills-accordion-item")];
     if (!items.length) return;
-
-    const syncMarquees = () => {
-        if (isSkillsMobileView()) {
-            resetSkillsMarquees();
-            return;
-        }
-        inflateSkillsMarquees();
-        requestAnimationFrame(() => inflateSkillsMarquees());
-    };
-
-    syncMarquees();
-
-    let resizeTimer = null;
-    window.addEventListener(
-        "resize",
-        () => {
-            if (resizeTimer) window.clearTimeout(resizeTimer);
-            resizeTimer = window.setTimeout(() => {
-                syncMarquees();
-            }, 150);
-        },
-        { signal }
-    );
-
-    const mobileMq = window.matchMedia("(max-width: 768px)");
-    mobileMq.addEventListener(
-        "change",
-        () => {
-            closeAll();
-            syncMarquees();
-        },
-        { signal }
-    );
 
     const setItemState = (item, active) => {
         const trigger = item.querySelector(".skills-accordion-trigger");
@@ -885,50 +810,9 @@ function initSkillsAccordion(signal) {
         trigger.addEventListener(
             "click",
             () => {
-                if (!isSkillsMobileView()) return;
                 const willOpen = !item.classList.contains("is-active");
                 closeAll();
                 if (willOpen) setItemState(item, true);
-            },
-            { signal }
-        );
-
-        item.addEventListener(
-            "mouseenter",
-            () => {
-                if (isSkillsMobileView()) return;
-                closeAll();
-                setItemState(item, true);
-            },
-            { signal }
-        );
-
-        item.addEventListener(
-            "mouseleave",
-            () => {
-                if (isSkillsMobileView()) return;
-                setItemState(item, false);
-            },
-            { signal }
-        );
-
-        item.addEventListener(
-            "focusin",
-            () => {
-                if (isSkillsMobileView()) return;
-                closeAll();
-                setItemState(item, true);
-            },
-            { signal }
-        );
-
-        item.addEventListener(
-            "focusout",
-            (event) => {
-                if (isSkillsMobileView()) return;
-                if (!item.contains(event.relatedTarget)) {
-                    setItemState(item, false);
-                }
             },
             { signal }
         );
@@ -941,6 +825,8 @@ function initSkillsAccordion(signal) {
         },
         { signal }
     );
+
+    setItemState(items[0], true);
 }
 
 function initSkillsAnimations() {
@@ -1333,6 +1219,9 @@ function bindPageInteractions({ skipHero = false, skipHeroBgInit = false } = {})
     initFloatingNav(signal);
     initLanguageSwitch(signal);
     initSkillsAccordion(signal);
+    if (typeof window.initGithubGraph === "function") {
+        initGithubGraph(signal);
+    }
     initAboutMeCursor(signal);
     initProfileTitleRotate(signal);
     initProfileIntroAnimations(signal);
