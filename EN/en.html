@@ -21,11 +21,11 @@
         <script>
             document.documentElement.classList.add("js-hero-gate");
         </script>
-        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Syne:wght@600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Syne:wght@400;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all'">
         <link rel="shortcut icon" href="../img/trisquel.png" type="image/x-icon">
         <noscript>
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Syne:wght@600;700;800&display=swap">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Syne:wght@400;600;700;800&display=swap">
             <link rel="stylesheet" href="../asets/StylesResponsive.css">
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.17.0/devicon.min.css">
@@ -178,6 +178,7 @@
                         <div class="timeline-container">
                             <h2>Work Experience</h2>
                             <div class="timeline">
+                                <div class="timeline-progress" aria-hidden="true"></div>
                                 <!-- Cronopia item -->
                                 <div class="timeline-item">
                                     <div class="timeline-dot"></div>
@@ -1301,42 +1302,27 @@
                     
         <!--  Contact Section -->
         <section id="contact">
-                        <div>
-                            <h2>Contact:</h2>
-                            <p>All my contact information,<b> it will be a pleasure to communicate.</b></p>
-                        </div>
-
-                        <div class="Contactos">
-
-                            <!-- <div class="WhatsApp">
-                                <a href="https://walink.co/b81e9d"  target="_blank">
-                                    <img src="../img/WhatsAppsLogo.png" alt="WhatsApps Contacto">
-                                </a>  
-                                <a href="https://walink.co/b81e9d"  target="_blank"> 
-                                    <button class="Contactemos">Contact</button>
-                                </a>     
-                            </div> -->
-
-                            <div class="Linkeding">
-                                <a href="https://www.linkedin.com/in/micaelabahurlet/" target="_blank">
-                                    <img src="../img/linkedin.png" alt=" Linkeding">
-                                </a>    
-                                <a href="https://www.linkedin.com/in/micaelabahurlet/" target="_blank">
-                                    <button class="Contactemos">Contact</button>
-                                </a>    
+                        <p class="contact-kicker">Contact</p>
+                        <div class="contact-hero">
+                            <h2 class="contact-title">
+                                <span class="contact-title-strong">Let's build</span>
+                                <span class="contact-title-strong">something <span class="contact-title-soft">together.</span></span>
+                            </h2>
+                            <div class="contact-mark" aria-hidden="true">
+                                <span class="contact-trisquel"></span>
                             </div>
-
-                            <div class="GitHub">
-                                <a href="https://github.com/MicaBahurlet" target="_blank">
-                                    <img src="../img/GitHubNegro.png" alt="GitHub Personal">
-                                </a>    
-                                <a href="https://github.com/MicaBahurlet" target="_blank">
-                                    <button class="Contactemos">GitHub</button>
-                                </a> 
-                            </div>
-
                         </div>
-
+                        <div class="contact-mail">
+                            <p class="contact-mail-label">Write to me</p>
+                            <div class="contact-mail-row">
+                                <a class="contact-mail-address" href="mailto:micabahurletgo@gmail.com">micabahurletgo@gmail.com</a>
+                                <button type="button" class="contact-copy" data-copy="micabahurletgo@gmail.com" data-copied="Copied">Copy</button>
+                            </div>
+                        </div>
+                        <div class="contact-pills">
+                            <a class="contact-pill" href="https://www.linkedin.com/in/micaelabahurlet/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                            <a class="contact-pill" href="https://github.com/MicaBahurlet" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        </div>
         </section>
 
         <!--  BTN to top -->

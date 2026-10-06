@@ -829,6 +829,139 @@ function initSkillsAccordion(signal) {
     setItemState(items[0], true);
 }
 
+let experienceMedia = null;
+
+function clearExperienceActiveState() {
+    document.querySelectorAll("#timeline .timeline-item.is-active").forEach((item) => {
+        item.classList.remove("is-active");
+    });
+}
+
+function initContactCopy(signal) {
+    const button = document.querySelector("#contact .contact-copy");
+    if (!button) return;
+
+    const email = button.getAttribute("data-copy") || "";
+    const idleLabel = button.textContent;
+    const copiedLabel = button.getAttribute("data-copied") || idleLabel;
+
+    button.addEventListener(
+        "click",
+        async () => {
+            try {
+                await navigator.clipboard.writeText(email);
+            } catch (error) {
+                const field = document.createElement("textarea");
+                field.value = email;
+                field.setAttribute("readonly", "");
+                field.style.position = "fixed";
+                field.style.left = "-999px";
+                document.body.appendChild(field);
+                field.select();
+                document.execCommand("copy");
+                field.remove();
+            }
+
+            button.textContent = copiedLabel;
+            window.setTimeout(() => {
+                button.textContent = idleLabel;
+            }, 1600);
+        },
+        { signal }
+    );
+}
+
+let contactMarkMedia = null;
+
+function initContactMark() {
+    if (contactMarkMedia) {
+        contactMarkMedia.revert();
+        contactMarkMedia = null;
+    }
+
+    const mark = document.querySelector("#contact .contact-trisquel");
+    const section = document.querySelector("#contact");
+    if (!mark || !section || typeof window.gsap === "undefined" || typeof window.ScrollTrigger === "undefined") return;
+
+    const gsap = window.gsap;
+    gsap.registerPlugin(ScrollTrigger);
+    contactMarkMedia = gsap.matchMedia();
+
+    contactMarkMedia.add("(prefers-reduced-motion: no-preference)", () => {
+        gsap.set(mark, { transformOrigin: "50% 50%" });
+        gsap.fromTo(
+            mark,
+            { rotation: 0 },
+            {
+                rotation: 180,
+                transformOrigin: "50% 50%",
+                ease: "none",
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true,
+                    id: "contact-trisquel",
+                },
+            }
+        );
+    });
+}
+
+function initExperienceScroll() {
+    if (experienceMedia) {
+        experienceMedia.revert();
+        experienceMedia = null;
+    }
+    clearExperienceActiveState();
+
+    if (typeof window.gsap === "undefined" || typeof window.ScrollTrigger === "undefined") return;
+
+    const gsap = window.gsap;
+    gsap.registerPlugin(ScrollTrigger);
+    experienceMedia = gsap.matchMedia();
+
+    experienceMedia.add("(min-width: 992px) and (prefers-reduced-motion: no-preference)", () => {
+        const timeline = document.querySelector("#timeline .timeline");
+        const progress = timeline ? timeline.querySelector(".timeline-progress") : null;
+        const items = timeline ? gsap.utils.toArray(timeline.querySelectorAll(".timeline-item")) : [];
+        if (!timeline || !progress || !items.length) return;
+
+        const section = document.querySelector("#timeline");
+        gsap.set(progress, { scaleY: 0, transformOrigin: "top center" });
+        gsap.to(progress, {
+            scaleY: 1,
+            ease: "none",
+            scrollTrigger: {
+                trigger: section,
+                start: "top center",
+                end: "bottom center",
+                scrub: true,
+                id: "experience-line",
+            },
+        });
+
+        items.forEach((item, index) => {
+            const sync = (self) => {
+                item.classList.toggle("is-active", self.progress > 0 || self.isActive);
+            };
+
+            ScrollTrigger.create({
+                trigger: item,
+                start: "top center",
+                end: "bottom top",
+                id: `experience-item-${index}`,
+                onUpdate: sync,
+                onRefresh: sync,
+            });
+        });
+
+        return () => {
+            clearExperienceActiveState();
+        };
+    });
+}
+
 function initSkillsAnimations() {
     const section = document.querySelector("#NewSkillsSection");
     if (!section || typeof window.gsap === "undefined" || typeof window.ScrollTrigger === "undefined") return;
@@ -993,6 +1126,8 @@ async function runScrollGsapFeatures() {
         killScrollTriggers();
         initAboutMeAnimations();
         initSkillsAnimations();
+        initExperienceScroll();
+        initContactMark();
         initFloatingNavScrollSpy();
         refreshScrollTriggers();
         return;
@@ -1011,6 +1146,8 @@ async function runScrollGsapFeatures() {
 
         initAboutMeAnimations();
         initSkillsAnimations();
+        initExperienceScroll();
+        initContactMark();
         initFloatingNavScrollSpy();
         refreshScrollTriggers();
         scrollGsapReady = true;
@@ -1222,6 +1359,7 @@ function bindPageInteractions({ skipHero = false, skipHeroBgInit = false } = {})
     if (typeof window.initGithubGraph === "function") {
         initGithubGraph(signal);
     }
+    initContactCopy(signal);
     initAboutMeCursor(signal);
     initProfileTitleRotate(signal);
     initProfileIntroAnimations(signal);
