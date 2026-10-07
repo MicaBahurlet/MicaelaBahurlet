@@ -521,7 +521,7 @@
     #timeline {
         max-width: 100%;
         width: calc(100% - 1.25rem);
-        margin: 2rem auto;
+        margin: calc(-1 * var(--profile-nav-clearance) + 1rem) auto 2rem;
         padding: 0 0.625rem;
         box-sizing: border-box;
     }
@@ -980,7 +980,7 @@
     /* Timeline Tablet */
     #timeline {
         max-width: 800px;
-        margin: 3rem auto;
+        margin: calc(-1 * var(--profile-nav-clearance) + 1rem) auto 3rem;
         padding: 0 1.5rem;
     }
 
