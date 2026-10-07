@@ -400,7 +400,6 @@
     #Certificates h2,
     #OtrosTrabajos h2,
     #NewSkillsSection h2,
-    #contact h2,
     #FormacionAcademica h2 {
         font-size: 1.75rem;
         font-weight: 700;
@@ -769,96 +768,10 @@
 
 
     #contact {
-        display: flex;
-        justify-content: flex-start;
-        align-items: stretch;
-        text-align: left;
-        flex-direction: column;
         width: 100%;
         max-width: 100%;
         margin: 3rem auto 0;
         padding: 0 20px calc(7.25rem + env(safe-area-inset-bottom));
-        box-sizing: border-box;
-        gap: 1.5rem;
-        line-height: 1.5;
-        scroll-margin-bottom: calc(7.25rem + env(safe-area-inset-bottom));
-    }
-
-    #contact > div:first-child {
-        width: 100%;
-    }
-
-    #contact p {
-        font-size: 1rem;
-        line-height: 1.55;
-        margin-bottom: 0;
-    }
-
-    .Contactos {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: flex-start;
-        margin: 0;
-        gap: 0.85rem;
-        width: 100%;
-        max-width: 100%;
-    }
-
-    #contact .Contactos .Linkeding,
-    #contact .Contactos .GitHub {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 1rem;
-        width: 100%;
-        padding: 1rem 1.1rem;
-        background: #ffffff;
-        border: 1px solid #e8e8e8;
-        border-radius: 14px;
-        box-sizing: border-box;
-    }
-
-    #contact .Contactos .Linkeding > a,
-    #contact .Contactos .GitHub > a {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-    }
-
-    #contact .Contactos .Linkeding > a:last-child,
-    #contact .Contactos .GitHub > a:last-child {
-        flex: 1;
-        justify-content: flex-end;
-    }
-
-    #contact .Contactos .Linkeding img {
-        width: 48px;
-        height: 48px;
-        margin-right: 0;
-        object-fit: contain;
-    }
-
-    #contact .Contactos .GitHub img {
-        width: 44px;
-        height: 44px;
-        margin-right: 0;
-        object-fit: contain;
-    }
-
-    #contact .Contactemos {
-        width: 100%;
-        max-width: none;
-        min-height: 2.75rem;
-        padding: 0.75rem 1.25rem;
-        font-size: 0.92rem;
-    }
-
-    body.dark-mode #contact .Contactos .Linkeding,
-    body.dark-mode #contact .Contactos .GitHub {
-        background: #1c1c1e;
-        border-color: rgba(255, 255, 255, 0.1);
     }
 
     #TOP {
@@ -1242,27 +1155,10 @@
     }
 
     #contact {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        max-width: 800px;
-        height: auto;
-        margin: 2rem auto;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1)
-    }
-
-    .Contactos {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        max-width: 800px;
-        height: auto;
-        margin: 2rem auto;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1)
+        width: min(100% - 2.5rem, 800px);
+        margin: 3rem auto;
+        align-items: flex-start;
+        text-shadow: none;
     }
 
 
@@ -1317,7 +1213,8 @@
 
 /* Ocultar el botón "Cargar más proyectos" en mobile y tablet */
 @media (max-width: 991px) {
-  #btnCargarMasProyectos {
+  #btnCargarMasProyectos,
+  #btnCargarMasCertificados {
     display: none !important;
   }
 }
@@ -1430,7 +1327,10 @@
   #home.hero-modern .hero-glow { opacity: 0.4; }
 
   /* Sección de perfil */
-  .profile-intro { padding: clamp(3.25rem, 8vw, 4.25rem) var(--site-gutter, 1rem); }
+  .profile-intro {
+    padding-left: var(--site-gutter, 1rem);
+    padding-right: var(--site-gutter, 1rem);
+  }
   .profile-intro-wrapper {
     flex-direction: column;
     text-align: center;
@@ -1448,7 +1348,7 @@
     row-gap: 0.1em;
   }
 
-  .profile-intro-text p {
+  .profile-intro-text > p {
     max-width: 44ch;
   }
 
@@ -1546,15 +1446,21 @@
   }
   .floating-nav-logo img { width: 18px; height: 18px; }
   .floating-nav-list a {
-    padding: 0.5rem 0.7rem;
+    padding: 0.5rem 0.45rem;
     font-size: 0.7rem;
     letter-spacing: 0.02em;
+    min-height: 38px;
+  }
+  .floating-nav-list li:last-child a {
+    min-width: 4.85rem;
+    padding-inline: 0.55rem;
   }
   .floating-nav-list .fn-num { display: none; }
 }
 
 @media (max-width: 400px) {
-  .floating-nav-list a { padding: 0.45rem 0.55rem; font-size: 0.64rem; }
+  .floating-nav-list a { padding: 0.45rem 0.35rem; font-size: 0.64rem; }
+  .floating-nav-list li:last-child a { min-width: 4.55rem; }
 }
 
 /* =====================================================
