@@ -15,7 +15,6 @@ let languageSwitchInFlight = false;
 let popstateBound = false;
 let lenisInstance = null;
 let lenisRafId = 0;
-let lenisTickerCallback = null;
 let lenisScrollTriggerUnsub = null;
 let lenisToken = 0;
 let lenisConditionsBound = false;
@@ -109,10 +108,10 @@ async function loadLenis() {
 }
 
 function startLenisRaf() {
-    if (!lenisInstance || lenisRafId || lenisTickerCallback) return;
+    if (!lenisInstance || lenisRafId) return;
 
     const loop = (time) => {
-        if (!lenisInstance || lenisTickerCallback) {
+        if (!lenisInstance) {
             lenisRafId = 0;
             return;
         }
@@ -124,27 +123,14 @@ function startLenisRaf() {
 }
 
 function connectLenisToGsap() {
-    if (!lenisInstance || typeof window.gsap === "undefined" || typeof window.ScrollTrigger === "undefined") {
+    if (!lenisInstance || typeof window.ScrollTrigger === "undefined") {
         return;
-    }
-
-    if (lenisRafId) {
-        cancelAnimationFrame(lenisRafId);
-        lenisRafId = 0;
     }
 
     if (!lenisScrollTriggerUnsub) {
         lenisScrollTriggerUnsub = lenisInstance.on("scroll", () => {
             window.ScrollTrigger.update();
         });
-    }
-
-    if (!lenisTickerCallback) {
-        lenisTickerCallback = (time) => {
-            lenisInstance?.raf(time * 1000);
-        };
-        window.gsap.ticker.add(lenisTickerCallback);
-        window.gsap.ticker.lagSmoothing(0);
     }
 }
 
@@ -155,11 +141,6 @@ function destroyLenis() {
         cancelAnimationFrame(lenisRafId);
         lenisRafId = 0;
     }
-
-    if (lenisTickerCallback && typeof window.gsap !== "undefined") {
-        window.gsap.ticker.remove(lenisTickerCallback);
-    }
-    lenisTickerCallback = null;
 
     if (lenisScrollTriggerUnsub) {
         lenisScrollTriggerUnsub();
@@ -212,6 +193,11 @@ async function initLenis() {
     }
 
     lenisInstance.resize();
+    if (document.readyState !== "complete") {
+        window.addEventListener("load", () => {
+            lenisInstance?.resize();
+        }, { once: true });
+    }
     return lenisInstance;
 }
 
@@ -1228,8 +1214,8 @@ function initContactMark() {
                 ease: "none",
                 scrollTrigger: {
                     trigger: section,
-                    start: "top bottom",
-                    end: "top 20%",
+                    start: "top 85%",
+                    end: "bottom top",
                     scrub: 0.35,
                     id: "contact-trisquel",
                 },
