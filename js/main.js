@@ -858,7 +858,7 @@ function initCertificatesLoadMore(signal) {
     });
 
     const desktopQuery = window.matchMedia("(min-width: 992px)");
-    let rowsShown = 2;
+    let rowsShown = 1;
     let wasDesktop = desktopQuery.matches;
 
     const orderedItems = (newestFirst) => {
@@ -894,7 +894,7 @@ function initCertificatesLoadMore(signal) {
     btn.addEventListener(
         "click",
         () => {
-            rowsShown += 2;
+            rowsShown += 1;
             updateCertificates();
             refreshScrollTriggers();
         },
@@ -904,7 +904,7 @@ function initCertificatesLoadMore(signal) {
     desktopQuery.addEventListener(
         "change",
         () => {
-            rowsShown = 2;
+            rowsShown = 1;
             wasDesktop = desktopQuery.matches;
             updateCertificates();
             refreshScrollTriggers();
@@ -916,7 +916,7 @@ function initCertificatesLoadMore(signal) {
         "resize",
         () => {
             const isDesktop = desktopQuery.matches;
-            if (isDesktop && !wasDesktop) rowsShown = 2;
+            if (isDesktop && !wasDesktop) rowsShown = 1;
             wasDesktop = isDesktop;
             updateCertificates();
         },

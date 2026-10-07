@@ -3052,6 +3052,14 @@ body.dark-mode .descripcionCarrusel .liExperiencias li::before {
 }
 
 @media (min-width: 992px) {
+  #FormacionAcademica,
+  #Certificates {
+    width: min(1180px, calc(100% - 3rem));
+    max-width: none;
+    padding-inline: 0;
+    box-sizing: border-box;
+  }
+
   .certificates-gallery {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
