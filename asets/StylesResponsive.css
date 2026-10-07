@@ -772,7 +772,6 @@
         max-width: 100%;
         margin: 3rem auto 0;
         padding: 0 20px calc(7.25rem + env(safe-area-inset-bottom));
-        scroll-margin-bottom: calc(7.25rem + env(safe-area-inset-bottom));
     }
 
     #TOP {
@@ -1214,7 +1213,8 @@
 
 /* Ocultar el botón "Cargar más proyectos" en mobile y tablet */
 @media (max-width: 991px) {
-  #btnCargarMasProyectos {
+  #btnCargarMasProyectos,
+  #btnCargarMasCertificados {
     display: none !important;
   }
 }
@@ -1327,7 +1327,10 @@
   #home.hero-modern .hero-glow { opacity: 0.4; }
 
   /* Sección de perfil */
-  .profile-intro { padding: clamp(3.25rem, 8vw, 4.25rem) var(--site-gutter, 1rem); }
+  .profile-intro {
+    padding-left: var(--site-gutter, 1rem);
+    padding-right: var(--site-gutter, 1rem);
+  }
   .profile-intro-wrapper {
     flex-direction: column;
     text-align: center;
@@ -1345,7 +1348,7 @@
     row-gap: 0.1em;
   }
 
-  .profile-intro-text p {
+  .profile-intro-text > p {
     max-width: 44ch;
   }
 
@@ -1443,15 +1446,21 @@
   }
   .floating-nav-logo img { width: 18px; height: 18px; }
   .floating-nav-list a {
-    padding: 0.5rem 0.7rem;
+    padding: 0.5rem 0.45rem;
     font-size: 0.7rem;
     letter-spacing: 0.02em;
+    min-height: 38px;
+  }
+  .floating-nav-list li:last-child a {
+    min-width: 4.85rem;
+    padding-inline: 0.55rem;
   }
   .floating-nav-list .fn-num { display: none; }
 }
 
 @media (max-width: 400px) {
-  .floating-nav-list a { padding: 0.45rem 0.55rem; font-size: 0.64rem; }
+  .floating-nav-list a { padding: 0.45rem 0.35rem; font-size: 0.64rem; }
+  .floating-nav-list li:last-child a { min-width: 4.55rem; }
 }
 
 /* =====================================================
