@@ -1136,6 +1136,13 @@
         padding-inline: 1.25rem;
         box-sizing: border-box;
     }
+    #FormacionAcademica,
+    #Certificates {
+        width: 100%;
+        max-width: 100%;
+        padding-inline: 1.25rem;
+        box-sizing: border-box;
+    }
     .aboutme-copy {
         width: 100%;
         padding-inline: 0;
