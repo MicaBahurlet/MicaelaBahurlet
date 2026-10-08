@@ -66,15 +66,10 @@ function isTouchMobileDevice() {
     );
 }
 
-function prefersReducedMotion() {
-    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
-
 function shouldUseLenis() {
     return (
         window.matchMedia("(min-width: 992px)").matches &&
-        window.matchMedia("(pointer: fine)").matches &&
-        !prefersReducedMotion()
+        window.matchMedia("(pointer: fine)").matches
     );
 }
 
@@ -213,7 +208,7 @@ function watchLenisConditions() {
         destroyLenis();
     };
 
-    ["(min-width: 992px)", "(pointer: fine)", "(prefers-reduced-motion: reduce)"].forEach((query) => {
+    ["(min-width: 992px)", "(pointer: fine)"].forEach((query) => {
         window.matchMedia(query).addEventListener("change", sync);
     });
 }
@@ -258,9 +253,7 @@ function subscribeScroll(callback, signal) {
 }
 
 function scrollToPosition(top, { duration = 1.2, immediate = false } = {}) {
-    const reduceMotion = prefersReducedMotion();
-
-    if (reduceMotion || immediate) {
+    if (immediate) {
         if (lenisInstance) {
             lenisInstance.scrollTo(top, { immediate: true, force: true });
         } else {
@@ -538,15 +531,6 @@ function initProfileTitleRotate(signal) {
     const startRotation = () => {
         lockWidth();
 
-        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        if (reduceMotion) {
-            items.forEach((item, index) => {
-                item.classList.toggle("is-active", index === 0);
-                item.classList.remove("is-leaving");
-            });
-            return;
-        }
-
         let activeIndex = Math.max(
             0,
             items.findIndex((item) => item.classList.contains("is-active"))
@@ -605,14 +589,8 @@ function initProfileIntroAnimations(signal) {
     if (!section) return;
 
     const emphasisWords = [...section.querySelectorAll(".profile-text-em--underline")];
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     section.classList.add("profile-intro--ready");
-
-    if (reduceMotion) {
-        section.classList.add("is-inview");
-        return;
-    }
 
     emphasisWords.forEach((span, index) => {
         span.style.setProperty("--intro-delay", `${0.16 + index * 0.08}s`);
@@ -974,7 +952,6 @@ function initAboutMeCursor(signal) {
     if (!cursor) return;
 
     const desktopMq = window.matchMedia("(hover: hover) and (pointer: fine)");
-    const reduceMotionMq = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     let active = false;
     let rafId = null;
@@ -994,7 +971,7 @@ function initAboutMeCursor(signal) {
     };
 
     const render = () => {
-        const ease = reduceMotionMq.matches ? 1 : 0.22;
+        const ease = 0.22;
         currentX += (targetX - currentX) * ease;
         currentY += (targetY - currentY) * ease;
         cursor.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
@@ -1049,16 +1026,10 @@ function initAboutMeAnimations() {
     if (!aboutSection || typeof window.gsap === "undefined") return;
 
     const gsap = window.gsap;
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const kicker = aboutSection.querySelector(".aboutme-kicker");
     const heading = aboutSection.querySelector(".aboutme-heading");
     const paragraphs = [...aboutSection.querySelectorAll(".aboutme-text p")];
     const underlines = aboutSection.querySelectorAll(".aboutme-em--underline");
-
-    if (reduceMotion) {
-        underlines.forEach((el) => el.classList.add("is-revealed"));
-        return;
-    }
 
     if (typeof window.ScrollTrigger !== "undefined") {
         gsap.registerPlugin(ScrollTrigger);
@@ -1203,7 +1174,7 @@ function initContactMark() {
     gsap.registerPlugin(ScrollTrigger);
     contactMarkMedia = gsap.matchMedia();
 
-    contactMarkMedia.add("(prefers-reduced-motion: no-preference)", () => {
+    contactMarkMedia.add("all", () => {
         gsap.set(mark, { transformOrigin: "50% 50%" });
         gsap.fromTo(
             mark,
@@ -1237,7 +1208,7 @@ function initExperienceScroll() {
     gsap.registerPlugin(ScrollTrigger);
     experienceMedia = gsap.matchMedia();
 
-    experienceMedia.add("(min-width: 992px) and (prefers-reduced-motion: no-preference)", () => {
+    experienceMedia.add("(min-width: 992px)", () => {
         const timeline = document.querySelector("#timeline .timeline");
         const progress = timeline ? timeline.querySelector(".timeline-progress") : null;
         const items = timeline ? gsap.utils.toArray(timeline.querySelectorAll(".timeline-item")) : [];
@@ -1281,9 +1252,6 @@ function initExperienceScroll() {
 function initSkillsAnimations() {
     const section = document.querySelector("#NewSkillsSection");
     if (!section || typeof window.gsap === "undefined" || typeof window.ScrollTrigger === "undefined") return;
-
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduceMotion) return;
 
     const gsap = window.gsap;
     gsap.registerPlugin(ScrollTrigger);
@@ -1668,14 +1636,7 @@ function initProfileStats(signal) {
     const numbers = [...stats.querySelectorAll(".profile-stat-number")];
     if (!numbers.length) return;
 
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const frameIds = new Map();
-
-    const setFinal = () => {
-        numbers.forEach((el) => {
-            el.textContent = String(Number(el.dataset.count) || 0);
-        });
-    };
 
     const reset = () => {
         numbers.forEach((el) => {
@@ -1689,11 +1650,6 @@ function initProfileStats(signal) {
     };
 
     signal?.addEventListener("abort", stop);
-
-    if (reduceMotion) {
-        setFinal();
-        return;
-    }
 
     const easeOut = (t) => 1 - Math.pow(1 - t, 3);
 

@@ -130,7 +130,6 @@
 
         if (!canvas || !container) return null;
 
-        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         const gl = canvas.getContext("webgl", { alpha: false, antialias: false, powerPreference: "high-performance" });
 
         if (!gl) {
@@ -221,12 +220,10 @@
             gl.vertexAttribPointer(attrib, 2, gl.FLOAT, false, 0, 0);
             gl.enableVertexAttribArray(attrib);
             gl.uniform2f(uResolution, canvas.width, canvas.height);
-            gl.uniform1f(uTime, reduceMotion ? 0 : (performance.now() - t0) / 1000);
+            gl.uniform1f(uTime, (performance.now() - t0) / 1000);
 
-            if (!reduceMotion) {
-                mx += (tx - mx) * 0.08;
-                my += (ty - my) * 0.08;
-            }
+            mx += (tx - mx) * 0.08;
+            my += (ty - my) * 0.08;
 
             gl.uniform2f(uMouse, mx, my);
             gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
