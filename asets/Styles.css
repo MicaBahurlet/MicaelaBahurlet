@@ -2132,7 +2132,7 @@ footer {
   color: var(--color-teal-deep, #2f6f6b);
   padding: 0.3rem 0.8rem;
   border-radius: 20px;
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   font-weight: 600;
   user-select: none;
   border: 1.5px solid var(--color-teal-soft, #8fc1be);
