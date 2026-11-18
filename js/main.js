@@ -528,15 +528,21 @@ function initProfileTitleRotate(signal) {
         }
     };
 
+    let started = false;
+    let timerId = null;
+    let firstChangeId = null;
+
     const startRotation = () => {
+        if (started) return;
+        started = true;
         lockWidth();
 
         let activeIndex = Math.max(
             0,
             items.findIndex((item) => item.classList.contains("is-active"))
         );
-        let timerId = null;
-        const holdMs = 3500;
+        const firstChangeMs = 1400;
+        const holdMs = 2000;
 
         const showIndex = (nextIndex) => {
             const current = items[activeIndex];
@@ -555,13 +561,13 @@ function initProfileTitleRotate(signal) {
             activeIndex = nextIndex;
         };
 
-        timerId = window.setInterval(() => {
+        firstChangeId = window.setTimeout(() => {
+            firstChangeId = null;
             showIndex((activeIndex + 1) % items.length);
-        }, holdMs);
-
-        signal?.addEventListener("abort", () => {
-            if (timerId) window.clearInterval(timerId);
-        });
+            timerId = window.setInterval(() => {
+                showIndex((activeIndex + 1) % items.length);
+            }, holdMs);
+        }, firstChangeMs);
     };
 
     const fontsReady =
@@ -569,7 +575,30 @@ function initProfileTitleRotate(signal) {
             ? document.fonts.ready
             : Promise.resolve();
 
-    fontsReady.then(startRotation).catch(startRotation);
+    fontsReady.then(lockWidth).catch(lockWidth);
+
+    const section = document.querySelector("#profile-intro");
+    const observer = new IntersectionObserver(
+        (entries) => {
+            if (entries.some((entry) => entry.isIntersecting)) {
+                startRotation();
+                observer.disconnect();
+            }
+        },
+        { threshold: 0.05, rootMargin: "0px 0px 0px 0px" }
+    );
+
+    if (section) {
+        observer.observe(section);
+    } else {
+        startRotation();
+    }
+
+    signal?.addEventListener("abort", () => {
+        observer.disconnect();
+        if (firstChangeId) window.clearTimeout(firstChangeId);
+        if (timerId) window.clearInterval(timerId);
+    });
 
     let resizeRaf = null;
     const scheduleLockWidth = () => {

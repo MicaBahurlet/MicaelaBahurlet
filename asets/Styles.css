@@ -947,12 +947,12 @@ html.js-hero-gate #home.hero-modern.is-hero-ready .hero-title-spec .highlight-te
   animation: hero-highlight-reveal 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.75s both;
 }
 
-html.js-hero-gate #home.hero-modern.is-hero-ready .line-text:nth-child(1) {
-  animation: hero-fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
+html.js-hero-gate #home.hero-modern.is-hero-ready .hero-description .line-text:nth-child(1) {
+  animation: hero-fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both;
 }
 
-html.js-hero-gate #home.hero-modern.is-hero-ready .line-text:nth-child(2) {
-  animation: hero-fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.65s both;
+html.js-hero-gate #home.hero-modern.is-hero-ready .hero-description .line-text:nth-child(2) {
+  animation: hero-fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.68s both;
 }
 
 html.js-hero-gate #home.hero-modern.is-hero-ready .BtnsHero > a:nth-child(1) {
@@ -4471,5 +4471,4 @@ body.dark-mode .profile-text-em--underline {
     rgba(143, 193, 190, 0)    100%
   );
 }
-
 
