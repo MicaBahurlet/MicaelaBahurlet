@@ -471,11 +471,42 @@ function initFloatingNav(signal) {
 
     const footer = document.querySelector("footer");
     const isMobileNav = () => window.matchMedia("(max-width: 767px)").matches;
+    const isDesktopRail = () => window.matchMedia("(min-width: 992px)").matches;
 
     const minBottom = () => (isMobileNav() ? 16 : 26);
     const contentGap = () => (isMobileNav() ? 20 : 16);
 
+    // Lock rail height to hero text stack once; keep it on scroll (incl. contact/footer).
+    const lockDesktopRailHeight = () => {
+        if (!isDesktopRail()) {
+            navEl.style.height = "";
+            navEl.style.minHeight = "";
+            document.documentElement.style.removeProperty("--floating-rail-height");
+            return;
+        }
+
+        const name = document.querySelector(".TextHero .hero-name");
+        const desc = document.querySelector(".TextHero .hero-description");
+        if (!name || !desc) return;
+
+        const height = Math.round(
+            desc.getBoundingClientRect().bottom - name.getBoundingClientRect().top
+        );
+        if (height < 180) return;
+
+        const value = `${height}px`;
+        document.documentElement.style.setProperty("--floating-rail-height", value);
+        navEl.style.height = value;
+        navEl.style.minHeight = value;
+    };
+
     const updatePosition = () => {
+        if (isDesktopRail()) {
+            // Never set bottom on desktop — it fights top:50% and shrinks the rail.
+            navEl.style.bottom = "";
+            return;
+        }
+
         let requiredBottom = minBottom();
 
         if (footer) {
@@ -489,7 +520,12 @@ function initFloatingNav(signal) {
     };
 
     subscribeScroll(updatePosition, signal);
-    window.addEventListener("resize", updatePosition, { signal });
+    window.addEventListener("resize", () => {
+        lockDesktopRailHeight();
+        updatePosition();
+    }, { signal });
+    window.addEventListener("load", lockDesktopRailHeight, { signal });
+    lockDesktopRailHeight();
     updatePosition();
 }
 
