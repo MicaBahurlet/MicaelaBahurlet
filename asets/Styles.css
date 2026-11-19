@@ -40,7 +40,7 @@ body {
 }
 
 .skills-section-header {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.35rem;
   text-align: left;
   width: 100%;
   display: flex;
@@ -56,6 +56,57 @@ body {
 
 .skills-section-header h2 {
   margin: 0;
+}
+
+.skills-core {
+  width: 100%;
+  margin: 0 0 2rem;
+}
+
+.skills-core-kicker {
+  margin: 0 0 0.75rem;
+  font-family: "Syne", "Montserrat", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-teal-deep, #2f6f6b);
+}
+
+.skills-core-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.skills-core-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0.65rem 1.05rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface-raised, #fff);
+  color: var(--color-ink, #2e2b28);
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.skills-core-item i {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.skills-core-item .skill-item-img {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-right: 0;
 }
 
 .skills-accordion {
@@ -516,7 +567,27 @@ a.TOP {
   }
 
   .skills-section-header {
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .skills-core {
+    margin-bottom: 1.5rem;
+  }
+
+  .skills-core-list {
+    gap: 0.5rem;
+  }
+
+  .skills-core-item {
+    font-size: 0.9rem;
+    padding: 0.55rem 0.9rem;
+  }
+
+  .skills-core-item i,
+  .skills-core-item .skill-item-img {
+    font-size: 1.05rem;
+    width: 1.05rem;
+    height: 1.05rem;
   }
 
   #NewSkillsSection {
@@ -3568,6 +3639,34 @@ body.dark-mode .github-graph-year.is-active {
   background: rgba(143, 193, 190, 0.18);
   color: #e8f6f4;
   border-color: var(--color-teal-soft, #8fc1be);
+}
+
+body.dark-mode .skills-core-kicker {
+  color: #8fc1be;
+}
+
+body.dark-mode .skills-core-item {
+  background-color: #1c1c1e;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #e8e6e3;
+}
+
+body.dark-mode .skills-core-item .skill-item-img {
+  filter: brightness(0) invert(1);
+  opacity: 0.88;
+}
+
+body.dark-mode .skills-core-item .skill-item-img--brand {
+  filter: none;
+  opacity: 1;
+}
+
+body.dark-mode .skills-core-item .devicon-nextjs-original-wordmark {
+  filter: brightness(0) invert(1);
+}
+
+body.dark-mode .skills-core-item > .bi:not(.colored) {
+  color: #8fc1be;
 }
 
 body.dark-mode .skill-item {
