@@ -1432,7 +1432,18 @@ html.js-hero-gate #home.hero-modern.is-hero-ready .hero-visual {
   line-height: 1.45;
 }
 
+.hero-modern .TextHero .hero-description .line-text--invite {
+  white-space: nowrap;
+  max-width: none;
+  width: max-content;
+  font-size: clamp(0.72rem, 2.05vw, 1.15rem);
+}
+
 @media (max-width: 767px) {
+  .hero-modern .TextHero .hero-description .line-text--invite {
+    display: none;
+  }
+
   .TextHero .hero-name {
     font-size: clamp(3.1rem, 14vw, 4.6rem);
     line-height: 0.95;
