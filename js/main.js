@@ -926,7 +926,8 @@ function initCertificatesLoadMore(signal) {
             return;
         }
 
-        const ordered = orderedItems(true);
+        // Keep DOM order so first items in HTML appear on the first row
+        const ordered = orderedItems(false);
         const visibleCount = columnCount() * rowsShown;
         ordered.forEach((item, index) => {
             item.classList.toggle("is-cert-hidden", index >= visibleCount);
