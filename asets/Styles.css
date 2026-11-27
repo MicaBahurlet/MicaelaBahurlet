@@ -2223,6 +2223,14 @@ footer {
   margin: 0;
 }
 
+#FormacionAcademica .formacion-card-duration {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #3a7d78;
+}
+
 #FormacionAcademica .formacion-card-status {
   display: inline-block;
   font-size: 0.75rem;
@@ -3980,6 +3988,10 @@ body.dark-mode #FormacionAcademica .formacion-card-title {
 
 body.dark-mode #FormacionAcademica .formacion-card-institution {
   color: #aaa;
+}
+
+body.dark-mode #FormacionAcademica .formacion-card-duration {
+  color: #8fc1be;
 }
 
 body.dark-mode #FormacionAcademica .formacion-card-status.finalizado {
